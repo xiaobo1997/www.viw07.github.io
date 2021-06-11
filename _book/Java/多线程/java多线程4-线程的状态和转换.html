@@ -1,0 +1,3452 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>java多线程4-线程的状态和转换 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="java多线程5-线程之间的通信.html" />
+    
+    
+    <link rel="prev" href="java多线程3-线程的优先级和线程组.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Book
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" >
+            
+                <span>
+            
+                    
+                    Java
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" >
+            
+                <span>
+            
+                    
+                    Java BIO
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1.1" data-path="../../_book/Java/java-BIO/BIO-01.md">
+            
+                <span>
+            
+                    
+                    BIO 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.1.2" data-path="../../_book/Java/java-BIO/BIO-02.md">
+            
+                <span>
+            
+                    
+                    BIO 02
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.1.3" data-path="../../_book/Java/java-BIO/java-IO2-序列化.md">
+            
+                <span>
+            
+                    
+                    java-IO2-序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" >
+            
+                <span>
+            
+                    
+                    Java NIO
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.2.1" data-path="../../_book/Java/java-NIO/javaNIO1-IO模型结构.md">
+            
+                <span>
+            
+                    
+                    javaNIO1-IO模型结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.2" data-path="../../_book/Java/java-NIO/javaNIO2-通道channel.md">
+            
+                <span>
+            
+                    
+                    javaNIO2-通道channel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.3" data-path="../../_book/Java/java-NIO/javaNIO3-缓冲区buffer.md">
+            
+                <span>
+            
+                    
+                    javaNIO3-缓冲区buffer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.4" data-path="../../_book/Java/java-NIO/javaNIO4-选择器selector.md">
+            
+                <span>
+            
+                    
+                    javaNIO4-选择器selector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.5" data-path="../../_book/Java/java-NIO/javaNIO5-FileChannel.md">
+            
+                <span>
+            
+                    
+                    Java NIO 5 File Channel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.6" data-path="../../_book/Java/java-NIO/JavaNIO6-socketchannel.md">
+            
+                <span>
+            
+                    
+                    Java NIO 6 Socketchannel
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" >
+            
+                <span>
+            
+                    
+                    Java8特性学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.3.1" >
+            
+                <span>
+            
+                    
+                    Lambda
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.3.1.1" data-path="../../_book/Java/Java8特性学习/lambda/lambda01.md">
+            
+                <span>
+            
+                    
+                    Lambda 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3.1.2" data-path="../../_book/Java/Java8特性学习/lambda/函数式接口01.md">
+            
+                <span>
+            
+                    
+                    函数式接口01
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3.2" >
+            
+                <span>
+            
+                    
+                    Optional
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.3.2.1" data-path="../../_book/Java/Java8特性学习/optional/optional01.md">
+            
+                <span>
+            
+                    
+                    Optional 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3.3" >
+            
+                <span>
+            
+                    
+                    Stream
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.3.3.1" data-path="../../_book/Java/Java8特性学习/stream/stream01.md">
+            
+                <span>
+            
+                    
+                    Stream 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3.3.2" data-path="../../_book/Java/Java8特性学习/stream/stream02.md">
+            
+                <span>
+            
+                    
+                    Stream 02
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3.3.3" data-path="../../_book/Java/Java8特性学习/stream/stream03-并行流.md">
+            
+                <span>
+            
+                    
+                    stream03-并行流
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3.4" >
+            
+                <span>
+            
+                    
+                    时间工具类
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.3.4.1" data-path="../../_book/Java/Java8特性学习/时间工具类/java8-dateTimeApi入门-1-.md">
+            
+                <span>
+            
+                    
+                    java8-dateTimeApi入门-1-
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3.4.2" data-path="../../_book/Java/Java8特性学习/时间工具类/java8新日期01.md">
+            
+                <span>
+            
+                    
+                    java8新日期01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3.4.3" data-path="../../_book/Java/Java8特性学习/时间工具类/LocalData-01.md">
+            
+                <span>
+            
+                    
+                    Local Data 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3.4.4" data-path="../../_book/Java/Java8特性学习/时间工具类/LocalDataTime-01.md">
+            
+                <span>
+            
+                    
+                    Local Data Time 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3.4.5" data-path="../../_book/Java/Java8特性学习/时间工具类/LocalTime-01.md">
+            
+                <span>
+            
+                    
+                    Local Time 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3.4.6" data-path="../../_book/Java/Java8特性学习/时间工具类/重复注解和类型注解-01.md">
+            
+                <span>
+            
+                    
+                    重复注解和类型注解-01
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4" >
+            
+                <span>
+            
+                    
+                    Java 9
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.4.1" data-path="../../_book/Java/java9/httpclient-01.md">
+            
+                <span>
+            
+                    
+                    Httpclient 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4.2" data-path="../../_book/Java/java9/集合工厂方法-01.md">
+            
+                <span>
+            
+                    
+                    集合工厂方法-01
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5" >
+            
+                <span>
+            
+                    
+                    Java零散基础知识
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.5.1" data-path="../../_book/Java/Java零散基础知识/fastjson处理.md">
+            
+                <span>
+            
+                    
+                    fastjson处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5.2" data-path="../../_book/Java/Java零散基础知识/java基础1-bigDecimal和bigInteger和数组.md">
+            
+                <span>
+            
+                    
+                    java基础1-bigDecimal和bigInteger和数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5.3" data-path="../../_book/Java/Java零散基础知识/java基础2-数据类型和运算符相关基础.md">
+            
+                <span>
+            
+                    
+                    java基础2-数据类型和运算符相关基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5.4" data-path="../../_book/Java/Java零散基础知识/java基础3-剖析类和面向对象.md">
+            
+                <span>
+            
+                    
+                    java基础3-剖析类和面向对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5.5" data-path="../../_book/Java/Java零散基础知识/java基础4-Calendar类.md">
+            
+                <span>
+            
+                    
+                    java基础4-Calendar类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5.6" data-path="../../_book/Java/Java零散基础知识/java进阶1-反射机制.md">
+            
+                <span>
+            
+                    
+                    java进阶1-反射机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5.7" data-path="../../_book/Java/Java零散基础知识/java进阶2-XML解析和转换.md">
+            
+                <span>
+            
+                    
+                    java进阶2-XML解析和转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5.8" data-path="../../_book/Java/Java零散基础知识/java进阶3-Object类型(VO,DO等">
+            
+                <span>
+            
+                    
+                    java进阶3-Object类型(VO,DO等)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.6" >
+            
+                <span>
+            
+                    
+                    JMM内存模型的学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.6.1" data-path="../../_book/Java/JMM内存模型的学习/java内存模型1-内存划分和交互操作.md">
+            
+                <span>
+            
+                    
+                    java内存模型1-内存划分和交互操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.6.2" data-path="../../_book/Java/JMM内存模型的学习/java内存模型2-内存模型特性和先行发生原则.md">
+            
+                <span>
+            
+                    
+                    java内存模型2-内存模型特性和先行发生原则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.6.3" data-path="../../_book/Java/JMM内存模型的学习/计算机内存模型--JMM.md">
+            
+                <span>
+            
+                    
+                    计算机内存模型--JMM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.7" >
+            
+                <span>
+            
+                    
+                    JVM的学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.7.1" data-path="../../_book/Java/JVM的学习/jvm1-java虚拟机模型和结构.md">
+            
+                <span>
+            
+                    
+                    jvm1-java虚拟机模型和结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.7.2" data-path="../../_book/Java/JVM的学习/jvm2-内存溢出&分析和内存泄漏.md">
+            
+                <span>
+            
+                    
+                    jvm2-内存溢出&分析和内存泄漏
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.7.3" data-path="../../_book/Java/JVM的学习/jvm3-GC策略(回收对象">
+            
+                <span>
+            
+                    
+                    jvm3-GC策略(回收对象)和算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.7.4" data-path="../../_book/Java/JVM的学习/jvm3.1-HotSpot-GC收集器.md">
+            
+                <span>
+            
+                    
+                    jvm3.1-HotSpot-GC收集器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.7.5" data-path="../../_book/Java/JVM的学习/jvm4-常用配置jvm命令和参数.md">
+            
+                <span>
+            
+                    
+                    jvm4-常用配置jvm命令和参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.7.6" data-path="../../_book/Java/JVM的学习/jvm5-内存分配和回收策略.md">
+            
+                <span>
+            
+                    
+                    jvm5-内存分配和回收策略
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.7.7" data-path="../../_book/Java/JVM的学习/jvm6-虚拟机性能监控和处理工具.md">
+            
+                <span>
+            
+                    
+                    jvm6-虚拟机性能监控和处理工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.7.8" data-path="../../_book/Java/JVM的学习/jvm7-类加载机制.md">
+            
+                <span>
+            
+                    
+                    jvm7-类加载机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.7.9" data-path="../../_book/Java/JVM的学习/jvm8-性能调优.md">
+            
+                <span>
+            
+                    
+                    jvm8-性能调优
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8" >
+            
+                <span>
+            
+                    
+                    多线程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.8.1" data-path="../../_book/Java/多线程/java多线程1-概述.md">
+            
+                <span>
+            
+                    
+                    java多线程1-概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.2" data-path="../../_book/Java/多线程/java多线程10-CAS和原子操作&ABA.md">
+            
+                <span>
+            
+                    
+                    java多线程10-CAS和原子操作&ABA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.3" data-path="../../_book/Java/多线程/java多线程11-AQS入门知识和分析.md">
+            
+                <span>
+            
+                    
+                    java多线程11-AQS入门知识和分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.4" data-path="../../_book/Java/多线程/java多线程12-final关键字分析.md">
+            
+                <span>
+            
+                    
+                    java多线程12-final关键字分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.5" data-path="../../_book/Java/多线程/java多线程13-ThreadLocal的使用.md">
+            
+                <span>
+            
+                    
+                    java多线程13-ThreadLocal的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.6" data-path="../../_book/Java/多线程/java多线程14-lock体系结构.md">
+            
+                <span>
+            
+                    
+                    java多线程14-lock体系结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.7" data-path="../../_book/Java/多线程/java多线程15-ReentrantLock类.md">
+            
+                <span>
+            
+                    
+                    java多线程15-ReentrantLock类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.8" data-path="../../_book/Java/多线程/java多线程16-ReentrantReadWriteLock.md">
+            
+                <span>
+            
+                    
+                    java多线程16-ReentrantReadWriteLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.9" data-path="../../_book/Java/多线程/java多线程17-Condition接口.md">
+            
+                <span>
+            
+                    
+                    java多线程17-Condition接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.10" data-path="../../_book/Java/多线程/java多线程18-LockSupport类.md">
+            
+                <span>
+            
+                    
+                    java多线程18-LockSupport类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.11" data-path="../../_book/Java/多线程/java多线程19-锁的对比.md">
+            
+                <span>
+            
+                    
+                    java多线程19-锁的对比
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.12" data-path="../../_book/Java/多线程/java多线程2-线程入门类和接口.md">
+            
+                <span>
+            
+                    
+                    java多线程2-线程入门类和接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.13" data-path="../../_book/Java/多线程/java多线程20-多线程和单例模式.md">
+            
+                <span>
+            
+                    
+                    java多线程20-多线程和单例模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.14" data-path="../../_book/Java/多线程/java多线程21-线程池.md">
+            
+                <span>
+            
+                    
+                    java多线程21-线程池
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.15" data-path="../../_book/Java/多线程/java多线程22-并发工具类-定时器.md">
+            
+                <span>
+            
+                    
+                    java多线程22-并发工具类-定时器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.16" data-path="../../_book/Java/多线程/java多线程23-生产者消费者模型.md">
+            
+                <span>
+            
+                    
+                    java多线程23-生产者消费者模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.17" data-path="../../_book/Java/多线程/java多线程24-线程通信机制总结.md">
+            
+                <span>
+            
+                    
+                    java多线程24-线程通信机制总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.18" data-path="../../_book/Java/多线程/java多线程25-阻塞队列.md">
+            
+                <span>
+            
+                    
+                    java多线程25-阻塞队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.19" data-path="../../_book/Java/多线程/java多线程26-线程中断.md">
+            
+                <span>
+            
+                    
+                    java多线程26-线程中断
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.20" data-path="../../_book/Java/多线程/java多线程3-线程的优先级和线程组.md">
+            
+                <span>
+            
+                    
+                    java多线程3-线程的优先级和线程组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.21" data-path="../../_book/Java/多线程/java多线程4-线程的状态和转换.md">
+            
+                <span>
+            
+                    
+                    java多线程4-线程的状态和转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.22" data-path="../../_book/Java/多线程/java多线程5-线程之间的通信.md">
+            
+                <span>
+            
+                    
+                    java多线程5-线程之间的通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.23" data-path="../../_book/Java/多线程/java多线程6-锁机制.md">
+            
+                <span>
+            
+                    
+                    java多线程6-锁机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.24" data-path="../../_book/Java/多线程/java多线程7-synchronized关键字-互斥同步 .md">
+            
+                <span>
+            
+                    
+                    java多线程7-synchronized关键字-互斥同步 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.25" data-path="../../_book/Java/多线程/java多线程8-1-锁优化和锁升级(针对synchrinized">
+            
+                <span>
+            
+                    
+                    java多线程8-1-锁优化和锁升级(针对synchrinized)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.26" data-path="../../_book/Java/多线程/Java多线程8-volatile.md">
+            
+                <span>
+            
+                    
+                    Java多线程8-volatile
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.27" data-path="../../_book/Java/多线程/java多线程9-死锁.md">
+            
+                <span>
+            
+                    
+                    java多线程9-死锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.9" >
+            
+                <span>
+            
+                    
+                    并发编程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.9.1" data-path="../../_book/Java/并发编程/并发编程1-AQS源码的分析.md">
+            
+                <span>
+            
+                    
+                    并发编程1-AQS源码的分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.10" >
+            
+                <span>
+            
+                    
+                    日志&工具&小问题等
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.10.1" data-path="../../_book/Java/日志&工具&小问题等/BigDecimal和BigInteger的操作.md">
+            
+                <span>
+            
+                    
+                    BigDecimal和BigInteger的操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.10.2" data-path="../../_book/Java/日志&工具&小问题等/fastjson-api.md">
+            
+                <span>
+            
+                    
+                    Fastjson Api
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.10.3" data-path="../../_book/Java/日志&工具&小问题等/关于转义字符的意义.md">
+            
+                <span>
+            
+                    
+                    关于转义字符的意义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.10.4" data-path="../../_book/Java/日志&工具&小问题等/在代码中使用Lombok.md">
+            
+                <span>
+            
+                    
+                    在代码中使用Lombok
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.10.5" data-path="../../_book/Java/日志&工具&小问题等/处理文件路径在windos和linux不同.md">
+            
+                <span>
+            
+                    
+                    处理文件路径在windos和linux不同
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.10.6" data-path="../../_book/Java/日志&工具&小问题等/正则表达式的使用和常用案例.md">
+            
+                <span>
+            
+                    
+                    正则表达式的使用和常用案例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.11" >
+            
+                <span>
+            
+                    
+                    源码学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.11.1" data-path="../../_book/Java/源码学习/JDK源码1-.md">
+            
+                <span>
+            
+                    
+                    JDK源码1-
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.12" >
+            
+                <span>
+            
+                    
+                    网络编程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.12.1" data-path="../../_book/Java/网络编程/网络编程1-.md">
+            
+                <span>
+            
+                    
+                    网络编程1-
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.13" >
+            
+                <span>
+            
+                    
+                    集合
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.13.1" data-path="../../_book/Java/集合/java-collection-1-集合和map.md">
+            
+                <span>
+            
+                    
+                    java-collection-1-集合和map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.13.2" data-path="../../_book/Java/集合/Java-collection2-collections.md">
+            
+                <span>
+            
+                    
+                    Java Collection 2 Collections
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.13.3" data-path="../../_book/Java/集合/java-collection3-comparable和comparator.md">
+            
+                <span>
+            
+                    
+                    java-collection3-comparable和comparator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.13.4" data-path="../../_book/Java/集合/java-collection4-EnumSet&EnumMap.md">
+            
+                <span>
+            
+                    
+                    Java Collection 4 Enum Set Enum Map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.13.5" data-path="../../_book/Java/集合/java-collection5-Properties.md">
+            
+                <span>
+            
+                    
+                    Java Collection 5 Properties
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.13.6" data-path="../../_book/Java/集合/java-collection6-list-set-map-array-转换.md">
+            
+                <span>
+            
+                    
+                    java-collection6-list-set-map-array-转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.13.7" data-path="../../_book/Java/集合/面试-1.md">
+            
+                <span>
+            
+                    
+                    面试-1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Java
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" >
+            
+                <span>
+            
+                    
+                    Java BIO
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../java-BIO/BIO-01.html">
+            
+                <a href="../java-BIO/BIO-01.html">
+            
+                    
+                    BIO 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../java-BIO/BIO-02.html">
+            
+                <a href="../java-BIO/BIO-02.html">
+            
+                    
+                    BIO 02
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="../java-BIO/java-IO2-序列化.html">
+            
+                <a href="../java-BIO/java-IO2-序列化.html">
+            
+                    
+                    java-IO2-序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" >
+            
+                <span>
+            
+                    
+                    Java NIO
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../java-NIO/javaNIO1-IO模型结构.html">
+            
+                <a href="../java-NIO/javaNIO1-IO模型结构.html">
+            
+                    
+                    javaNIO1-IO模型结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../java-NIO/javaNIO2-通道channel.html">
+            
+                <a href="../java-NIO/javaNIO2-通道channel.html">
+            
+                    
+                    javaNIO2-通道channel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="../java-NIO/javaNIO3-缓冲区buffer.html">
+            
+                <a href="../java-NIO/javaNIO3-缓冲区buffer.html">
+            
+                    
+                    javaNIO3-缓冲区buffer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="../java-NIO/javaNIO4-选择器selector.html">
+            
+                <a href="../java-NIO/javaNIO4-选择器selector.html">
+            
+                    
+                    javaNIO4-选择器selector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="../java-NIO/javaNIO5-FileChannel.html">
+            
+                <a href="../java-NIO/javaNIO5-FileChannel.html">
+            
+                    
+                    Java NIO 5 File Channel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="../java-NIO/JavaNIO6-socketchannel.html">
+            
+                <a href="../java-NIO/JavaNIO6-socketchannel.html">
+            
+                    
+                    Java NIO 6 Socketchannel
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" >
+            
+                <span>
+            
+                    
+                    Java8特性学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" >
+            
+                <span>
+            
+                    
+                    Lambda
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1.1" data-path="../Java8特性学习/lambda/lambda01.html">
+            
+                <a href="../Java8特性学习/lambda/lambda01.html">
+            
+                    
+                    Lambda 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.1.2" data-path="../Java8特性学习/lambda/函数式接口01.html">
+            
+                <a href="../Java8特性学习/lambda/函数式接口01.html">
+            
+                    
+                    函数式接口01
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" >
+            
+                <span>
+            
+                    
+                    Optional
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.2.1" data-path="../Java8特性学习/optional/optional01.html">
+            
+                <a href="../Java8特性学习/optional/optional01.html">
+            
+                    
+                    Optional 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" >
+            
+                <span>
+            
+                    
+                    Stream
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.3.1" data-path="../Java8特性学习/stream/stream01.html">
+            
+                <a href="../Java8特性学习/stream/stream01.html">
+            
+                    
+                    Stream 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3.2" data-path="../Java8特性学习/stream/stream02.html">
+            
+                <a href="../Java8特性学习/stream/stream02.html">
+            
+                    
+                    Stream 02
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3.3" data-path="../Java8特性学习/stream/stream03-并行流.html">
+            
+                <a href="../Java8特性学习/stream/stream03-并行流.html">
+            
+                    
+                    stream03-并行流
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" >
+            
+                <span>
+            
+                    
+                    时间工具类
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.4.1" data-path="../Java8特性学习/时间工具类/java8-dateTimeApi入门-1-.html">
+            
+                <a href="../Java8特性学习/时间工具类/java8-dateTimeApi入门-1-.html">
+            
+                    
+                    java8-dateTimeApi入门-1-
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4.2" data-path="../Java8特性学习/时间工具类/java8新日期01.html">
+            
+                <a href="../Java8特性学习/时间工具类/java8新日期01.html">
+            
+                    
+                    java8新日期01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4.3" data-path="../Java8特性学习/时间工具类/LocalData-01.html">
+            
+                <a href="../Java8特性学习/时间工具类/LocalData-01.html">
+            
+                    
+                    Local Data 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4.4" data-path="../Java8特性学习/时间工具类/LocalDataTime-01.html">
+            
+                <a href="../Java8特性学习/时间工具类/LocalDataTime-01.html">
+            
+                    
+                    Local Data Time 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4.5" data-path="../Java8特性学习/时间工具类/LocalTime-01.html">
+            
+                <a href="../Java8特性学习/时间工具类/LocalTime-01.html">
+            
+                    
+                    Local Time 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4.6" data-path="../Java8特性学习/时间工具类/重复注解和类型注解-01.html">
+            
+                <a href="../Java8特性学习/时间工具类/重复注解和类型注解-01.html">
+            
+                    
+                    重复注解和类型注解-01
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" >
+            
+                <span>
+            
+                    
+                    Java 9
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="../java9/httpclient-01.html">
+            
+                <a href="../java9/httpclient-01.html">
+            
+                    
+                    Httpclient 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.2" data-path="../java9/集合工厂方法-01.html">
+            
+                <a href="../java9/集合工厂方法-01.html">
+            
+                    
+                    集合工厂方法-01
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" >
+            
+                <span>
+            
+                    
+                    Java零散基础知识
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" data-path="../Java零散基础知识/fastjson处理.html">
+            
+                <a href="../Java零散基础知识/fastjson处理.html">
+            
+                    
+                    fastjson处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.2" data-path="../Java零散基础知识/java基础1-bigDecimal和bigInteger和数组.html">
+            
+                <a href="../Java零散基础知识/java基础1-bigDecimal和bigInteger和数组.html">
+            
+                    
+                    java基础1-bigDecimal和bigInteger和数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3" data-path="../Java零散基础知识/java基础2-数据类型和运算符相关基础.html">
+            
+                <a href="../Java零散基础知识/java基础2-数据类型和运算符相关基础.html">
+            
+                    
+                    java基础2-数据类型和运算符相关基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.4" data-path="../Java零散基础知识/java基础3-剖析类和面向对象.html">
+            
+                <a href="../Java零散基础知识/java基础3-剖析类和面向对象.html">
+            
+                    
+                    java基础3-剖析类和面向对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.5" data-path="../Java零散基础知识/java基础4-Calendar类.html">
+            
+                <a href="../Java零散基础知识/java基础4-Calendar类.html">
+            
+                    
+                    java基础4-Calendar类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.6" data-path="../Java零散基础知识/java进阶1-反射机制.html">
+            
+                <a href="../Java零散基础知识/java进阶1-反射机制.html">
+            
+                    
+                    java进阶1-反射机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.7" data-path="../Java零散基础知识/java进阶2-XML解析和转换.html">
+            
+                <a href="../Java零散基础知识/java进阶2-XML解析和转换.html">
+            
+                    
+                    java进阶2-XML解析和转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.8" data-path="../Java零散基础知识/java进阶3-Object类型(VO,DO等">
+            
+                <span>
+            
+                    
+                    java进阶3-Object类型(VO,DO等)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" >
+            
+                <span>
+            
+                    
+                    JMM内存模型的学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" data-path="../JMM内存模型的学习/java内存模型1-内存划分和交互操作.html">
+            
+                <a href="../JMM内存模型的学习/java内存模型1-内存划分和交互操作.html">
+            
+                    
+                    java内存模型1-内存划分和交互操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" data-path="../JMM内存模型的学习/java内存模型2-内存模型特性和先行发生原则.html">
+            
+                <a href="../JMM内存模型的学习/java内存模型2-内存模型特性和先行发生原则.html">
+            
+                    
+                    java内存模型2-内存模型特性和先行发生原则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" data-path="../JMM内存模型的学习/计算机内存模型--JMM.html">
+            
+                <a href="../JMM内存模型的学习/计算机内存模型--JMM.html">
+            
+                    
+                    计算机内存模型--JMM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" >
+            
+                <span>
+            
+                    
+                    JVM的学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.7.1" data-path="../JVM的学习/jvm1-java虚拟机模型和结构.html">
+            
+                <a href="../JVM的学习/jvm1-java虚拟机模型和结构.html">
+            
+                    
+                    jvm1-java虚拟机模型和结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.2" data-path="../JVM的学习/jvm2-内存溢出&分析和内存泄漏.html">
+            
+                <a href="../JVM的学习/jvm2-内存溢出&分析和内存泄漏.html">
+            
+                    
+                    jvm2-内存溢出&分析和内存泄漏
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.3" data-path="../JVM的学习/jvm3-GC策略(回收对象">
+            
+                <span>
+            
+                    
+                    jvm3-GC策略(回收对象)和算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.4" data-path="../JVM的学习/jvm3.1-HotSpot-GC收集器.html">
+            
+                <a href="../JVM的学习/jvm3.1-HotSpot-GC收集器.html">
+            
+                    
+                    jvm3.1-HotSpot-GC收集器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.5" data-path="../JVM的学习/jvm4-常用配置jvm命令和参数.html">
+            
+                <a href="../JVM的学习/jvm4-常用配置jvm命令和参数.html">
+            
+                    
+                    jvm4-常用配置jvm命令和参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.6" data-path="../JVM的学习/jvm5-内存分配和回收策略.html">
+            
+                <a href="../JVM的学习/jvm5-内存分配和回收策略.html">
+            
+                    
+                    jvm5-内存分配和回收策略
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.7" data-path="../JVM的学习/jvm6-虚拟机性能监控和处理工具.html">
+            
+                <a href="../JVM的学习/jvm6-虚拟机性能监控和处理工具.html">
+            
+                    
+                    jvm6-虚拟机性能监控和处理工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.8" data-path="../JVM的学习/jvm7-类加载机制.html">
+            
+                <a href="../JVM的学习/jvm7-类加载机制.html">
+            
+                    
+                    jvm7-类加载机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.9" data-path="../JVM的学习/jvm8-性能调优.html">
+            
+                <a href="../JVM的学习/jvm8-性能调优.html">
+            
+                    
+                    jvm8-性能调优
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" >
+            
+                <span>
+            
+                    
+                    多线程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.8.1" data-path="java多线程1-概述.html">
+            
+                <a href="java多线程1-概述.html">
+            
+                    
+                    java多线程1-概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.2" data-path="java多线程10-CAS和原子操作&ABA.html">
+            
+                <a href="java多线程10-CAS和原子操作&ABA.html">
+            
+                    
+                    java多线程10-CAS和原子操作&ABA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.3" data-path="java多线程11-AQS入门知识和分析.html">
+            
+                <a href="java多线程11-AQS入门知识和分析.html">
+            
+                    
+                    java多线程11-AQS入门知识和分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.4" data-path="java多线程12-final关键字分析.html">
+            
+                <a href="java多线程12-final关键字分析.html">
+            
+                    
+                    java多线程12-final关键字分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.5" data-path="java多线程13-ThreadLocal的使用.html">
+            
+                <a href="java多线程13-ThreadLocal的使用.html">
+            
+                    
+                    java多线程13-ThreadLocal的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.6" data-path="java多线程14-lock体系结构.html">
+            
+                <a href="java多线程14-lock体系结构.html">
+            
+                    
+                    java多线程14-lock体系结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.7" data-path="java多线程15-ReentrantLock类.html">
+            
+                <a href="java多线程15-ReentrantLock类.html">
+            
+                    
+                    java多线程15-ReentrantLock类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.8" data-path="java多线程16-ReentrantReadWriteLock.html">
+            
+                <a href="java多线程16-ReentrantReadWriteLock.html">
+            
+                    
+                    java多线程16-ReentrantReadWriteLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.9" data-path="java多线程17-Condition接口.html">
+            
+                <a href="java多线程17-Condition接口.html">
+            
+                    
+                    java多线程17-Condition接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.10" data-path="java多线程18-LockSupport类.html">
+            
+                <a href="java多线程18-LockSupport类.html">
+            
+                    
+                    java多线程18-LockSupport类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.11" data-path="java多线程19-锁的对比.html">
+            
+                <a href="java多线程19-锁的对比.html">
+            
+                    
+                    java多线程19-锁的对比
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.12" data-path="java多线程2-线程入门类和接口.html">
+            
+                <a href="java多线程2-线程入门类和接口.html">
+            
+                    
+                    java多线程2-线程入门类和接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.13" data-path="java多线程20-多线程和单例模式.html">
+            
+                <a href="java多线程20-多线程和单例模式.html">
+            
+                    
+                    java多线程20-多线程和单例模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.14" data-path="java多线程21-线程池.html">
+            
+                <a href="java多线程21-线程池.html">
+            
+                    
+                    java多线程21-线程池
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.15" data-path="java多线程22-并发工具类-定时器.html">
+            
+                <a href="java多线程22-并发工具类-定时器.html">
+            
+                    
+                    java多线程22-并发工具类-定时器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.16" data-path="java多线程23-生产者消费者模型.html">
+            
+                <a href="java多线程23-生产者消费者模型.html">
+            
+                    
+                    java多线程23-生产者消费者模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.17" data-path="java多线程24-线程通信机制总结.html">
+            
+                <a href="java多线程24-线程通信机制总结.html">
+            
+                    
+                    java多线程24-线程通信机制总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.18" data-path="java多线程25-阻塞队列.html">
+            
+                <a href="java多线程25-阻塞队列.html">
+            
+                    
+                    java多线程25-阻塞队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.19" data-path="java多线程26-线程中断.html">
+            
+                <a href="java多线程26-线程中断.html">
+            
+                    
+                    java多线程26-线程中断
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.20" data-path="java多线程3-线程的优先级和线程组.html">
+            
+                <a href="java多线程3-线程的优先级和线程组.html">
+            
+                    
+                    java多线程3-线程的优先级和线程组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.8.21" data-path="java多线程4-线程的状态和转换.html">
+            
+                <a href="java多线程4-线程的状态和转换.html">
+            
+                    
+                    java多线程4-线程的状态和转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.22" data-path="java多线程5-线程之间的通信.html">
+            
+                <a href="java多线程5-线程之间的通信.html">
+            
+                    
+                    java多线程5-线程之间的通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.23" data-path="java多线程6-锁机制.html">
+            
+                <a href="java多线程6-锁机制.html">
+            
+                    
+                    java多线程6-锁机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.24" data-path="java多线程7-synchronized关键字-互斥同步 .html">
+            
+                <a href="java多线程7-synchronized关键字-互斥同步 .html">
+            
+                    
+                    java多线程7-synchronized关键字-互斥同步 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.25" data-path="java多线程8-1-锁优化和锁升级(针对synchrinized">
+            
+                <span>
+            
+                    
+                    java多线程8-1-锁优化和锁升级(针对synchrinized)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.26" data-path="Java多线程8-volatile.html">
+            
+                <a href="Java多线程8-volatile.html">
+            
+                    
+                    Java多线程8-volatile
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.27" data-path="java多线程9-死锁.html">
+            
+                <a href="java多线程9-死锁.html">
+            
+                    
+                    java多线程9-死锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" >
+            
+                <span>
+            
+                    
+                    并发编程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.9.1" data-path="../并发编程/并发编程1-AQS源码的分析.html">
+            
+                <a href="../并发编程/并发编程1-AQS源码的分析.html">
+            
+                    
+                    并发编程1-AQS源码的分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" >
+            
+                <span>
+            
+                    
+                    日志&工具&小问题等
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.10.1" data-path="../日志&工具&小问题等/BigDecimal和BigInteger的操作.html">
+            
+                <a href="../日志&工具&小问题等/BigDecimal和BigInteger的操作.html">
+            
+                    
+                    BigDecimal和BigInteger的操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.2" data-path="../日志&工具&小问题等/fastjson-api.html">
+            
+                <a href="../日志&工具&小问题等/fastjson-api.html">
+            
+                    
+                    Fastjson Api
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.3" data-path="../日志&工具&小问题等/关于转义字符的意义.html">
+            
+                <a href="../日志&工具&小问题等/关于转义字符的意义.html">
+            
+                    
+                    关于转义字符的意义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.4" data-path="../日志&工具&小问题等/在代码中使用Lombok.html">
+            
+                <a href="../日志&工具&小问题等/在代码中使用Lombok.html">
+            
+                    
+                    在代码中使用Lombok
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.5" data-path="../日志&工具&小问题等/处理文件路径在windos和linux不同.html">
+            
+                <a href="../日志&工具&小问题等/处理文件路径在windos和linux不同.html">
+            
+                    
+                    处理文件路径在windos和linux不同
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.6" data-path="../日志&工具&小问题等/正则表达式的使用和常用案例.html">
+            
+                <a href="../日志&工具&小问题等/正则表达式的使用和常用案例.html">
+            
+                    
+                    正则表达式的使用和常用案例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" >
+            
+                <span>
+            
+                    
+                    源码学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.11.1" data-path="../源码学习/JDK源码1-.html">
+            
+                <a href="../源码学习/JDK源码1-.html">
+            
+                    
+                    JDK源码1-
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" >
+            
+                <span>
+            
+                    
+                    网络编程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.12.1" data-path="../网络编程/网络编程1-.html">
+            
+                <a href="../网络编程/网络编程1-.html">
+            
+                    
+                    网络编程1-
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" >
+            
+                <span>
+            
+                    
+                    集合
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.13.1" data-path="../集合/java-collection-1-集合和map.html">
+            
+                <a href="../集合/java-collection-1-集合和map.html">
+            
+                    
+                    java-collection-1-集合和map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13.2" data-path="../集合/Java-collection2-collections.html">
+            
+                <a href="../集合/Java-collection2-collections.html">
+            
+                    
+                    Java Collection 2 Collections
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13.3" data-path="../集合/java-collection3-comparable和comparator.html">
+            
+                <a href="../集合/java-collection3-comparable和comparator.html">
+            
+                    
+                    java-collection3-comparable和comparator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13.4" data-path="../集合/java-collection4-EnumSet&EnumMap.html">
+            
+                <a href="../集合/java-collection4-EnumSet&EnumMap.html">
+            
+                    
+                    Java Collection 4 Enum Set Enum Map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13.5" data-path="../集合/java-collection5-Properties.html">
+            
+                <a href="../集合/java-collection5-Properties.html">
+            
+                    
+                    Java Collection 5 Properties
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13.6" data-path="../集合/java-collection6-list-set-map-array-转换.html">
+            
+                <a href="../集合/java-collection6-list-set-map-array-转换.html">
+            
+                    
+                    java-collection6-list-set-map-array-转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13.7" data-path="../集合/面试-1.html">
+            
+                <a href="../集合/面试-1.html">
+            
+                    
+                    面试-1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >java多线程4-线程的状态和转换</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>[TOC]</p>
+<h1 id="1&#x7EBF;&#x7A0B;&#x7684;&#x72B6;&#x6001;">1.&#x7EBF;&#x7A0B;&#x7684;&#x72B6;&#x6001;</h1>
+<h2 id="&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x7EBF;&#x7A0B;&#x72B6;&#x6001;">&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x7EBF;&#x7A0B;&#x72B6;&#x6001;</h2>
+<p><img src="https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20201117001352481.png" alt="image-20201117001352481"></p>
+<p><strong>&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x7EBF;&#x7A0B;&#x72B6;&#x6001;&#xFF1A;</strong></p>
+<ul>
+<li>&#x5C31;&#x7EEA;&#x72B6;&#x6001;&#xFF1A; ready&#x7EBF;&#x7A0B;&#x6B63;&#x5728;&#x7B49;&#x5F85;&#x4F7F;&#x7528;CPU&#xFF0C;&#x7ECF;&#x8C03;&#x5EA6;&#x7A0B;&#x5E8F;&#x8C03;&#x7528;&#x4E4B;&#x540E;&#x53EF;&#x8FDB;&#x5165;running&#x72B6;&#x6001;&#x3002;</li>
+<li>&#x6267;&#x884C;&#x72B6;&#x6001;&#xFF1A; running&#x7EBF;&#x7A0B;&#x6B63;&#x5728;&#x4F7F;&#x7528;cpu</li>
+<li>&#x7B49;&#x5F85;&#x72B6;&#x6001; &#xFF1A; waiting&#x7EBF;&#x7A0B;&#x7B49;&#x5F85;&#x5176;&#x4ED6;&#x8D44;&#x6E90;&#x6216;&#x8005;&#x7B49;&#x5F85;&#x4E8B;&#x4EF6;</li>
+</ul>
+<h2 id="java&#x7EBF;&#x7A0B;&#x7684;&#x72B6;&#x6001;">Java&#x7EBF;&#x7A0B;&#x7684;&#x72B6;&#x6001;</h2>
+<p><img src="https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20201117000636824.png" alt="image-20201117000636824"></p>
+<p><img src="https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/&#x7EBF;&#x7A0B;&#x72B6;&#x6001;.png" alt="&#x7EBF;&#x7A0B;&#x72B6;&#x6001;"></p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> State {
+    NEW,<span class="hljs-comment">//&#x65B0;&#x521B;&#x5EFA;</span>
+    RUNNABLE,<span class="hljs-comment">// &#x53EF;&#x8FD0;&#x884C;</span>
+    BLOCKED,<span class="hljs-comment">// &#x88AB;&#x963B;&#x585E;</span>
+    WAITING,<span class="hljs-comment">// &#x7B49;&#x5F85;</span>
+    TIMED_WAITING, <span class="hljs-comment">// &#x8BA1;&#x65F6;&#x7B49;&#x5F85;</span>
+    TERMINATED; <span class="hljs-comment">// &#x88AB;&#x7EC8;&#x6B62;</span>
+}
+</code></pre>
+<pre><code class="lang-java">thread.getState()<span class="hljs-comment">//&#x83B7;&#x53D6;&#x7EBF;&#x7A0B;&#x72B6;&#x6001;</span>
+</code></pre>
+<h3 id="new">NEW</h3>
+<blockquote>
+<p>&#x4F7F;&#x7528; new &#x521B;&#x5EFA;Thread &#x5B9E;&#x4F8B; &#x4EE5;&#x540E;&#xFF0C;&#x53EA;&#x662F;&#x521B;&#x5EFA;&#x4E86;&#x7EBF;&#x7A0B;&#x5B9E;&#x4F8B;&#xFF0C;&#x8FD8;&#x6CA1;&#x6709;&#x8C03;&#x7528;start()&#x65B9;&#x6CD5;&#xFF0C;&#x73B0;&#x5728;&#x7684;&#x7EBF;&#x7A0B;&#x72B6;&#x6001;&#x662F; NEW</p>
+</blockquote>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testStateNew</span><span class="hljs-params">()</span> </span>{
+    Thread thread = <span class="hljs-keyword">new</span> Thread(() -&gt; {});
+    System.out.println(thread.getState()); <span class="hljs-comment">// &#x8F93;&#x51FA; NEW </span>
+}
+</code></pre>
+<h3 id="runnable">RUNNABLE</h3>
+<blockquote>
+<p>&#x8C03;&#x7528;&#x4E86;start()&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x4E2A;&#x7EBF;&#x7A0B;&#x53EF;&#x80FD;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#xFF0C;&#x6709;&#x53EF;&#x80FD;&#x6CA1;&#x6709;&#x6B63;&#x5728;&#x8FD0;&#x884C;(&#x7B49;&#x5F85;&#x8D44;&#x6E90;)&#xFF0C;&#x8FD9;&#x548C;JVM&#x89C4;&#x8303;&#x6709;&#x5173;&#xFF0C;&#x8FD9;&#x4E2A;&#x72B6;&#x6001;&#x7684;&#x7EBF;&#x7A0B;&#x662F;&#x5728;JVM&#x4E2D;&#x8FD0;&#x884C;&#xFF0C;</p>
+</blockquote>
+<h3 id="blocked">BLOCKED</h3>
+<blockquote>
+<p>&#x963B;&#x585E;&#x72B6;&#x6001;&#x3002;&#x5904;&#x4E8E;BLOCKED&#x72B6;&#x6001;&#x7684;&#x7EBF;&#x7A0B;&#x6B63;&#x7B49;&#x5F85;&#x9501;&#x7684;&#x91CA;&#x653E;&#x4EE5;&#x8FDB;&#x5165;&#x540C;&#x6B65;&#x533A;&#x3002;</p>
+<p>&#x5F53;&#x7EBF;&#x7A0B;&#x5904;&#x4E8E;&#x88AB;&#x963B;&#x585E;&#x6216;&#x7B49;&#x5F85;&#x72B6;&#x6001;&#x65F6;&#xFF0C;&#x5B83;&#x6682;&#x65F6;&#x4E0D;&#x6D3B;&#x52A8;&#x3002;&#x5B83;&#x4E0D;&#x8FD0;&#x884C;&#x4EFB;&#x4F55;&#x4EE3;&#x7801;&#x4E14;&#x6D88;&#x8017;&#x6700;&#x5C11;&#x7684;&#x8D44;</p>
+<p>&#x6E90;&#x3002;&#x76F4;&#x5230;&#x7EBF;&#x7A0B;&#x8C03;&#x5EA6;&#x5668;&#x91CD;&#x65B0;&#x6FC0;&#x6D3B;&#x5B83;&#x3002;</p>
+</blockquote>
+<h3 id="waiting">WAITING</h3>
+<blockquote>
+<p>&#x7B49;&#x5F85;&#x72B6;&#x6001;&#x3002;&#x5904;&#x4E8E;&#x7B49;&#x5F85;&#x72B6;&#x6001;&#x7684;&#x7EBF;&#x7A0B;&#x53D8;&#x6210;RUNNABLE&#x72B6;&#x6001;&#x9700;&#x8981;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x5524;&#x9192;&#x3002;</p>
+<p>&#x5B83;&#x6682;&#x65F6;&#x4E0D;&#x6D3B;&#x52A8;&#x3002;&#x5B83;&#x4E0D;&#x8FD0;&#x884C;&#x4EFB;&#x4F55;&#x4EE3;&#x7801;&#x4E14;&#x6D88;&#x8017;&#x6700;&#x5C11;&#x7684;&#x8D44;&#x6E90;&#x3002;&#x76F4;&#x5230;&#x7EBF;&#x7A0B;&#x8C03;&#x5EA6;&#x5668;&#x91CD;&#x65B0;&#x6FC0;&#x6D3B;&#x5B83;&#x3002;</p>
+</blockquote>
+<p><strong>&#x8FDB;&#x5165;&#x7B49;&#x5F85;&#x72B6;&#x6001;&#x7684;&#x65B9;&#x6CD5;</strong></p>
+<ul>
+<li><p>Object.wait()&#xFF1A;&#x4F7F;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x5904;&#x4E8E;&#x7B49;&#x5F85;&#x72B6;&#x6001;&#x76F4;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x5524;&#x9192;&#x5B83;&#xFF1B;</p>
+</li>
+<li><p>Thread.join()&#xFF1A;&#x7B49;&#x5F85;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#xFF0C;&#x5E95;&#x5C42;&#x8C03;&#x7528;&#x7684;&#x662F;Object&#x5B9E;&#x4F8B;&#x7684;wait&#x65B9;&#x6CD5;&#xFF1B;</p>
+</li>
+<li><p>LockSupport.park()&#xFF1A;&#x9664;&#x975E;&#x83B7;&#x5F97;&#x8C03;&#x7528;&#x8BB8;&#x53EF;&#xFF0C;&#x5426;&#x5219;&#x7981;&#x7528;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x8FDB;&#x884C;&#x7EBF;&#x7A0B;&#x8C03;&#x5EA6;&#x3002;</p>
+</li>
+</ul>
+<p><strong>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF1A;</strong></p>
+<p>&#x5F53;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x88AB;&#x963B;&#x585E;&#x6216;&#x7B49;&#x5F85;&#x65F6;&#xFF08;&#x6216;&#x7EC8;&#x6B62;&#x65F6;)&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x88AB;&#x8C03;&#x5EA6;&#x4E3A;&#x8FD0;&#x884C;&#x72B6;&#x6001;&#x3002;</p>
+<p>&#x5F53;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x88AB;&#x91CD;&#x65B0;&#x6FC0;&#x6D3B;&#xFF08;&#x4F8B; &#x5982;&#xFF0C; &#x56E0;&#x4E3A;&#x8D85;&#x65F6;&#x671F;&#x6EE1;&#x6216;&#x6210;&#x529F;&#x5730;&#x83B7;&#x5F97;&#x4E86;&#x4E00;&#x4E2A;&#x9501;)&#xFF0C;&#x8C03;&#x5EA6;&#x5668;&#x68C0;&#x67E5;&#x5B83;&#x662F;&#x5426;&#x5177;&#x6709;&#x6BD4;&#x5F53;&#x524D;&#x8FD0;&#x884C;&#x7EBF;&#x7A0B;&#x66F4;&#x9AD8;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x3002;&#x5982;&#x679C;&#x662F;&#x8FD9;&#x6837;&#xFF0C;&#x8C03;&#x5EA6;&#x5668;&#x4ECE;&#x5F53;&#x524D;&#x8FD0;&#x884C;&#x7EBF;&#x7A0B;&#x4E2D;&#x6311;&#x9009;&#x4E00;&#x4E2A;&#xFF0C; &#x5265;&#x593A;&#x5176;&#x8FD0;&#x884C;&#x6743;&#xFF0C;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x7EBF;&#x7A0B;</p>
+<p>&#x8FD0;&#x884C;&#x3002;</p>
+<h3 id="timedwating">TIMED_WATING</h3>
+<blockquote>
+<p>&#x8D85;&#x65F6;&#x7B49;&#x5F85;&#x72B6;&#x6001;&#x3002;&#x7EBF;&#x7A0B;&#x7B49;&#x5F85;&#x4E00;&#x4E2A;&#x5177;&#x4F53;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x65F6;&#x95F4;&#x5230;&#x540E;&#x4F1A;&#x88AB;&#x81EA;&#x52A8;&#x5524;&#x9192;&#x3002;</p>
+</blockquote>
+<p><strong>&#x8FDB;&#x5165;&#x8D85;&#x65F6;&#x7B49;&#x5F85;&#x72B6;&#x6001;&#x7684;&#x65B9;&#x6CD5;</strong></p>
+<p>Thread.sleep(long millis)&#xFF1A;&#x4F7F;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x7761;&#x7720;&#x6307;&#x5B9A;&#x65F6;&#x95F4;&#xFF1B;</p>
+<p>Object.wait(long timeout)&#xFF1A;&#x7EBF;&#x7A0B;&#x4F11;&#x7720;&#x6307;&#x5B9A;&#x65F6;&#x95F4;&#xFF0C;&#x7B49;&#x5F85;&#x671F;&#x95F4;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;notify()/notifyAll()&#x5524;&#x9192;&#xFF1B;</p>
+<p>Thread.join(long millis)&#xFF1A;&#x7B49;&#x5F85;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x6700;&#x591A;&#x6267;&#x884C;millis&#x6BEB;&#x79D2;&#xFF0C;&#x5982;&#x679C;millis&#x4E3A;0&#xFF0C;&#x5219;&#x4F1A;&#x4E00;&#x76F4;&#x6267;&#x884C;&#xFF1B;</p>
+<p>LockSupport.parkNanos(long nanos)&#xFF1A; &#x9664;&#x975E;&#x83B7;&#x5F97;&#x8C03;&#x7528;&#x8BB8;&#x53EF;&#xFF0C;&#x5426;&#x5219;&#x7981;&#x7528;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x8FDB;&#x884C;&#x7EBF;&#x7A0B;&#x8C03;&#x5EA6;&#x6307;&#x5B9A;&#x65F6;&#x95F4;&#xFF1B;</p>
+<p>LockSupport.parkUntil(long deadline)&#xFF1A;&#x540C;&#x4E0A;&#xFF0C;&#x4E5F;&#x662F;&#x7981;&#x6B62;&#x7EBF;&#x7A0B;&#x8FDB;&#x884C;&#x8C03;&#x5EA6;&#x6307;&#x5B9A;&#x65F6;&#x95F4;&#xFF1B;</p>
+<h3 id="terminated">TERMINATED</h3>
+<p>&#x7EBF;&#x7A0B;&#x56E0;&#x5982;&#x4E0B;&#x4E24;&#x4E2A;&#x539F;&#x56E0;&#x4E4B;&#x4E00;&#x800C;&#x88AB;&#x7EC8;&#x6B62;&#xFF1A;</p>
+<ul>
+<li>&#x4E3A; <strong>run</strong> &#x65B9;&#x6CD5;&#x6B63;&#x5E38;&#x9000;&#x51FA;&#x800C;&#x81EA;&#x7136;&#x6B7B;&#x4EA1;</li>
+<li>&#x56E0;&#x4E3A;&#x4E00;&#x4E2A;&#x6CA1;&#x6709;&#x6355;&#x83B7;&#x7684;&#x5F02;&#x5E38;&#x7EC8;&#x6B62;&#x4E86; nm &#x65B9;&#x6CD5;&#x800C;&#x610F;&#x5916;&#x6B7B;&#x4EA1;&#x3002;</li>
+</ul>
+<h1 id="2&#x7EBF;&#x7A0B;&#x7684;&#x8F6C;&#x6362;">2.&#x7EBF;&#x7A0B;&#x7684;&#x8F6C;&#x6362;</h1>
+<p><img src="https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20201117125926057.png" alt="image-20201117125926057"></p>
+<h2 id="block&#x548C;runnable">BLOCK&#x548C;RUNNABLE</h2>
+<blockquote>
+<p>BLOCK&#x662F;&#x56E0;&#x4E3A;&#x7B49;&#x5F85;&#x9501;&#x7684;&#x91CA;&#x653E;</p>
+</blockquote>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> java8.multithreading.threadstatus;
+
+
+<span class="hljs-comment">/**
+ * <span class="hljs-doctag">@Author</span>: xiaobo
+ * <span class="hljs-doctag">@Date</span>: 2020/11/17 1:15
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Status01</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testMethod</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">try</span> {
+            Thread.sleep(<span class="hljs-number">3000</span>);
+        }<span class="hljs-keyword">catch</span> (InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span>  <span class="hljs-title">blockTest</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span>  InterruptedException</span>{
+        Thread a = <span class="hljs-keyword">new</span> Thread(<span class="hljs-keyword">new</span> Runnable() {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+                testMethod();
+            }
+        }, <span class="hljs-string">&quot;a&quot;</span>);
+        Thread b = <span class="hljs-keyword">new</span> Thread(<span class="hljs-keyword">new</span> Runnable() {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+                testMethod();
+            }
+        }, <span class="hljs-string">&quot;b&quot;</span>);
+        a.start();
+        Thread.sleep(<span class="hljs-number">1000</span>);
+        b.start();
+        System.out.println(a.getState());
+        System.out.println(b.getState());
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span>  InterruptedException</span>{
+        Status01 status01 = <span class="hljs-keyword">new</span> Status01();
+        status01.blockTest();
+
+    }
+
+}
+
+<span class="hljs-comment">//</span>
+
+TIMED_WAITING
+BLOCKED
+</code></pre>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> java8.multithreading.threadstatus;
+
+
+<span class="hljs-comment">/**
+ * <span class="hljs-doctag">@Author</span>: xiaobo
+ * <span class="hljs-doctag">@Date</span>: 2020/11/17 1:23
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Stats02</span> </span>{
+    <span class="hljs-comment">// &#x540C;&#x6B65;&#x65B9;&#x6CD5;&#x4E89;&#x593A;&#x9501;</span>
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testMethod</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">try</span> {
+            Thread.sleep(<span class="hljs-number">3000</span>);
+        } <span class="hljs-keyword">catch</span> (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">blockTest</span><span class="hljs-params">()</span> </span>{
+        Thread a = <span class="hljs-keyword">new</span> Thread(<span class="hljs-keyword">new</span> Runnable() {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+                testMethod();
+            }
+        }, <span class="hljs-string">&quot;a&quot;</span>);
+        Thread b = <span class="hljs-keyword">new</span> Thread(<span class="hljs-keyword">new</span> Runnable() {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+                testMethod();
+            }
+        }, <span class="hljs-string">&quot;b&quot;</span>);
+        a.start();
+        <span class="hljs-keyword">try</span> {
+            System.out.println(Thread.currentThread().getName());
+            Thread.sleep(<span class="hljs-number">1000</span>);<span class="hljs-comment">// </span>
+        } <span class="hljs-keyword">catch</span> (InterruptedException e) {
+            e.printStackTrace();
+        }
+        b.start();
+        System.out.println(a.getState());
+        System.out.println(b.getState());
+    }
+    <span class="hljs-comment">/**
+    main&#x7EBF;&#x7A0B;&#x4F11;&#x7720;&#xFF0C;&#x6240;&#x4EE5;&#x7EBF;&#x7A0B;a&#x7684;run()&#x65B9;&#x6CD5;&#x8DDF;&#x7740;&#x6267;&#x884C;&#xFF0C;&#x7EBF;&#x7A0B;b&#x518D;&#x63A5;&#x7740;&#x6267;&#x884C;&#x3002;
+    */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        Stats02 status01 = <span class="hljs-keyword">new</span> Stats02();
+        status01.blockTest();
+
+    }
+}
+<span class="hljs-comment">//</span>
+main
+TIMED_WAITING
+RUNNABLE
+</code></pre>
+<h2 id="wating--runnable">WATING &amp; RUNNABLE</h2>
+<blockquote>
+<p>&#x6709;3&#x4E2A;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x4F7F;&#x7EBF;&#x7A0B;&#x4ECE;RUNNABLE&#x72B6;&#x6001;&#x8F6C;&#x4E3A;WAITING&#x72B6;&#x6001;&#x3002;&#x4E3B;&#x8981;&#x662F;Object.wait()&#x548C;Thread.join()&#x3002;</p>
+</blockquote>
+<p><strong>wait()</strong></p>
+<p>&#x200B;        &#x8C03;&#x7528;wait()&#x65B9;&#x6CD5;&#x7684;&#x7EBF;&#x7A0B;&#x8981;&#x5148;&#x5F97;&#x5230;&#x9501;&#x5BF9;&#x8C61;&#x3002;&#x7136;&#x540E;&#x7EBF;&#x7A0B;&#x91CA;&#x653E;&#x9501;&#x5BF9;&#x8C61;&#xFF0C;&#x7B49;&#x5F85;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x4F7F;&#x7528; <code>notify()/notifyAll()</code> &#x5524;&#x9192;&#x8BE5;&#x7EBF;&#x7A0B;&#xFF0C;</p>
+<p>&#x200B;        &#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x8C03;&#x7528;notify()&#x65B9;&#x6CD5;&#x53EA;&#x4F1A;&#x5524;&#x9192;&#x5355;&#x4E2A;&#x7B49;&#x5F85;&#x9501;&#x7684;&#x7EBF;&#x7A0B;&#xFF0C;&#x5982;&#x6709;&#x6709;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x90FD;&#x5728;&#x7B49;&#x5F85;&#x8FD9;&#x4E2A;&#x9501;&#x7684;&#x8BDD;&#x4E0D;&#x4E00;&#x5B9A;&#x4F1A;&#x5524;&#x9192;&#x5230;&#x4E4B;&#x524D;&#x8C03;&#x7528;wait()&#x65B9;&#x6CD5;&#x7684;&#x7EBF;&#x7A0B;&#x3002;</p>
+<p>&#x200B;        &#x8C03;&#x7528;notifyAll()&#x65B9;&#x6CD5;&#x5524;&#x9192;&#x6240;&#x6709;&#x7B49;&#x5F85;&#x9501;&#x7684;&#x7EBF;&#x7A0B;&#x4E4B;&#x540E;&#xFF0C;&#x4E5F;&#x4E0D;&#x4E00;&#x5B9A;&#x4F1A;&#x9A6C;&#x4E0A;&#x628A;&#x65F6;&#x95F4;&#x7247;&#x5206;&#x7ED9;&#x521A;&#x624D;&#x653E;&#x5F03;&#x9501;&#x7684;&#x90A3;&#x4E2A;&#x7EBF;&#x7A0B;&#xFF0C;&#x5177;&#x4F53;&#x8981;&#x770B;&#x7CFB;&#x7EDF;&#x7684;&#x8C03;&#x5EA6;&#x3002;</p>
+<p><strong>join()</strong></p>
+<p>&#x200B;        &#x8C03;&#x7528; <code>join()</code>&#x65B9;&#x6CD5;&#x4E0D;&#x4F1A;&#x91CA;&#x653E;&#x9501;&#xFF0C;&#x4F1A;&#x7B49;&#x5F85;&#x8BE5;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x5B8C;&#x6BD5;(TERMINTED)</p>
+<p>&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> java8.multithreading.threadstatus;
+
+
+<span class="hljs-comment">/**
+ * <span class="hljs-doctag">@Author</span>: xiaobo
+ * <span class="hljs-doctag">@Date</span>: 2020/11/17 1:23
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Stats02</span> </span>{
+    <span class="hljs-comment">// &#x540C;&#x6B65;&#x65B9;&#x6CD5;&#x4E89;&#x593A;&#x9501;</span>
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testMethod</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">try</span> {
+            Thread.sleep(<span class="hljs-number">2000</span>);
+        } <span class="hljs-keyword">catch</span> (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">blockTest</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> InterruptedException </span>{
+        Thread a = <span class="hljs-keyword">new</span> Thread(<span class="hljs-keyword">new</span> Runnable() {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+                testMethod();
+            }
+        }, <span class="hljs-string">&quot;a&quot;</span>);
+        Thread b = <span class="hljs-keyword">new</span> Thread(<span class="hljs-keyword">new</span> Runnable() {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+                testMethod();
+            }
+        }, <span class="hljs-string">&quot;b&quot;</span>);
+        System.out.println(Thread.currentThread().getName() + Thread.currentThread().getState());
+        a.start();
+        a.join();<span class="hljs-comment">//&#x7B49;&#x5F85;&#x7EBF;&#x7A0B;&#x6B7B;&#x4EA1;</span>
+        b.start();
+        System.out.println(a.getState());
+        System.out.println(b.getState());
+
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> InterruptedException </span>{
+        Stats02 status01 = <span class="hljs-keyword">new</span> Stats02();
+        status01.blockTest();
+    }
+}
+
+<span class="hljs-comment">//</span>
+mainRUNNABLE
+TERMINATED
+RUNNABLE
+</code></pre>
+<p>&#x200B;        &#x6CA1;&#x6709;&#x8C03;&#x7528;join&#x65B9;&#x6CD5;&#xFF0C;main&#x7EBF;&#x7A0B;&#x4E0D;&#x7BA1;a&#x7EBF;&#x7A0B;&#x662F;&#x5426;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x90FD;&#x4F1A;&#x7EE7;&#x7EED;&#x5F80;&#x4E0B;&#x8D70;&#x3002;</p>
+<p>&#x200B;        &#x5148;&#x6267;&#x884C;main&#x7EBF;&#x7A0B;&#xFF0C;&#x7136;&#x540E;&#x56E0;&#x4E3A; a &#x7EBF;&#x7A0B; &#x8C03;&#x7528;join()&#x65B9;&#x6CD5;&#xFF0C;main&#x7EBF;&#x7A0B;&#x7B49;&#x5F85;a&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#xFF0C;</p>
+<h2 id="timedwaiting&#x4E0E;runnable">TIMED_WAITING&#x4E0E;RUNNABLE</h2>
+<blockquote>
+<p>TIMED_WAITING&#x72B6;&#x6001;&#x7B49;&#x5F85;&#x7684;&#x65F6;&#x95F4;&#x662F;&#x6307;&#x5B9A;&#x7684;&#x3002;</p>
+</blockquote>
+<p><strong>Thread.sleep(long)</strong></p>
+<blockquote>
+<p>&#x4F7F;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x7761;&#x7720;&#x6307;&#x5B9A;&#x65F6;&#x95F4;&#x3002;&#x8FD9;&#x91CC;&#x7684;&#x201C;&#x7761;&#x7720;&#x201D;&#x53EA;&#x662F;&#x6682;&#x65F6;&#x4F7F;&#x7EBF;&#x7A0B;&#x505C;&#x6B62;&#x6267;&#x884C;&#xFF0C;&#x5E76;&#x4E0D;&#x4F1A;&#x91CA;&#x653E;&#x9501;&#x3002;&#x65F6;&#x95F4;&#x5230;&#x540E;&#xFF0C;&#x7EBF;&#x7A0B;&#x4F1A;&#x91CD;&#x65B0;&#x8FDB;&#x5165;RUNNABLE&#x72B6;&#x6001;&#x3002;</p>
+</blockquote>
+<p><strong>Object.wait(long)</strong></p>
+<blockquote>
+<p>wait(long)&#x65B9;&#x6CD5;&#x4F7F;&#x7EBF;&#x7A0B;&#x8FDB;&#x5165;TIMED_WAITING&#x72B6;&#x6001;&#x3002;&#x8FD9;&#x91CC;&#x7684;wait(long)&#x65B9;&#x6CD5;&#x4E0E;&#x65E0;&#x53C2;&#x65B9;&#x6CD5;wait()&#x76F8;&#x540C;&#x7684;&#x5730;&#x65B9;&#x662F;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x8C03;&#x7528;notify()&#x6216;notifyAll()&#x65B9;&#x6CD5;&#x6765;&#x5524;&#x9192;&#x3002;</p>
+<p>&#x4E0D;&#x540C;&#x7684;&#x5730;&#x65B9;&#x662F;&#xFF0C;&#x6709;&#x53C2;&#x65B9;&#x6CD5;wait(long)&#x5C31;&#x7B97;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x4E0D;&#x6765;&#x5524;&#x9192;&#x5B83;&#xFF0C;&#x7ECF;&#x8FC7;&#x6307;&#x5B9A;&#x65F6;&#x95F4;long&#x4E4B;&#x540E;&#x5B83;&#x4F1A;&#x81EA;&#x52A8;&#x5524;&#x9192;&#xFF0C;&#x62E5;&#x6709;&#x53BB;&#x4E89;&#x593A;&#x9501;&#x7684;&#x8D44;&#x683C;&#x3002;</p>
+</blockquote>
+<p><strong>Thread.join(long)</strong></p>
+<blockquote>
+<p>join(long)&#x4F7F;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x6307;&#x5B9A;&#x65F6;&#x95F4;&#xFF0C;&#x5E76;&#x4E14;&#x4F7F;&#x7EBF;&#x7A0B;&#x8FDB;&#x5165;TIMED_WAITING&#x72B6;&#x6001;&#x3002;</p>
+</blockquote>
+<h2 id="&#x7EBF;&#x7A0B;&#x4E2D;&#x65AD;">&#x7EBF;&#x7A0B;&#x4E2D;&#x65AD;</h2>
+<blockquote>
+<p>&#x7EBF;&#x7A0B;&#x4E2D;&#x65AD;&#x673A;&#x5236;&#x662F;&#x4E00;&#x79CD;&#x534F;&#x4F5C;&#x673A;&#x5236;&#x3002;&#x901A;&#x8FC7;&#x4E2D;&#x65AD;&#x64CD;&#x4F5C;&#x5E76;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x7EC8;&#x6B62;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#xFF0C;&#x800C;&#x662F;&#x901A;&#x77E5;&#x9700;&#x8981;&#x88AB;&#x4E2D;&#x65AD;&#x7684;&#x7EBF;&#x7A0B;&#x81EA;&#x884C;&#x5904;&#x7406;&#x3002;</p>
+</blockquote>
+<p><strong>&#x7EBF;&#x7A0B;&#x4E2D;&#x65AD;&#x7684;&#x51E0;&#x4E2A;&#x65B9;&#x6CD5;</strong></p>
+<ul>
+<li><p>Thread.interrupt()&#xFF1A;&#x4E2D;&#x65AD;&#x7EBF;&#x7A0B;&#x3002;&#x8FD9;&#x91CC;&#x7684;&#x4E2D;&#x65AD;&#x7EBF;&#x7A0B;&#x5E76;&#x4E0D;&#x4F1A;&#x7ACB;&#x5373;&#x505C;&#x6B62;&#x7EBF;&#x7A0B;&#xFF0C;&#x800C;&#x662F;&#x8BBE;&#x7F6E;&#x7EBF;&#x7A0B;&#x7684;&#x4E2D;&#x65AD;&#x72B6;&#x6001;&#x4E3A;true&#xFF08;&#x9ED8;&#x8BA4;&#x662F;flase&#xFF09;&#xFF1B;</p>
+</li>
+<li><p>Thread.interrupted()&#xFF1A;&#x6D4B;&#x8BD5;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x662F;&#x5426;&#x88AB;&#x4E2D;&#x65AD;&#x3002;&#x7EBF;&#x7A0B;&#x7684;&#x4E2D;&#x65AD;&#x72B6;&#x6001;&#x53D7;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x5F71;&#x54CD;&#xFF0C;&#x610F;&#x601D;&#x662F;&#x8C03;&#x7528;&#x4E00;&#x6B21;&#x4F7F;&#x7EBF;&#x7A0B;&#x4E2D;&#x65AD;&#x72B6;&#x6001;&#x8BBE;&#x7F6E;&#x4E3A;true&#xFF0C;&#x8FDE;&#x7EED;&#x8C03;&#x7528;&#x4E24;&#x6B21;&#x4F1A;&#x4F7F;&#x5F97;&#x8FD9;&#x4E2A;&#x7EBF;&#x7A0B;&#x7684;&#x4E2D;&#x65AD;&#x72B6;&#x6001;&#x91CD;&#x65B0;&#x8F6C;&#x4E3A;false&#xFF1B;</p>
+</li>
+<li><p>Thread.isInterrupted()&#xFF1A;&#x6D4B;&#x8BD5;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x662F;&#x5426;&#x88AB;&#x4E2D;&#x65AD;&#x3002;&#x4E0E;&#x4E0A;&#x9762;&#x65B9;&#x6CD5;&#x4E0D;&#x540C;&#x7684;&#x662F;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5E76;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x7EBF;&#x7A0B;&#x7684;&#x4E2D;&#x65AD;&#x72B6;&#x6001;&#x3002;</p>
+</li>
+</ul>
+<p><strong>&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF1A;</strong></p>
+<p>&#x5728;&#x7EBF;&#x7A0B;&#x4E2D;&#x65AD;&#x673A;&#x5236;&#x91CC;&#xFF0C;&#x5F53;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x901A;&#x77E5;&#x9700;&#x8981;&#x88AB;&#x4E2D;&#x65AD;&#x7684;&#x7EBF;&#x7A0B;&#x540E;&#xFF0C;&#x7EBF;&#x7A0B;&#x4E2D;&#x65AD;&#x7684;&#x72B6;&#x6001;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A;true&#xFF0C;&#x4F46;&#x662F;&#x5177;&#x4F53;&#x88AB;&#x8981;&#x6C42;&#x4E2D;&#x65AD;&#x7684;&#x7EBF;&#x7A0B;&#x8981;&#x600E;&#x4E48;&#x5904;&#x7406;&#xFF0C;&#x5B8C;&#x5168;&#x7531;&#x88AB;&#x4E2D;&#x65AD;&#x7EBF;&#x7A0B;&#x81EA;&#x5DF1;&#x800C;&#x5B9A;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x5408;&#x9002;&#x7684;&#x5B9E;&#x9645;&#x5904;&#x7406;&#x4E2D;&#x65AD;&#x8BF7;&#x6C42;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5B8C;&#x5168;&#x4E0D;&#x5904;&#x7406;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x4E0B;&#x53BB;&#x3002;</p>
+<p><img src="https://img-blog.csdnimg.cn/20200414172944605.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIwNjY3NTEx,size_16,color_FFFFFF,t_70" alt="&#x7EBF;&#x7A0B;&#x5207;&#x6362;"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="java多线程3-线程的优先级和线程组.html" class="navigation navigation-prev " aria-label="Previous page: java多线程3-线程的优先级和线程组">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="java多线程5-线程之间的通信.html" class="navigation navigation-next " aria-label="Next page: java多线程5-线程之间的通信">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"java多线程4-线程的状态和转换","level":"1.3.8.21","depth":3,"next":{"title":"java多线程5-线程之间的通信","level":"1.3.8.22","depth":3,"path":"Java/多线程/java多线程5-线程之间的通信.md","ref":"Java/多线程/java多线程5-线程之间的通信.md","articles":[]},"previous":{"title":"java多线程3-线程的优先级和线程组","level":"1.3.8.20","depth":3,"path":"Java/多线程/java多线程3-线程的优先级和线程组.md","ref":"Java/多线程/java多线程3-线程的优先级和线程组.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Java/多线程/java多线程4-线程的状态和转换.md","mtime":"2021-06-06T07:04:39.077Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-11T04:20:00.388Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

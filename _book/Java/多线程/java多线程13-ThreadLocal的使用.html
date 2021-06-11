@@ -1,0 +1,3684 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>java多线程13-ThreadLocal的使用 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="java多线程14-lock体系结构.html" />
+    
+    
+    <link rel="prev" href="java多线程12-final关键字分析.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Book
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" >
+            
+                <span>
+            
+                    
+                    Java
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" >
+            
+                <span>
+            
+                    
+                    Java BIO
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1.1" data-path="../../_book/Java/java-BIO/BIO-01.md">
+            
+                <span>
+            
+                    
+                    BIO 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.1.2" data-path="../../_book/Java/java-BIO/BIO-02.md">
+            
+                <span>
+            
+                    
+                    BIO 02
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.1.3" data-path="../../_book/Java/java-BIO/java-IO2-序列化.md">
+            
+                <span>
+            
+                    
+                    java-IO2-序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" >
+            
+                <span>
+            
+                    
+                    Java NIO
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.2.1" data-path="../../_book/Java/java-NIO/javaNIO1-IO模型结构.md">
+            
+                <span>
+            
+                    
+                    javaNIO1-IO模型结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.2" data-path="../../_book/Java/java-NIO/javaNIO2-通道channel.md">
+            
+                <span>
+            
+                    
+                    javaNIO2-通道channel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.3" data-path="../../_book/Java/java-NIO/javaNIO3-缓冲区buffer.md">
+            
+                <span>
+            
+                    
+                    javaNIO3-缓冲区buffer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.4" data-path="../../_book/Java/java-NIO/javaNIO4-选择器selector.md">
+            
+                <span>
+            
+                    
+                    javaNIO4-选择器selector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.5" data-path="../../_book/Java/java-NIO/javaNIO5-FileChannel.md">
+            
+                <span>
+            
+                    
+                    Java NIO 5 File Channel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.6" data-path="../../_book/Java/java-NIO/JavaNIO6-socketchannel.md">
+            
+                <span>
+            
+                    
+                    Java NIO 6 Socketchannel
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" >
+            
+                <span>
+            
+                    
+                    Java8特性学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.3.1" >
+            
+                <span>
+            
+                    
+                    Lambda
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.3.1.1" data-path="../../_book/Java/Java8特性学习/lambda/lambda01.md">
+            
+                <span>
+            
+                    
+                    Lambda 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3.1.2" data-path="../../_book/Java/Java8特性学习/lambda/函数式接口01.md">
+            
+                <span>
+            
+                    
+                    函数式接口01
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3.2" >
+            
+                <span>
+            
+                    
+                    Optional
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.3.2.1" data-path="../../_book/Java/Java8特性学习/optional/optional01.md">
+            
+                <span>
+            
+                    
+                    Optional 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3.3" >
+            
+                <span>
+            
+                    
+                    Stream
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.3.3.1" data-path="../../_book/Java/Java8特性学习/stream/stream01.md">
+            
+                <span>
+            
+                    
+                    Stream 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3.3.2" data-path="../../_book/Java/Java8特性学习/stream/stream02.md">
+            
+                <span>
+            
+                    
+                    Stream 02
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3.3.3" data-path="../../_book/Java/Java8特性学习/stream/stream03-并行流.md">
+            
+                <span>
+            
+                    
+                    stream03-并行流
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3.4" >
+            
+                <span>
+            
+                    
+                    时间工具类
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.3.4.1" data-path="../../_book/Java/Java8特性学习/时间工具类/java8-dateTimeApi入门-1-.md">
+            
+                <span>
+            
+                    
+                    java8-dateTimeApi入门-1-
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3.4.2" data-path="../../_book/Java/Java8特性学习/时间工具类/java8新日期01.md">
+            
+                <span>
+            
+                    
+                    java8新日期01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3.4.3" data-path="../../_book/Java/Java8特性学习/时间工具类/LocalData-01.md">
+            
+                <span>
+            
+                    
+                    Local Data 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3.4.4" data-path="../../_book/Java/Java8特性学习/时间工具类/LocalDataTime-01.md">
+            
+                <span>
+            
+                    
+                    Local Data Time 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3.4.5" data-path="../../_book/Java/Java8特性学习/时间工具类/LocalTime-01.md">
+            
+                <span>
+            
+                    
+                    Local Time 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3.4.6" data-path="../../_book/Java/Java8特性学习/时间工具类/重复注解和类型注解-01.md">
+            
+                <span>
+            
+                    
+                    重复注解和类型注解-01
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4" >
+            
+                <span>
+            
+                    
+                    Java 9
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.4.1" data-path="../../_book/Java/java9/httpclient-01.md">
+            
+                <span>
+            
+                    
+                    Httpclient 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4.2" data-path="../../_book/Java/java9/集合工厂方法-01.md">
+            
+                <span>
+            
+                    
+                    集合工厂方法-01
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5" >
+            
+                <span>
+            
+                    
+                    Java零散基础知识
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.5.1" data-path="../../_book/Java/Java零散基础知识/fastjson处理.md">
+            
+                <span>
+            
+                    
+                    fastjson处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5.2" data-path="../../_book/Java/Java零散基础知识/java基础1-bigDecimal和bigInteger和数组.md">
+            
+                <span>
+            
+                    
+                    java基础1-bigDecimal和bigInteger和数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5.3" data-path="../../_book/Java/Java零散基础知识/java基础2-数据类型和运算符相关基础.md">
+            
+                <span>
+            
+                    
+                    java基础2-数据类型和运算符相关基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5.4" data-path="../../_book/Java/Java零散基础知识/java基础3-剖析类和面向对象.md">
+            
+                <span>
+            
+                    
+                    java基础3-剖析类和面向对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5.5" data-path="../../_book/Java/Java零散基础知识/java基础4-Calendar类.md">
+            
+                <span>
+            
+                    
+                    java基础4-Calendar类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5.6" data-path="../../_book/Java/Java零散基础知识/java进阶1-反射机制.md">
+            
+                <span>
+            
+                    
+                    java进阶1-反射机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5.7" data-path="../../_book/Java/Java零散基础知识/java进阶2-XML解析和转换.md">
+            
+                <span>
+            
+                    
+                    java进阶2-XML解析和转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5.8" data-path="../../_book/Java/Java零散基础知识/java进阶3-Object类型(VO,DO等">
+            
+                <span>
+            
+                    
+                    java进阶3-Object类型(VO,DO等)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.6" >
+            
+                <span>
+            
+                    
+                    JMM内存模型的学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.6.1" data-path="../../_book/Java/JMM内存模型的学习/java内存模型1-内存划分和交互操作.md">
+            
+                <span>
+            
+                    
+                    java内存模型1-内存划分和交互操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.6.2" data-path="../../_book/Java/JMM内存模型的学习/java内存模型2-内存模型特性和先行发生原则.md">
+            
+                <span>
+            
+                    
+                    java内存模型2-内存模型特性和先行发生原则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.6.3" data-path="../../_book/Java/JMM内存模型的学习/计算机内存模型--JMM.md">
+            
+                <span>
+            
+                    
+                    计算机内存模型--JMM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.7" >
+            
+                <span>
+            
+                    
+                    JVM的学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.7.1" data-path="../../_book/Java/JVM的学习/jvm1-java虚拟机模型和结构.md">
+            
+                <span>
+            
+                    
+                    jvm1-java虚拟机模型和结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.7.2" data-path="../../_book/Java/JVM的学习/jvm2-内存溢出&分析和内存泄漏.md">
+            
+                <span>
+            
+                    
+                    jvm2-内存溢出&分析和内存泄漏
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.7.3" data-path="../../_book/Java/JVM的学习/jvm3-GC策略(回收对象">
+            
+                <span>
+            
+                    
+                    jvm3-GC策略(回收对象)和算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.7.4" data-path="../../_book/Java/JVM的学习/jvm3.1-HotSpot-GC收集器.md">
+            
+                <span>
+            
+                    
+                    jvm3.1-HotSpot-GC收集器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.7.5" data-path="../../_book/Java/JVM的学习/jvm4-常用配置jvm命令和参数.md">
+            
+                <span>
+            
+                    
+                    jvm4-常用配置jvm命令和参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.7.6" data-path="../../_book/Java/JVM的学习/jvm5-内存分配和回收策略.md">
+            
+                <span>
+            
+                    
+                    jvm5-内存分配和回收策略
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.7.7" data-path="../../_book/Java/JVM的学习/jvm6-虚拟机性能监控和处理工具.md">
+            
+                <span>
+            
+                    
+                    jvm6-虚拟机性能监控和处理工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.7.8" data-path="../../_book/Java/JVM的学习/jvm7-类加载机制.md">
+            
+                <span>
+            
+                    
+                    jvm7-类加载机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.7.9" data-path="../../_book/Java/JVM的学习/jvm8-性能调优.md">
+            
+                <span>
+            
+                    
+                    jvm8-性能调优
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8" >
+            
+                <span>
+            
+                    
+                    多线程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.8.1" data-path="../../_book/Java/多线程/java多线程1-概述.md">
+            
+                <span>
+            
+                    
+                    java多线程1-概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.2" data-path="../../_book/Java/多线程/java多线程10-CAS和原子操作&ABA.md">
+            
+                <span>
+            
+                    
+                    java多线程10-CAS和原子操作&ABA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.3" data-path="../../_book/Java/多线程/java多线程11-AQS入门知识和分析.md">
+            
+                <span>
+            
+                    
+                    java多线程11-AQS入门知识和分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.4" data-path="../../_book/Java/多线程/java多线程12-final关键字分析.md">
+            
+                <span>
+            
+                    
+                    java多线程12-final关键字分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.5" data-path="../../_book/Java/多线程/java多线程13-ThreadLocal的使用.md">
+            
+                <span>
+            
+                    
+                    java多线程13-ThreadLocal的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.6" data-path="../../_book/Java/多线程/java多线程14-lock体系结构.md">
+            
+                <span>
+            
+                    
+                    java多线程14-lock体系结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.7" data-path="../../_book/Java/多线程/java多线程15-ReentrantLock类.md">
+            
+                <span>
+            
+                    
+                    java多线程15-ReentrantLock类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.8" data-path="../../_book/Java/多线程/java多线程16-ReentrantReadWriteLock.md">
+            
+                <span>
+            
+                    
+                    java多线程16-ReentrantReadWriteLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.9" data-path="../../_book/Java/多线程/java多线程17-Condition接口.md">
+            
+                <span>
+            
+                    
+                    java多线程17-Condition接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.10" data-path="../../_book/Java/多线程/java多线程18-LockSupport类.md">
+            
+                <span>
+            
+                    
+                    java多线程18-LockSupport类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.11" data-path="../../_book/Java/多线程/java多线程19-锁的对比.md">
+            
+                <span>
+            
+                    
+                    java多线程19-锁的对比
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.12" data-path="../../_book/Java/多线程/java多线程2-线程入门类和接口.md">
+            
+                <span>
+            
+                    
+                    java多线程2-线程入门类和接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.13" data-path="../../_book/Java/多线程/java多线程20-多线程和单例模式.md">
+            
+                <span>
+            
+                    
+                    java多线程20-多线程和单例模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.14" data-path="../../_book/Java/多线程/java多线程21-线程池.md">
+            
+                <span>
+            
+                    
+                    java多线程21-线程池
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.15" data-path="../../_book/Java/多线程/java多线程22-并发工具类-定时器.md">
+            
+                <span>
+            
+                    
+                    java多线程22-并发工具类-定时器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.16" data-path="../../_book/Java/多线程/java多线程23-生产者消费者模型.md">
+            
+                <span>
+            
+                    
+                    java多线程23-生产者消费者模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.17" data-path="../../_book/Java/多线程/java多线程24-线程通信机制总结.md">
+            
+                <span>
+            
+                    
+                    java多线程24-线程通信机制总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.18" data-path="../../_book/Java/多线程/java多线程25-阻塞队列.md">
+            
+                <span>
+            
+                    
+                    java多线程25-阻塞队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.19" data-path="../../_book/Java/多线程/java多线程26-线程中断.md">
+            
+                <span>
+            
+                    
+                    java多线程26-线程中断
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.20" data-path="../../_book/Java/多线程/java多线程3-线程的优先级和线程组.md">
+            
+                <span>
+            
+                    
+                    java多线程3-线程的优先级和线程组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.21" data-path="../../_book/Java/多线程/java多线程4-线程的状态和转换.md">
+            
+                <span>
+            
+                    
+                    java多线程4-线程的状态和转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.22" data-path="../../_book/Java/多线程/java多线程5-线程之间的通信.md">
+            
+                <span>
+            
+                    
+                    java多线程5-线程之间的通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.23" data-path="../../_book/Java/多线程/java多线程6-锁机制.md">
+            
+                <span>
+            
+                    
+                    java多线程6-锁机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.24" data-path="../../_book/Java/多线程/java多线程7-synchronized关键字-互斥同步 .md">
+            
+                <span>
+            
+                    
+                    java多线程7-synchronized关键字-互斥同步 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.25" data-path="../../_book/Java/多线程/java多线程8-1-锁优化和锁升级(针对synchrinized">
+            
+                <span>
+            
+                    
+                    java多线程8-1-锁优化和锁升级(针对synchrinized)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.26" data-path="../../_book/Java/多线程/Java多线程8-volatile.md">
+            
+                <span>
+            
+                    
+                    Java多线程8-volatile
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.8.27" data-path="../../_book/Java/多线程/java多线程9-死锁.md">
+            
+                <span>
+            
+                    
+                    java多线程9-死锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.9" >
+            
+                <span>
+            
+                    
+                    并发编程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.9.1" data-path="../../_book/Java/并发编程/并发编程1-AQS源码的分析.md">
+            
+                <span>
+            
+                    
+                    并发编程1-AQS源码的分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.10" >
+            
+                <span>
+            
+                    
+                    日志&工具&小问题等
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.10.1" data-path="../../_book/Java/日志&工具&小问题等/BigDecimal和BigInteger的操作.md">
+            
+                <span>
+            
+                    
+                    BigDecimal和BigInteger的操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.10.2" data-path="../../_book/Java/日志&工具&小问题等/fastjson-api.md">
+            
+                <span>
+            
+                    
+                    Fastjson Api
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.10.3" data-path="../../_book/Java/日志&工具&小问题等/关于转义字符的意义.md">
+            
+                <span>
+            
+                    
+                    关于转义字符的意义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.10.4" data-path="../../_book/Java/日志&工具&小问题等/在代码中使用Lombok.md">
+            
+                <span>
+            
+                    
+                    在代码中使用Lombok
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.10.5" data-path="../../_book/Java/日志&工具&小问题等/处理文件路径在windos和linux不同.md">
+            
+                <span>
+            
+                    
+                    处理文件路径在windos和linux不同
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.10.6" data-path="../../_book/Java/日志&工具&小问题等/正则表达式的使用和常用案例.md">
+            
+                <span>
+            
+                    
+                    正则表达式的使用和常用案例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.11" >
+            
+                <span>
+            
+                    
+                    源码学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.11.1" data-path="../../_book/Java/源码学习/JDK源码1-.md">
+            
+                <span>
+            
+                    
+                    JDK源码1-
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.12" >
+            
+                <span>
+            
+                    
+                    网络编程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.12.1" data-path="../../_book/Java/网络编程/网络编程1-.md">
+            
+                <span>
+            
+                    
+                    网络编程1-
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.13" >
+            
+                <span>
+            
+                    
+                    集合
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.13.1" data-path="../../_book/Java/集合/java-collection-1-集合和map.md">
+            
+                <span>
+            
+                    
+                    java-collection-1-集合和map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.13.2" data-path="../../_book/Java/集合/Java-collection2-collections.md">
+            
+                <span>
+            
+                    
+                    Java Collection 2 Collections
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.13.3" data-path="../../_book/Java/集合/java-collection3-comparable和comparator.md">
+            
+                <span>
+            
+                    
+                    java-collection3-comparable和comparator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.13.4" data-path="../../_book/Java/集合/java-collection4-EnumSet&EnumMap.md">
+            
+                <span>
+            
+                    
+                    Java Collection 4 Enum Set Enum Map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.13.5" data-path="../../_book/Java/集合/java-collection5-Properties.md">
+            
+                <span>
+            
+                    
+                    Java Collection 5 Properties
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.13.6" data-path="../../_book/Java/集合/java-collection6-list-set-map-array-转换.md">
+            
+                <span>
+            
+                    
+                    java-collection6-list-set-map-array-转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.13.7" data-path="../../_book/Java/集合/面试-1.md">
+            
+                <span>
+            
+                    
+                    面试-1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Java
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" >
+            
+                <span>
+            
+                    
+                    Java BIO
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../java-BIO/BIO-01.html">
+            
+                <a href="../java-BIO/BIO-01.html">
+            
+                    
+                    BIO 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../java-BIO/BIO-02.html">
+            
+                <a href="../java-BIO/BIO-02.html">
+            
+                    
+                    BIO 02
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="../java-BIO/java-IO2-序列化.html">
+            
+                <a href="../java-BIO/java-IO2-序列化.html">
+            
+                    
+                    java-IO2-序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" >
+            
+                <span>
+            
+                    
+                    Java NIO
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../java-NIO/javaNIO1-IO模型结构.html">
+            
+                <a href="../java-NIO/javaNIO1-IO模型结构.html">
+            
+                    
+                    javaNIO1-IO模型结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../java-NIO/javaNIO2-通道channel.html">
+            
+                <a href="../java-NIO/javaNIO2-通道channel.html">
+            
+                    
+                    javaNIO2-通道channel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="../java-NIO/javaNIO3-缓冲区buffer.html">
+            
+                <a href="../java-NIO/javaNIO3-缓冲区buffer.html">
+            
+                    
+                    javaNIO3-缓冲区buffer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="../java-NIO/javaNIO4-选择器selector.html">
+            
+                <a href="../java-NIO/javaNIO4-选择器selector.html">
+            
+                    
+                    javaNIO4-选择器selector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="../java-NIO/javaNIO5-FileChannel.html">
+            
+                <a href="../java-NIO/javaNIO5-FileChannel.html">
+            
+                    
+                    Java NIO 5 File Channel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="../java-NIO/JavaNIO6-socketchannel.html">
+            
+                <a href="../java-NIO/JavaNIO6-socketchannel.html">
+            
+                    
+                    Java NIO 6 Socketchannel
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" >
+            
+                <span>
+            
+                    
+                    Java8特性学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" >
+            
+                <span>
+            
+                    
+                    Lambda
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1.1" data-path="../Java8特性学习/lambda/lambda01.html">
+            
+                <a href="../Java8特性学习/lambda/lambda01.html">
+            
+                    
+                    Lambda 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.1.2" data-path="../Java8特性学习/lambda/函数式接口01.html">
+            
+                <a href="../Java8特性学习/lambda/函数式接口01.html">
+            
+                    
+                    函数式接口01
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" >
+            
+                <span>
+            
+                    
+                    Optional
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.2.1" data-path="../Java8特性学习/optional/optional01.html">
+            
+                <a href="../Java8特性学习/optional/optional01.html">
+            
+                    
+                    Optional 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" >
+            
+                <span>
+            
+                    
+                    Stream
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.3.1" data-path="../Java8特性学习/stream/stream01.html">
+            
+                <a href="../Java8特性学习/stream/stream01.html">
+            
+                    
+                    Stream 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3.2" data-path="../Java8特性学习/stream/stream02.html">
+            
+                <a href="../Java8特性学习/stream/stream02.html">
+            
+                    
+                    Stream 02
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3.3" data-path="../Java8特性学习/stream/stream03-并行流.html">
+            
+                <a href="../Java8特性学习/stream/stream03-并行流.html">
+            
+                    
+                    stream03-并行流
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" >
+            
+                <span>
+            
+                    
+                    时间工具类
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.4.1" data-path="../Java8特性学习/时间工具类/java8-dateTimeApi入门-1-.html">
+            
+                <a href="../Java8特性学习/时间工具类/java8-dateTimeApi入门-1-.html">
+            
+                    
+                    java8-dateTimeApi入门-1-
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4.2" data-path="../Java8特性学习/时间工具类/java8新日期01.html">
+            
+                <a href="../Java8特性学习/时间工具类/java8新日期01.html">
+            
+                    
+                    java8新日期01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4.3" data-path="../Java8特性学习/时间工具类/LocalData-01.html">
+            
+                <a href="../Java8特性学习/时间工具类/LocalData-01.html">
+            
+                    
+                    Local Data 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4.4" data-path="../Java8特性学习/时间工具类/LocalDataTime-01.html">
+            
+                <a href="../Java8特性学习/时间工具类/LocalDataTime-01.html">
+            
+                    
+                    Local Data Time 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4.5" data-path="../Java8特性学习/时间工具类/LocalTime-01.html">
+            
+                <a href="../Java8特性学习/时间工具类/LocalTime-01.html">
+            
+                    
+                    Local Time 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4.6" data-path="../Java8特性学习/时间工具类/重复注解和类型注解-01.html">
+            
+                <a href="../Java8特性学习/时间工具类/重复注解和类型注解-01.html">
+            
+                    
+                    重复注解和类型注解-01
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" >
+            
+                <span>
+            
+                    
+                    Java 9
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="../java9/httpclient-01.html">
+            
+                <a href="../java9/httpclient-01.html">
+            
+                    
+                    Httpclient 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.2" data-path="../java9/集合工厂方法-01.html">
+            
+                <a href="../java9/集合工厂方法-01.html">
+            
+                    
+                    集合工厂方法-01
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" >
+            
+                <span>
+            
+                    
+                    Java零散基础知识
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" data-path="../Java零散基础知识/fastjson处理.html">
+            
+                <a href="../Java零散基础知识/fastjson处理.html">
+            
+                    
+                    fastjson处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.2" data-path="../Java零散基础知识/java基础1-bigDecimal和bigInteger和数组.html">
+            
+                <a href="../Java零散基础知识/java基础1-bigDecimal和bigInteger和数组.html">
+            
+                    
+                    java基础1-bigDecimal和bigInteger和数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3" data-path="../Java零散基础知识/java基础2-数据类型和运算符相关基础.html">
+            
+                <a href="../Java零散基础知识/java基础2-数据类型和运算符相关基础.html">
+            
+                    
+                    java基础2-数据类型和运算符相关基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.4" data-path="../Java零散基础知识/java基础3-剖析类和面向对象.html">
+            
+                <a href="../Java零散基础知识/java基础3-剖析类和面向对象.html">
+            
+                    
+                    java基础3-剖析类和面向对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.5" data-path="../Java零散基础知识/java基础4-Calendar类.html">
+            
+                <a href="../Java零散基础知识/java基础4-Calendar类.html">
+            
+                    
+                    java基础4-Calendar类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.6" data-path="../Java零散基础知识/java进阶1-反射机制.html">
+            
+                <a href="../Java零散基础知识/java进阶1-反射机制.html">
+            
+                    
+                    java进阶1-反射机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.7" data-path="../Java零散基础知识/java进阶2-XML解析和转换.html">
+            
+                <a href="../Java零散基础知识/java进阶2-XML解析和转换.html">
+            
+                    
+                    java进阶2-XML解析和转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.8" data-path="../Java零散基础知识/java进阶3-Object类型(VO,DO等">
+            
+                <span>
+            
+                    
+                    java进阶3-Object类型(VO,DO等)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" >
+            
+                <span>
+            
+                    
+                    JMM内存模型的学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" data-path="../JMM内存模型的学习/java内存模型1-内存划分和交互操作.html">
+            
+                <a href="../JMM内存模型的学习/java内存模型1-内存划分和交互操作.html">
+            
+                    
+                    java内存模型1-内存划分和交互操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" data-path="../JMM内存模型的学习/java内存模型2-内存模型特性和先行发生原则.html">
+            
+                <a href="../JMM内存模型的学习/java内存模型2-内存模型特性和先行发生原则.html">
+            
+                    
+                    java内存模型2-内存模型特性和先行发生原则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" data-path="../JMM内存模型的学习/计算机内存模型--JMM.html">
+            
+                <a href="../JMM内存模型的学习/计算机内存模型--JMM.html">
+            
+                    
+                    计算机内存模型--JMM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" >
+            
+                <span>
+            
+                    
+                    JVM的学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.7.1" data-path="../JVM的学习/jvm1-java虚拟机模型和结构.html">
+            
+                <a href="../JVM的学习/jvm1-java虚拟机模型和结构.html">
+            
+                    
+                    jvm1-java虚拟机模型和结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.2" data-path="../JVM的学习/jvm2-内存溢出&分析和内存泄漏.html">
+            
+                <a href="../JVM的学习/jvm2-内存溢出&分析和内存泄漏.html">
+            
+                    
+                    jvm2-内存溢出&分析和内存泄漏
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.3" data-path="../JVM的学习/jvm3-GC策略(回收对象">
+            
+                <span>
+            
+                    
+                    jvm3-GC策略(回收对象)和算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.4" data-path="../JVM的学习/jvm3.1-HotSpot-GC收集器.html">
+            
+                <a href="../JVM的学习/jvm3.1-HotSpot-GC收集器.html">
+            
+                    
+                    jvm3.1-HotSpot-GC收集器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.5" data-path="../JVM的学习/jvm4-常用配置jvm命令和参数.html">
+            
+                <a href="../JVM的学习/jvm4-常用配置jvm命令和参数.html">
+            
+                    
+                    jvm4-常用配置jvm命令和参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.6" data-path="../JVM的学习/jvm5-内存分配和回收策略.html">
+            
+                <a href="../JVM的学习/jvm5-内存分配和回收策略.html">
+            
+                    
+                    jvm5-内存分配和回收策略
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.7" data-path="../JVM的学习/jvm6-虚拟机性能监控和处理工具.html">
+            
+                <a href="../JVM的学习/jvm6-虚拟机性能监控和处理工具.html">
+            
+                    
+                    jvm6-虚拟机性能监控和处理工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.8" data-path="../JVM的学习/jvm7-类加载机制.html">
+            
+                <a href="../JVM的学习/jvm7-类加载机制.html">
+            
+                    
+                    jvm7-类加载机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.9" data-path="../JVM的学习/jvm8-性能调优.html">
+            
+                <a href="../JVM的学习/jvm8-性能调优.html">
+            
+                    
+                    jvm8-性能调优
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" >
+            
+                <span>
+            
+                    
+                    多线程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.8.1" data-path="java多线程1-概述.html">
+            
+                <a href="java多线程1-概述.html">
+            
+                    
+                    java多线程1-概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.2" data-path="java多线程10-CAS和原子操作&ABA.html">
+            
+                <a href="java多线程10-CAS和原子操作&ABA.html">
+            
+                    
+                    java多线程10-CAS和原子操作&ABA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.3" data-path="java多线程11-AQS入门知识和分析.html">
+            
+                <a href="java多线程11-AQS入门知识和分析.html">
+            
+                    
+                    java多线程11-AQS入门知识和分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.4" data-path="java多线程12-final关键字分析.html">
+            
+                <a href="java多线程12-final关键字分析.html">
+            
+                    
+                    java多线程12-final关键字分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.8.5" data-path="java多线程13-ThreadLocal的使用.html">
+            
+                <a href="java多线程13-ThreadLocal的使用.html">
+            
+                    
+                    java多线程13-ThreadLocal的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.6" data-path="java多线程14-lock体系结构.html">
+            
+                <a href="java多线程14-lock体系结构.html">
+            
+                    
+                    java多线程14-lock体系结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.7" data-path="java多线程15-ReentrantLock类.html">
+            
+                <a href="java多线程15-ReentrantLock类.html">
+            
+                    
+                    java多线程15-ReentrantLock类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.8" data-path="java多线程16-ReentrantReadWriteLock.html">
+            
+                <a href="java多线程16-ReentrantReadWriteLock.html">
+            
+                    
+                    java多线程16-ReentrantReadWriteLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.9" data-path="java多线程17-Condition接口.html">
+            
+                <a href="java多线程17-Condition接口.html">
+            
+                    
+                    java多线程17-Condition接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.10" data-path="java多线程18-LockSupport类.html">
+            
+                <a href="java多线程18-LockSupport类.html">
+            
+                    
+                    java多线程18-LockSupport类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.11" data-path="java多线程19-锁的对比.html">
+            
+                <a href="java多线程19-锁的对比.html">
+            
+                    
+                    java多线程19-锁的对比
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.12" data-path="java多线程2-线程入门类和接口.html">
+            
+                <a href="java多线程2-线程入门类和接口.html">
+            
+                    
+                    java多线程2-线程入门类和接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.13" data-path="java多线程20-多线程和单例模式.html">
+            
+                <a href="java多线程20-多线程和单例模式.html">
+            
+                    
+                    java多线程20-多线程和单例模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.14" data-path="java多线程21-线程池.html">
+            
+                <a href="java多线程21-线程池.html">
+            
+                    
+                    java多线程21-线程池
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.15" data-path="java多线程22-并发工具类-定时器.html">
+            
+                <a href="java多线程22-并发工具类-定时器.html">
+            
+                    
+                    java多线程22-并发工具类-定时器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.16" data-path="java多线程23-生产者消费者模型.html">
+            
+                <a href="java多线程23-生产者消费者模型.html">
+            
+                    
+                    java多线程23-生产者消费者模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.17" data-path="java多线程24-线程通信机制总结.html">
+            
+                <a href="java多线程24-线程通信机制总结.html">
+            
+                    
+                    java多线程24-线程通信机制总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.18" data-path="java多线程25-阻塞队列.html">
+            
+                <a href="java多线程25-阻塞队列.html">
+            
+                    
+                    java多线程25-阻塞队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.19" data-path="java多线程26-线程中断.html">
+            
+                <a href="java多线程26-线程中断.html">
+            
+                    
+                    java多线程26-线程中断
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.20" data-path="java多线程3-线程的优先级和线程组.html">
+            
+                <a href="java多线程3-线程的优先级和线程组.html">
+            
+                    
+                    java多线程3-线程的优先级和线程组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.21" data-path="java多线程4-线程的状态和转换.html">
+            
+                <a href="java多线程4-线程的状态和转换.html">
+            
+                    
+                    java多线程4-线程的状态和转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.22" data-path="java多线程5-线程之间的通信.html">
+            
+                <a href="java多线程5-线程之间的通信.html">
+            
+                    
+                    java多线程5-线程之间的通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.23" data-path="java多线程6-锁机制.html">
+            
+                <a href="java多线程6-锁机制.html">
+            
+                    
+                    java多线程6-锁机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.24" data-path="java多线程7-synchronized关键字-互斥同步 .html">
+            
+                <a href="java多线程7-synchronized关键字-互斥同步 .html">
+            
+                    
+                    java多线程7-synchronized关键字-互斥同步 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.25" data-path="java多线程8-1-锁优化和锁升级(针对synchrinized">
+            
+                <span>
+            
+                    
+                    java多线程8-1-锁优化和锁升级(针对synchrinized)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.26" data-path="Java多线程8-volatile.html">
+            
+                <a href="Java多线程8-volatile.html">
+            
+                    
+                    Java多线程8-volatile
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.27" data-path="java多线程9-死锁.html">
+            
+                <a href="java多线程9-死锁.html">
+            
+                    
+                    java多线程9-死锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" >
+            
+                <span>
+            
+                    
+                    并发编程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.9.1" data-path="../并发编程/并发编程1-AQS源码的分析.html">
+            
+                <a href="../并发编程/并发编程1-AQS源码的分析.html">
+            
+                    
+                    并发编程1-AQS源码的分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" >
+            
+                <span>
+            
+                    
+                    日志&工具&小问题等
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.10.1" data-path="../日志&工具&小问题等/BigDecimal和BigInteger的操作.html">
+            
+                <a href="../日志&工具&小问题等/BigDecimal和BigInteger的操作.html">
+            
+                    
+                    BigDecimal和BigInteger的操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.2" data-path="../日志&工具&小问题等/fastjson-api.html">
+            
+                <a href="../日志&工具&小问题等/fastjson-api.html">
+            
+                    
+                    Fastjson Api
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.3" data-path="../日志&工具&小问题等/关于转义字符的意义.html">
+            
+                <a href="../日志&工具&小问题等/关于转义字符的意义.html">
+            
+                    
+                    关于转义字符的意义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.4" data-path="../日志&工具&小问题等/在代码中使用Lombok.html">
+            
+                <a href="../日志&工具&小问题等/在代码中使用Lombok.html">
+            
+                    
+                    在代码中使用Lombok
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.5" data-path="../日志&工具&小问题等/处理文件路径在windos和linux不同.html">
+            
+                <a href="../日志&工具&小问题等/处理文件路径在windos和linux不同.html">
+            
+                    
+                    处理文件路径在windos和linux不同
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.6" data-path="../日志&工具&小问题等/正则表达式的使用和常用案例.html">
+            
+                <a href="../日志&工具&小问题等/正则表达式的使用和常用案例.html">
+            
+                    
+                    正则表达式的使用和常用案例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" >
+            
+                <span>
+            
+                    
+                    源码学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.11.1" data-path="../源码学习/JDK源码1-.html">
+            
+                <a href="../源码学习/JDK源码1-.html">
+            
+                    
+                    JDK源码1-
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" >
+            
+                <span>
+            
+                    
+                    网络编程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.12.1" data-path="../网络编程/网络编程1-.html">
+            
+                <a href="../网络编程/网络编程1-.html">
+            
+                    
+                    网络编程1-
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" >
+            
+                <span>
+            
+                    
+                    集合
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.13.1" data-path="../集合/java-collection-1-集合和map.html">
+            
+                <a href="../集合/java-collection-1-集合和map.html">
+            
+                    
+                    java-collection-1-集合和map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13.2" data-path="../集合/Java-collection2-collections.html">
+            
+                <a href="../集合/Java-collection2-collections.html">
+            
+                    
+                    Java Collection 2 Collections
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13.3" data-path="../集合/java-collection3-comparable和comparator.html">
+            
+                <a href="../集合/java-collection3-comparable和comparator.html">
+            
+                    
+                    java-collection3-comparable和comparator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13.4" data-path="../集合/java-collection4-EnumSet&EnumMap.html">
+            
+                <a href="../集合/java-collection4-EnumSet&EnumMap.html">
+            
+                    
+                    Java Collection 4 Enum Set Enum Map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13.5" data-path="../集合/java-collection5-Properties.html">
+            
+                <a href="../集合/java-collection5-Properties.html">
+            
+                    
+                    Java Collection 5 Properties
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13.6" data-path="../集合/java-collection6-list-set-map-array-转换.html">
+            
+                <a href="../集合/java-collection6-list-set-map-array-转换.html">
+            
+                    
+                    java-collection6-list-set-map-array-转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13.7" data-path="../集合/面试-1.html">
+            
+                <a href="../集合/面试-1.html">
+            
+                    
+                    面试-1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >java多线程13-ThreadLocal的使用</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>[TOC]</p>
+<p><img src="https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20201124234526977.png" alt="image-20201124234526977"></p>
+<h1 id="threadlocal">ThreadLocal</h1>
+<h2 id="&#x6982;&#x5FF5;">&#x6982;&#x5FF5;</h2>
+<blockquote>
+<p>threadlocal&#x521D;&#x8BC6;</p>
+</blockquote>
+<p>ThreadLocal&#x662F;&#x2F00;&#x4E2A;&#x672C;&#x5730;&#x7EBF;&#x7A0B;&#x526F;&#x672C;&#x53D8;&#x91CF;&#x2F2F;&#x5177;&#x7C7B;&#x3002;&#x5185;&#x90E8;&#x662F;&#x2F00;&#x4E2A;&#x5F31;&#x5F15;&#x2F64;&#x7684;Map&#x6765;&#x7EF4;&#x62A4;&#x3002; </p>
+<p>threadlocal&#x8BA9;&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x6709;&#x2F83;&#x2F30;&#x201D;&#x72EC;&#x2F74;&#x201C;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x7EBF;&#x7A0B;&#x4E4B;&#x95F4;&#x4E92;&#x4E0D; &#x5F71;&#x54CD;&#xFF08;&#x7EBF;&#x7A0B;&#x9694;&#x79BB;&#xFF09;&#x3002;&#x5B83;&#x4E3A;&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x90FD;&#x521B;&#x5EFA;&#x2F00;&#x4E2A;&#x526F;&#x672C;&#xFF0C;&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x2F83;&#x2F30;&#x5185;&#x90E8;&#x7684;&#x526F;&#x672C;&#x53D8;&#x91CF;&#x3002;</p>
+<blockquote>
+<p>&#x4F5C;&#x7528;</p>
+</blockquote>
+<p>Java&#x4E2D;&#x7684;ThreadLocal&#x7C7B;&#x53EF;&#x4EE5;&#x8BA9;&#x4F60;&#x521B;&#x5EFA;&#x7684;&#x53D8;&#x91CF;&#x53EA;&#x88AB;&#x540C;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x8FDB;&#x884C;&#x8BFB;&#x548C;&#x5199;&#x64CD;&#x4F5C;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5C3D;&#x7BA1;&#x6709;&#x4E24;&#x4E2A;&#x7EBF;&#x7A0B;&#x540C;&#x65F6;&#x6267;&#x884C;&#x4E00;&#x6BB5;&#x76F8;&#x540C;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x800C;&#x4E14;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x53C8;&#x6709;&#x4E00;&#x4E2A;&#x6307;&#x5411;&#x540C;&#x4E00;&#x4E2A;ThreadLocal&#x53D8;&#x91CF;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x4E24;&#x4E2A;&#x7EBF;&#x7A0B;&#x4F9D;&#x7136;&#x4E0D;&#x80FD;&#x770B;&#x5230;&#x5F7C;&#x6B64;&#x7684;ThreadLocal&#x53D8;&#x91CF;&#x57DF;&#x3002;</p>
+<blockquote>
+<p>&#x601D;&#x60F3;</p>
+</blockquote>
+<p>&#x7A7A;&#x95F4;&#x6362;&#x65F6;&#x95F4;</p>
+<h2 id="&#x4F7F;&#x7528;">&#x4F7F;&#x7528;</h2>
+<blockquote>
+<p>&#x521B;&#x5EFA;  get set</p>
+</blockquote>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> java8.multithreading.threadlocal;
+
+<span class="hljs-comment">/**
+ * <span class="hljs-doctag">@Author</span>: xiaobo
+ * <span class="hljs-doctag">@Date</span>: 2020/11/24 0:19
+ */</span>
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreadLocal01</span> </span>{
+
+    <span class="hljs-keyword">private</span> ThreadLocal&lt;String&gt; threadLoca2 = <span class="hljs-keyword">new</span> ThreadLocal&lt;&gt;();
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        ThreadLocal01 local01 = <span class="hljs-keyword">new</span> ThreadLocal01();
+        <span class="hljs-comment">/**
+         * &#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x4EC5;&#x9700;&#x8981;&#x5B9E;&#x4F8B;&#x5316;&#x4E00;&#x6B21;&#x5373;&#x53EF;&#x3002;&#x867D;&#x7136;&#x4E0D;&#x540C;&#x7684;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x540C;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;&#x65F6;&#xFF0C;&#x8BBF;&#x95EE;&#x540C;&#x4E00;&#x4E2A;ThreadLocal&#x53D8;&#x91CF;&#xFF0C;
+         * &#x4F46;&#x662F;&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x53EA;&#x80FD;&#x770B;&#x5230;&#x79C1;&#x6709;&#x7684;ThreadLocal&#x5B9E;&#x4F8B;&#x3002;&#x6240;&#x4EE5;&#x4E0D;&#x540C;&#x7684;&#x7EBF;&#x7A0B;&#x5728;&#x7ED9;ThreadLocal&#x5BF9;&#x8C61;&#x8BBE;&#x7F6E;&#x4E0D;&#x540C;&#x7684;&#x503C;&#x65F6;&#xFF0C;
+         * &#x4ED6;&#x4EEC;&#x4E5F;&#x4E0D;&#x80FD;&#x770B;&#x5230;&#x5F7C;&#x6B64;&#x7684;&#x4FEE;&#x6539;&#x3002;
+         */</span>
+        <span class="hljs-comment">// &#x521B;&#x5EFA;threadlocal&#x5BF9;&#x8C61;</span>
+        ThreadLocal&lt;Object&gt; threadLocal = <span class="hljs-keyword">new</span> ThreadLocal&lt;&gt;();
+        <span class="hljs-comment">// &#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;ThreadLocal&#x5BF9;&#x8C61;&#xFF0C;&#x5B58;&#x50A8;&#x6B64;&#x5BF9;&#x8C61;&#x7684;&#x503C;&#xFF1A;</span>
+        threadLocal.set(<span class="hljs-string">&quot;&#x7B2C;&#x4E00;&#x4E2A; threadlocal&quot;</span>);
+        <span class="hljs-comment">//&#x76F4;&#x63A5;&#x8BFB;&#x53D6;&#x4E00;&#x4E2A;ThreadLocal&#x5BF9;&#x8C61;&#x7684;&#x503C;&#xFF1A;</span>
+        System.out.println(threadLocal.get());
+        threadLocal.remove();
+        <span class="hljs-comment">//&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6CDB;&#x578B;&#x5316;&#x7684;ThreadLocal&#x5BF9;&#x8C61;&#x3002; &#x4F7F;get()&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x503C;&#x4E0D;&#x7528;&#x505A;&#x5F3A;&#x5236;&#x7C7B;&#x578B;&#x8F6C;&#x6362;</span>
+        local01.threadLoca2.set(<span class="hljs-string">&quot;&#x6CDB;&#x578B; &#x9632;&#x6B62;&#x5F3A;&#x8F6C;&quot;</span>);
+
+    }
+
+}
+<span class="hljs-comment">//</span>
+&#x7B2C;&#x4E00;&#x4E2A; threadlocal
+</code></pre>
+<blockquote>
+<p>&#x521D;&#x59CB;&#x5316;  threadlocal </p>
+</blockquote>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> java8.multithreading.threadlocal;
+
+<span class="hljs-comment">/**
+ * <span class="hljs-doctag">@Author</span>: xiaobo
+ * <span class="hljs-doctag">@Date</span>: 2020/11/24 0:28
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreadLocal02</span> </span>{
+
+    <span class="hljs-comment">// &#x901A;&#x8FC7;ThreadLocal&#x5B50;&#x7C7B;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x5E76;&#x8986;&#x5199;initialValue()&#x65B9;&#x6CD5;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x4E3A;ThreadLocal&#x5BF9;&#x8C61;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x521D;&#x59CB;&#x5316;</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        ThreadLocal&lt;String&gt; threadLocal = <span class="hljs-keyword">new</span> ThreadLocal&lt;String&gt;(){
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">protected</span> String <span class="hljs-title">initialValue</span><span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&#x73B0;&#x5728;&#x6240;&#x6709;&#x7EBF;&#x7A0B;&#x90FD;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x8FD9;&#x4E2A;&#x503C;&#x4E86;&#xFF0C;&#x9664;&#x975E;&#x4F60;&#x5728;get&#x4E4B;&#x524D;&#x8C03;&#x7528;&#x4E86;set&quot;</span>;
+            }
+        };
+        System.out.println( threadLocal.get());
+    }
+}
+
+<span class="hljs-comment">//</span>
+&#x73B0;&#x5728;&#x6240;&#x6709;&#x7EBF;&#x7A0B;&#x90FD;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x8FD9;&#x4E2A;&#x503C;&#x4E86;&#xFF0C;&#x9664;&#x975E;&#x4F60;&#x5728;get&#x4E4B;&#x524D;&#x8C03;&#x7528;&#x4E86;set
+</code></pre>
+<blockquote>
+<p>exampl--01</p>
+<p>use threadlocal</p>
+</blockquote>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> java8.multithreading.threadlocal;
+
+<span class="hljs-comment">/**
+ * <span class="hljs-doctag">@Author</span>: xiaobo
+ * <span class="hljs-doctag">@Date</span>: 2020/11/24 0:32
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreadLocal03</span> </span>{
+
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreadA</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>{
+
+        <span class="hljs-keyword">private</span> ThreadLocal&lt;Integer&gt; threadLocal = <span class="hljs-keyword">new</span> ThreadLocal&lt;Integer&gt;();
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+            threadLocal.set((<span class="hljs-keyword">int</span>) (Math.random() * <span class="hljs-number">100</span>));
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt;<span class="hljs-number">2</span>;i++){
+                <span class="hljs-keyword">try</span> {
+                    Thread.sleep(<span class="hljs-number">2000</span>);
+                } <span class="hljs-keyword">catch</span> (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(threadLocal.get());
+            }
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> InterruptedException </span>{
+        ThreadA threadA = <span class="hljs-keyword">new</span> ThreadA();
+        Thread thread1 = <span class="hljs-keyword">new</span> Thread(threadA);
+        Thread thread2 = <span class="hljs-keyword">new</span> Thread(threadA);
+        thread1.start();thread2.start();
+        thread1.join();
+        thread2.join();
+    }
+}
+<span class="hljs-comment">//</span>
+<span class="hljs-number">80</span>
+<span class="hljs-number">76</span>
+<span class="hljs-number">80</span>
+<span class="hljs-number">76</span>
+</code></pre>
+<p>==&#x5982;&#x679C;&#x8C03;&#x7528;set()&#x65B9;&#x6CD5;&#x7684;&#x65F6;&#x5019;&#x7528;synchronized&#x5173;&#x952E;&#x5B57;&#x540C;&#x6B65;&#xFF0C;&#x800C;&#x4E14;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;ThreadLocal&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#xFF0C;&#x90A3;&#x4E48;&#x7B2C;&#x4E8C;&#x4E2A;&#x7EBF;&#x7A0B;&#x5C06;&#x4F1A;&#x8986;&#x76D6;&#x7B2C;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x6240;&#x8BBE;&#x7F6E;&#x7684;&#x503C;&#x3002;==</p>
+<h2 id="&#x539F;&#x7406;&#x5B9E;&#x73B0;">&#x539F;&#x7406;&#x5B9E;&#x73B0;</h2>
+<h3 id="set">set</h3>
+<pre><code class="lang-java">   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">set</span><span class="hljs-params">(T value)</span> </span>{
+       <span class="hljs-comment">// &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x6267;&#x884C;&#x7EBF;&#x7A0B;&#x5F15;&#x7528;</span>
+        Thread t = Thread.currentThread();
+       <span class="hljs-comment">// &#x83B7;&#x53D6; ThreadLocalMap </span>
+        ThreadLocalMap  map = getMap(t);
+        <span class="hljs-keyword">if</span> (map != <span class="hljs-keyword">null</span>)
+            <span class="hljs-comment">// &#x5982;&#x679C;&#x4E0D;&#x4E3A;null &#x5C31;&#x628A;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x4F5C;&#x4E3A;key  &#x503C;&#x4E3A;value &#x5B58;&#x5165;</span>
+            map.set(<span class="hljs-keyword">this</span>, value);
+        <span class="hljs-keyword">else</span>
+            <span class="hljs-comment">// &#x5426;&#x5219;&#x5C31;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684; ThreadLocalMap&#x5E76;&#x5B58;&#x50A8;  t:&#x5F53;&#x524D;&#x7EBF;&#x7A0B; &#x5E76;&#x4E14;&#x4F5C;&#x4E3A;key value&#xFF1A;&#x521D;&#x59CB;&#x503C;</span>
+            createMap(t, value);
+    }
+
+  <span class="hljs-function">ThreadLocalMap <span class="hljs-title">getMap</span><span class="hljs-params">(Thread t)</span> </span>{
+        <span class="hljs-keyword">return</span> t.threadLocals;
+    }
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">createMap</span><span class="hljs-params">(Thread t, T firstValue)</span> </span>{
+        t.threadLocals = <span class="hljs-keyword">new</span> ThreadLocalMap(<span class="hljs-keyword">this</span>, firstValue);
+    }
+
+     ThreadLocal.ThreadLocalMap threadLocals = <span class="hljs-keyword">null</span>;
+</code></pre>
+<p>==ThreadLocal&#x7684;&#x503C;&#x662F;&#x653E;&#x5165;&#x4E86;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x7684;&#x4E00;&#x4E2A;ThreadLocalMap&#x5B9E;&#x4F8B;&#x4E2D;&#xFF0C;&#x6240;&#x4EE5;&#x53EA;&#x80FD;&#x5728;&#x672C;&#x7EBF;&#x7A0B;&#x4E2D;&#x8BBF;&#x95EE;&#xFF0C;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x3002;==</p>
+<h3 id="get">get</h3>
+<pre><code class="lang-java"> <span class="hljs-function"><span class="hljs-keyword">public</span> T <span class="hljs-title">get</span><span class="hljs-params">()</span> </span>{
+     <span class="hljs-comment">// &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x6267;&#x884C;&#x7EBF;&#x7A0B;&#x7684;&#x5F15;&#x7528;</span>
+        Thread t = Thread.currentThread();
+     <span class="hljs-comment">// &#x5B9E;&#x4F8B;&#x5316;&#x5F97;&#x5230;&#x8FD9;&#x4E2A;&#x7EBF;&#x7A0B;&#x7684; map</span>
+        ThreadLocalMap map = getMap(t);
+        <span class="hljs-keyword">if</span> (map != <span class="hljs-keyword">null</span>) {
+            <span class="hljs-comment">// &#x83B7;&#x53D6;&#x5F53;&#x524D;map&#x4E2D;  key&#x4E3A;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x7684; entry</span>
+            ThreadLocalMap.Entry e = map.getEntry(<span class="hljs-keyword">this</span>);
+            <span class="hljs-keyword">if</span> (e != <span class="hljs-keyword">null</span>) {
+                <span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">&quot;unchecked&quot;</span>)
+                <span class="hljs-comment">// &#x4E0D;&#x4E3A;null  &#x53D6;&#x51FA;&#x6765; &#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;</span>
+                T result = (T)e.value;
+                <span class="hljs-keyword">return</span> result;
+            }
+        }
+     <span class="hljs-comment">// &#x4E3A;null </span>
+        <span class="hljs-keyword">return</span> setInitialValue();
+    }
+ <span class="hljs-comment">// &#x4E3A;null &#x5C31;&#x628A;&#x5F53;&#x524D;&#x7EBF;&#x7A0B; &#x4F5C;&#x4E3A;key  value&#x4E3A;null &#x8FD4;&#x56DE;</span>
+ <span class="hljs-function"><span class="hljs-keyword">private</span> T <span class="hljs-title">setInitialValue</span><span class="hljs-params">()</span> </span>{
+        T value = initialValue();
+        Thread t = Thread.currentThread();
+        ThreadLocalMap map = getMap(t);
+        <span class="hljs-keyword">if</span> (map != <span class="hljs-keyword">null</span>)
+            map.set(<span class="hljs-keyword">this</span>, value);
+        <span class="hljs-keyword">else</span>
+            createMap(t, value);
+        <span class="hljs-keyword">return</span> value;
+    }
+
+  <span class="hljs-function"><span class="hljs-keyword">protected</span> T <span class="hljs-title">initialValue</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    }
+</code></pre>
+<p>==&#x53EF;&#x4EE5;&#x91CD;&#x65B0;initialValue &#x5B9E;&#x73B0;&#x5176;&#x4ED6;&#x7684;&#x521D;&#x59CB;&#x503C;==</p>
+<h3 id="remove">remove</h3>
+<pre><code class="lang-java">  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">remove</span><span class="hljs-params">()</span> </span>{
+      <span class="hljs-comment">// &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x6267;&#x884C;&#x7EBF;&#x7A0B;&#x7684;&#x5F15;&#x7528;</span>
+         ThreadLocalMap m = getMap(Thread.currentThread());
+         <span class="hljs-keyword">if</span> (m != <span class="hljs-keyword">null</span>)
+             <span class="hljs-comment">// &#x5982;&#x679C;&#x4E0D;&#x4E3A;null &#x5C31;&#x4ECE;&#x8FD9;&#x4E2A;map&#x4E2D; &#x79FB;&#x51FA;&#x53BB;</span>
+             m.remove(<span class="hljs-keyword">this</span>);
+     }
+</code></pre>
+<p><strong>&#x603B;&#x7ED3;&#xFF1A;</strong></p>
+<p>&#x200B;        set get remove&#x90FD;&#x662F;&#x901A;&#x8FC7;&#x5185;&#x90E8;&#x7EF4;&#x62A4;&#x7684;map &#x6765;&#x5B9E;&#x73B0;&#x7684;&#xFF0C; &#x8BA9;&#x5F53;&#x524D;&#x6267;&#x884C;&#x7EBF;&#x7A0B;&#x4F5C;&#x4E3A;&#x5F15;&#x7528;&#xFF0C;&#x6765;&#x5B9E;&#x73B0;&#x552F;&#x4E00;&#x6620;&#x5C04;</p>
+<h3 id="threadlocalmap">ThreadLocalMap</h3>
+<blockquote>
+<p>threadlocalmap&#x662F;threadlocal&#x7684;&#x4E00;&#x4E2A;&#x5185;&#x90E8;&#x9759;&#x6001;&#x7C7B;</p>
+<p>key&#x662F;threadlocal&#x5B9E;&#x4F8B;&#xFF0C;value&#x662F;entry[] &#x6570;&#x7EC4;</p>
+<p>threadlocalmap&#x91C7;&#x7528;&#x7684;&#x662F;&#x5F00;&#x653E;&#x5B9A;&#x5740;&#x6CD5;&#xFF0C;&#x5C31;&#x662F;&#x4E00;&#x65E6;&#x53D1;&#x751F;&#x4E86;&#x51B2;&#x7A81;&#xFF0C;&#x5C31;&#x53BB;&#x5BFB;&#x627E;&#x4E0B;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;&#x6563;&#x5217;&#x5730;&#x5740;&#xFF0C;&#x53EA;&#x8981;&#x6563;&#x5217;&#x8868;&#x8DB3;&#x591F;&#x5927;&#xFF0C;&#x7A7A;&#x7684;&#x6563;&#x5217;&#x5730;&#x5740;&#x603B;&#x80FD;&#x627E;&#x5230;&#xFF0C;&#x5E76;&#x5C06;&#x8BB0;&#x5F55;&#x5B58;&#x5165;&#x3002;</p>
+<p>&#x521D;&#x59CB;&#x5BB9;&#x91CF;&#x548C;&#x6269;&#x5BB9;</p>
+</blockquote>
+<p>&#x521D;&#x59CB;16&#xFF0C;&#x52A0;&#x8F7D;&#x56E0;&#x5B50; 2/3&#xFF0C;&#x53EF;&#x7528; &#x5BB9;&#x91CF;10</p>
+<p>&#x8D85;&#x8FC7;&#x5BB9;&#x91CF;&#x65F6;&#x901A;&#x8FC7;resize()&#x65B9;&#x6CD5;&#x6269;&#x5BB9;</p>
+<p><strong>&#x6269;&#x5BB9;&#x65F6;&#x5982;&#x679C;&#x6709;key&#x4E3A;null  value&#x4E3A;object&#x7684;&#x952E;&#x503C;&#x5BF9; &#x4F1A;&#x8BA9; value&#x4E3A;null &#x8BA9; GC&#x56DE;&#x6536;&#x89E3;&#x51B3;&#x9690;&#x85CF;&#x7684;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x7684;&#x95EE;&#x9898;</strong></p>
+<blockquote>
+<p>threadlocalhashcode</p>
+</blockquote>
+<p>ThreadLocal &#x6709;&#x4E2A; threadLocalHashCode &#x53D8;&#x91CF;&#xFF0C;&#x6BCF;&#x6B21;&#x521B;&#x5EFA; ThreadLocal &#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x90FD;&#x4F1A;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x56FA;&#x5B9A;&#x7684;&#x503C; <code>HASH_INCREMENT</code>&#xFF0C;&#x5373; 0x61c88647</p>
+<h4 id="entry">entry</h4>
+<blockquote>
+<p>ThreadLocalMap&#x662F;threadLocal&#x4E00;&#x4E2A;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#xFF0C;&#x548C;&#x5927;&#x591A;&#x6570;&#x5BB9;&#x5668;&#x4E00;&#x6837;&#x5185;&#x90E8;&#x7EF4;&#x62A4;&#x4E86;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x540C;&#x6837;&#x7684;threadLocalMap&#x5185;&#x90E8;&#x7EF4;&#x62A4;&#x4E86;&#x4E00;&#x4E2A;Entry&#x7C7B;&#x578B;&#x7684;table&#x6570;&#x7EC4;</p>
+<p>table&#x6570;&#x7EC4;&#x7684;&#x957F;&#x5EA6;&#x4E3A;2&#x7684;&#x5E42;&#x6B21;&#x65B9;</p>
+<p>entry&#x662F;&#x4E00;&#x4E2A;&#x4EE5;threadlocal&#x4E3A;key object&#x4E3A;value&#x7684;&#x952E;&#x503C;&#x5BF9;&#xFF0C;</p>
+<p>Entry&#x7EE7;&#x627F;&#x4E86;WeakReference &#x662F;&#x4E00;&#x4E2A;&#x5F31;&#x5F15;&#x7528;</p>
+</blockquote>
+<pre><code class="lang-java">        <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Entry</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">WeakReference</span>&lt;<span class="hljs-title">ThreadLocal</span>&lt;?&gt;&gt; </span>{
+            <span class="hljs-comment">/** The value associated with this ThreadLocal. */</span>
+            Object value;
+
+            Entry(ThreadLocal&lt;?&gt; k, Object v) {
+                <span class="hljs-keyword">super</span>(k);
+                value = v;
+            }
+        }
+</code></pre>
+<p><strong>Entry&#x7C7B;&#x91CC;&#x9762;&#x7684;key&#x503C;&#x5C31;&#x662F;ThreadLocal&#xFF0C;&#x5E76;&#x4E14;&#x662F;&#x5F31;&#x5F15;&#x7528;&#xFF0C;value&#x662F;threadlocalmap&#x4E2D;set&#x7684;value</strong></p>
+<p>thread,threadLocal,threadLocalMap&#xFF0C;Entry&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;:</p>
+<p><img src="https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20201124123631932.png" alt="image-20201124123631932" style="zoom:67%;"></p>
+<p>&#x5B9E;&#x7EBF;&#x662F;&#x5F3A;&#x5F15;&#x7528;&#xFF0C;&#x865A;&#x7EBF;&#x8868;&#x793A;&#x5F31;&#x5F15;&#x7528;&#x3002;</p>
+<h4 id="set">set</h4>
+<blockquote>
+<p>&#x6839;&#x636E;key&#x66F4;&#x65B0;value</p>
+</blockquote>
+<pre><code class="lang-java"> <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">set</span><span class="hljs-params">(ThreadLocal&lt;?&gt; key, Object value)</span> </span>{
+
+            <span class="hljs-comment">// We don&apos;t use a fast path as with get() because it is at</span>
+            <span class="hljs-comment">// least as common to use set() to create new entries as</span>
+            <span class="hljs-comment">// it is to replace existing ones, in which case, a fast</span>
+            <span class="hljs-comment">// path would fail more often than not.</span>
+
+             <span class="hljs-comment">//&#x5185;&#x90E8;&#x4E00;&#x4E2A; entry&#x6570;&#x7EC4; </span>
+            Entry[] tab = table;
+            <span class="hljs-keyword">int</span> len = tab.length;
+             <span class="hljs-comment">//&#x786E;&#x5B9A;entry&#x7684;&#x5B58;&#x653E;&#x4F4D;&#x7F6E;  &#x4E0B;&#x6807;</span>
+            <span class="hljs-keyword">int</span> i = key.threadLocalHashCode &amp; (len-<span class="hljs-number">1</span>);
+            <span class="hljs-comment">// &#x5224;&#x65AD;i&#x4F4D;&#x7F6E;entry&#x662F;&#x5426;&#x4E3A;&#x7A7A;&#xFF0C;&#x4E0D;&#x4E3A;null&#x5C31;&#x8C03;&#x7528;&#x7236;&#x7C7B;Reference&#x7684;get&#x65B9;&#x6CD5;&#x5F97;&#x5230; ThreadLocal&#x5BF9;&#x8C61; &#xFF0C;&#x5411;&#x540E; &#x6307;&#x5B9A;&#x6B65;&#x957F;&#x904D;&#x5386;</span>
+            <span class="hljs-keyword">for</span> (Entry e = tab[i];e != <span class="hljs-keyword">null</span>;e = tab[i = nextIndex(i, len)]) {
+                ThreadLocal&lt;?&gt; k = e.get();
+            <span class="hljs-comment">// i&#x4F4D;&#x7F6E;&#x7684;&#x5143;&#x7D20; &#x5C31;&#x662F;&#x6211;&#x4EEC;&#x904D;&#x5386;&#x5BFB;&#x627E;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x65B0;&#x503C;&#x8986;&#x76D6;&#x65E7;&#x503C;</span>
+                <span class="hljs-comment">//&#x5982;&#x679C;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;k==key&#x3002;&#x5C31;&#x66FF;&#x6362;Entry&#x91CC;&#x9762;&#x7684;value&#x503C;</span>
+                <span class="hljs-keyword">if</span> (k == key) {
+                    e.value = value;
+                    <span class="hljs-keyword">return</span>;
+                }
+<span class="hljs-comment">//&#x4E0B;&#x6807;&#x7684;&#x5BF9;&#x8C61;k&#x4E3A;null&#x3002;&#x5C31;&#x653E;&#x5165;&#x6539;&#x4F4D;&#x7F6E;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x5176;&#x4ED6;&#x7684;&#xFF0C;&#x5C31;&#x5F80;&#x4E0B;&#x4E00;&#x4E2A;i+1&#x4F4D;&#x7F6E;&#x4E0A;&#x627E;</span>
+                <span class="hljs-comment">/**
+                &#x4ECE; staleSlot &#x5411;&#x524D;&#x904D;&#x5386;&#x6570;&#x7EC4;&#xFF0C;&#x76F4;&#x5230; Entry &#x4E3A;&#x7A7A;&#x65F6;&#x505C;&#x6B62;&#x904D;&#x5386;&#x3002;&#x8FD9;&#x4E00;&#x6B65;&#x7684;&#x4E3B;&#x8981;&#x76EE;&#x7684;&#x662F;&#x67E5;&#x627E; staleSlot &#x524D;&#x9762;&#x8FC7;&#x671F;&#x7684; Entry &#x7684;&#x6570;&#x7EC4;&#x4E0B;&#x6807; slotToExpunge&#x3002;
+&#x4ECE; staleSlot &#x5411;&#x540E;&#x904D;&#x5386;&#x6570;&#x7EC4;
+&#x82E5; Entry &#x7684; key &#x4E0E;&#x7ED9;&#x5B9A;&#x7684; key &#x76F8;&#x7B49;&#xFF0C;&#x5C06;&#x8BE5; Entry &#x4E0E; staleSlot &#x4E0B;&#x6807;&#x7684; Entry &#x4E92;&#x6362;&#x4F4D;&#x7F6E;&#x3002;&#x76EE;&#x7684;&#x662F;&#x4E3A;&#x4E86;&#x8BA9;&#x65B0;&#x589E;&#x7684; Entry &#x653E;&#x5230;&#x5B83;&#x300C;&#x5E94;&#x8BE5;&#x300D;&#x5728;&#x7684;&#x4F4D;&#x7F6E;(hash&#x51B2;&#x7A81;&#x89E3;&#x51B3;&#x540E;&#x7684;&#x4F4D;&#x7F6E;)&#x3002;
+&#x82E5;&#x627E;&#x4E0D;&#x5230;&#x76F8;&#x7B49;&#x7684; key&#xFF0C;&#x8BF4;&#x660E;&#x8BE5; key &#x5BF9;&#x5E94;&#x7684; Entry &#x4E0D;&#x5728;&#x6570;&#x7EC4;&#x4E2D;&#xFF0C;&#x5C06;&#x65B0;&#x503C;&#x653E;&#x5230; staleSlot &#x4F4D;&#x7F6E;&#x3002;&#x8BE5;&#x64CD;&#x4F5C;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x5904;&#x7406;&#x54C8;&#x5E0C;&#x51B2;&#x7A81;&#x7684;&#x300C;&#x7EBF;&#x6027;&#x63A2;&#x6D4B;&#x300D;&#x65B9;&#x6CD5;&#xFF1A;&#x5F53;&#x67D0;&#x4E2A;&#x4F4D;&#x7F6E;&#x5DF2;&#x88AB;&#x5360;&#x7528;&#xFF0C;&#x5411;&#x540E;&#x63A2;&#x6D4B;&#x4E0B;&#x4E00;&#x4E2A;&#x4F4D;&#x7F6E;&#x3002;
+&#x82E5; staleSlot &#x524D;&#x9762;&#x5B58;&#x5728;&#x8FC7;&#x671F;&#x7684; Entry&#xFF0C;&#x5219;&#x6267;&#x884C;&#x6E05;&#x7406;&#x64CD;&#x4F5C;&#x3002;
+                */</span>
+                <span class="hljs-keyword">if</span> (k == <span class="hljs-keyword">null</span>) {
+                    replaceStaleEntry(key, value, i);
+                    <span class="hljs-keyword">return</span>;
+                }
+            }
+            <span class="hljs-comment">/**
+            &#x5982;&#x679C;&#x8BA1;&#x7B97;&#x540E;&#x7684;&#x5750;&#x6807;&#x83B7;&#x53D6;&#x5230;&#x7684;entry&#x4E3A;null&#xFF0C;&#x5C31;new&#x4E00;&#x4E2A;Entry&#x5BF9;&#x8C61;&#x5E76;&#x4FDD;&#x5B58;&#x8FDB;&#x53BB;&#xFF0C;
+            &#x8C03;&#x7528;cleanSomeSlots()&#x5BF9;table&#x8FDB;&#x884C;&#x6E05;&#x7406;&#xFF0C;
+            &#x5982;&#x679C;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;Entry&#x88AB;&#x6E05;&#x7406;&#xFF0C;&#x5E76;&#x4E14;&#x8868;&#x7684;size&#x8D85;&#x8FC7;&#x4E86;&#x9608;&#x503C;&#xFF0C;&#x5C31;&#x4F1A;&#x8C03;&#x7528;rehash()&#x65B9;&#x6CD5;&#x3002; 
+            cleanSomeSlots()&#x4F1A;&#x8C03;&#x7528;expungeStaleEntry&#x6E05;&#x7406;&#x9648;&#x65E7;&#x8FC7;&#x65F6;&#x7684;Entry&#x3002;
+
+            */</span>
+            tab[i] = <span class="hljs-keyword">new</span> Entry(key, value);
+            <span class="hljs-keyword">int</span> sz = ++size;
+            <span class="hljs-keyword">if</span> (!cleanSomeSlots(i, sz) &amp;&amp; sz &gt;= threshold)
+                <span class="hljs-comment">/**
+                rehash &#x6E05;&#x7406;&#x6570;&#x7EC4;&#x4E2D;&#x8FC7;&#x671F;&#x7684; Entry
+&#x82E5;&#x6E05;&#x7406;&#x540E; Entry &#x7684;&#x6570;&#x91CF;&#x5927;&#x4E8E;&#x7B49;&#x4E8E; threshold &#x7684; 3/4&#xFF0C;&#x5219;&#x6267;&#x884C; resize &#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x6269;&#x5BB9;
+resize &#x65B9;&#x6CD5;&#xFF1A;Entry &#x6570;&#x7EC4;&#x6269;&#x5BB9;
+                */</span>
+                rehash();
+        }
+
+        <span class="hljs-comment">//rehash&#x5219;&#x4F1A;&#x8C03;&#x7528;expungeStaleEntries()&#x65B9;&#x6CD5;&#x6E05;&#x7406;&#x6240;&#x6709;&#x7684;&#x9648;&#x65E7;&#x7684;Entry&#xFF0C;&#x7136;&#x540E;&#x5728;size&#x5927;&#x4E8E;&#x9608;&#x503C;&#x7684;3/4&#x65F6;&#x8C03;&#x7528;resize()&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x6269;&#x5BB9;&#x3002;</span>
+        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">rehash</span><span class="hljs-params">()</span> </span>{
+            expungeStaleEntries();
+            <span class="hljs-keyword">if</span> (size &gt;= threshold - threshold / <span class="hljs-number">4</span>)
+                <span class="hljs-comment">/**
+                &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x6570;&#x7EC4;&#xFF0C;&#x957F;&#x5EA6;&#x4E3A;&#x539F;&#x6570;&#x7EC4;&#x7684; 2 &#x500D;&#xFF1B;
+&#x4ECE;&#x4E0B;&#x6807; 0 &#x5F00;&#x59CB;&#x904D;&#x5386;&#x65E7;&#x6570;&#x7EC4;&#x7684;&#x6240;&#x6709;&#x5143;&#x7D20;
+&#x82E5;&#x5143;&#x7D20;&#x5DF2;&#x8FC7;&#x671F;&#xFF08;key &#x4E3A;&#x7A7A;&#xFF09;&#xFF0C;&#x5219;&#x5C06; value &#x4E5F;&#x7F6E;&#x7A7A;
+&#x5C06;&#x672A;&#x8FC7;&#x671F;&#x7684;&#x5143;&#x7D20;&#x79FB;&#x5230;&#x65B0;&#x6570;&#x7EC4;  &#x6700;&#x540E;&#x4E00;&#x4E2A;&#x8BBE;&#x7F6E;&#x65B0;&#x7684;&#x9608;&#x503C;
+                */</span>
+                resize();
+        }
+</code></pre>
+<blockquote>
+<p> threadlocalmap&#x7684; hashcode&#x662F;&#x901A;&#x8FC7;AtomicInteger&#x52A0;&#x4E0A;0x61c88647&#x6765;&#x5B9E;&#x73B0;&#x7684;&#x3002;&#x4FDD;&#x8BC1;&#x6BCF;&#x4E00;&#x4E2A;&#x6876;&#x90FD;&#x53EF;&#x4EE5;&#x5747;&#x5300;&#x5206;&#x5E03;&#xFF0C;&#x800C;&#x4E0D;&#x4F1A;&#x51FA;&#x5806;&#x79EF;&#xFF0C;&#x56E0;&#x4E3A;&#x51B2;&#x7A81;&#x6BD4;&#x8F83;&#x5C11; &#x53C8;&#x5747;&#x5300;&#x5206;&#x5E03; &#x6240;&#x4EE5;&#x91C7;&#x7528;&#x6765; <strong>&#x7EBF;&#x6027;&#x63A2;&#x6D4B;&#x7684;&#x65B9;&#x5F0F;</strong>&#x6765; &#x89E3;&#x51B3;hash&#x51B2;&#x7A81; </p>
+</blockquote>
+<pre><code class="lang-java"><span class="hljs-comment">//&#x6BCF;&#x4E2A;&#x5BF9;&#x8C61;&#x90FD;&#x6709;&#x4E00;&#x4E2A;HashCode&#x6765;&#x6807;&#x793A;&#x81EA;&#x5DF1;&#x7684;&#x552F;&#x4E00;&#x6027;</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> HASH_INCREMENT = <span class="hljs-number">0x61c88647</span>;
+<span class="hljs-comment">//&#x539F;&#x5B50;&#x7C7B;&#x4FDD;&#x8BC1;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#xFF0C;&#x4FDD;&#x8BC1;&#x6BCF;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;hashcode&#x552F;&#x4E00;&#xFF0C;&#x5E76;&#x4E14;&#x662F;&#x9759;&#x6001;&#x7684;</span>
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">nextHashCode</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> nextHashCode.getAndAdd(HASH_INCREMENT);
+    }
+</code></pre>
+<blockquote>
+<p>&#x89E3;&#x51B3; key&#x4E3A;null &#x800C;value&#x4E0D;&#x4E3A;null&#x7684; &#x6570;&#x636E;</p>
+</blockquote>
+<p><strong>replaceStaleEntry</strong>&#x65B9;&#x6CD5;&#x548C;<strong>cleanSomeSlots</strong>&#x65B9;&#x6CD5;</p>
+<h4 id="getentry">getEntry</h4>
+<p>&gt;</p>
+<pre><code class="lang-java">  <span class="hljs-function"><span class="hljs-keyword">private</span> Entry <span class="hljs-title">getEntry</span><span class="hljs-params">(ThreadLocal&lt;?&gt; key)</span> </span>{
+      <span class="hljs-comment">//    &#x901A;&#x8FC7;&#x8BA1;&#x7B97;&#x51FA;&#x7684;&#x4E0B;&#x6807;&#x4ECE;table&#x4E2D;&#x53D6;&#x51FA;entry</span>
+            <span class="hljs-keyword">int</span> i = key.threadLocalHashCode &amp; (table.length - <span class="hljs-number">1</span>);
+            <span class="hljs-comment">// &#x83B7;&#x53D6;entry &#x6839;&#x636E;&#x4E0B;&#x6807; i &#x4ECE;table&#x4E2D;</span>
+              Entry e = table[i];
+              <span class="hljs-comment">// &#x5F53;&#x524D;&#x8BA1;&#x7B97;&#x51FA;&#x6765;&#x7684;key &#x548C; &#x67E5;&#x627E;&#x7684;key &#x76F8;&#x7B49; &#x5C31;&#x76F4;&#x63A5;&#x8FD4;&#x56DE; </span>
+            <span class="hljs-keyword">if</span> (e != <span class="hljs-keyword">null</span> &amp;&amp; e.get() == key)
+                <span class="hljs-keyword">return</span> e;
+            <span class="hljs-keyword">else</span>
+                <span class="hljs-keyword">return</span> getEntryAfterMiss(key, i, e);
+        }
+
+     <span class="hljs-function"><span class="hljs-keyword">private</span> Entry <span class="hljs-title">getEntryAfterMiss</span><span class="hljs-params">(ThreadLocal&lt;?&gt; key, <span class="hljs-keyword">int</span> i, Entry e)</span> </span>{
+            Entry[] tab = table;
+            <span class="hljs-keyword">int</span> len = tab.length;
+
+            <span class="hljs-keyword">while</span> (e != <span class="hljs-keyword">null</span>) {
+                ThreadLocal&lt;?&gt; k = e.get();
+                <span class="hljs-keyword">if</span> (k == key)
+                    <span class="hljs-comment">// &#x627E;&#x5230;&#x4E86; &#x5C31;&#x8FD4;&#x56DE;</span>
+                    <span class="hljs-keyword">return</span> e;
+                <span class="hljs-keyword">if</span> (k == <span class="hljs-keyword">null</span>)
+                    <span class="hljs-comment">// &#x89E3;&#x51B3; &#x810F;entry&#x7684;&#x95EE;&#x9898;</span>
+                    expungeStaleEntry(i);
+                <span class="hljs-keyword">else</span>
+                    <span class="hljs-comment">// &#x7EE7;&#x7EED;&#x5411;&#x540E;&#x904D;&#x5386; &#x73AF;&#x5F62;&#x67E5;&#x627E;</span>
+                    i = nextIndex(i, len);
+                e = tab[i];
+            }
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+        }
+</code></pre>
+<p>==&#x901A;&#x8FC7;nextIndex&#x5F80;&#x540E;&#x73AF;&#x5F62;&#x67E5;&#x627E;&#xFF0C;&#x5982;&#x679C;&#x627E;&#x5230;&#x548C;&#x67E5;&#x8BE2;&#x7684;key&#x76F8;&#x540C;&#x7684;entry&#x7684;&#x8BDD;&#x5C31;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#xFF0C;&#x5982;&#x679C;&#x5728;&#x67E5;&#x627E;&#x8FC7;&#x7A0B;&#x4E2D;&#x9047;&#x5230;&#x810F;entry&#x7684;&#x8BDD;&#x4F7F;&#x7528;expungeStaleEntry&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x3002;==</p>
+<h4 id="remove">remove</h4>
+<blockquote>
+<p>&#x79FB;&#x9664; ThreadLocal &#x5BF9;&#x5E94;&#x7684; Entry</p>
+<p>&#x6D41;&#x7A0B;&#xFF1A;</p>
+<ol>
+<li>&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x7684; ThreadLocalMap</li>
+<li>&#x4EE5;&#x5F53;&#x524D; ThreadLocal &#x505A;&#x4E3A; key&#xFF0C;&#x4ECE; Map &#x4E2D;&#x67E5;&#x627E;&#x76F8;&#x5E94;&#x7684; Entry&#xFF0C;&#x5C06; Entry &#x7684; key &#x7F6E;&#x7A7A;</li>
+<li>&#x5C06;&#x8BE5; ThreadLocal &#x5BF9;&#x5E94;&#x7684; Entry &#x7F6E;&#x7A7A;&#xFF0C;&#x5E76;&#x5411;&#x540E;&#x904D;&#x5386;&#x6E05;&#x7406; Entry &#x6570;&#x7EC4;&#xFF0C;&#x4E5F;&#x5C31;&#x662F; expungeStaleEntry &#x65B9;&#x6CD5;&#x7684;&#x64CD;&#x4F5C;</li>
+</ol>
+</blockquote>
+<pre><code class="lang-java"> <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">remove</span><span class="hljs-params">(ThreadLocal&lt;?&gt; key)</span> </span>{
+            Entry[] tab = table;
+            <span class="hljs-keyword">int</span> len = tab.length;
+            <span class="hljs-keyword">int</span> i = key.threadLocalHashCode &amp; (len-<span class="hljs-number">1</span>);
+            <span class="hljs-keyword">for</span> (Entry e = tab[i];
+                 e != <span class="hljs-keyword">null</span>;
+                 e = tab[i = nextIndex(i, len)]) {
+                <span class="hljs-keyword">if</span> (e.get() == key) {
+                    <span class="hljs-comment">// &#x628A; entry&#x4E2D;&#x7684; key &#x8D4B;null</span>
+                    e.clear();
+                    <span class="hljs-comment">// &#x901A;&#x8FC7;expungeStaleEntry&#xFF08;&#x6E05;&#x7406;&#x8FC7;&#x671F;&#x7684; Entry&#xFF09; &#x89E3;&#x51B3;&#x810F;entry   &#x8BA9;&#x4E0B;&#x4E00;&#x6B21;&#x7CFB;&#x7EDF;GC&#x56DE;&#x6536;</span>
+                    expungeStaleEntry(i);
+                    <span class="hljs-keyword">return</span>;
+                }
+            }
+        }
+
+<span class="hljs-comment">/**
+&#x6E05;&#x7A7A;&#x7ED9;&#x5B9A;&#x4F4D;&#x7F6E;&#x7684; Entry
+&#x4ECE;&#x7ED9;&#x5B9A;&#x4F4D;&#x7F6E;&#x7684;&#x4E0B;&#x4E00;&#x4E2A;&#x5F00;&#x59CB;&#x5411;&#x540E;&#x904D;&#x5386;&#x6570;&#x7EC4;
+&#x82E5;&#x9047;&#x5230; Entry &#x4E3A; null&#xFF0C;&#x7ED3;&#x675F;&#x904D;&#x5386;
+&#x82E5;&#x9047;&#x5230; key &#x4E3A;&#x7A7A;&#x7684; Entry&#xFF08;&#x5373;&#x8FC7;&#x671F;&#x7684;&#xFF09;&#xFF0C;&#x5C31;&#x5C06;&#x8BE5; Entry &#x7F6E;&#x7A7A;
+&#x82E5;&#x9047;&#x5230; key &#x4E0D;&#x4E3A;&#x7A7A;&#x7684; Entry&#xFF0C;&#x800C;&#x4E14;&#x7ECF;&#x8FC7;&#x8BA1;&#x7B97;&#xFF0C;&#x8BE5; Entry &#x5E76;&#x4E0D;&#x5728;&#x5B83;&#x300C;&#x5E94;&#x8BE5;&#x300D;&#x5728;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x5219;&#x5C06;&#x5176;&#x79FB;&#x52A8;&#x5230;&#x5B83;&#x300C;&#x5E94;&#x8BE5;&#x300D;&#x5728;&#x7684;&#x4F4D;&#x7F6E;
+&#x8FD4;&#x56DE; staleSlot &#x540E;&#x9762;&#x7684;&#x3001;Entry &#x4E3A; null &#x7684;&#x7D22;&#x5F15;&#x4E0B;&#x6807;
+cleanSomeSlots&#xFF1A;&#x6E05;&#x7406;&#x4E00;&#x4E9B;&#x69FD;&#xFF08;Slot&#xFF09;
+*/</span>
+<span class="hljs-comment">// staleSlot &#x8868;&#x793A;&#x8FC7;&#x671F;&#x7684;&#x69FD;&#x4F4D;&#xFF08;&#x5373; Entry &#x6570;&#x7EC4;&#x7684;&#x4E0B;&#x6807;&#xFF09;</span>
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> <span class="hljs-title">expungeStaleEntry</span><span class="hljs-params">(<span class="hljs-keyword">int</span> staleSlot)</span> </span>{
+    Entry[] tab = table;
+    <span class="hljs-keyword">int</span> len = tab.length;
+
+    <span class="hljs-comment">// 1. &#x5C06;&#x7ED9;&#x5B9A;&#x4F4D;&#x7F6E;&#x7684; Entry &#x7F6E;&#x4E3A; null</span>
+    tab[staleSlot].value = <span class="hljs-keyword">null</span>;
+    tab[staleSlot] = <span class="hljs-keyword">null</span>;
+    size--;
+
+    <span class="hljs-comment">// Rehash until we encounter null</span>
+    Entry e;
+    <span class="hljs-keyword">int</span> i;
+    <span class="hljs-comment">// &#x904D;&#x5386;&#x6570;&#x7EC4;</span>
+    <span class="hljs-keyword">for</span> (i = nextIndex(staleSlot, len);
+         (e = tab[i]) != <span class="hljs-keyword">null</span>;
+         i = nextIndex(i, len)) {
+        <span class="hljs-comment">// &#x83B7;&#x53D6; Entry &#x7684; key</span>
+        ThreadLocal&lt;?&gt; k = e.get();
+        <span class="hljs-keyword">if</span> (k == <span class="hljs-keyword">null</span>) {
+            <span class="hljs-comment">// &#x82E5; key &#x4E3A; null&#xFF0C;&#x8868;&#x793A; Entry &#x8FC7;&#x671F;&#xFF0C;&#x5C06; Entry &#x7F6E;&#x7A7A;</span>
+            e.value = <span class="hljs-keyword">null</span>;
+            tab[i] = <span class="hljs-keyword">null</span>;
+            size--;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-comment">// key &#x4E0D;&#x4E3A;&#x7A7A;&#xFF0C;&#x8868;&#x793A; Entry &#x672A;&#x8FC7;&#x671F;</span>
+            <span class="hljs-comment">// &#x8BA1;&#x7B97; key &#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x82E5; Entry &#x4E0D;&#x5728;&#x5B83;&#x300C;&#x5E94;&#x8BE5;&#x300D;&#x5728;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x628A;&#x5B83;&#x79FB;&#x5230;&#x300C;&#x5E94;&#x8BE5;&#x300D;&#x5728;&#x7684;&#x4F4D;&#x7F6E;</span>
+            <span class="hljs-keyword">int</span> h = k.threadLocalHashCode &amp; (len - <span class="hljs-number">1</span>);
+            <span class="hljs-keyword">if</span> (h != i) {
+                tab[i] = <span class="hljs-keyword">null</span>;
+               <span class="hljs-comment">//&#x626B;&#x63CF;&#x76F4;&#x5230;null&#x51FA;&#x73B0;  &#x56E0;&#x4E3A;&#x6709;&#x4E9B;entry&#x5DF2;&#x7ECF;&#x53EF;&#x80FD;&#x8FC7;&#x671F;</span>
+                <span class="hljs-keyword">while</span> (tab[h] != <span class="hljs-keyword">null</span>)
+                    h = nextIndex(h, len);
+                tab[h] = e;
+            }
+        }
+    }
+    <span class="hljs-keyword">return</span> i;
+}
+</code></pre>
+<h3 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h3>
+<ul>
+<li>set:<ul>
+<li>&#x4EE5;&#x5F53;&#x524D;&#x7684;threadlocal&#x4E3A;key&#xFF0C;&#x8981;&#x6DFB;&#x52A0;&#x7684;object&#x4E3A;value &#x7EC4;&#x6210;&#x4E00;&#x4E2A;entry&#xFF0C;&#x653E;&#x5165; threadlocalmap&#x4E2D;&#x7684;entry&#x6570;&#x7EC4;</li>
+<li>&#x8BA1;&#x7B97;entry&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x4F4D;&#x7F6E;&#x4E3A;&#x7A7A;&#x5C31; &#x76F4;&#x63A5;&#x653E;&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x5E76;&#x6E05;&#x7406;&#x810F;entry &#x7136;&#x540E;&#x6EE1;&#x8DB3;&#x6761;&#x4EF6;&#x6269;&#x5BB9;&#xFF0C;</li>
+<li>&#x5982;&#x679C;&#x6709;hash&#x51B2;&#x7A81;&#xFF0C;&#x7EBF;&#x6027;&#x63A2;&#x6D4B;&#x5411;&#x540E;&#x67E5;&#x627E;&#x6570;&#x7EC4;&#x4E2D;&#x4E3A;&#x7A7A;&#x7684;&#x3001;&#x6216;&#x8005;&#x5DF2;&#x7ECF;&#x8FC7;&#x671F;&#x7684;&#x69FD;&#xFF0C;&#x7528;&#x65B0;&#x503C;&#x66FF;&#x6362;&#x3002;</li>
+</ul>
+</li>
+<li>get:<ul>
+<li>&#x5F53;&#x524D;threadlocal&#x4E3A;key&#xFF0C;&#x4ECE;entry&#x6570;&#x7EC4;&#x4E2D;&#x67E5;&#x627E;&#x5BF9;&#x5E94;&#x7684;entry&#x7684;value</li>
+<li>&#x82E5; ThreadLocalMap &#x672A;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x5219;&#x7528;&#x7ED9;&#x5B9A;&#x521D;&#x59CB;&#x503C;&#x5C06;&#x5176;&#x521D;&#x59CB;&#x5316;</li>
+<li>&#x82E5; ThreadLocalMap &#x5DF2;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x4ECE; Entry &#x6570;&#x7EC4;&#x67E5;&#x627E; key</li>
+</ul>
+</li>
+<li>remove:<ul>
+<li>&#x4EE5;&#x5F53;&#x524D; ThreadLocal &#x4E3A; key&#xFF0C;&#x4ECE; Entry &#x6570;&#x7EC4;&#x6E05;&#x7406;&#x6389;&#x5BF9;&#x5E94;&#x7684; Entry&#xFF0C;&#x5E76;&#x4E14;&#x518D;&#x6E05;&#x7406;&#x8BE5;&#x4F4D;&#x7F6E;&#x540E;&#x9762;&#x7684;&#x3001;&#x8FC7;&#x671F;&#x7684; Entry</li>
+</ul>
+</li>
+<li>&#x6BCF;&#x4E00;&#x6B65;&#x90FD;&#x5728;&#x4E3A;&#x9632;&#x6B62;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x505A;&#x52AA;&#x529B;</li>
+</ul>
+<h2 id="&#x5185;&#x5B58;&#x6CC4;&#x6F0F;">&#x5185;&#x5B58;&#x6CC4;&#x6F0F;</h2>
+<blockquote>
+<p>entry &#x7EE7;&#x627F;&#x4E86; WeakReference  &#x5B83;&#x662F;&#x4E00;&#x4E2A;<strong>&#x5F31;&#x5F15;&#x7528;</strong>&#x7C7B;&#x578B;&#xFF0C;&#x8FD9;&#x8868;&#x793A;&#x5F53;&#x7CFB;&#x7EDF;GC&#x65F6; &#x5C31;&#x4F1A;&#x88AB;&#x56DE;&#x6536;&#xFF08;&#x5F31;&#x5F15;&#x7528;&#xFF0C;&#x751F;&#x547D;&#x5468;&#x671F;&#x53EA;&#x80FD;&#x5B58;&#x6D3B;&#x5230;&#x4E0B;&#x6B21;GC&#x524D;&#xFF09;</p>
+<p>&#x800C;&#x8FD9;&#x4E0D;&#x662F;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x5F97;&#x5230;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x53EF;&#x80FD;&#x5BFC;&#x81F4; threadlocalmap&#x4E2D;&#x7684;key&#x4E3A;null&#xFF0C;&#x5C31;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x8FD9;&#x4E9B;key&#x4E3A;null&#x7684;value</p>
+<p>key&#x662F;&#x5F31;&#x5F15;&#x7528;&#xFF0C;value&#x5E76;&#x4E0D;&#x662F;&#x5F31;&#x5F15;&#x7528;</p>
+</blockquote>
+<p><img src="https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20201124123631932.png" alt="image-20201124123631932" style="zoom: 80%;"></p>
+<p>&#x4E0A;&#x9762;&#x56FE;&#x89E3;&#x91CA;&#xFF1A;</p>
+<ul>
+<li>1.ThreadLocal Ref &#x5728;&#x6808;&#x4E2D;&#x6301;&#x6709; Thread Local&#x7684;&#x4E00;&#x4E2A;&#x5F3A;&#x5F15;&#x7528;&#xFF0C; ThreadLocalMap&#x6709;&#x4E00;&#x4E2A; ThreadLocal&#x7684;&#x5F31;&#x5F15;&#x7528;</li>
+<li>2.Thread &#x6301;&#x6709;&#x4E00;&#x4E2A; ThreadLocalMap&#x7684;&#x4E00;&#x4E2A;&#x5F3A;&#x5F15;&#x7528;</li>
+</ul>
+<p>&#x60C5;&#x51B5;1&#xFF1A;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#xFF0C;&#x7EBF;&#x7A0B;&#x6B63;&#x5E38;&#x6B7B;&#x4EA1;&#xFF0C; &#x5F3A;&#x5F15;&#x7528;&#x65AD;&#x5F00;&#xFF0C;&#x5F31;&#x5F15;&#x7528;&#x5728;GC&#x65F6;&#x65AD;&#x5F00; &#x56DE;&#x6536; &#xFF0C;&#x4E0D;&#x5B58;&#x5728;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;</p>
+<p>&#x60C5;&#x51B5;2&#xFF1A;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x7EBF;&#x7A0B;&#x6C60;&#xFF0C;&#x7EBF;&#x7A0B;&#x4E00;&#x76F4;&#x5B58;&#x6D3B;&#xFF0C;&#x9700;&#x8981;&#x6211;&#x4EEC;&#x53BB;&#x5904;&#x7406;&#x810F;entry &#x6BD4;&#x5982;&#x7ED3;&#x675F;&#x524D;&#x8C03;&#x7528;remove&#x65B9;&#x6CD5;&#x7B49;</p>
+<p>&#x5728;threadlocalmap&#x6E90;&#x7801;&#x4E2D; &#x6709;&#x5F88;&#x591A;&#x65B9;&#x6CD5;&#x90FD;&#x4F1A;&#x53BB;&#x5904;&#x7406;&#x810F;entry&#xFF0C;&#x5982; cleanSomeSlots(), expungeStaleEntry(),replaceStaleEntry&#xFF0C;&#x8FD8;&#x6709; Thread&#x7684;&#x65B9;&#x6CD5; Thread.exit()</p>
+<ul>
+<li>&#x88AB;&#x5E9F;&#x5F03;&#x4E86;&#x7684;ThreadLocal&#x6240;&#x7ED1;&#x5B9A;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x4F1A;&#x5728;&#x4EE5;&#x4E0B;4&#x60C5;&#x51B5;&#x88AB;&#x6E05;&#x7406;&#x3002;<ol>
+<li>Thread&#x6267;&#x884C;&#x7ED3;&#x675F;&#x65F6;&#x3002;</li>
+<li>&#x5F53;Thread&#x7684;ThreadLocalMap&#x7684;threshold&#x8D85;&#x8FC7;&#x6700;&#x5927;&#x503C;&#x65F6;&#x3002;rehash</li>
+<li>&#x5411;Thread&#x7684;ThreadLocalMap&#x4E2D;&#x5B58;&#x653E;&#x4E00;&#x4E2A;ThreadLocal&#xFF0C;hash&#x7B97;&#x6CD5;&#x6CA1;&#x6709;&#x547D;&#x4E2D;&#x65E2;&#x6709;Entry,&#x800C;&#x9700;&#x8981;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;Entry&#x65F6;&#x3002;</li>
+<li>&#x624B;&#x5DE5;&#x901A;&#x8FC7;ThreadLocal&#x7684;remove()&#x65B9;&#x6CD5;&#x6216;set(null)&#x3002;</li>
+<li>&#x5728;&#x4F7F;&#x7528;&#x7EBF;&#x7A0B;&#x6C60;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6CA1;&#x6709;&#x53CA;&#x65F6;&#x6E05;&#x7406;ThreadLocal&#xFF0C;&#x4E0D;&#x4EC5;&#x662F;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x66F4;&#x4E25;&#x91CD;&#x7684;&#x662F;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x51FA;&#x73B0;&#x95EE;&#x9898;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x4F7F;&#x7528;ThreadLocal&#x5C31;&#x8DDF;&#x52A0;&#x9501;&#x5B8C;&#x8981;&#x89E3;&#x9501;&#x4E00;&#x6837;&#xFF0C;&#x7528;&#x5B8C;&#x5C31;&#x6E05;&#x7406;&#x3002;</li>
+</ol>
+</li>
+</ul>
+<p>==&#x4E3A;&#x4EC0;&#x4E48;&#x4F7F;&#x7528;&#x5F31;&#x5F15;&#x7528;&#xFF0C;&#x4F7F;&#x7528;&#x5F31;&#x5F15;&#x7528;&#x4F1A;&#x5C3D;&#x53EF;&#x80FD;&#x5728;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E2D;&#x9632;&#x6B62;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#xFF0C;&#x5982;&#x679C;&#x5F3A;&#x5F15;&#x7528;&#x5C31;&#x4F1A;&#x51FA;&#x73B0; GC&#x65F6;ThreadLocalMap&#x4FDD;&#x5B58;ThreadLocal&#x7684;&#x5F3A;&#x5F15;&#x7528;==</p>
+<ul>
+<li>key &#x4F7F;&#x7528;&#x5F31;&#x5F15;&#x7528;&#xFF1A;&#x5F15;&#x7528;&#x7684;ThreadLocal&#x7684;&#x5BF9;&#x8C61;&#x88AB;&#x56DE;&#x6536;&#x4E86;&#xFF0C;&#x7531;&#x4E8E;ThreadLocalMap&#x6301;&#x6709;ThreadLocal&#x7684;&#x5F31;&#x5F15;&#x7528;&#xFF0C;&#x5373;&#x4F7F;&#x6CA1;&#x6709;&#x624B;&#x52A8;&#x5220;&#x9664;&#xFF0C;ThreadLocal&#x4E5F;&#x4F1A;&#x88AB;&#x56DE;&#x6536;&#x3002;value&#x5728;&#x4E0B;&#x4E00;&#x6B21;ThreadLocalMap&#x8C03;&#x7528;set,get&#xFF0C;remove&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x88AB;&#x6E05;&#x9664;&#x3002;</li>
+</ul>
+<h2 id="&#x89E3;&#x51B3;hash&#x51B2;&#x7A81;">&#x89E3;&#x51B3;hash&#x51B2;&#x7A81;</h2>
+<blockquote>
+<p>&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x6563;&#x5217;&#x51B2;&#x7A81;&#xFF0C;&#x4E3B;&#x8981;&#x91C7;&#x7528;&#x4E0B;&#x9762;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#xFF1A; <strong>&#x5206;&#x79BB;&#x94FE;&#x8868;&#x6CD5;</strong>&#xFF08;separate chaining&#xFF09;&#x548C;<strong>&#x5F00;&#x653E;&#x5B9A;&#x5740;&#x6CD5;</strong>&#xFF08;open addressing&#xFF09;</p>
+</blockquote>
+<p><code>http://www.nowamagic.net/academy/detail/3008050</code></p>
+<p><code>http://www.nowamagic.net/academy/detail/3008060</code></p>
+<blockquote>
+<p><strong><code>ThreadLocalMap</code> &#x91C7;&#x7528;&#x7EBF;&#x6027;&#x63A2;&#x6D4B;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x89E3;&#x51B3; Hash &#x51B2;&#x7A81;</strong>&#x3002;&#x6240;&#x8C13;&#x7EBF;&#x6027;&#x63A2;&#x6D4B;&#xFF0C;&#x5C31;&#x662F;&#x6839;&#x636E;&#x521D;&#x59CB; key &#x7684; hashcode &#x503C;&#x786E;&#x5B9A;&#x5143;&#x7D20;&#x5728; table &#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x5982;&#x679C;&#x53D1;&#x73B0;&#x8FD9;&#x4E2A;&#x4F4D;&#x7F6E;&#x4E0A;&#x5DF2;&#x7ECF;&#x88AB;&#x5176;&#x4ED6;&#x7684; key &#x503C;&#x5360;&#x7528;&#xFF0C;&#x5219;&#x5229;&#x7528;&#x56FA;&#x5B9A;&#x7684;&#x7B97;&#x6CD5;&#x5BFB;&#x627E;&#x4E00;&#x5B9A;&#x6B65;&#x957F;&#x7684;&#x4E0B;&#x4E2A;&#x4F4D;&#x7F6E;&#xFF0C;&#x4F9D;&#x6B21;&#x5224;&#x65AD;&#xFF0C;&#x76F4;&#x81F3;&#x627E;&#x5230;&#x80FD;&#x591F;&#x5B58;&#x653E;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</p>
+<p>&#x5982;&#x4E0B;&#x6807; i &#x6709;&#x503C; &#x5C31;&#x5BFB;&#x627E;i+1 &#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x4F9D;&#x6B21;&#x5F80;&#x4E0B;</p>
+<p>hashmap&#x548C;threadlocalmap &#x4E00;&#x4E2A;&#x5B9E;&#x73B0;map&#x63A5;&#x53E3; &#x4E00;&#x4E2A;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;</p>
+</blockquote>
+<pre><code class="lang-java">    <span class="hljs-comment">/**
+         * Increment i modulo len.
+         */</span>
+        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">nextIndex</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> len)</span> </span>{
+            <span class="hljs-keyword">return</span> ((i + <span class="hljs-number">1</span> &lt; len) ? i + <span class="hljs-number">1</span> : <span class="hljs-number">0</span>);
+        }
+
+        <span class="hljs-comment">/**
+         * Decrement i modulo len.
+         */</span>
+        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">prevIndex</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> len)</span> </span>{
+            <span class="hljs-keyword">return</span> ((i - <span class="hljs-number">1</span> &gt;= <span class="hljs-number">0</span>) ? i - <span class="hljs-number">1</span> : len - <span class="hljs-number">1</span>);
+        }
+</code></pre>
+<p>==ThreadLocalMap&#x89E3;&#x51B3;Hash&#x51B2;&#x7A81;&#x7684;&#x65B9;&#x5F0F;&#x5C31;&#x662F;&#x7B80;&#x5355;&#x7684;&#x6B65;&#x957F;&#x52A0;1&#x6216;&#x51CF;1&#xFF0C;&#x5BFB;&#x627E;&#x4E0B;&#x4E00;&#x4E2A;&#x76F8;&#x90BB;&#x7684;&#x4F4D;&#x7F6E;&#x3002;==</p>
+<blockquote>
+<p>&#x89E3;&#x51B3;&#x5EFA;&#x8BAE;&#xFF1A;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x5B58;&#x4E00;&#x4E2A;threadlocal&#x53D8;&#x91CF;</p>
+</blockquote>
+<h2 id="&#x4F7F;&#x7528;&#x573A;&#x666F;">&#x4F7F;&#x7528;&#x573A;&#x666F;</h2>
+<p><strong>ThreadLocal &#x4E0D;&#x662F;&#x7528;&#x6765;&#x89E3;&#x51B3;&#x5171;&#x4EAB;&#x5BF9;&#x8C61;&#x7684;&#x591A;&#x7EBF;&#x7A0B;&#x8BBF;&#x95EE;&#x95EE;&#x9898;&#x7684;</strong>&#xFF0C;&#x6570;&#x636E;&#x5B9E;&#x8D28;&#x4E0A;&#x662F;&#x653E;&#x5728;&#x6BCF;&#x4E2A;thread&#x5B9E;&#x4F8B;&#x5F15;&#x7528;&#x7684;threadLocalMap,&#x4E5F;&#x5C31;&#x662F;&#x8BF4;<strong>&#x6BCF;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x7EBF;&#x7A0B;&#x90FD;&#x62E5;&#x6709;&#x4E13;&#x5C5E;&#x4E8E;&#x81EA;&#x5DF1;&#x7684;&#x6570;&#x636E;&#x5BB9;&#x5668;</strong></p>
+<p>threadLocal&#x9002;&#x7528;&#x4E8E; <strong>&#x5171;&#x4EAB;&#x5BF9;&#x8C61;&#x4F1A;&#x9020;&#x6210;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;</strong> &#x7684;&#x4E1A;&#x52A1;&#x573A;&#x666F;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x5F00;&#x53D1;&#x8005;&#x5E0C;&#x671B;&#x5C06;&#x7C7B;&#x7684;&#x67D0;&#x4E2A;&#x9759;&#x6001;&#x53D8;&#x91CF;&#xFF08;user ID&#x6216;&#x8005;transaction ID&#xFF09;&#x4E0E;&#x7EBF;&#x7A0B;&#x72B6;&#x6001;&#x5173; &#x8054;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x4F7F;&#x2F64;ThreadLocal&#x3002; </p>
+<p>&#x6700;&#x5E38;&#x2EC5;&#x7684;ThreadLocal&#x4F7F;&#x2F64;&#x573A;&#x666F;&#x4E3A;&#x2F64;&#x6765;&#x89E3;&#x51B3;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#x3001;Session&#x7BA1;&#x7406;&#x7B49;&#x3002;&#x6570;&#x636E;&#x5E93;&#x8FDE; &#x63A5;&#x548C;Session&#x7BA1;&#x7406;&#x6D89;&#x53CA;&#x591A;&#x4E2A;&#x590D;&#x6742;&#x5BF9;&#x8C61;&#x7684;&#x521D;&#x59CB;&#x5316;&#x548C;&#x5173;&#x95ED;&#x3002;&#x5982;&#x679C;&#x5728;&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x4E2D;&#x58F0;&#x660E;&#x2F00;&#x4E9B; &#x79C1;&#x6709;&#x53D8;&#x91CF;&#x6765;&#x8FDB;&#x2F8F;&#x64CD;&#x4F5C;&#xFF0C;&#x90A3;&#x8FD9;&#x4E2A;&#x7EBF;&#x7A0B;&#x5C31;&#x53D8;&#x5F97;&#x4E0D;&#x90A3;&#x4E48;&#x201C;&#x8F7B;&#x91CF;&#x201D;&#x4E86;&#xFF0C;&#x9700;&#x8981;&#x9891;&#x7E41;&#x7684;&#x521B;&#x5EFA;&#x548C;&#x5173;&#x95ED; &#x8FDE;&#x63A5;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="java多线程12-final关键字分析.html" class="navigation navigation-prev " aria-label="Previous page: java多线程12-final关键字分析">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="java多线程14-lock体系结构.html" class="navigation navigation-next " aria-label="Next page: java多线程14-lock体系结构">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"java多线程13-ThreadLocal的使用","level":"1.3.8.5","depth":3,"next":{"title":"java多线程14-lock体系结构","level":"1.3.8.6","depth":3,"path":"Java/多线程/java多线程14-lock体系结构.md","ref":"Java/多线程/java多线程14-lock体系结构.md","articles":[]},"previous":{"title":"java多线程12-final关键字分析","level":"1.3.8.4","depth":3,"path":"Java/多线程/java多线程12-final关键字分析.md","ref":"Java/多线程/java多线程12-final关键字分析.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Java/多线程/java多线程13-ThreadLocal的使用.md","mtime":"2021-06-06T07:04:39.070Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-11T04:20:00.388Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
