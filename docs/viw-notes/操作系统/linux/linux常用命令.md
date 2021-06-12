@@ -1,5 +1,10 @@
-[TOC]
-## 1.对文件，目录的操作
+## 
+
+
+
+# 1.对文件，目录的操作
+
+
 
 - 更改文件名 
 - 查看npm路径. 可通过命令 npm config get prefix 查看 npm 安装路径（npm config set prefix 可设置 npm 安装路径）； 
@@ -21,27 +26,41 @@
 - 复制一个目录   cp -a [目录1] [目录2]
 - chmod [R] 模式 文件
 
-### 1.1 vi编辑
+
+
+## 1.1 vi编辑
 - vim [文件名]
 - 进入后按i 进行编辑-->按ESC-->输入`wq!`保存退出
 - vi [文件名]
 
-### 1.2 cat
+
+
+## 1.2 cat
+
 - cat [参数] 文件名
 - 1.一次显示整个文件。$ cat filename
 - 2.从键盘创建一个文件。$ cat > filename   只能创建新文件,不能编辑已有文件.  在用cat > linuxyw.com时，用到>符号，这个符号是重定向的意思，会覆盖原来文件的内容，没有文件时会自动创建。如果用>>符号，即表进追加内容，不会覆盖原文件内容，只会在原文件内容下面追加你所输入的内容。
 - 3.将几个文件合并为一个文件： $cat file1 file2 > file
 
-### 1.3 日志
 
-### 1.4本机配置
+
+## 1.3 日志
+
+- `tail -200f xxxx`
+
+
+
+## 1.4本机配置
+
 - `uname -r` 
 - `yum update`升级软件包..
 - `yum -y install wget` 安装wget
 - `lsb_release -a` 查看系统信息 如果命令提示未找到，  `yum install -y redhat-lsb`
 - `cat /etc/redhat-release` 查看系统版本 或者 `cat /etc/issue`
 
-### 1.5防火墙
+
+
+## 1.5防火墙
 
 `service firewalld status`查看防火墙状态
 `systemctl stop firewalld` 关闭防火墙
@@ -52,7 +71,10 @@
 `systemctl disable firewalld`禁止开机启动
 `lsof -i :port`，使用lsof -i :port就能看见所指定端口运行的程序，同时还有当前连接。
 
-### 1.6 端口信息
+
+
+## 1.6 端口信息
+
 查看目前所有端口 `netstat -ntlp`
 
 查看80端口使用情况 `netstat -ntulp | grep 80`
@@ -67,7 +89,7 @@
 
 
 
-### 1.7 查看进程内存命令
+## 1.7 查看进程内存命令
 - `ps`查看当前终端下的命令
 
 - `htop` 查看内存信息，
@@ -90,12 +112,10 @@
       　　TIME+：该进程启动后占用的总的CPU时间，即占用CPU使用时间的累加值。
       　　COMMAND：进程启动命令名称
      ```
-    ```
-
-    ```
+  ​
 
 
-### 1.8 切换文件目录的所有者用户组和权限
+## 1.8 切换文件目录的所有者用户组和权限
 
 ```shell
 chown 用户名:用户组 文件名
@@ -105,7 +125,7 @@ chown -R 用户名:用户组 文件名
 
 
 
-### 1.9  查找文件
+## 1.9  查找文件
 
 ```
 find /etc -name xxx  按键文件名在etc下面查找
@@ -114,14 +134,14 @@ find / -amin -10  查找在系统中最后10分钟访问的文件
 
 
 
-### 2.0 ip网络相关
+## 2.0 ip网络相关
 
 - mac查看ip， `ifconfig en0`
 - ​
 
 
 
-## 2.Linux中docker的使用命令
+# 2.Linux中docker的使用命令
 - 查看正运行的容器 `docker ps`
 - 查看所有容器  `docker ps -a`
 - 启动容器 `docke start [CONTAINER]`
@@ -130,11 +150,11 @@ find / -amin -10  查找在系统中最后10分钟访问的文件
 - 复制 如：`docker cp [文件名或文件所在路径] typecho-blog:/data/themes`
 - 查看本机上的镜像 `docker images`
 - 查看docker容器网关 `ip addr`
-- docker run -d -p [端口] [id] --name [自定义名字]
+- docker run -d -p [端口][id] --name [自定义名字]
 
 
 
-## 3.linux 文件权限
+# 3.linux 文件权限
 
 > 通过 `chmox` 可以设置文件权限 ； 两种方式
 >
@@ -180,7 +200,7 @@ find / -amin -10  查找在系统中最后10分钟访问的文件
 >
 > 
 
-## 4. linux 历史命令
+# 4. linux 历史命令
 
 > 查看历史输入的命令
 
