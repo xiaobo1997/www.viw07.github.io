@@ -1,0 +1,67 @@
+[TOC]
+
+
+
+# 反射
+
+## 概念
+
+
+
+反射是一种功能强大且复杂的机制。 使用它的主要人员是工具构造者，而不是应用程序员(额。。)
+
+> 说一下反射的作用：
+>
+> •在运行时分析类的能力。 
+>
+> •在运行时查看对象， 例如， 编写一个 toString 方法供所有类使用。 
+>
+> •实现通用的数组操作代码。 
+>
+> •利用 Method 对象， 
+
+
+
+## 反射的场景
+
+
+
+## 反射的优缺点
+
+
+
+## 反射的机制
+
+
+
+## 反射的使用
+
+
+
+### 反射获取类的私有方法
+
+```java
+public class Test{
+  private String name;
+  private void test{
+    System.out.println("Test的私有方法");
+  }
+}
+```
+
+```java
+public Class RefTest{
+  public static void main(String[] args) throws Exception{
+     Class clazz = Class.forName("Test");
+    Object test  = clazz.newInstance();
+    Method method = class.getDeclaredMethod("test");
+    method.setAccessible(true);
+    method.invoke(test);
+  }
+}
+```
+
+
+
+
+
