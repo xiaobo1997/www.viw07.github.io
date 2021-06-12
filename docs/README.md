@@ -18,7 +18,7 @@ https://gitee.com/xiaobo97/simple-viw-front front project
 
 
 
-## 目录:one:
+## 目录
 
 - [x] [Java](Java)
   - [x] [多线程](viw-notes/Java/多线程)
