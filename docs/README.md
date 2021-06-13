@@ -16,7 +16,7 @@
 
 [viw-front-project](https://gitee.com/xiaobo97/simple-viw-front)  gitee front project
 
-[blog](www.xiaobo.life)
+[blog](http://www.xiaobo.life/)  blog
 
 
 
