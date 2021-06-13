@@ -2,9 +2,9 @@
 
 
 
-## IO模型
+# IO模型
 
-1.阻塞IO  nio
+1.阻塞IO  bio
 
 ![image-20210507201305104](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20210507201305104.png)
 
@@ -38,11 +38,89 @@
 
 
 
-## 三大组件
+
+
+# java-io演变
 
 
 
-### channel
+## bio
+
+> 同步阻塞Io
+>
+> 一个连接一个线程
+
+![img](https://pic3.zhimg.com/80/v2-73aad0f67337a85c287ed77c68d1b6de_720w.jpg)
+
+
+
+
+
+## nio
+
+> 同步非阻塞
+>
+> 一个线程处理多个请求，客户端的所有请求被接收并注册到选择器上(多路复用器)，然后去轮询是否有io操作，再去处理
+
+![image-20210614020436425](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20210614020436425.png)
+
+
+
+## aio(nio-2.0)
+
+> 异步非阻塞，在jdk1.7后出现
+>
+> 通过future异步思想 去主线程等待时间
+
+
+
+![](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/20210508102111.png)
+
+# nio
+
+
+
+## 简单介绍
+
+
+
+
+
+下图片来自 `https://jishuin.proginn.com/p/763bfbd2a16d` 作者链接为https://jishuin.proginn.com/u/466023
+
+<img src="https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/20210614014908.png" style="zoom: 50%;" />
+
+
+
+下图来自 `https://www.cnblogs.com/xiangpeng/p/10233108.html` 作者为 [怡安](https://home.cnblogs.com/u/xiangpeng/)
+
+<img src="https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/20210614015041.png" style="zoom:50%;" />
+
+
+
+
+
+<img src="https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/20210508015706.png" style="zoom: 33%;" />
+
+
+
+> 找了下图片，有了图片还是好理解点，然后是nio一个概念,围绕的也是nio的三大组件，也是netty的基础
+>
+> 三大组件围绕 通道，缓冲区，选择器，有阻塞和非阻塞两种方式
+>
+> 大概过程就是 一个线程去维护选择器，客户端socket会注册等选择器中，然后选择器会去轮询 哪一个连接有io操作，如果有 就出线程池分配线程去处理，如果可以写入缓冲区，也可以从缓冲区读，也就是发送数据和接收数据通过buffer中转，nio是面向缓冲区的概念的。
+
+
+
+- java nio是非阻塞io，传统io在读写数据是阻塞的，当前线程不能做其他事情，nio 可以在等待数据的过程中去询问是否准备完毕，没有就可以去做其他事情。本质上在用户态和内核态复制数据是同步的。
+
+
+
+# 三大组件
+
+
+
+## channel
 
 channel 是双向，就可以输入数据也可以输出数据
 
@@ -50,7 +128,7 @@ channel 是双向，就可以输入数据也可以输出数据
 
 
 
-### buffer
+## buffer
 
 内存缓冲区，用户 和 内核 的之间缓冲区 channel的输入输出数据先放缓冲区
 
@@ -58,7 +136,7 @@ channel 是双向，就可以输入数据也可以输出数据
 
 
 
-### select
+## select
 
 1.select的演变
 
@@ -78,7 +156,7 @@ channel 是双向，就可以输入数据也可以输出数据
 
 
 
-### 零拷贝
+## 零拷贝
 
 
 

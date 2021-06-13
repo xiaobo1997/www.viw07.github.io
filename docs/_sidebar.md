@@ -24,14 +24,15 @@
   - java-BIO
     - [BIO-01](./viw-notes/Java/java-BIO/BIO-01.md)
     - [BIO-02](./viw-notes/Java/java-BIO/BIO-02.md)
-    - [java-IO2-序列化](./viw-notes/Java/java-BIO/java-IO2-序列化.md)
+    - [BIO-03即时通讯思路](./viw-notes/Java/java-BIO/BIO-03即时通讯思路.md)
+    - [序列化](./viw-notes/Java/java-BIO/序列化.md)
   - java-NIO
-    - [javaNIO1-IO模型结构](./viw-notes/Java/java-NIO/javaNIO1-IO模型结构.md)
-    - [javaNIO2-通道channel](./viw-notes/Java/java-NIO/javaNIO2-通道channel.md)
-    - [javaNIO3-缓冲区buffer](./viw-notes/Java/java-NIO/javaNIO3-缓冲区buffer.md)
-    - [javaNIO4-选择器selector](./viw-notes/Java/java-NIO/javaNIO4-选择器selector.md)
-    - [javaNIO5-FileChannel](./viw-notes/Java/java-NIO/javaNIO5-FileChannel.md)
-    - [JavaNIO6-socketchannel](./viw-notes/Java/java-NIO/JavaNIO6-socketchannel.md)
+    - [NIO1-IO模型结构和基础](./viw-notes/Java/java-NIO/NIO1-IO模型结构和基础.md)
+    - [NIO2-通道channel](./viw-notes/Java/java-NIO/NIO2-通道channel.md)
+    - [NIO3-缓冲区buffer](./viw-notes/Java/java-NIO/NIO3-缓冲区buffer.md)
+    - [NIO4-选择器selector](./viw-notes/Java/java-NIO/NIO4-选择器selector.md)
+    - [NIO5-FileChannel](./viw-notes/Java/java-NIO/NIO5-FileChannel.md)
+    - [NIO6-socketchannel](./viw-notes/Java/java-NIO/NIO6-socketchannel.md)
   - JMM
     - [java内存模型1-内存划分和交互操作](./viw-notes/Java/JMM/java内存模型1-内存划分和交互操作.md)
     - [java内存模型2-内存模型特性和先行发生原则](./viw-notes/Java/JMM/java内存模型2-内存模型特性和先行发生原则.md)
