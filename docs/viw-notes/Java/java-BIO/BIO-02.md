@@ -28,7 +28,7 @@
 
 
 
-## 单收发消息-server socket和 client socket
+## 单server 和 client 
 
 
 
@@ -105,7 +105,7 @@ public class MyClient01 {
 
 
 
-## 单客户端-多收发消息
+## 单client-多收发
 
 
 
@@ -194,7 +194,7 @@ public class MyClient01 {
 
 > 传统bio 一个线程去处理一个客户端的socket连接。
 >
-> 会有一个server处理多个客户端的情况。就需要多个线程去处理，
+> 会有一个server处理多个客户端的情况。就需要多个线程去处理，一个线程处理一个socket连接
 
 
 
