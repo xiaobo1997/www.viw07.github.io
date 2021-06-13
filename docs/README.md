@@ -1,60 +1,66 @@
-#  viv-notes🍭
+#  :rainbow_flag:viv-notes🍭 
 
-## 简介💻⌨🖱
+## 💻⌨🖱简介 
 
-- 简单记录
+- 简单记录下 :boy:
 - 日常的，看视频的，书上的，看各个论坛上的，百度的，谷歌的，记录下。 ⚽📚💻⌨🖱
 - gitee转github，面向面试和百度谷歌学习
 
-https://gitee.com/xiaobo97/viw-simple-lab example-lab-project
+[viw-simple-lab](https://gitee.com/xiaobo97/viw-simple-lab)  gitee example-lab-project
 
-https://gitee.com/xiaobo97/viv-notes 
+[viv-notes](https://gitee.com/xiaobo97/viv-notes)  和当前repo 差不多，少了一些脑图
 
-https://gitee.com/xiaobo97/viw-leetcode leetcode=>当前仓库剑指offer下(基本做不出来就直接看答案)。
+[leetcode](https://gitee.com/xiaobo97/viw-leetcode) 以前是单独一个仓库=>当前仓库剑指offer下(基本做不出来就直接看答案了)
 
-https://gitee.com/xiaobo97/simple-viw-web end project
+[viw-end-project](https://gitee.com/xiaobo97/simple-viw-web)  gitee end project
 
-https://gitee.com/xiaobo97/simple-viw-front front project
+[viw-front-project](https://gitee.com/xiaobo97/simple-viw-front)  gitee front project
+
+[blog](www.xiaobo.life)
 
 
 
-## 目录
+## :books:简单目录
 
-- [x] [Java](Java)
-  - [x] [多线程](viw-notes/Java/多线程)
-  - [x] [Java零散基础知识](Java/Java零散基础知识)
-  - [x] [Java8特性学习](Java/Java8特性学习)
-  - [x] [java-IO](Java/java-IO)
-  - [x] [JVM](Java/JVM的学习)
-  - [x] [并发编程](Java/并发编程)
-  - [x] [集合](Java/集合)
-  - [x] [工具和其他小问题方面](Java/日志&工具&小问题等)
-  - [x] [网络编程](Java/网络编程)
-  - [x] [源码学习](Java/源码学习)
-  - [x] [JMM](Java/JMM内存模型的学习)
+- [ ] [Java](Java)
+  - [ ] [多线程](viw-notes/Java/多线程)
+  - [ ] [零散知识](Java/Java零散基础知识)
+  - [ ] [java-IO](Java/java-IO)
+  - [ ] [JVM](Java/JVM的学习)
+  - [ ] [并发编程](Java/并发编程)
+  - [ ] [集合](Java/集合)
+  - [ ] [工具和其它小问题](Java/日志&工具&小问题等)
+  - [ ] [网络编程](Java/网络编程)
+  - [ ] [源码学习](Java/源码学习)
+  - [ ] [JMM](Java/JMM内存模型的学习)
   - [ ] [nio](Java/java-NIO)
-- [x] [spring全家桶](spring全家桶)
-- [x] [spring]()
-- [x] [springmvc]()
-- [x] [springboot]()
-- [x] [springcloud]()
-- [x] [springcloud-alibaba]()
+  - [ ] [bio]()
+  - [ ] [java8]()
+  - [ ] [java9]()
+  - [ ] [java11]()
+- [ ] [spring全家桶](spring全家桶)
+- [ ] [spring]()
+- [ ] [springmvc]()
+- [ ] [springboot]()
+- [ ] [springcloud]()
+- [ ] [springcloud-alibaba]()
 - [ ] [Mybatis-plus]()
 - [ ] [Spring-jpa]()
-- [x] [tools](tools)
+- [ ] [tools](tools)
   - [ ] [ETL](tools/ETL)
-  - [x] [git](tools/Git)
+  - [ ] [git](tools/Git)
   - [ ] [gradle](tools/gradle)
-  - [ ] [idea+eclipse](tools/IDEA+Eclipse)
-  - [x] [maven](tools/maven)
+  - [ ] [idea+vscode](tools/IDEA+Eclipse)
+  - [ ] [maven](tools/maven)
   - [ ] [环境](tools/环境)
   - [ ] [其他工具](tools/其他工具)
 - [ ] [安全](安全)
   - [ ] [服务器安全](安全/服务器安全)
-  - [x] [加密解密](安全/加密解密)
+  - [ ] [加密解密](安全/加密解密)
   - [ ] [数据库安全](安全/数据库安全)
+  - [ ] [网络安全]()
 - [ ] [操作系统](操作系统)
-  - [x] [linux](操作系统/linux)
+  - [ ] [linux](操作系统/linux)
   - [ ] [计算机方面](操作系统/计算机方面)
 - [ ] [后端知识](后端知识)
   - [ ] [dubbo方面](后端知识/dubbo)
@@ -93,23 +99,27 @@ https://gitee.com/xiaobo97/simple-viw-front front project
   - [ ] [JS方面](前端知识/JavaScript基础和学习)
   - [ ] [JQuery](前端知识/JQuery)
   - [ ] [VUE](前端知识/VUE)
-- [x] [数据结构和算法](数据结构和算法基础)
+  - [ ] [小程序]()
+  - [ ] [node]()
+- [ ] [数据结构和算法](数据结构和算法基础)
   - [ ] [剑指offer](数据结构和算法基础/剑指offer)
     - [ ] [剑指简单](数据结构和算法基础/剑指offer/简单.md)
     - [ ] [剑指中等](数据结构和算法基础/剑指offer/中等.md)
     - [ ] [leetcode热选100+精选200](数据结构和算法基础/剑指offer/leetcode热选100+精选200.md)
     - [ ] [高频简单和中等](数据结构和算法基础/剑指offer/高频简单和中等.md)
   - [ ] [leetcode](数据结构和算法基础/leetcode)
-- [x] [数据库方面](数据库)
-- [x] [db2](数据库/DB2)
-- [x] [MySQL](数据库/MySQL)
-- [x] [mongdb]()
-- [x] [oracle]()
-- [x] [tidb]()
-- [ ] [cicd方面devops方面]()
+- [ ] [数据库方面](数据库)
+- [ ] [db2](数据库/DB2)
+- [ ] [MySQL](数据库/MySQL)
+- [ ] [mongdb]()
+- [ ] [oracle]()
+- [ ] [tidb]()
+- [ ] [云原生cicd&devops相关]()
 - [ ] [k8s]()
 - [ ] [docker]()
 - [ ] [jekins]()
+- [ ] [gitlab]()
+- [ ] [harbor]()
 - [ ] [大数据方面]()
 - [ ] [flink]()
 - [ ] [hbase]()
@@ -118,7 +128,7 @@ https://gitee.com/xiaobo97/simple-viw-front front project
 
 ---
 
-## 笔记整理
+## :notebook: 简单整理
 
 
 
@@ -128,7 +138,7 @@ https://gitee.com/xiaobo97/simple-viw-front front project
 
 
 
-## 搭建
+## :apple: 简单搭建
 
 > mac下
 >
@@ -158,6 +168,14 @@ git add . && git commit -m "xxx" && git push origin main
 ```
 
 
+
+## :palm_tree: 过程
+
+> java生态太大了，葫芦画瓢慢慢积累了，太多要学的了，
+>
+> **离目标有点远，就只能慢慢努力曲线前进了，说不定有机会，进不去也认了**
+>
+> 最近在看netty，没更新就是没看完，看完看kafka
 
 
 
