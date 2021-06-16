@@ -1,8 +1,6 @@
-# buffer
 
 
-
-## 基本概念
+# buffer基本概念
 
 
 
@@ -20,7 +18,7 @@
 
 
 
-## use 
+# 使用
 
 
 
@@ -28,7 +26,13 @@
 
 > 一般步骤
 >
-> 1.写buffer 。2.调用flip()方法，转换读模式。3.从buffer中读取模式。4.调用buffer.clear() 或者 biffer.compact()方法清除缓冲区。
+> **1.向buffer写数据 。 channel.read(buffer)**
+>
+> **2.调用flip()方法，转换读模式。**
+>
+> **3.从buffer中读取模式。如调用buffer.get();**
+>
+> **4.调用buffer.clear() 或者 biffer.compact()方法清除缓冲区。切换写模式。**
 
 
 
@@ -46,7 +50,7 @@
  * <p>
  * buffer的操作
  * Buffer clear() 清空缓冲区并返回对缓冲区的引用
- * Buffer flip() 为 将缓冲区的界限设置为当前位置，并将当前位置充值为 0
+ * Buffer flip() 为 将缓冲区的界限设置为当前位置，并将当前位置置为 0
  * int capacity() 返回 Buffer 的 capacity 大小
  * boolean hasRemaining() 判断缓冲区中是否还有元素
  * int limit() 返回 Buffer 的界限(limit) 的位置
@@ -155,9 +159,75 @@ public class BufferTest01 {
 
 
 
+### ByteBuffer
 
 
-## 直接和非直接缓冲区
+
+### byteBuffer+fileChannel
+
+
+
+> fileChanel读写文件
+
+```java
+  public static void main(String[] args) {
+        // filechannel
+        try (FileChannel channel = new FileInputStream("viw.txt").getChannel()) { // 文件channel
+            ByteBuffer buffer = ByteBuffer.allocate(10);// 准备一个缓冲区
+            while (true) {
+                var i = channel.read(buffer);// 从channel读 数据 写入buffer
+                log.debug("字节数{}",i);
+                if(i==-1) break;
+                buffer.flip();// 读模式
+                while (buffer.hasRemaining()) { // 是否有剩余数据
+                    byte b = buffer.get();
+                    log.debug("数据{}",(char)b);
+                }
+                buffer.clear();// 写模式
+            }
+        } catch (IOException e) {
+        }
+    }
+
+// viw.txt
+xiaoboxiaobo
+    
+// print out
+23:52:48.394 [main] DEBUG com.viw.nioviw.c1.ByteBuffer01 - 字节数5
+23:52:48.404 [main] DEBUG com.viw.nioviw.c1.ByteBuffer01 - 数据x
+23:52:48.405 [main] DEBUG com.viw.nioviw.c1.ByteBuffer01 - 数据i
+23:52:48.405 [main] DEBUG com.viw.nioviw.c1.ByteBuffer01 - 数据a
+23:52:48.405 [main] DEBUG com.viw.nioviw.c1.ByteBuffer01 - 数据o
+23:52:48.405 [main] DEBUG com.viw.nioviw.c1.ByteBuffer01 - 数据b
+23:52:48.405 [main] DEBUG com.viw.nioviw.c1.ByteBuffer01 - 字节数5
+23:52:48.405 [main] DEBUG com.viw.nioviw.c1.ByteBuffer01 - 数据o
+23:52:48.405 [main] DEBUG com.viw.nioviw.c1.ByteBuffer01 - 数据x
+23:52:48.405 [main] DEBUG com.viw.nioviw.c1.ByteBuffer01 - 数据i
+23:52:48.405 [main] DEBUG com.viw.nioviw.c1.ByteBuffer01 - 数据a
+23:52:48.405 [main] DEBUG com.viw.nioviw.c1.ByteBuffer01 - 数据o
+23:52:48.405 [main] DEBUG com.viw.nioviw.c1.ByteBuffer01 - 字节数2
+23:52:48.405 [main] DEBUG com.viw.nioviw.c1.ByteBuffer01 - 数据b
+23:52:48.405 [main] DEBUG com.viw.nioviw.c1.ByteBuffer01 - 数据o
+23:52:48.406 [main] DEBUG com.viw.nioviw.c1.ByteBuffer01 - 字节数-1
+```
+
+
+
+
+
+### 分散读集中写
+
+
+
+
+
+### 黏包拆包
+
+
+
+
+
+# 直接和非直接缓冲区
 
 
 
