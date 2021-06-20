@@ -33,11 +33,11 @@
 
 
 
-## FileChannel
+## FileChannel的介绍
 
 > 文件channel一般是通过调用支持channel的方法 的 getChannel() 方法来获取的。
 >
-> FileChannel只能工作在阻塞模式下。
+> FileChannel只能工作在**阻塞模式**下。
 
 
 
@@ -161,25 +161,65 @@
     public void test4() throws Exception{
         //"rw" 开放阅读和写作。 如果该文件尚不存在，则会尝试创建它
         RandomAccessFile rw = new RandomAccessFile("viw.txt", "rw");
-        FileChannel channel = rw.getChannel();
-        ByteBuffer buffer1 = ByteBuffer.allocate(5);
-        ByteBuffer buffer2 = ByteBuffer.allocate(10);
-        ByteBuffer[] buffers = {buffer1,buffer2};
+        FileChannel channel = rw.getChannel();//获取文件channel
+        ByteBuffer buffer1 = ByteBuffer.allocate(5);// 实例化一个容量为5的 buffer
+        ByteBuffer buffer2 = ByteBuffer.allocate(10);//
+        ByteBuffer[] buffers = {buffer1,buffer2};//组成一个buffer 数组
         channel.read(buffers);
         for(ByteBuffer byteBuffer : buffers){
-            byteBuffer.flip();
+            byteBuffer.flip();//读模式
         }
         System.out.println(new String(buffers[0].array(),0,buffers[0].limit()));
         System.out.println(new String(buffers[1].array(),0,buffers[1].limit()));
         //
         RandomAccessFile rw1 = new RandomAccessFile("viw2.txt", "rw");
-        FileChannel channel1 = rw1.getChannel();
-        channel1.write(buffers);
+        FileChannel channel1 = rw1.getChannel();// 获取rw1的文件channel
+        channel1.write(buffers);//写入channel
     }
 // print out 
 hello
  world
 // viw2.txt
 hello world
+```
+
+
+
+
+
+>  transferFrom(ReadableByteChannel src,long position,long count)
+>
+>  从src复制count字节到当前通道，
+>
+>  [零拷贝](https://xiaobo1997.github.io/#/./viw-notes/Java/java-NIO/NIO1-IO%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84%E5%92%8C%E5%9F%BA%E7%A1%80?id=%e9%9b%b6%e6%8b%b7%e8%b4%9d)
+
+```java
+
+ public void test5() throws Exception {
+        RandomAccessFile rw = new RandomAccessFile("viw.txt", "rw");
+        FileChannel resource = rw.getChannel();
+        RandomAccessFile rw1 = new RandomAccessFile("viw2.txt", "rw");
+        FileChannel toResource = rw1.getChannel();
+        //从源通道读取并写入该通道的简单循环更有效。少了复制(对比零拷贝的用户态和内核态切换,)
+//        toResource.transferFrom(resource,resource.position(),resource.size());
+        //从该通道读取并写入目标通道的简单循环更有效
+        resource.transferTo(toResource.position(),toResource.size(),toResource);
+        resource.close();
+        toResource.close();
+    }
+
+```
+
+
+
+>  transferTo(long position,long count,WritableByteChannel target)
+>
+> 从当前通道中把数据写入到target通道中
+
+ 
+
+```
+
+
 ```
 
