@@ -18,6 +18,36 @@
 
 
 
+---
+
+
+
+实例化一个Buffer
+
+![](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/0021.png)
+
+写模式下，position 是写入位置，limit 等于容量，下图表示写入了 4 个字节后的状态
+
+![](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/0018.png)
+
+flip 动作发生后，position 切换为读取位置，limit 切换为读取限制
+
+![](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/0019.png)
+
+读取 4 个字节后，状态
+
+![](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/0020.png)
+
+clear 动作发生后，状态
+
+![](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/0021.png)
+
+compact 方法，是把未读完的部分向前压缩，然后切换至写模式
+
+![](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/0022.png)
+
+
+
 # 使用
 
 
@@ -538,13 +568,125 @@ xiaoboxiaobo
 
 ## 分散读集中写
 
+> 分散读
+
+```java
+ @Test
+    public  void test1() throws  Exception{
+        var channel = new RandomAccessFile("viw.txt","r").getChannel();
+        var b1 = ByteBuffer.allocate(6);
+        var b2 = ByteBuffer.allocate(6);
+        channel.read(new ByteBuffer[]{b1,b2});
+        b1.flip();b2.flip();
+        ByteBufferUtil.debugAll(b1);
+        ByteBufferUtil.debugAll(b2);
+    }
+// print out
+position: [0], limit: [6]
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 78 69 61 6f 62 6f                               |xiaobo          |
++--------+-------------------------------------------------+----------------+
++--------+-------------------- all ------------------------+----------------+
+position: [0], limit: [6]
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 78 69 61 6f 62 6f                               |xiaobo          |
++--------+-------------------------------------------------+----------------+
+```
 
 
 
+> 集中写
 
-## 黏包拆包
+```java
+public void test2() throws FileNotFoundException {
+        try (var channel = new RandomAccessFile("viw.txt", "rw").getChannel()) {
+            var b1 = ByteBuffer.allocate(2);
+            var b2 = ByteBuffer.allocate(3);
+            b1.put("he".getBytes());b2.put("llo".getBytes());
+            b1.flip();b2.flip();
+            channel.write(new ByteBuffer[]{b1,b2});
+            ByteBufferUtil.debugAll(b1);
+            ByteBufferUtil.debugAll(b2);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+```
 
 
+
+## 黏包半包拆包
+
+​	一般网络编程中传输数据会用标识符标识一行 `\n` ，可能被重新组合。
+
+如  
+
+> ```
+> viw\n
+> xiaobo\n
+> hello\n
+> ===> 服务端接收时 buffer有限 等原因 变成了
+> viw\nxiao
+> bo\nhello\n
+> ```
+
+
+
+```java
+
+public class ByteBufferExam02 {
+
+    public static void main(String[] args) {
+        ByteBuffer source = ByteBuffer.allocate(32);
+        //                     11            24
+        source.put("Hello,world\nI'm zhangsan\nHo".getBytes());
+        split(source);
+
+        source.put("w are you?\nhaha!\n".getBytes());
+        split(source);
+    }
+
+    private static void split(ByteBuffer buffer) {
+        buffer.flip();
+        for (int i = 0; i < buffer.limit(); i++) {
+            if (buffer.get(i) == '\n') {
+                ByteBufferUtil.debugAll(buffer);
+                var len = i + 1 - buffer.position();
+                var to = ByteBuffer.allocate(len);
+                for (int j = 0; j < len; j++) {
+                    to.put(buffer.get());
+                }
+                System.out.println("<===============================================>");
+                ByteBufferUtil.debugAll(to);
+            }
+        }
+        buffer.compact();
+    }
+position: [0], limit: [27]
+|00000000| 48 65 6c 6c 6f 2c 77 6f 72 6c 64 0a 49 27 6d 20 |Hello,world.I'm |
+|00000010| 7a 68 61 6e 67 73 61 6e 0a 48 6f 00 00 00 00 00 |zhangsan.Ho.....|
+position: [12], limit: [12]
+|00000000| 48 65 6c 6c 6f 2c 77 6f 72 6c 64 0a             |Hello,world.    |
+position: [12], limit: [27]
+|00000000| 48 65 6c 6c 6f 2c 77 6f 72 6c 64 0a 49 27 6d 20 |Hello,world.I'm |
+|00000010| 7a 68 61 6e 67 73 61 6e 0a 48 6f 00 00 00 00 00 |zhangsan.Ho.....|
+position: [13], limit: [13]
+|00000000| 49 27 6d 20 7a 68 61 6e 67 73 61 6e 0a          |I'm zhangsan.   |
+position: [0], limit: [19]
+|00000000| 48 6f 77 20 61 72 65 20 79 6f 75 3f 0a 68 61 68 |How are you?.hah|
+|00000010| 61 21 0a 6e 67 73 61 6e 0a 48 6f 00 00 00 00 00 |a!.ngsan.Ho.....|
+position: [13], limit: [13]
+|00000000| 48 6f 77 20 61 72 65 20 79 6f 75 3f 0a          |How are you?.   |
+position: [13], limit: [19]
+|00000000| 48 6f 77 20 61 72 65 20 79 6f 75 3f 0a 68 61 68 |How are you?.hah|
+|00000010| 61 21 0a 6e 67 73 61 6e 0a 48 6f 00 00 00 00 00 |a!.ngsan.Ho.....|
+position: [6], limit: [6]
+|00000000| 68 61 68 61 21 0a                               |haha!.          |
+```
 
 
 

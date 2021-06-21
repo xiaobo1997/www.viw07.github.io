@@ -26,6 +26,8 @@
 
 
 
+
+
 > 使用
 
 ```java
@@ -57,4 +59,8 @@ Selector selector = Selector.open();
 //5. 将通道注册到选择器上, 并且指定“监听接收事件”
 ssChannel.register(selector, SelectionKey.OP_ACCEPT);
 ```
+
+
+
+
 

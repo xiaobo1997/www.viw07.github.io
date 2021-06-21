@@ -2,11 +2,9 @@
 
 
 
-# channel
 
 
-
-## 介绍
+# 介绍
 
 
 
@@ -33,19 +31,23 @@
 
 
 
-## FileChannel的介绍
+# FileChannel的介绍
 
 > 文件channel一般是通过调用支持channel的方法 的 getChannel() 方法来获取的。
 >
-> FileChannel只能工作在**阻塞模式**下。
+> FileChannel只能工作在**阻塞模式**下。也就是和配合selector是阻塞
+>
+> 和socketChannel配合才可以在非阻塞模式下
+>
+> FileChannel是不能直接获取。
 
 
 
 > 如:
 >
-> * FileInputStream
-> * FileOutputStream
-> * RandomAccessFile
+> * FileInputStream---  **获取的channel只能读**
+> * FileOutputStream--  **获取的channel只能写**
+> * RandomAccessFile--   **根据参数来决定 读写模式**
 > * DatagramSocket
 > * Socket
 > * ServerSocket
@@ -67,10 +69,28 @@
 
 
 
+## 读写和常见方法
+
+
+
 > 写文件
+>
+> 1. 存buffer
+>
+> 2. flip切换读模式
+>
+> 3. 循环去写，buffer有限，一般在while中 去  调用 channel.write(buffer); 如
+>
+>    ```java
+>    while(buffer.hasRemaining()){
+>    	channel.write(buffer);
+>    }
+>    ```
+>
+>    
 
 ```java
- /**
+ 	/**
      * 写文件
      * @throws Exception
      */
@@ -90,6 +110,8 @@
 
 
 > 读文件
+>
+> `int readBytes = channel.read(buffer)` 返回值表示读到了多少字节， -1 表示文件的末尾
 
 ```java
   /**
@@ -112,6 +134,51 @@
         channel.close();
     }
 ```
+
+
+
+> 关闭
+>
+> **channel需要关闭**
+
+```
+channel.close();
+```
+
+
+
+> 位置和大小
+
+```java
+// 获取当前的位置
+var pos = channel.position();
+// 设置当前位置
+
+var newPosition = xxx;
+channel.position(newPosition);
+/**
+设置当前位置时，如果设置为文件的末尾
+这时读取会返回 -1 
+这时写入，会追加内容，但要注意如果 position 超过了文件末尾，再写入时在新内容和原末尾之间会有空洞（00）
+*/
+// 大小
+channel.size();
+```
+
+
+
+> 强制写入
+>
+> 操作系统出于性能的考虑，会将数据缓存，不是立刻写入磁盘。可以调用 force(true)  方法将文件内容和元数据（文件的权限等信息）立刻写入磁盘
+
+```java
+/**
+强制将此通道文件的任何更新写入包含它的存储设备。
+*/
+public abstract void force(boolean metaData) throws IOException;
+```
+
+
 
 
 
@@ -191,7 +258,7 @@ hello world
 >
 >  从src复制count字节到当前通道，
 >
->  [零拷贝](https://xiaobo1997.github.io/#/./viw-notes/Java/java-NIO/NIO1-IO%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84%E5%92%8C%E5%9F%BA%E7%A1%80?id=%e9%9b%b6%e6%8b%b7%e8%b4%9d)
+>  点击跳转[零拷贝](https://xiaobo1997.github.io/#/./viw-notes/Java/java-NIO/NIO1-IO%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84%E5%92%8C%E5%9F%BA%E7%A1%80?id=%e9%9b%b6%e6%8b%b7%e8%b4%9d)
 
 ```java
 
@@ -214,11 +281,213 @@ hello world
 
 >  transferTo(long position,long count,WritableByteChannel target)
 >
-> 从当前通道中把数据写入到target通道中
+>  从当前通道中把数据写入到target通道中
+>
+>  如上方法。效率是比较高的。参考linux 底层零拷贝。
+>
+>  传输数据有上限  **2G**
 
  
 
+```java
+
+public class FileChannel01 {
+
+    public static void main(String[] args) {
+        try (
+                FileChannel from = new FileInputStream("bigdata.txt").getChannel();
+                FileChannel to = new FileOutputStream("to.txt").getChannel();
+        ) {
+            // transferTo效率高，底层会利用操作系统的零拷贝进行优化
+            long size = from.size();
+            // left 变量代表还剩余多少字节 循环写
+            for (long left = size; left > 0; ) {
+                System.out.println("position:" + (size - left) + " left:" + left);
+                left -= from.transferTo((size - left), left, to);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
 ```
+
+
+
+## Path
+
+
+
+> jdk7中引入的 path(表示文件路径)  和paths(工具类，获取path实例)
+>
+> 
+
+```java
+Path source = Paths.get("1.txt"); // 相对路径 使用 user.dir 环境变量来定位 1.txt
+
+Path source = Paths.get("d:\\1.txt"); // 绝对路径 代表了  d:\1.txt
+
+Path source = Paths.get("d:/1.txt"); // 绝对路径 同样代表了  d:\1.txt
+
+Path projects = Paths.get("d:\\data", "projects"); // 代表了  d:\data\projects
+```
+
+
+
+>  `.` 和 `..` 
+>
+> * `.` 代表了当前路径
+> * `..` 代表了上一级路径
+
+如目录结构如下
+
+```
+d:
+	|- data
+		|- projects
+			|- a
+			|- b
+```
+
+代码
+
+```java
+Path path = Paths.get("d:\\data\\projects\\a\\..\\b");
+System.out.println(path);
+System.out.println(path.normalize()); // 正常化路径
+```
+
+会输出
+
+```
+d:\data\projects\a\..\b
+d:\data\projects\b
+```
+
+
+
+## Files
+
+> jdk7出的文件
+
+```java
+//检查文件是否存在
+var v = Paths.get("xxx/data.txt");
+Files.exists(v);
+//创建一级目录
+var p  =  Paths.get("bb");// 不能一次性创建aaa 和bb 两个目录.NoSuchFileException: aaa\bb ，目录已存在抛 FileAlreadyExistsException
+Files.createDirectory(p);//
+
+//创建多级目录用
+Path path = Paths.get("helloword/d1/d2");
+Files.createDirectories(path);
+
+// 拷贝文件
+Path source = Paths.get("helloword/data.txt");
+Path target = Paths.get("helloword/target.txt");
+Files.copy(source, target);
+//如果文件已存在，会抛异常 FileAlreadyExistsException
+//如果希望用 source 覆盖掉 target，需要用 StandardCopyOption 来控制
+Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING);
+
+//移动文件
+Path source = Paths.get("helloword/data.txt");
+Path target = Paths.get("helloword/data.txt");
+Files.move(source, target, StandardCopyOption.ATOMIC_MOVE);//StandardCopyOption.ATOMIC_MOVE 保证文件移动的原子性
+
+
+//删除文件  不存在抛异常
+Path target = Paths.get("helloword/target.txt");
+Files.delete(target);
+
+
+//删除目录 不存在抛异常
+Path target = Paths.get("helloword/d1");
+Files.delete(target);
+
+
+//遍历目录文件
+	Path path = Paths.get("C:\\Program Files\\Java\\jdk1.8.0_91");
+    AtomicInteger dirCount = new AtomicInteger();
+    AtomicInteger fileCount = new AtomicInteger();
+    Files.walkFileTree(path, new SimpleFileVisitor<Path>(){
+        @Override
+        public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) 
+            throws IOException {
+            System.out.println(dir);
+            dirCount.incrementAndGet();
+            return super.preVisitDirectory(dir, attrs);
+        }
+
+        @Override
+        public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) 
+            throws IOException {
+            System.out.println(file);
+            fileCount.incrementAndGet();
+            return super.visitFile(file, attrs);
+        }
+    });
+    System.out.println(dirCount); // 133
+    System.out.println(fileCount); // 1479
+
+
+
+// 统计 jar 的数目
+Path path = Paths.get("C:\\Program Files\\Java\\jdk1.8.0_91");
+AtomicInteger fileCount = new AtomicInteger();
+Files.walkFileTree(path, new SimpleFileVisitor<Path>(){
+    @Override
+    public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) 
+        throws IOException {
+        if (file.toFile().getName().endsWith(".jar")) {
+            fileCount.incrementAndGet();
+        }
+        return super.visitFile(file, attrs);
+    }
+});
+System.out.println(fileCount); // 724
+
+
+//删除多级目录
+Path path = Paths.get("d:\\a");
+Files.walkFileTree(path, new SimpleFileVisitor<Path>(){
+    @Override
+    public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) 
+        throws IOException {
+        Files.delete(file);
+        return super.visitFile(file, attrs);
+    }
+
+    @Override
+    public FileVisitResult postVisitDirectory(Path dir, IOException exc) 
+        throws IOException {
+        Files.delete(dir);
+        return super.postVisitDirectory(dir, exc);
+    }
+});
+
+//拷贝多级目录
+long start = System.currentTimeMillis();
+String source = "D:\\Snipaste-1.16.2-x64";
+String target = "D:\\Snipaste-1.16.2-x64aaa";
+
+Files.walk(Paths.get(source)).forEach(path -> {
+    try {
+        String targetName = path.toString().replace(source, target);
+        // 是目录
+        if (Files.isDirectory(path)) {
+            Files.createDirectory(Paths.get(targetName));
+        }
+        // 是普通文件
+        else if (Files.isRegularFile(path)) {
+            Files.copy(path, Paths.get(targetName));
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+});
+
+
 
 
 ```
