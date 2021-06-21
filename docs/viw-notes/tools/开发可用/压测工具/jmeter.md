@@ -35,8 +35,6 @@ win选择zip
   %JMETER_HOME%\bin
   ```
 
-
-
 cmd命令输入jmeter -v 查看版本 
 
 cmd输入jmeter 使用jmeter
@@ -60,8 +58,3 @@ jmeter -n -t D:\tools\apache-jmeter-5.4.1\temp\0122\seckill0126.jmx -l D:\tools\
 ```
 
 ![image-20210126005219499](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20210126005219499.png)
-
-```shell
-jmeter -n -t D:\tools\apache-jmeter-5.4.1\temp\0122\seckill0126.jmx
-```
-
