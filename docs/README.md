@@ -1,10 +1,12 @@
-#    viv-notes 🍭
+#    viv-notes(自用) 🍭
 
 ## 💻⌨🖱简介 
 
 - 简单记录下 :boy:
+- 一个普通人的笔记(会一直在上面记录，起码两年内会在上面记录，一般会去看相关文章，然后看相关视频，这样先了解一个大概，然后就看下相关的书，然后就github找个相关项目来做，代码都记录在gitee)
 - 日常的，看视频的，书上的，看各个论坛上的，百度的，谷歌的，记录下。 ⚽📚💻⌨🖱
-- gitee转github，面向面试和百度谷歌学习
+- gitee转github，面向面试和百度谷歌学习(人生时间有限，离30也不远了)
+- 爱好就是逛哔哩哔哩(用爱发电)
 
 [viw-simple-lab](https://gitee.com/xiaobo97/viw-simple-lab)  gitee example-lab-project
 
@@ -131,7 +133,7 @@
 
 
 
-包括各个平台整理的,自己写了18万字脑图,整理中
+包括各个平台整理的,自己写了18万字脑图,目前整理中，今年国庆之前应该没问题。
 
 ![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/124fc31a1b7e4972a803d1d2f6e837ab~tplv-k3u1fbpfcp-watermark.image)
 

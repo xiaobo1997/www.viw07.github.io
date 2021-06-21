@@ -194,14 +194,22 @@
     - [mac相关](./viw-notes/tools/环境/mac相关.md)
     - [新电脑整体环境配置小问题](./viw-notes/tools/环境/新电脑整体环境配置小问题.md)
   - 其他工具
-    - [jmeter的安装使用](./viw-notes/tools/其他工具/jmeter的安装使用.md)
+  - 开发可用
+    - 压测工具
+      - [jmeter](./viw-notes/tools/开发可用/压测工具/jmeter.md)
+    - 诊断工具
+      - [Arthas](./viw-notes/tools/开发可用/诊断工具/Arthas.md)
 - 计网&计操相关
   - linux
     - [centos部署boot项目命令小集](./viw-notes/计网&计操相关/linux/centos部署boot项目命令小集.md)
     - [linux常用命令](./viw-notes/计网&计操相关/linux/linux常用命令.md)
     - [搭建mysql集群的小问题](./viw-notes/计网&计操相关/linux/搭建mysql集群的小问题.md)
+  - 网络序列化
+    - [Hessian01](./viw-notes/计网&计操相关/网络序列化/Hessian01.md)
+    - [Protobuf01](./viw-notes/计网&计操相关/网络序列化/Protobuf01.md)
   - 计算机网络
-    - [计网1-概念初识](./viw-notes/计网&计操相关/计算机网络/计网1-概念初识.md)
+    - [计网01](./viw-notes/计网&计操相关/计算机网络/计网01.md)
+    - [计网02](./viw-notes/计网&计操相关/计算机网络/计网02.md)
   - 计算机操作系统
     - [1](./viw-notes/计网&计操相关/计算机操作系统/1.md)
 - 前端
@@ -267,7 +275,11 @@
     - [Nginx03](./viw-notes/后端/Nginx/Nginx03.md)
     - [Nginx04](./viw-notes/后端/Nginx/Nginx04.md)
   - RPC
-    - [RPC1-概念](./viw-notes/后端/RPC/RPC1-概念.md)
+    - gRPC
+      - [grpc01](./viw-notes/后端/RPC/gRPC/grpc01.md)
+      - [grpc02](./viw-notes/后端/RPC/gRPC/grpc02.md)
+    - thrift
+      - [thrift01](./viw-notes/后端/RPC/thrift/thrift01.md)
   - db海量数据处理
     - ShardingJDBC
       - [SJ01](./viw-notes/后端/db海量数据处理/ShardingJDBC/SJ01.md)
@@ -329,6 +341,11 @@
       - [solr2-solrj](./viw-notes/后端/搜索引擎/solr/solr2-solrj.md)
       - [问题1-solr仪表盘导入数据问题](./viw-notes/后端/搜索引擎/solr/问题1-solr仪表盘导入数据问题.md)
   - 消息队列
+    - ActiveMQ
+      - [ActiveMQ01](./viw-notes/后端/消息队列/ActiveMQ/ActiveMQ01.md)
+      - [ActiveMQ02](./viw-notes/后端/消息队列/ActiveMQ/ActiveMQ02.md)
+      - [ActiveMQ03](./viw-notes/后端/消息队列/ActiveMQ/ActiveMQ03.md)
+      - [ActiveMQ04](./viw-notes/后端/消息队列/ActiveMQ/ActiveMQ04.md)
     - Kafka
       - [Kafka01](./viw-notes/后端/消息队列/Kafka/Kafka01.md)
       - [Kafka02](./viw-notes/后端/消息队列/Kafka/Kafka02.md)
@@ -349,9 +366,10 @@
     - [设计模式2-创建型-单例模式](./viw-notes/后端/设计模式/设计模式2-创建型-单例模式.md)
     - [设计模式3-创建型-工厂模式](./viw-notes/后端/设计模式/设计模式3-创建型-工厂模式.md)
   - 方案解决思路
-    - [海量数据处理问题面试思路](./viw-notes/后端/方案解决思路/海量数据处理问题面试思路.md)
+    - [权限认证相关](./viw-notes/后端/方案解决思路/权限认证相关.md)
+    - [海量数据处理思路](./viw-notes/后端/方案解决思路/海量数据处理思路.md)
   - 系统设计方面(三高)
-    - [分布式1](./viw-notes/后端/系统设计方面(三高)/分布式1.md)
+    - [高并发高性能高可用](./viw-notes/后端/系统设计方面(三高)/高并发高性能高可用.md)
   - 分布式任务调度
     - Elastic-Job
       - [Job01](./viw-notes/后端/分布式任务调度/Elastic-Job/Job01.md)
@@ -361,6 +379,7 @@
       - [Job01](./viw-notes/后端/分布式任务调度/XXL-Job/Job01.md)
       - [Job02](./viw-notes/后端/分布式任务调度/XXL-Job/Job02.md)
       - [Job03](./viw-notes/后端/分布式任务调度/XXL-Job/Job03.md)
+  - 分布式文件系统
 - 存储
   - DB2
     - [db2-1-基本操作语句和入门](./viw-notes/存储/DB2/db2-1-基本操作语句和入门.md)
@@ -396,7 +415,7 @@
     - [Crypto-AES解密加密](./viw-notes/安全/加密解密/Crypto-AES解密加密.md)
     - [MD5加密解密](./viw-notes/安全/加密解密/MD5加密解密.md)
   - 网络安全
-    - [01](./viw-notes/安全/网络安全/01.md)
+    - [DDOS01](./viw-notes/安全/网络安全/DDOS01.md)
   - 数据库安全
     - [1](./viw-notes/安全/数据库安全/1.md)
   - 服务器安全
@@ -412,6 +431,7 @@
     - [问题-docker安装vim换源](./viw-notes/云原生(cicd&devops&微服务)/docker/问题-docker安装vim换源.md)
   - gitlab
     - [gitlab01](./viw-notes/云原生(cicd&devops&微服务)/gitlab/gitlab01.md)
+    - [gitlab02](./viw-notes/云原生(cicd&devops&微服务)/gitlab/gitlab02.md)
   - harbor
     - [harbor01](./viw-notes/云原生(cicd&devops&微服务)/harbor/harbor01.md)
   - jenkins
@@ -425,10 +445,14 @@
     - [k8s06](./viw-notes/云原生(cicd&devops&微服务)/k8s/k8s06.md)
     - [k8s07](./viw-notes/云原生(cicd&devops&微服务)/k8s/k8s07.md)
 - 大数据相关
+  - ApacheStorm
+  - Hadoop
   - flink
     - [flink01](./viw-notes/大数据相关/flink/flink01.md)
   - hbase
     - [hbase01](./viw-notes/大数据相关/hbase/hbase01.md)
+  - kafkaStream
+  - spark
 - 数据结构和算法相关
   - leetcode(类型)
     - DFS+BFS
