@@ -157,7 +157,7 @@ public class BufferTest01 {
 
 
 
-### ByteBuffer
+## ByteBuffer
 
 
 
@@ -271,7 +271,7 @@ xiaobo
 
 
 
-### Buffern内部结构工具类
+## Buffern内部结构工具类
 
 > 查看buffer内部工具类
 
@@ -484,7 +484,7 @@ position: [6], limit: [16]
 
 <img src="https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20210621015032719.png" alt="image-20210621015032719" style="zoom:50%;" />
 
-### byteBuffer+fileChannel
+## byteBuffer+fileChannel
 
 
 
@@ -536,13 +536,13 @@ xiaoboxiaobo
 
 
 
-### 分散读集中写
+## 分散读集中写
 
 
 
 
 
-### 黏包拆包
+## 黏包拆包
 
 
 
