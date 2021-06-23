@@ -3246,6 +3246,53 @@ class Solution {
 
 
 
+## [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/)
+
+难度中等1733收藏分享切换为英文接收动态反馈
+
+数字 `n` 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 **有效的** 括号组合。
+
+ 
+
+**示例 1：**
+
+```
+输入：n = 3
+输出：["((()))","(()())","(())()","()(())","()()()"]
+```
+
+**示例 2：**
+
+```
+输入：n = 1
+输出：["()"]
+```
+
+```java
+class Solution {
+    List<String> res = new ArrayList<>();
+    public List<String> generateParenthesis(int n) {
+        /**
+        递归
+        */
+        dfs(n,n,"");
+        return res;
+    }
+    void dfs(int left ,int right,String tmp){
+        if(left == 0 && right == 0){
+            res.add(tmp);
+            return ;
+        }
+        if(left>0) dfs(left-1,right,tmp+"(");// 表明可以添加 左括号
+        if(right>left) dfs(left,right-1,tmp+")");// 表明可以添加右括号
+    }
+}
+```
+
+
+
+
+
 ## [29. 两数相除](https://leetcode-cn.com/problems/divide-two-integers/)
 
 难度中等594
@@ -3428,48 +3475,37 @@ class Solution {
 
 
 
-## [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/)
 
-难度中等1733收藏分享切换为英文接收动态反馈
 
-数字 `n` 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 **有效的** 括号组合。
+##  [78. 子集](https://leetcode-cn.com/problems/subsets/)-回溯
+
+难度中等1225
+
+给你一个整数数组 `nums` ，数组中的元素 **互不相同** 。返回该数组所有可能的子集（幂集）。
+
+解集 **不能** 包含重复的子集。你可以按 **任意顺序** 返回解集。
 
  
 
 **示例 1：**
 
 ```
-输入：n = 3
-输出：["((()))","(()())","(())()","()(())","()()()"]
+输入：nums = [1,2,3]
+输出：[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
 ```
 
 **示例 2：**
 
 ```
-输入：n = 1
-输出：["()"]
+输入：nums = [0]
+输出：[[],[0]]
 ```
 
-```java
-class Solution {
-    List<String> res = new ArrayList<>();
-    public List<String> generateParenthesis(int n) {
-        /**
-        递归
-        */
-        dfs(n,n,"");
-        return res;
-    }
-    void dfs(int left ,int right,String tmp){
-        if(left == 0 && right == 0){
-            res.add(tmp);
-            return ;
-        }
-        if(left>0) dfs(left-1,right,tmp+"(");// 表明可以添加 左括号
-        if(right>left) dfs(left,right-1,tmp+")");// 表明可以添加右括号
-    }
-}
-```
+
+
+
+
+
 
 
 

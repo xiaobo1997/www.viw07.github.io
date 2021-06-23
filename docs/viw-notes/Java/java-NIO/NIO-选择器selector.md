@@ -40,15 +40,21 @@ public static Selector open() throws IOException {
 
 > 流程
 >
-> * 读 : SelectionKey.OP_READ （1）
-> * 写 : SelectionKey.OP_WRITE （4）
-> * 连接 : SelectionKey.OP_CONNECT （8）
-> * 接收 : SelectionKey.OP_ACCEPT （16）
+> 可以绑定的事件
+>
+> * 读 : SelectionKey.OP_READ （1） **数据可读入时触发.有因为接收能力弱,数据暂不能读入的情况**
+> * 写 : SelectionKey.OP_WRITE （4） **数据可写出时触发,有因为发送能力弱,数据暂不能写出的情况**
+> * 连接 : SelectionKey.OP_CONNECT （8）**客户端连接成功时触发**
+> * 接收 : SelectionKey.OP_ACCEPT （16） **服务器端成功接受连接时触发**
 >
 > 多个事件可以组合如：  `int i =SelectionKey.OP_READ|SelectionKey.OP_WRITE  `
 
 ```java
-//1. 获取scoket通道
+/**
+*/
+
+
+//1. 获取服务器scoket通道
 ServerSocketChannel ssChannel = ServerSocketChannel.open();
 //2. 切换非阻塞模式
 ssChannel.configureBlocking(false);
@@ -59,6 +65,72 @@ Selector selector = Selector.open();
 //5. 将通道注册到选择器上, 并且指定“监听接收事件”
 ssChannel.register(selector, SelectionKey.OP_ACCEPT);
 ```
+
+
+
+## 流程
+
+
+
+> 创建和绑定
+
+```java
+/**
+创建
+*/
+Selector selector = Selector.open();
+
+/**
+channel需要工作在非阻塞模式下，而FileChannel没有非阻塞模式 不能和Selector一起使用
+*/
+channel.configureBlocking(false);
+SelectionKey key = channel.register(selector, 绑定事件);
+
+/**
+监听
+*/
+// 1.阻塞，直到绑定的事件发生
+int count = selector.select();
+// 2.同上，不过有超时时间
+int count = selector.select(long timeout);
+// 3. 不阻塞，不管有没有事件，立刻返回，自己根据返回值检查是否有事件
+int count = selector.selectnow();
+```
+
+
+
+select不阻塞的事机:
+
+- 事件发生时：
+  - 客户端发起请求，触发accept事件
+  - 客户端发送数据，触发read，或者 发送的数据超过buffer容量，就会触发read事件
+  - channel可写，触发Write
+  - linux  nio下的 发送bug
+- 调用selector.wakeup();
+- 调用selector.close();
+- selector所在线程中断、
+
+
+
+> 处理accept事件
+
+```
+
+
+
+```
+
+**事件发送后，要么处理，要么取消`cancel`，不能什么都不做，否则下一次事件仍然会触发，nio底层水平触发**
+
+> 处理read事件
+
+
+
+
+
+> 处理write事件
+
+
 
 
 
