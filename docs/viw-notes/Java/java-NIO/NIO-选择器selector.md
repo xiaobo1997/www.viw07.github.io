@@ -99,7 +99,7 @@ int count = selector.selectnow();
 
 
 
-select不阻塞的事机:
+select不阻塞的时机:
 
 - 事件发生时：
   - 客户端发起请求，触发accept事件
@@ -114,13 +114,32 @@ select不阻塞的事机:
 
 > 处理accept事件
 
+```java
+		// 5步流程
+ 		var selector = Selector.open();
+        var ssc = ServerSocketChannel.open();
+        ssc.configureBlocking(false);
+        ssc.bind(new InetSocketAddress(8080));
+        ssc.register(selector, SelectionKey.OP_ACCEPT);
+		while(1.如果迭代器的元素>0){ // selector.select()>0 没有事件发送，阻塞，有事件线程才运行
+            2.获取key的迭代器
+            while(3.判断迭代器是否有事件){
+                4.获取事件key，里面包含了channel的信息等
+                if(5.判断事件，做不同的判断){
+                   // do something
+                }eles {
+                    // do something
+                }
+                6.删除事件 或者cannel()
+            }
+        }
+
+
+
+
 ```
 
-
-
-```
-
-**事件发送后，要么处理，要么取消`cancel`，不能什么都不做，否则下一次事件仍然会触发，nio底层水平触发**
+**事件发送后，要么处理，要么取消`cancel`，不能什么都不做，否则下一次这个事件仍然会触发，因为认为你没有触发过，nio==底层水平触发==**
 
 > 处理read事件
 
