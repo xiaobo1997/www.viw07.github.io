@@ -1,4 +1,11 @@
 - Java
+  - HTTPClient
+    - HttpClient
+      - [httpclient01](./viw-notes/Java/HTTPClient/HttpClient/httpclient01.md)
+      - [httpclient02](./viw-notes/Java/HTTPClient/HttpClient/httpclient02.md)
+    - OkHttp
+      - [okhttp01](./viw-notes/Java/HTTPClient/OkHttp/okhttp01.md)
+      - [okhttp02](./viw-notes/Java/HTTPClient/OkHttp/okhttp02.md)
   - JMM
     - [java内存模型1-内存划分和交互操作](./viw-notes/Java/JMM/java内存模型1-内存划分和交互操作.md)
     - [java内存模型2-内存模型特性和先行发生原则](./viw-notes/Java/JMM/java内存模型2-内存模型特性和先行发生原则.md)
@@ -36,15 +43,18 @@
     - [BIO-03即时通讯思路](./viw-notes/Java/java-BIO/BIO-03即时通讯思路.md)
     - [序列化](./viw-notes/Java/java-BIO/序列化.md)
   - java-NIO
-    - [NIO-IO模型结构和基础](./viw-notes/Java/java-NIO/NIO-IO模型结构和基础.md)
-    - [NIO-通道channel](./viw-notes/Java/java-NIO/NIO-通道channel.md)
-    - [NIO-缓冲区buffer](./viw-notes/Java/java-NIO/NIO-缓冲区buffer.md)
-    - [NIO-选择器selector](./viw-notes/Java/java-NIO/NIO-选择器selector.md)
-    - [NIO-网络通信应用case1](./viw-notes/Java/java-NIO/NIO-网络通信应用case1.md)
+    - [NIO01-IO模型结构和基础](./viw-notes/Java/java-NIO/NIO01-IO模型结构和基础.md)
+    - [NIO02-缓冲区buffer](./viw-notes/Java/java-NIO/NIO02-缓冲区buffer.md)
+    - [NIO03-通道channel](./viw-notes/Java/java-NIO/NIO03-通道channel.md)
+    - [NIO04-选择器selector](./viw-notes/Java/java-NIO/NIO04-选择器selector.md)
+    - [NIO05-网络通信应用case1](./viw-notes/Java/java-NIO/NIO05-网络通信应用case1.md)
+    - [NIO06](./viw-notes/Java/java-NIO/NIO06.md)
+    - [NIO07](./viw-notes/Java/java-NIO/NIO07.md)
   - java11
     - [特性01](./viw-notes/Java/java11/特性01.md)
+    - [特性02](./viw-notes/Java/java11/特性02.md)
   - java9
-    - [httpclient-01](./viw-notes/Java/java9/httpclient-01.md)
+    - [新httpclient-01](./viw-notes/Java/java9/新httpclient-01.md)
     - [集合工厂方法-01](./viw-notes/Java/java9/集合工厂方法-01.md)
   - javaAio
     - [aio1](./viw-notes/Java/javaAio/aio1.md)
@@ -56,13 +66,15 @@
     - [java-collection5-Properties](./viw-notes/Java/集合/java-collection5-Properties.md)
     - [java-collection6-list-set-map-array-转换](./viw-notes/Java/集合/java-collection6-list-set-map-array-转换.md)
     - [面试-1](./viw-notes/Java/集合/面试-1.md)
-  - 日志&工具&小问题等
-    - [BigDecimal和BigInteger的操作](./viw-notes/Java/日志&工具&小问题等/BigDecimal和BigInteger的操作.md)
-    - [fastjson-api](./viw-notes/Java/日志&工具&小问题等/fastjson-api.md)
-    - [在代码中使用Lombok](./viw-notes/Java/日志&工具&小问题等/在代码中使用Lombok.md)
-    - [处理文件路径在windos和linux不同](./viw-notes/Java/日志&工具&小问题等/处理文件路径在windos和linux不同.md)
-    - [关于转义字符的意义](./viw-notes/Java/日志&工具&小问题等/关于转义字符的意义.md)
-    - [正则表达式的使用和常用案例](./viw-notes/Java/日志&工具&小问题等/正则表达式的使用和常用案例.md)
+  - 零散
+    - [Calendar类(废弃)](./viw-notes/Java/零散/Calendar类(废弃).md)
+    - [Object类型(VO,DO等)](./viw-notes/Java/零散/Object类型(VO,DO等).md)
+    - [XML解析和转换](./viw-notes/Java/零散/XML解析和转换.md)
+    - [bigDecimal和bigInteger和数组](./viw-notes/Java/零散/bigDecimal和bigInteger和数组.md)
+    - [fastjson处理](./viw-notes/Java/零散/fastjson处理.md)
+    - [反射机制](./viw-notes/Java/零散/反射机制.md)
+    - [剖析类和面向对象](./viw-notes/Java/零散/剖析类和面向对象.md)
+    - [数据类型和运算符相关基础](./viw-notes/Java/零散/数据类型和运算符相关基础.md)
   - 多线程
     - [Java多线程8-volatile](./viw-notes/Java/多线程/Java多线程8-volatile.md)
     - [java多线程1-概述](./viw-notes/Java/多线程/java多线程1-概述.md)
@@ -97,15 +109,13 @@
     - [JDK源码1-](./viw-notes/Java/源码学习/JDK源码1-.md)
   - 网络编程
     - [网络编程1-](./viw-notes/Java/网络编程/网络编程1-.md)
-  - 零散知识
-    - [Calendar类(废弃)](./viw-notes/Java/零散知识/Calendar类(废弃).md)
-    - [Object类型(VO,DO等)](./viw-notes/Java/零散知识/Object类型(VO,DO等).md)
-    - [XML解析和转换](./viw-notes/Java/零散知识/XML解析和转换.md)
-    - [bigDecimal和bigInteger和数组](./viw-notes/Java/零散知识/bigDecimal和bigInteger和数组.md)
-    - [fastjson处理](./viw-notes/Java/零散知识/fastjson处理.md)
-    - [反射机制](./viw-notes/Java/零散知识/反射机制.md)
-    - [剖析类和面向对象](./viw-notes/Java/零散知识/剖析类和面向对象.md)
-    - [数据类型和运算符相关基础](./viw-notes/Java/零散知识/数据类型和运算符相关基础.md)
+  - 小问题和第三方
+    - [BigDecimal和BigInteger的操作](./viw-notes/Java/小问题和第三方/BigDecimal和BigInteger的操作.md)
+    - [fastjson-api](./viw-notes/Java/小问题和第三方/fastjson-api.md)
+    - [在代码中使用Lombok](./viw-notes/Java/小问题和第三方/在代码中使用Lombok.md)
+    - [处理文件路径在windos和linux不同](./viw-notes/Java/小问题和第三方/处理文件路径在windos和linux不同.md)
+    - [关于转义字符的意义](./viw-notes/Java/小问题和第三方/关于转义字符的意义.md)
+    - [正则表达式的使用和常用案例](./viw-notes/Java/小问题和第三方/正则表达式的使用和常用案例.md)
 - spring&orm
   - mybatis相关
     - [mybatis1-全局配置文件](./viw-notes/spring&orm/mybatis相关/mybatis1-全局配置文件.md)
@@ -153,6 +163,19 @@
     - [Sentine](./viw-notes/spring&orm/springcloud-alibaba/Sentine.md)
     - [Sleuth](./viw-notes/spring&orm/springcloud-alibaba/Sleuth.md)
     - [Stream](./viw-notes/spring&orm/springcloud-alibaba/Stream.md)
+    - [apoll](./viw-notes/spring&orm/springcloud-alibaba/apoll.md)
+  - springjpa
+    - [jpa01](./viw-notes/spring&orm/springjpa/jpa01.md)
+    - [jpa02](./viw-notes/spring&orm/springjpa/jpa02.md)
+    - [jpa03](./viw-notes/spring&orm/springjpa/jpa03.md)
+    - [jpa04](./viw-notes/spring&orm/springjpa/jpa04.md)
+    - [jpa05](./viw-notes/spring&orm/springjpa/jpa05.md)
+  - springsecurity
+    - [springsecurity01](./viw-notes/spring&orm/springsecurity/springsecurity01.md)
+    - [springsecurity02](./viw-notes/spring&orm/springsecurity/springsecurity02.md)
+    - [springsecurity03](./viw-notes/spring&orm/springsecurity/springsecurity03.md)
+    - [springsecurity04](./viw-notes/spring&orm/springsecurity/springsecurity04.md)
+    - [springsecurity05](./viw-notes/spring&orm/springsecurity/springsecurity05.md)
   - spring源码相关
     - [1-spring基础组件](./viw-notes/spring&orm/spring源码相关/1-spring基础组件.md)
     - [1-认识spring基础组件](./viw-notes/spring&orm/spring源码相关/1-认识spring基础组件.md)
@@ -172,12 +195,20 @@
   - ETL
     - [Spoon工具](./viw-notes/tools/ETL/Spoon工具.md)
   - Git
-    - [Git使用](./viw-notes/tools/Git/Git使用.md)
-    - [git push错误failed to push some refs to](./viw-notes/tools/Git/git%20push错误failed%20to%20push%20some%20refs%20to.md)
+    - [git00](./viw-notes/tools/Git/git00.md)
+    - [git01](./viw-notes/tools/Git/git01.md)
+    - [git02](./viw-notes/tools/Git/git02.md)
+    - [git03](./viw-notes/tools/Git/git03.md)
+    - [git04](./viw-notes/tools/Git/git04.md)
+    - [git05](./viw-notes/tools/Git/git05.md)
+    - [github01](./viw-notes/tools/Git/github01.md)
+    - [github02](./viw-notes/tools/Git/github02.md)
     - [vsode-gitignore](./viw-notes/tools/Git/vsode-gitignore.md)
-    - [解决每一次需要输入密码问题](./viw-notes/tools/Git/解决每一次需要输入密码问题.md)
   - gradle
     - [gradle-构建spring5.3.x源码](./viw-notes/tools/gradle/gradle-构建spring5.3.x源码.md)
+    - [gradle01](./viw-notes/tools/gradle/gradle01.md)
+    - [gradle02](./viw-notes/tools/gradle/gradle02.md)
+    - [gradle03](./viw-notes/tools/gradle/gradle03.md)
   - idea&vscode
     - [IDEA-spring创建向导太慢了](./viw-notes/tools/idea&vscode/IDEA-spring创建向导太慢了.md)
     - [IDEA导eclipse-javaweb项目的小问题](./viw-notes/tools/idea&vscode/IDEA导eclipse-javaweb项目的小问题.md)
@@ -188,7 +219,10 @@
     - [vscode-vue代码片段](./viw-notes/tools/idea&vscode/vscode-vue代码片段.md)
   - maven
     - [mac-maven的小问题总结](./viw-notes/tools/maven/mac-maven的小问题总结.md)
-    - [maven的使用](./viw-notes/tools/maven/maven的使用.md)
+    - [maven01](./viw-notes/tools/maven/maven01.md)
+    - [maven02](./viw-notes/tools/maven/maven02.md)
+    - [maven03](./viw-notes/tools/maven/maven03.md)
+    - [maven04](./viw-notes/tools/maven/maven04.md)
   - 环境
     - [WMware](./viw-notes/tools/环境/WMware.md)
     - [mac相关](./viw-notes/tools/环境/mac相关.md)
@@ -198,27 +232,47 @@
     - 压测工具
       - [jmeter](./viw-notes/tools/开发可用/压测工具/jmeter.md)
     - 诊断工具
-      - [Arthas](./viw-notes/tools/开发可用/诊断工具/Arthas.md)
+      - [Arthas01](./viw-notes/tools/开发可用/诊断工具/Arthas01.md)
+      - [Arthas02](./viw-notes/tools/开发可用/诊断工具/Arthas02.md)
 - 计网&计操相关
   - linux
     - [centos部署boot项目命令小集](./viw-notes/计网&计操相关/linux/centos部署boot项目命令小集.md)
+    - [linux01](./viw-notes/计网&计操相关/linux/linux01.md)
+    - [linux02](./viw-notes/计网&计操相关/linux/linux02.md)
+    - [linux03](./viw-notes/计网&计操相关/linux/linux03.md)
+    - [linux04](./viw-notes/计网&计操相关/linux/linux04.md)
+    - [linux05](./viw-notes/计网&计操相关/linux/linux05.md)
     - [linux常用命令](./viw-notes/计网&计操相关/linux/linux常用命令.md)
     - [搭建mysql集群的小问题](./viw-notes/计网&计操相关/linux/搭建mysql集群的小问题.md)
   - 网络序列化
     - [Hessian01](./viw-notes/计网&计操相关/网络序列化/Hessian01.md)
+    - [Hessian02](./viw-notes/计网&计操相关/网络序列化/Hessian02.md)
     - [Protobuf01](./viw-notes/计网&计操相关/网络序列化/Protobuf01.md)
+    - [Protobuf02](./viw-notes/计网&计操相关/网络序列化/Protobuf02.md)
   - 计算机网络
     - [计网01](./viw-notes/计网&计操相关/计算机网络/计网01.md)
     - [计网02](./viw-notes/计网&计操相关/计算机网络/计网02.md)
+    - [计网03](./viw-notes/计网&计操相关/计算机网络/计网03.md)
+    - [计网04](./viw-notes/计网&计操相关/计算机网络/计网04.md)
   - 计算机操作系统
-    - [1](./viw-notes/计网&计操相关/计算机操作系统/1.md)
+    - [操作系统01](./viw-notes/计网&计操相关/计算机操作系统/操作系统01.md)
+    - [操作系统02](./viw-notes/计网&计操相关/计算机操作系统/操作系统02.md)
+    - [操作系统03](./viw-notes/计网&计操相关/计算机操作系统/操作系统03.md)
+    - [操作系统04](./viw-notes/计网&计操相关/计算机操作系统/操作系统04.md)
+    - [操作系统05](./viw-notes/计网&计操相关/计算机操作系统/操作系统05.md)
 - 前端
   - Echarts
     - [Echarts01-入门](./viw-notes/前端/Echarts/Echarts01-入门.md)
   - JQuery
     - [JQuery1](./viw-notes/前端/JQuery/JQuery1.md)
   - VUE
-    - [VUE1-入门](./viw-notes/前端/VUE/VUE1-入门.md)
+    - [VUE01](./viw-notes/前端/VUE/VUE01.md)
+    - [VUE02](./viw-notes/前端/VUE/VUE02.md)
+    - [VUE03](./viw-notes/前端/VUE/VUE03.md)
+    - [VUE04](./viw-notes/前端/VUE/VUE04.md)
+    - [VUE05](./viw-notes/前端/VUE/VUE05.md)
+    - [VUE06](./viw-notes/前端/VUE/VUE06.md)
+    - [VUE07](./viw-notes/前端/VUE/VUE07.md)
   - easyui
     - [数据表格-datagrid](./viw-notes/前端/easyui/数据表格-datagrid.md)
   - element
@@ -263,39 +317,64 @@
   - Jetty
     - [Jetty1](./viw-notes/后端/Jetty/Jetty1.md)
   - Netty
-    - [netty入门](./viw-notes/后端/Netty/netty入门.md)
-    - [netty组件](./viw-notes/后端/Netty/netty组件.md)
-    - [netty的简单case1](./viw-notes/后端/Netty/netty的简单case1.md)
-    - [netty双向通信](./viw-notes/后端/Netty/netty双向通信.md)
-    - [netty黏包半包](./viw-notes/后端/Netty/netty黏包半包.md)
-    - [netty协议和解析](./viw-notes/后端/Netty/netty协议和解析.md)
+    - [netty01](./viw-notes/后端/Netty/netty01.md)
+    - [netty02组件](./viw-notes/后端/Netty/netty02组件.md)
+    - [netty03协议和解析](./viw-notes/后端/Netty/netty03协议和解析.md)
+    - [netty04黏包半包](./viw-notes/后端/Netty/netty04黏包半包.md)
+    - [netty05双向通信](./viw-notes/后端/Netty/netty05双向通信.md)
+    - [netty06的简单case1](./viw-notes/后端/Netty/netty06的简单case1.md)
+    - [netty07](./viw-notes/后端/Netty/netty07.md)
+    - [netty08](./viw-notes/后端/Netty/netty08.md)
+    - [netty09](./viw-notes/后端/Netty/netty09.md)
+    - [netty10](./viw-notes/后端/Netty/netty10.md)
   - Nginx
     - [Nginx01](./viw-notes/后端/Nginx/Nginx01.md)
     - [Nginx02](./viw-notes/后端/Nginx/Nginx02.md)
     - [Nginx03](./viw-notes/后端/Nginx/Nginx03.md)
     - [Nginx04](./viw-notes/后端/Nginx/Nginx04.md)
+    - [Nginx05](./viw-notes/后端/Nginx/Nginx05.md)
+    - [Nginx06](./viw-notes/后端/Nginx/Nginx06.md)
   - RPC
+    - dubbo
+      - [dubbo01](./viw-notes/后端/RPC/dubbo/dubbo01.md)
+      - [dubbo02](./viw-notes/后端/RPC/dubbo/dubbo02.md)
+      - [dubbo03](./viw-notes/后端/RPC/dubbo/dubbo03.md)
+      - [dubbo04](./viw-notes/后端/RPC/dubbo/dubbo04.md)
+      - [dubbo05](./viw-notes/后端/RPC/dubbo/dubbo05.md)
+      - [dubbo06](./viw-notes/后端/RPC/dubbo/dubbo06.md)
+      - [dubbo07](./viw-notes/后端/RPC/dubbo/dubbo07.md)
+    - dubbox
+      - [dubbox01](./viw-notes/后端/RPC/dubbox/dubbox01.md)
+      - [dubbox02](./viw-notes/后端/RPC/dubbox/dubbox02.md)
+      - [dubbox03](./viw-notes/后端/RPC/dubbox/dubbox03.md)
     - gRPC
       - [grpc01](./viw-notes/后端/RPC/gRPC/grpc01.md)
       - [grpc02](./viw-notes/后端/RPC/gRPC/grpc02.md)
+      - [grpc03](./viw-notes/后端/RPC/gRPC/grpc03.md)
+      - [grpc04](./viw-notes/后端/RPC/gRPC/grpc04.md)
     - thrift
       - [thrift01](./viw-notes/后端/RPC/thrift/thrift01.md)
+      - [thrift02](./viw-notes/后端/RPC/thrift/thrift02.md)
   - db海量数据处理
     - ShardingJDBC
       - [SJ01](./viw-notes/后端/db海量数据处理/ShardingJDBC/SJ01.md)
       - [SJ02](./viw-notes/后端/db海量数据处理/ShardingJDBC/SJ02.md)
       - [SJ03](./viw-notes/后端/db海量数据处理/ShardingJDBC/SJ03.md)
+    - cobar
+      - [cobar01](./viw-notes/后端/db海量数据处理/cobar/cobar01.md)
+      - [cobar02](./viw-notes/后端/db海量数据处理/cobar/cobar02.md)
+      - [cobar03](./viw-notes/后端/db海量数据处理/cobar/cobar03.md)
+      - [cobar04](./viw-notes/后端/db海量数据处理/cobar/cobar04.md)
+      - [cobar05](./viw-notes/后端/db海量数据处理/cobar/cobar05.md)
     - mycat
       - [mycat1](./viw-notes/后端/db海量数据处理/mycat/mycat1.md)
       - [mycat2](./viw-notes/后端/db海量数据处理/mycat/mycat2.md)
-  - dubbo
-    - [dubbo1](./viw-notes/后端/dubbo/dubbo1.md)
-    - [dubbo2](./viw-notes/后端/dubbo/dubbo2.md)
-    - [dubbo3](./viw-notes/后端/dubbo/dubbo3.md)
-    - [dubbo4](./viw-notes/后端/dubbo/dubbo4.md)
-    - [dubbo5](./viw-notes/后端/dubbo/dubbo5.md)
+      - [mycat3](./viw-notes/后端/db海量数据处理/mycat/mycat3.md)
   - elk
     - [elk01](./viw-notes/后端/elk/elk01.md)
+    - [elk02](./viw-notes/后端/elk/elk02.md)
+    - [elk03](./viw-notes/后端/elk/elk03.md)
+    - [elk04](./viw-notes/后端/elk/elk04.md)
   - shell编程
     - [shell01](./viw-notes/后端/shell编程/shell01.md)
     - [shell02](./viw-notes/后端/shell编程/shell02.md)
@@ -303,8 +382,9 @@
     - [shell04](./viw-notes/后端/shell编程/shell04.md)
     - [shell05](./viw-notes/后端/shell编程/shell05.md)
   - tomcat
-    - [tomcat1-web容器初识和学习路径](./viw-notes/后端/tomcat/tomcat1-web容器初识和学习路径.md)
-    - [tomcat2-tomcat系统架构之连接器](./viw-notes/后端/tomcat/tomcat2-tomcat系统架构之连接器.md)
+    - [tomcat01](./viw-notes/后端/tomcat/tomcat01.md)
+    - [tomcat02](./viw-notes/后端/tomcat/tomcat02.md)
+    - [tomcat03](./viw-notes/后端/tomcat/tomcat03.md)
   - zookeeper
     - [zk01](./viw-notes/后端/zookeeper/zk01.md)
     - [zk02](./viw-notes/后端/zookeeper/zk02.md)
@@ -315,17 +395,29 @@
     - [zk07](./viw-notes/后端/zookeeper/zk07.md)
   - 缓存
     - Caffeine
+      - [caffeine01](./viw-notes/后端/缓存/Caffeine/caffeine01.md)
+      - [caffeine02](./viw-notes/后端/缓存/Caffeine/caffeine02.md)
+      - [caffeine03](./viw-notes/后端/缓存/Caffeine/caffeine03.md)
       - [springboot注解+caffeine](./viw-notes/后端/缓存/Caffeine/springboot注解%2Bcaffeine.md)
     - Guava
-      - [Guava1](./viw-notes/后端/缓存/Guava/Guava1.md)
+      - [guava1](./viw-notes/后端/缓存/Guava/guava1.md)
+      - [guava2](./viw-notes/后端/缓存/Guava/guava2.md)
+      - [guava3](./viw-notes/后端/缓存/Guava/guava3.md)
     - redis
+      - [redis01](./viw-notes/后端/缓存/redis/redis01.md)
+      - [redis02](./viw-notes/后端/缓存/redis/redis02.md)
+      - [redis03](./viw-notes/后端/缓存/redis/redis03.md)
+      - [redis04](./viw-notes/后端/缓存/redis/redis04.md)
       - [redis基础2-操作redis](./viw-notes/后端/缓存/redis/redis基础2-操作redis.md)
       - [redis基础3-事务](./viw-notes/后端/缓存/redis/redis基础3-事务.md)
       - [redis基础4-持久化](./viw-notes/后端/缓存/redis/redis基础4-持久化.md)
       - [redis基础5-主从架构和哨兵](./viw-notes/后端/缓存/redis/redis基础5-主从架构和哨兵.md)
       - [redis极速认识基础](./viw-notes/后端/缓存/redis/redis极速认识基础.md)
   - 基础(应用)监控和告警
+    - [基础告警01](./viw-notes/后端/基础(应用)监控和告警/基础告警01.md)
     - [基础监控01](./viw-notes/后端/基础(应用)监控和告警/基础监控01.md)
+    - [基础告警02](./viw-notes/后端/基础(应用)监控和告警/基础告警02.md)
+    - [基础监控02](./viw-notes/后端/基础(应用)监控和告警/基础监控02.md)
   - 搜索引擎
     - ES
       - [ES01](./viw-notes/后端/搜索引擎/ES/ES01.md)
@@ -334,18 +426,29 @@
       - [ES04](./viw-notes/后端/搜索引擎/ES/ES04.md)
       - [ES05](./viw-notes/后端/搜索引擎/ES/ES05.md)
       - [ES06](./viw-notes/后端/搜索引擎/ES/ES06.md)
+      - [ES07](./viw-notes/后端/搜索引擎/ES/ES07.md)
+      - [ES08](./viw-notes/后端/搜索引擎/ES/ES08.md)
     - Lucene
-      - [Lucene1-入门篇](./viw-notes/后端/搜索引擎/Lucene/Lucene1-入门篇.md)
+      - [Lucene01](./viw-notes/后端/搜索引擎/Lucene/Lucene01.md)
     - solr
       - [solr1-入门](./viw-notes/后端/搜索引擎/solr/solr1-入门.md)
       - [solr2-solrj](./viw-notes/后端/搜索引擎/solr/solr2-solrj.md)
       - [问题1-solr仪表盘导入数据问题](./viw-notes/后端/搜索引擎/solr/问题1-solr仪表盘导入数据问题.md)
+  - 权限网关
+    - 权限认证
+      - shiro
+        - [shiro01](./viw-notes/后端/权限网关/权限认证/shiro/shiro01.md)
+        - [shiro02](./viw-notes/后端/权限网关/权限认证/shiro/shiro02.md)
+        - [shiro03](./viw-notes/后端/权限网关/权限认证/shiro/shiro03.md)
+        - [shiro04](./viw-notes/后端/权限网关/权限认证/shiro/shiro04.md)
+        - [shiro05](./viw-notes/后端/权限网关/权限认证/shiro/shiro05.md)
   - 消息队列
     - ActiveMQ
       - [ActiveMQ01](./viw-notes/后端/消息队列/ActiveMQ/ActiveMQ01.md)
       - [ActiveMQ02](./viw-notes/后端/消息队列/ActiveMQ/ActiveMQ02.md)
       - [ActiveMQ03](./viw-notes/后端/消息队列/ActiveMQ/ActiveMQ03.md)
       - [ActiveMQ04](./viw-notes/后端/消息队列/ActiveMQ/ActiveMQ04.md)
+      - [ActiveMQ05](./viw-notes/后端/消息队列/ActiveMQ/ActiveMQ05.md)
     - Kafka
       - [Kafka01](./viw-notes/后端/消息队列/Kafka/Kafka01.md)
       - [Kafka02](./viw-notes/后端/消息队列/Kafka/Kafka02.md)
@@ -361,15 +464,22 @@
       - [RabbitMQ01](./viw-notes/后端/消息队列/RabbitMQ/RabbitMQ01.md)
       - [RabbitMQ02](./viw-notes/后端/消息队列/RabbitMQ/RabbitMQ02.md)
       - [RabbitMQ03](./viw-notes/后端/消息队列/RabbitMQ/RabbitMQ03.md)
+      - [RabbitMQ04](./viw-notes/后端/消息队列/RabbitMQ/RabbitMQ04.md)
+      - [RabbitMQ05](./viw-notes/后端/消息队列/RabbitMQ/RabbitMQ05.md)
+    - RocketMQ
+      - [RocketMQ01](./viw-notes/后端/消息队列/RocketMQ/RocketMQ01.md)
+      - [RocketMQ02](./viw-notes/后端/消息队列/RocketMQ/RocketMQ02.md)
+      - [RocketMQ03](./viw-notes/后端/消息队列/RocketMQ/RocketMQ03.md)
+      - [RocketMQ04](./viw-notes/后端/消息队列/RocketMQ/RocketMQ04.md)
+      - [RocketMQ05](./viw-notes/后端/消息队列/RocketMQ/RocketMQ05.md)
   - 设计模式
-    - [设计模式1-设计模式体系结构和原则](./viw-notes/后端/设计模式/设计模式1-设计模式体系结构和原则.md)
-    - [设计模式2-创建型-单例模式](./viw-notes/后端/设计模式/设计模式2-创建型-单例模式.md)
-    - [设计模式3-创建型-工厂模式](./viw-notes/后端/设计模式/设计模式3-创建型-工厂模式.md)
+    - [设计模式01-基础](./viw-notes/后端/设计模式/设计模式01-基础.md)
+    - [设计模式02-创建型](./viw-notes/后端/设计模式/设计模式02-创建型.md)
+    - [设计模式03-结构型](./viw-notes/后端/设计模式/设计模式03-结构型.md)
+    - [设计模式04-行为型](./viw-notes/后端/设计模式/设计模式04-行为型.md)
   - 方案解决思路
     - [权限认证相关](./viw-notes/后端/方案解决思路/权限认证相关.md)
     - [海量数据处理思路](./viw-notes/后端/方案解决思路/海量数据处理思路.md)
-  - 系统设计方面(三高)
-    - [高并发高性能高可用](./viw-notes/后端/系统设计方面(三高)/高并发高性能高可用.md)
   - 分布式任务调度
     - Elastic-Job
       - [Job01](./viw-notes/后端/分布式任务调度/Elastic-Job/Job01.md)
@@ -379,10 +489,27 @@
       - [Job01](./viw-notes/后端/分布式任务调度/XXL-Job/Job01.md)
       - [Job02](./viw-notes/后端/分布式任务调度/XXL-Job/Job02.md)
       - [Job03](./viw-notes/后端/分布式任务调度/XXL-Job/Job03.md)
+    - quartz
+      - [quartz01](./viw-notes/后端/分布式任务调度/quartz/quartz01.md)
+      - [quartz02](./viw-notes/后端/分布式任务调度/quartz/quartz02.md)
+      - [quartz03](./viw-notes/后端/分布式任务调度/quartz/quartz03.md)
+      - [quartz04](./viw-notes/后端/分布式任务调度/quartz/quartz04.md)
   - 分布式文件系统
+    - fastdfs
+      - [dfs01](./viw-notes/后端/分布式文件系统/fastdfs/dfs01.md)
+      - [dfs02](./viw-notes/后端/分布式文件系统/fastdfs/dfs02.md)
+      - [dfs03](./viw-notes/后端/分布式文件系统/fastdfs/dfs03.md)
+      - [dfs04](./viw-notes/后端/分布式文件系统/fastdfs/dfs04.md)
+  - 系统架构设计方面(三高)
+    - [高并发高性能高可用01](./viw-notes/后端/系统架构设计方面(三高)/高并发高性能高可用01.md)
+    - [高并发高性能高可用02](./viw-notes/后端/系统架构设计方面(三高)/高并发高性能高可用02.md)
+    - [高并发高性能高可用03](./viw-notes/后端/系统架构设计方面(三高)/高并发高性能高可用03.md)
+    - [高并发高性能高可用04](./viw-notes/后端/系统架构设计方面(三高)/高并发高性能高可用04.md)
+    - [高并发高性能高可用05](./viw-notes/后端/系统架构设计方面(三高)/高并发高性能高可用05.md)
+    - [高并发高性能高可用06](./viw-notes/后端/系统架构设计方面(三高)/高并发高性能高可用06.md)
 - 存储
   - DB2
-    - [db2-1-基本操作语句和入门](./viw-notes/存储/DB2/db2-1-基本操作语句和入门.md)
+    - [db201](./viw-notes/存储/DB2/db201.md)
   - MongoDB
     - [mongo01](./viw-notes/存储/MongoDB/mongo01.md)
     - [mongo02](./viw-notes/存储/MongoDB/mongo02.md)
@@ -400,42 +527,70 @@
     - [MySQL07-日志](./viw-notes/存储/MySQL/MySQL07-日志.md)
     - [MySQL08-explain优化使用](./viw-notes/存储/MySQL/MySQL08-explain优化使用.md)
     - [MySQL09-页结构](./viw-notes/存储/MySQL/MySQL09-页结构.md)
+    - [MySQL10](./viw-notes/存储/MySQL/MySQL10.md)
+    - [MySQL11](./viw-notes/存储/MySQL/MySQL11.md)
+    - [MySQL12](./viw-notes/存储/MySQL/MySQL12.md)
+    - [MySQL13](./viw-notes/存储/MySQL/MySQL13.md)
     - [sql](./viw-notes/存储/MySQL/sql.md)
   - MySQL高性能集群篇
     - [1-mysql集群架构](./viw-notes/存储/MySQL高性能集群篇/1-mysql集群架构.md)
     - [2-mysql主从复制](./viw-notes/存储/MySQL高性能集群篇/2-mysql主从复制.md)
     - [3-mysql集群之mycat+代理+心](./viw-notes/存储/MySQL高性能集群篇/3-mysql集群之mycat%2B代理%2B心跳md)
+    - [4-mysql](./viw-notes/存储/MySQL高性能集群篇/4-mysql.md)
+    - [5-mysql](./viw-notes/存储/MySQL高性能集群篇/5-mysql.md)
+    - [6-mysql](./viw-notes/存储/MySQL高性能集群篇/6-mysql.md)
   - TiDB
     - [TiDB01](./viw-notes/存储/TiDB/TiDB01.md)
     - [TiDB02](./viw-notes/存储/TiDB/TiDB02.md)
     - [TiDB03](./viw-notes/存储/TiDB/TiDB03.md)
     - [TiDB04](./viw-notes/存储/TiDB/TiDB04.md)
+    - [TiDB05](./viw-notes/存储/TiDB/TiDB05.md)
+  - etcd
+    - [etcd01](./viw-notes/存储/etcd/etcd01.md)
+    - [etcd02](./viw-notes/存储/etcd/etcd02.md)
+    - [etcd03](./viw-notes/存储/etcd/etcd03.md)
+    - [etcd04](./viw-notes/存储/etcd/etcd04.md)
+  - 第三方工具
+    - druid
+      - [druid01](./viw-notes/存储/第三方工具/druid/druid01.md)
 - 安全
   - 加密解密
     - [Crypto-AES解密加密](./viw-notes/安全/加密解密/Crypto-AES解密加密.md)
     - [MD5加密解密](./viw-notes/安全/加密解密/MD5加密解密.md)
   - 网络安全
-    - [DDOS01](./viw-notes/安全/网络安全/DDOS01.md)
+    - [网络安全01](./viw-notes/安全/网络安全/网络安全01.md)
+    - [网络安全02](./viw-notes/安全/网络安全/网络安全02.md)
   - 数据库安全
-    - [1](./viw-notes/安全/数据库安全/1.md)
+    - [数据库安全01](./viw-notes/安全/数据库安全/数据库安全01.md)
+    - [数据库安全02](./viw-notes/安全/数据库安全/数据库安全02.md)
   - 服务器安全
-    - [1](./viw-notes/安全/服务器安全/1.md)
+    - [服务器安全01](./viw-notes/安全/服务器安全/服务器安全01.md)
+    - [服务器安全02](./viw-notes/安全/服务器安全/服务器安全02.md)
 - 云原生(cicd&devops&微服务)
+  - clickhouse
+    - [clickhouse01](./viw-notes/云原生(cicd&devops&微服务)/clickhouse/clickhouse01.md)
+    - [clickhouse02](./viw-notes/云原生(cicd&devops&微服务)/clickhouse/clickhouse02.md)
+    - [clickhouse03](./viw-notes/云原生(cicd&devops&微服务)/clickhouse/clickhouse03.md)
+    - [clickhouse04](./viw-notes/云原生(cicd&devops&微服务)/clickhouse/clickhouse04.md)
+    - [clickhouse05](./viw-notes/云原生(cicd&devops&微服务)/clickhouse/clickhouse05.md)
   - docker
     - [docker01](./viw-notes/云原生(cicd&devops&微服务)/docker/docker01.md)
     - [docker02](./viw-notes/云原生(cicd&devops&微服务)/docker/docker02.md)
     - [docker03](./viw-notes/云原生(cicd&devops&微服务)/docker/docker03.md)
     - [docker04](./viw-notes/云原生(cicd&devops&微服务)/docker/docker04.md)
     - [docker05](./viw-notes/云原生(cicd&devops&微服务)/docker/docker05.md)
+    - [docker06](./viw-notes/云原生(cicd&devops&微服务)/docker/docker06.md)
     - [docker提升速度](./viw-notes/云原生(cicd&devops&微服务)/docker/docker提升速度.md)
     - [问题-docker安装vim换源](./viw-notes/云原生(cicd&devops&微服务)/docker/问题-docker安装vim换源.md)
   - gitlab
     - [gitlab01](./viw-notes/云原生(cicd&devops&微服务)/gitlab/gitlab01.md)
     - [gitlab02](./viw-notes/云原生(cicd&devops&微服务)/gitlab/gitlab02.md)
   - harbor
+    - [barbor02](./viw-notes/云原生(cicd&devops&微服务)/harbor/barbor02.md)
     - [harbor01](./viw-notes/云原生(cicd&devops&微服务)/harbor/harbor01.md)
   - jenkins
     - [jenkins01](./viw-notes/云原生(cicd&devops&微服务)/jenkins/jenkins01.md)
+    - [jenkins02](./viw-notes/云原生(cicd&devops&微服务)/jenkins/jenkins02.md)
   - k8s
     - [k8s01](./viw-notes/云原生(cicd&devops&微服务)/k8s/k8s01.md)
     - [k8s02](./viw-notes/云原生(cicd&devops&微服务)/k8s/k8s02.md)
@@ -446,13 +601,43 @@
     - [k8s07](./viw-notes/云原生(cicd&devops&微服务)/k8s/k8s07.md)
 - 大数据相关
   - ApacheStorm
+    - [storm-01](./viw-notes/大数据相关/ApacheStorm/storm-01.md)
+    - [storm-02](./viw-notes/大数据相关/ApacheStorm/storm-02.md)
+    - [storm-03](./viw-notes/大数据相关/ApacheStorm/storm-03.md)
   - Hadoop
+    - [hadoop01](./viw-notes/大数据相关/Hadoop/hadoop01.md)
+    - [hadoop02](./viw-notes/大数据相关/Hadoop/hadoop02.md)
+    - [hadoop03](./viw-notes/大数据相关/Hadoop/hadoop03.md)
+    - [hadoop04](./viw-notes/大数据相关/Hadoop/hadoop04.md)
+    - [hadoop05](./viw-notes/大数据相关/Hadoop/hadoop05.md)
+    - [hadoop06](./viw-notes/大数据相关/Hadoop/hadoop06.md)
   - flink
     - [flink01](./viw-notes/大数据相关/flink/flink01.md)
+    - [flink02](./viw-notes/大数据相关/flink/flink02.md)
+    - [flink03](./viw-notes/大数据相关/flink/flink03.md)
+    - [flink04](./viw-notes/大数据相关/flink/flink04.md)
+    - [flink05](./viw-notes/大数据相关/flink/flink05.md)
+    - [flink06](./viw-notes/大数据相关/flink/flink06.md)
+    - [flink07](./viw-notes/大数据相关/flink/flink07.md)
+    - [flink08](./viw-notes/大数据相关/flink/flink08.md)
   - hbase
     - [hbase01](./viw-notes/大数据相关/hbase/hbase01.md)
+    - [hbase02](./viw-notes/大数据相关/hbase/hbase02.md)
+    - [hbase03](./viw-notes/大数据相关/hbase/hbase03.md)
+    - [hbase04](./viw-notes/大数据相关/hbase/hbase04.md)
   - kafkaStream
+    - [stream01](./viw-notes/大数据相关/kafkaStream/stream01.md)
+    - [stream02](./viw-notes/大数据相关/kafkaStream/stream02.md)
+    - [stream03](./viw-notes/大数据相关/kafkaStream/stream03.md)
+    - [stream04](./viw-notes/大数据相关/kafkaStream/stream04.md)
+    - [stream05](./viw-notes/大数据相关/kafkaStream/stream05.md)
   - spark
+    - [spark01](./viw-notes/大数据相关/spark/spark01.md)
+    - [spark02](./viw-notes/大数据相关/spark/spark02.md)
+    - [spark03](./viw-notes/大数据相关/spark/spark03.md)
+    - [spark04](./viw-notes/大数据相关/spark/spark04.md)
+    - [spark05](./viw-notes/大数据相关/spark/spark05.md)
+    - [spark06](./viw-notes/大数据相关/spark/spark06.md)
 - 数据结构和算法相关
   - leetcode(类型)
     - DFS+BFS
