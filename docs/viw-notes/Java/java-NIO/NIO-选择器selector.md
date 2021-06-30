@@ -72,7 +72,7 @@ ssChannel.register(selector, SelectionKey.OP_ACCEPT);
 
 
 
-> 创建和绑定监听
+> 创建和绑定
 
 ```java
 /**
@@ -99,7 +99,7 @@ int count = selector.selectnow();
 
 
 
-:bulb: select不阻塞的时机:
+select不阻塞的时机:
 
 - 事件发生时：
   - 客户端发起请求，触发accept事件
@@ -350,16 +350,6 @@ private static void split(ByteBuffer buffer) {
 
 
 ```
-
-
-
-
-
-## 多线程优化nio
-
-
-
-
 
 
 
