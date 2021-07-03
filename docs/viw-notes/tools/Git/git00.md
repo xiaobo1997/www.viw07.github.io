@@ -21,6 +21,32 @@ git config --global user.email "你的邮箱"
 
 - `git version`  版本 ![image-20200902002424624](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20200902002424624.png)
 
+
+
+> mac 或 win 下 生成 ssh
+>
+> 1.生成ssh
+>
+> ```shell
+> # ed25519算法
+> ssh-keygen -t ed25519 -C "your_email@example.com"
+> # rsa算法
+> ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+> ```
+>
+> 2.连续enter 就可以肯定生成的ssh了
+>
+> ```shell
+> gitlab 添加即可
+> 
+> # 查看ssh
+>  cat ~/.ssh/id_rsa.pub
+> ```
+>
+> 
+
+
+
 ## 2.架构&仓库
 
 ### 2.1架构
