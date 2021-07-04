@@ -359,9 +359,329 @@ private static void split(ByteBuffer buffer) {
 
 
 
+按照功能分两组选择器
+
+* 单线程配一个选择器，专门处理 accept 事件
+* 创建 cpu 核心数的线程，每个线程配一个选择器，轮流处理 read 事件
+
+```java
+public class ChannelDemo7 {
+    public static void main(String[] args) throws IOException {
+        new BossEventLoop().register();
+    }
+
+
+    @Slf4j
+    static class BossEventLoop implements Runnable {
+        private Selector boss;
+        private WorkerEventLoop[] workers;
+        private volatile boolean start = false;
+        AtomicInteger index = new AtomicInteger();
+
+        public void register() throws IOException {
+            if (!start) {
+                ServerSocketChannel ssc = ServerSocketChannel.open();
+                ssc.bind(new InetSocketAddress(8080));
+                ssc.configureBlocking(false);
+                boss = Selector.open();
+                SelectionKey ssckey = ssc.register(boss, 0, null);
+                ssckey.interestOps(SelectionKey.OP_ACCEPT);
+                workers = initEventLoops();
+                new Thread(this, "boss").start();
+                log.debug("boss start...");
+                start = true;
+            }
+        }
+
+        public WorkerEventLoop[] initEventLoops() {
+//        EventLoop[] eventLoops = new EventLoop[Runtime.getRuntime().availableProcessors()];
+            WorkerEventLoop[] workerEventLoops = new WorkerEventLoop[2];
+            for (int i = 0; i < workerEventLoops.length; i++) {
+                workerEventLoops[i] = new WorkerEventLoop(i);
+            }
+            return workerEventLoops;
+        }
+
+        @Override
+        public void run() {
+            while (true) {
+                try {
+                    boss.select();
+                    Iterator<SelectionKey> iter = boss.selectedKeys().iterator();
+                    while (iter.hasNext()) {
+                        SelectionKey key = iter.next();
+                        iter.remove();
+                        if (key.isAcceptable()) {
+                            ServerSocketChannel c = (ServerSocketChannel) key.channel();
+                            SocketChannel sc = c.accept();
+                            sc.configureBlocking(false);
+                            log.debug("{} connected", sc.getRemoteAddress());
+                            workers[index.getAndIncrement() % workers.length].register(sc);
+                        }
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Slf4j
+    static class WorkerEventLoop implements Runnable {
+        private Selector worker;
+        private volatile boolean start = false;
+        private int index;
+
+        private final ConcurrentLinkedQueue<Runnable> tasks = new ConcurrentLinkedQueue<>();
+
+        public WorkerEventLoop(int index) {
+            this.index = index;
+        }
+
+        public void register(SocketChannel sc) throws IOException {
+            if (!start) {
+                worker = Selector.open();
+                new Thread(this, "worker-" + index).start();
+                start = true;
+            }
+            tasks.add(() -> {
+                try {
+                    SelectionKey sckey = sc.register(worker, 0, null);
+                    sckey.interestOps(SelectionKey.OP_READ);
+                    worker.selectNow();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+            worker.wakeup();
+        }
+
+        @Override
+        public void run() {
+            while (true) {
+                try {
+                    worker.select();
+                    Runnable task = tasks.poll();
+                    if (task != null) {
+                        task.run();
+                    }
+                    Set<SelectionKey> keys = worker.selectedKeys();
+                    Iterator<SelectionKey> iter = keys.iterator();
+                    while (iter.hasNext()) {
+                        SelectionKey key = iter.next();
+                        if (key.isReadable()) {
+                            SocketChannel sc = (SocketChannel) key.channel();
+                            ByteBuffer buffer = ByteBuffer.allocate(128);
+                            try {
+                                int read = sc.read(buffer);
+                                if (read == -1) {
+                                    key.cancel();
+                                    sc.close();
+                                } else {
+                                    buffer.flip();
+                                    log.debug("{} message:", sc.getRemoteAddress());
+                                    debugAll(buffer);
+                                }
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                                key.cancel();
+                                sc.close();
+                            }
+                        }
+                        iter.remove();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+}
+```
 
 
 
+```java
+package com.viw.nioviw.nio.c1;
+
+import lombok.extern.slf4j.Slf4j;
+
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
+import java.nio.channels.ServerSocketChannel;
+import java.nio.channels.SocketChannel;
+import java.util.Set;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicInteger;
+
+/**
+ * @Author: xhb
+ * @email xiaobo97@163.com
+ * gitee: https://gitee.com/xiaobo97
+ * @Date: 2021/6/28 20:43
+ * @description: 多线程优化nio 多组selector
+ * 1.分组处理   一组selector处理客户端连接  一组selector处理客户端读写
+ * 注意就是 不同的线程 会导致 SocketChannel.register()  和  selector.select  方法执行顺序不同 而导致 事件还没有注册  而select是一直阻塞的
+ *
+ */
+@Slf4j
+public class MultithreadSelector {
+
+    public static void main(String[] args) throws IOException {
+        var boss = new BossEventLoop();
+        boss.register();
+    }
+
+    // worker 处理 读写
+    static class WorkerEventLoop implements Runnable {
+        private Selector worker;
+        private volatile boolean start = false;
+        private int index;
+
+        private final ConcurrentLinkedQueue<Runnable> tasks = new ConcurrentLinkedQueue<>();
+
+        public WorkerEventLoop(int index) {
+            this.index = index;
+        }
+
+        //处理客户端socketChannel
+        public void register(SocketChannel sc) throws Exception {
+            if (!start) {
+                worker = Selector.open();
+                new Thread(this, "worker->" + index).start();
+                start = true;
+            }
+            //向队列添加任务
+            tasks.add(() -> {
+                try {
+                    // 先注册连接，再关注事件  顺序不能错
+                    SelectionKey scKey = sc.register(worker, 0, null);
+                    scKey.interestOps(SelectionKey.OP_READ);//
+                    worker.selectNow();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+        }
+
+
+        @Override
+        public void run() {
+            while (true) {
+                try {
+                    // select is block  可以调用wakeup方法让事件结束，停止select  block 让READ事件 注册上，防止无法注册事件
+                    // 保证了顺序，先select再register 同一个线程内保证了有序
+                    worker.select();
+                    //  从前面队列中取出任务执行，
+                    Runnable task = tasks.poll();
+                    if (task != null) task.run(); // 执行注册 sc.register(worker, 0, null);
+                    Set<SelectionKey> keys = worker.selectedKeys();
+                    var iter = keys.iterator();
+                    while (iter.hasNext()) {
+                        var key = iter.next();
+                        if (key.isReadable()) {
+                            var sc = (SocketChannel) key.channel();
+                              var buffer = ByteBuffer.allocate(128);
+                            try {
+                                int read = sc.read(buffer);
+                                // 处理正常断开
+                                if (read == -1) {
+                                    key.cancel();
+                                    sc.close();
+                                } else {
+                                    buffer.flip();
+                                    log.info("address :" + sc.getRemoteAddress());
+                                }
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                                key.cancel();
+                                sc.close();
+                            }
+                        }
+                        iter.remove();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    //boss处理连接
+    static class BossEventLoop implements Runnable {
+        private Selector boss;
+        private WorkerEventLoop[] workers;
+        private volatile boolean start = false;
+        // 原子计数器  轮询分配连接到work去处理 读写
+        AtomicInteger index = new AtomicInteger();
+
+        public void register() throws IOException {
+            if (!start) {
+                ServerSocketChannel ssc = ServerSocketChannel.open();
+                ssc.bind(new InetSocketAddress(8080));
+                ssc.configureBlocking(false);
+                boss = Selector.open();
+                /**
+                 register(boss, 0, null);
+                 sel – 要注册此通道的选择器
+                 ops – 为结果键设置的兴趣
+                 att – 结果密钥的附件； 可能为null
+                 */
+                SelectionKey key = ssc.register(boss, 0, null);
+                key.interestOps(SelectionKey.OP_ACCEPT);//添加监听事件ACCEPT
+                workers = initEventLoop();
+                new Thread(this, "boss").start();
+                start = true;
+            }
+        }
+
+        public WorkerEventLoop[] initEventLoop() {
+            WorkerEventLoop[] workerEventLoops = new WorkerEventLoop[2];
+            for (int i = 0; i < workerEventLoops.length; i++) {
+                workerEventLoops[i] = new WorkerEventLoop(i);
+            }
+            return workerEventLoops;
+        }
+
+
+        @Override
+        public void run() {
+            while (true) {
+                try {
+                    boss.select();//
+                    var iter = boss.selectedKeys().iterator();
+                    while (iter.hasNext()) {
+                        var key= iter.next();
+                        iter.remove();
+                        // boss处理连接事件
+                        if (key.isAcceptable()) {
+                            ServerSocketChannel c = (ServerSocketChannel)key.channel();
+                            var sc = c.accept();
+                            sc.configureBlocking(false);
+                            log.info("{} connect",sc.getRemoteAddress());
+                            //调用work处理读写事件, 创建客户端连接用户比较平均的分配到work-0上面
+                            //动态分配Runtime.getRuntime().availableProcessors();返回可用于Java虚拟机的处理器数量。docket下不准确
+                            workers[index.getAndIncrement() % workers.length].register(sc);
+                        }
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
+
+                }
+
+            }
+        }
+    }
+}
+
+```
+
+
+
+:bulb:  Runtime.getRuntime().availableProcessors() 如果工作在 docker 容器下，因为容器不是物理隔离的，会拿到物理 cpu 个数，而不是容器申请时的个数，这个问题直到 jdk 10 才修复，使用 jvm 参数 UseContainerSupport 配置， 默认开启
 
 
 

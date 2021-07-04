@@ -2,7 +2,7 @@
 
 
 
-# 和springboot测试 
+# springboot测试连接 
 
 >生成和 controller  mapper  entity  service
 
@@ -23,6 +23,28 @@ public class DbTest {
 			xxxMapper.SelectOne(xxxx);
 	}	
 }
+
+
+```
+
+
+
+# 自定义IPages分页和wrapper
+
+
+
+```java
+## mapper
+List<T> getAll(Page<T> page,@Param(Constants.WRAPPER) Wrapper wrapper )
+
+## service
+
+## mapper.xml
+
+<select id="getAll" resultType="xxx">
+	xxx FROM xxx ${ew.customSqlSegment}
+</select>
+
 
 
 ```

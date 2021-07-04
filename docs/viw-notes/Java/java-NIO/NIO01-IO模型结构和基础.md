@@ -83,9 +83,298 @@
 >
 > 当数据到达内核态，操作系统通知用户线程，用户线程完成内核缓冲区和用户缓冲区数据的复制。
 
+AIO 用来解决数据复制阶段的阻塞问题
+
+* 同步意味着，在进行读写操作时，线程需要等待结果，还是相当于闲置
+* 异步意味着，在进行读写操作时，**线程不必等待结果**，而是将来由操作系统来通过回调方式由**另外的线程**来获得结果
+
+> 异步模型需要底层操作系统（Kernel）提供支持
+>
+> * Windows 系统通过 IOCP 实现了真正的异步 IO
+> * Linux 系统异步 IO 在 2.6 版本引入，但其底层实现还是用多路复用模拟了异步 IO，性能没有优势
+
+
+
 
 
 ![](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/20210508102111.png)
+
+
+
+> 文件aio
+
+
+
+```java
+package com.viw.nioviw.nio.c2;
+
+import com.viw.nioviw.util.ByteBufferUtil;
+import io.netty.buffer.ByteBuf;
+import lombok.extern.slf4j.Slf4j;
+
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.channels.AsynchronousFileChannel;
+import java.nio.channels.CompletionHandler;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+
+/**
+ * @Author: xhb
+ * @email xiaobo97@163.com
+ * gitee: https://gitee.com/xiaobo97
+ * @Date: 2021/7/4 17:32
+ * @description: 文件 - AIO
+ */
+@Slf4j
+public class FileAIO {
+
+    public static void main(String[] args) throws IOException {
+        try {
+            var channel = AsynchronousFileChannel.open(Paths.get("viw.txt"),
+                    StandardOpenOption.READ);
+            /**
+             dst – 要传输字节的缓冲区
+             position – 开始传输的文件位置； 必须是非负数
+             附件 – 附加到 I/O 操作的对象； 可以为null；比如一次性读不完的时侯用附件缓冲区来继续读
+             handler – 使用结果的处理程序(回调方法对象)
+             */
+            var buffer = ByteBuffer.allocate(16);
+            log.debug("{}",Thread.currentThread().getId());
+            channel.read(buffer, 0, buffer, new CompletionHandler<Integer, ByteBuffer>() {
+                // read成功调用
+                @Override
+                public void completed(Integer result, ByteBuffer attachment) {
+                    log.debug("{}=={}",result,Thread.currentThread().getId());
+                    attachment.flip();
+                    ByteBufferUtil.debugAll(buffer);
+                }
+                // read  失败 调用
+                @Override
+                public void failed(Throwable exc, ByteBuffer attachment) {
+                }
+            });
+            log.debug("{}",Thread.currentThread().getId());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.in.read();
+    }
+}
+
+// print out
+
+17:47:28.652 [main] DEBUG com.viw.nioviw.nio.c2.FileAIO - 1
+17:47:28.682 [main] DEBUG com.viw.nioviw.nio.c2.FileAIO - 1
+17:47:28.683 [Thread-3] DEBUG com.viw.nioviw.nio.c2.FileAIO - 12==16
+17:47:28.786 [Thread-3] DEBUG io.netty.util.internal.logging.InternalLoggerFactory - Using SLF4J as the default logging framework
++--------+-------------------- all ------------------------+----------------+
+position: [0], limit: [12]
+         +-------------------------------------------------+
+         |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f |
++--------+-------------------------------------------------+----------------+
+|00000000| 68 65 6c 6c 6f 6f 78 69 61 6f 62 6f 00 00 00 00 |hellooxiaobo....|
++--------+-------------------------------------------------+----------------+
+```
+
+
+
+
+
+#### 💡 守护线程
+
+默认文件 AIO 使用的线程都是守护线程，所以最后要执行 `System.in.read()` 以避免守护线程意外结束
+
+
+
+> 网络aio
+>
+> 客户端
+
+```java
+
+package com.viw.nioviw.one;
+
+import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
+import java.nio.channels.SocketChannel;
+import java.util.Scanner;
+
+/**
+ * @Author: xhb
+ * @email xiaobo97@163.com
+ * gitee: https://gitee.com/xiaobo97
+ * @Date: 2021/6/20 13:19
+ * @description: nio通信 客户端
+ */
+public class NioClient {
+
+    public static void main(String[] args) throws Exception {
+        // 获取通道
+        SocketChannel socketChannel = SocketChannel.open(new InetSocketAddress("127.0.0.1", 8080));
+
+        socketChannel.configureBlocking(false);
+
+        ByteBuffer buffer = ByteBuffer.allocate(1024);
+
+        var sc = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("输入");
+            //console 中输入的休息
+            String s = sc.nextLine();
+            // 转成byte写入buffer中
+            buffer.put(s.getBytes());
+            //切换为读模式
+            buffer.flip();
+            //读出来放入客户端socket 通道中
+            socketChannel.write(buffer);
+            // 切换写模式
+            buffer.clear();
+        }
+    }
+}
+
+```
+
+> 网络aio 
+>
+> 服务端
+
+```java
+package com.viw.nioviw.nio.c2;
+
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
+import java.nio.channels.AsynchronousServerSocketChannel;
+import java.nio.channels.AsynchronousSocketChannel;
+import java.nio.channels.CompletionHandler;
+import java.nio.charset.Charset;
+
+/**
+ * @Author: xhb
+ * @email xiaobo97@163.com
+ * gitee: https://gitee.com/xiaobo97
+ * @Date: 2021/7/4 17:32
+ * @description:
+ */
+public class IntAIO {
+
+    public static void main(String[] args) throws IOException {
+        AsynchronousServerSocketChannel ssc = AsynchronousServerSocketChannel.open();
+        ssc.bind(new InetSocketAddress(8080));
+        ssc.accept(null, new AcceptHandler(ssc));
+        System.in.read();
+    }
+
+    private static void closeChannel(AsynchronousSocketChannel sc) {
+        try {
+            System.out.printf("[%s] %s close\n", Thread.currentThread().getName(), sc.getRemoteAddress());
+            sc.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static class ReadHandler implements CompletionHandler<Integer, ByteBuffer> {
+        private final AsynchronousSocketChannel sc;
+
+        public ReadHandler(AsynchronousSocketChannel sc) {
+            this.sc = sc;
+        }
+
+        @Override
+        public void completed(Integer result, ByteBuffer attachment) {
+            try {
+                if (result == -1) {
+                    closeChannel(sc);
+                    return;
+                }
+                System.out.printf("[%s] %s read\n", Thread.currentThread().getName(), sc.getRemoteAddress());
+                attachment.flip();
+                System.out.println(Charset.defaultCharset().decode(attachment));
+                attachment.clear();
+                // 处理完第一个 read 时，需要再次调用 read 方法来处理下一个 read 事件
+                sc.read(attachment, attachment, this);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        @Override
+        public void failed(Throwable exc, ByteBuffer attachment) {
+            closeChannel(sc);
+            exc.printStackTrace();
+        }
+    }
+
+    private static class WriteHandler implements CompletionHandler<Integer, ByteBuffer> {
+        private final AsynchronousSocketChannel sc;
+
+        private WriteHandler(AsynchronousSocketChannel sc) {
+            this.sc = sc;
+        }
+
+        @Override
+        public void completed(Integer result, ByteBuffer attachment) {
+            // 如果作为附件的 buffer 还有内容，需要再次 write 写出剩余内容
+            if (attachment.hasRemaining()) {
+                sc.write(attachment);
+            }
+        }
+
+        @Override
+        public void failed(Throwable exc, ByteBuffer attachment) {
+            exc.printStackTrace();
+            closeChannel(sc);
+        }
+    }
+
+    private static class AcceptHandler implements CompletionHandler<AsynchronousSocketChannel, Object> {
+        private final AsynchronousServerSocketChannel ssc;
+
+        public AcceptHandler(AsynchronousServerSocketChannel ssc) {
+            this.ssc = ssc;
+        }
+
+        @Override
+        public void completed(AsynchronousSocketChannel sc, Object attachment) {
+            try {
+                System.out.printf("[%s] %s connected\n", Thread.currentThread().getName(), sc.getRemoteAddress());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            ByteBuffer buffer = ByteBuffer.allocate(16);
+            // 读事件由 ReadHandler 处理
+            sc.read(buffer, buffer, new ReadHandler(sc));
+            // 写事件由 WriteHandler 处理
+            sc.write(Charset.defaultCharset().encode("server hello!"), ByteBuffer.allocate(16), new WriteHandler(sc));
+            // 处理完第一个 accpet 时，需要再次调用 accept 方法来处理下一个 accept 事件
+            ssc.accept(null, this);
+        }
+
+        @Override
+        public void failed(Throwable exc, Object attachment) {
+            exc.printStackTrace();
+        }
+    }
+}
+
+// print out 
+
+[Thread-5] /127.0.0.1:4357 connected
+[Thread-3] /127.0.0.1:4357 read
+1
+[Thread-3] /127.0.0.1:4357 read
+2
+[Thread-3] /127.0.0.1:4357 read
+1
+[Thread-3] /127.0.0.1:4357 read
+1
+```
+
+
 
 
 
@@ -96,6 +385,14 @@
 2.nio 连接多但连接时间短，如 即时通讯，
 
 3.aio  连接数多且长，让os来帮助并发
+
+
+
+
+
+
+
+
 
 # nio
 
