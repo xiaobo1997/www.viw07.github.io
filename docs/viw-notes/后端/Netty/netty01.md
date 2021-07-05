@@ -65,6 +65,120 @@ Netty 在 Java 网络应用框架中的地位就好比：Spring 框架在 JavaEE
 
 
 
+> server
+
+
+
+```java
+package com.viw.viwnetty.c1;
+
+import io.netty.bootstrap.ServerBootstrap;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.string.StringDecoder;
+
+/**
+ * The type Hello netty server.
+ *
+ * @Author: xhb
+ * @email xiaobo97 @163.com gitee: https://gitee.com/xiaobo97
+ * @Date: 2021 /7/4 18:10
+ * @description:
+ */
+public class HelloNettyServer {
+
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
+    public static void main(String[] args) {
+        //服务器启动器，组装netty组件
+        new ServerBootstrap()
+                //EventLoopGroup(selector,thread) 一个选择器 配 一个线程 group组
+                .group(new NioEventLoopGroup())
+                // 选择 server的ServerSocketChannel实现
+                .channel(NioServerSocketChannel.class)
+                //childHandler可以添加后面child要处理什么操作(handler) handler不同 处理操作不同，有些是编解码 有些是读写
+                .childHandler(
+                        // channel是client和server数据读写的通道，initalizer初始化，负责添加别的handler
+                        new ChannelInitializer<NioSocketChannel>() {
+                    @Override
+                    protected void initChannel(NioSocketChannel nsc) throws Exception {
+                        //添加具体的handler  StringDecoder 编解码
+                        nsc.pipeline().addLast(new StringDecoder());
+                        nsc.pipeline().addLast(new ChannelInboundHandlerAdapter(){
+                            // channelRead 处理读事件
+                            @Override
+                            public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+                                //super.channelRead(ctx, msg);
+                                // 输出上一步 解码好的 msg
+                                System.out.println(msg);
+                            }
+                        });
+                    }
+                    // bind   NioServerSocketChannel绑定的端口
+                }).bind(8080);
+    }
+}
+```
+
+
+
+> client
+
+```java
+
+
+package com.viw.viwnetty.c1;
+
+import io.netty.bootstrap.Bootstrap;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.string.StringEncoder;
+
+import java.net.InetSocketAddress;
+
+/**
+ * Hello netty client
+ */
+public class HelloNettyClient {
+
+    /**
+     * Main
+     *
+     * @param args args
+     */
+    public static void main(String[] args)  throws Exception{
+        // 创建启动器
+        new Bootstrap()
+                // 添加eventLoop  nio  bio 的客户端去连都可以
+                .group(new NioEventLoopGroup())
+                // 选择 客户端channel
+                .channel(NioSocketChannel.class)
+                // Add a processor
+                .handler(new ChannelInitializer<NioSocketChannel>() {
+                    @Override //在连接建立后被调用
+                    protected void initChannel(NioSocketChannel nsc) throws Exception {
+                        // 编码
+                        nsc.pipeline().addLast(new StringEncoder());
+                    }
+                })
+                // Connect client
+                .connect(new InetSocketAddress("127.0.0.1",8080))
+                .sync()
+                .channel()
+                // Send data to server
+                .writeAndFlush("hello netty");
+    }
+}
+```
+
 
 
 
