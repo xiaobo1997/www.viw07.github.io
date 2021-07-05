@@ -127,6 +127,10 @@ public class HelloNettyServer {
 }
 ```
 
+1.启动器-》 2. group组  accept事件 -》 3. 选择channel实现  -》 4.处理器
+
+
+
 
 
 > client
@@ -178,6 +182,27 @@ public class HelloNettyClient {
     }
 }
 ```
+
+
+
+:bulb:  **流程：**
+
+
+
+![](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/0040.png)
+
+
+
+> 总结
+
+总体上基于java nio，了解Nio还是比较好了解netty
+
+- pipline相当于流水线加工，经过流水线  原msg 可以变成其他类型的数据，也可以变回来
+- handler就是对绑定事件进行处理，hadnler分为InboundHandler(入站) 和 OutboundHandler (出站)
+- eventLoop相当于就是去处理数据的管理员工人，可以管理处理多个channel上的io操作，一旦处理这个channel就相当于绑定了这个channel
+  - 工人可以管理多个 channel 的 io 操作，并且一旦工人负责了某个 channel，就要负责到底（绑定）
+  - 工人既可以执行 io 操作，也可以进行任务处理，每位工人有任务队列，队列里可以堆放多个 channel 的待处理任务，任务分为普通任务、定时任务
+  - 工人按照 pipeline 顺序，依次按照 handler 的规划（代码）处理数据，可以为每道工序指定不同的工人
 
 
 
