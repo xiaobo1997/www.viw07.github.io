@@ -125,15 +125,519 @@ admin.metadata-report.address=zookeeper://xxx:2181
 
 
 
-## simple-code
+## simple-case
+
+
+
+> 配置文件形式
+
+
+
+### api(公共接口提取)
+
+> BO
+
+```java
+package com.viw.api.bean;
+
+import lombok.Data;
+
+import java.io.Serializable;
+
+
+/**
+ * User address
+ */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class UserAddress implements Serializable {
+	
+	private Integer id;
+    private String userAddress; //用户地址
+    private String userId; //用户id
+    private String consignee; //收货人
+    private String phoneNum; //电话号码
+    private String isDefault; //是否为默认地址    Y-是     N-否
+
+}
+
+```
+
+> 接口
+
+```java
+package com.viw.api.service;
+
+import java.util.List;
+
+import com.viw.api.bean.UserAddress;
+
+
+public interface OrderService {
+	
+	/**
+	 * 初始化订单
+	 * @param userId
+	 */
+	public List<UserAddress> initOrder(String userId);
+}
+
+```
+
+
+
+```java
+package com.viw.api.service;
+
+import java.util.List;
+
+import com.viw.api.bean.UserAddress;
+
+/**
+ * 用户服务
+ *
+ */
+public interface UserService {
+	
+	/**
+	 * 按照用户id返回所有的收货地址
+	 * @param userId
+	 * @return
+	 */
+	public List<UserAddress> getUserAddressList(String userId);
+
+}
+```
 
 
 
 
 
+### 生产者(provider)
+
+
+
+> 接口实现类
+
+```java
+import com.viw.api.bean.UserAddress;
+import com.viw.api.service.UserService;
+
+public class UserServiceImpl implements UserService {
+
+	@Override
+	public List<UserAddress> getUserAddressList(String userId) {
+		System.out.println("UserServiceImpl.....old...");
+		// TODO Auto-generated method stub
+		UserAddress address1 = new UserAddress(1, "北京", "1", "李老师", "010", "Y");
+		UserAddress address2 = new UserAddress(2, "深圳", "1", "王老师", "010", "N");
+		
+		return Arrays.asList(address1,address2);
+	}
+
+}
+```
+
+
+
+```java
+public class UserServiceImpl2 implements UserService {
+
+	@Override
+	public List<UserAddress> getUserAddressList(String userId) {
+		System.out.println("UserServiceImpl.....new...");
+		// TODO Auto-generated method stub
+		UserAddress address1 = new UserAddress(1, "北京", "1", "李老师", "010", "Y");
+		UserAddress address2 = new UserAddress(2, "深圳", "1", "王老师", "010", "N");
+		
+		return Arrays.asList(address1,address2);
+	}
+
+```
+
+
+
+> provider.xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd
+		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<!-- 1、指定当前服务/应用的名字（同样的服务名字相同，不要和别的服务同名） -->
+	<dubbo:application name="user-service-provider"></dubbo:application>
+
+	<!-- 2、指定注册中心的位置 -->
+	<!-- <dubbo:registry address="zookeeper://127.0.0.1:2181"></dubbo:registry> -->
+	<dubbo:registry protocol="zookeeper" address="xxx:2181"></dubbo:registry>
+	
+	<!-- 3、指定通信规则（通信协议？通信端口） -->
+	<dubbo:protocol name="dubbo" port="20882"></dubbo:protocol>
+	
+	<!-- 4、暴露服务 其他服务就可以调用了   ref：指向服务的真正的实现对象   interface:接口的全限定类名-->
+	<dubbo:service interface="com.viw.api.service.UserService"
+		ref="userServiceImpl01" timeout="1000" version="1.0.0">
+		<dubbo:method name="getUserAddressList" timeout="1000"></dubbo:method>
+	</dubbo:service>
+	
+	<!--统一设置服务提供方的规则  -->
+	<dubbo:provider timeout="1000"></dubbo:provider>
+	
+	
+	<!-- 服务的实现 -->
+	<bean id="userServiceImpl01" class="com.viw.service.impl.UserServiceImpl"></bean>
+	
+	
+	<dubbo:service interface="com.viw.api.service.UserService"
+		ref="userServiceImpl02" timeout="1000" version="2.0.0">
+		<dubbo:method name="getUserAddressList" timeout="1000"></dubbo:method>
+	</dubbo:service>
+	<bean id="userServiceImpl02" class="com.viw.service.impl.UserServiceImpl2"></bean>
+	
+	<!--监控中心，直连 或者 加入 -->
+	<dubbo:monitor protocol="registry"></dubbo:monitor>
+	
+</beans>
+
+```
 
 
 
 
 
+### 消费者(consumer)
 
+
+
+> 接口
+>
+> rpc调用UserService
+
+
+
+```java
+@Service
+public class OrderServiceImpl implements OrderService {
+
+	@Autowired
+	UserService userService;
+	@Override
+	public List<UserAddress> initOrder(String userId) {
+		// TODO Auto-generated method stub
+		System.out.println("用户id："+userId);
+		//1、查询用户的收货地址
+		List<UserAddress> addressList = userService.getUserAddressList(userId);
+		for (UserAddress userAddress : addressList) {
+			System.out.println(userAddress.getUserAddress());
+		}
+		return addressList;
+	}
+	
+
+```
+
+
+
+> consumer.xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd
+		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+	<context:component-scan base-package="com.viw.web.service.impl"></context:component-scan>
+
+
+	<dubbo:application name="order-service-consumer"></dubbo:application>
+	
+	<dubbo:registry address="zookeeper://xxx:2181"></dubbo:registry>
+	
+	<!--  配置本地存根-->
+	
+	<!--声明需要调用的远程服务的接口；生成远程服务代理  -->
+	<!-- 
+		1）、精确优先 (方法级优先，接口级次之，全局配置再次之)
+		2）、消费者设置优先(如果级别一样，则消费方优先，提供方次之)
+	-->
+	<!-- timeout="0" 默认是1000ms-->
+	<!-- retries="":重试次数，不包含第一次调用，0代表不重试-->
+	<!-- 幂等（设置重试次数）【查询、删除、修改】、非幂等（不能设置重试次数）【新增】 -->
+	<dubbo:reference interface="com.viw.api.service.UserService"
+		id="userService" timeout="5000" retries="3" version="*">
+		<!-- <dubbo:method name="getUserAddressList" timeout="1000"></dubbo:method> -->
+	</dubbo:reference>
+		
+	<!-- 配置当前消费者的统一规则：所有的服务都不检查 -->
+	<dubbo:consumer check="false" timeout="5000"></dubbo:consumer>
+
+	<!--监控中心，直连 或者 加入 -->
+	<dubbo:monitor protocol="registry"></dubbo:monitor>
+	<!-- <dubbo:monitor address="127.0.0.1:7070"></dubbo:monitor> -->
+	
+</beans>
+
+
+```
+
+
+
+## springboot-dubbo
+
+
+
+### api
+
+> 公共接口引入，一般都是和兄弟部门沟通，让他们通过接口，然后放到公司私服，然后我们去引入就可以了
+
+![image-20210709014335246](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20210709014335246.png)
+
+
+
+### 服务提供者
+
+
+
+api方式配置
+
+```java
+package com.viw.provider.config;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.viw.api.service.UserService;
+import org.apache.dubbo.config.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+
+/**
+ * api的方式配置
+ */
+@Configuration
+public class MyDubboConfig {
+	
+	@Bean
+	public ApplicationConfig applicationConfig() {
+		ApplicationConfig applicationConfig = new ApplicationConfig();
+		applicationConfig.setName("boot-user-service-provider");
+		return applicationConfig;
+	}
+	
+	//<dubbo:registry protocol="zookeeper" address="127.0.0.1:2181"></dubbo:registry>
+	@Bean
+	public RegistryConfig registryConfig() {
+		RegistryConfig registryConfig = new RegistryConfig();
+		registryConfig.setProtocol("zookeeper");
+		registryConfig.setAddress("127.0.0.1:2181");
+		return registryConfig;
+	}
+	
+	//<dubbo:protocol name="dubbo" port="20882"></dubbo:protocol>
+	@Bean
+	public ProtocolConfig protocolConfig() {
+		ProtocolConfig protocolConfig = new ProtocolConfig();
+		protocolConfig.setName("dubbo");
+		protocolConfig.setPort(20882);
+		return protocolConfig;
+	}
+	
+	/**
+	 *<dubbo:service interface="com.atguigu.gmall.service.UserService" 
+		ref="userServiceImpl01" timeout="1000" version="1.0.0">
+		<dubbo:method name="getUserAddressList" timeout="1000"></dubbo:method>
+	</dubbo:service>
+	 */
+	@Bean
+	public ServiceConfig<UserService> userServiceConfig(UserService userService){
+		ServiceConfig<UserService> serviceConfig = new ServiceConfig<>();
+		serviceConfig.setInterface(UserService.class);
+		serviceConfig.setRef(userService);
+		serviceConfig.setVersion("1.0.0");
+		
+		//配置每一个method的信息
+		MethodConfig methodConfig = new MethodConfig();
+		methodConfig.setName("getUserAddressList");
+		methodConfig.setTimeout(1000);
+		
+		//将method的设置关联到service配置中
+		List<MethodConfig> methods = new ArrayList<>();
+		methods.add(methodConfig);
+		serviceConfig.setMethods(methods);
+		
+		//ProviderConfig
+		//MonitorConfig
+		
+		return serviceConfig;
+	}
+
+}
+
+```
+
+
+
+接口的实现类
+
+
+
+```java
+package com.viw.provider.service.impl;
+
+import java.util.Arrays;
+import java.util.List;
+
+import com.viw.api.bean.UserAddress;
+import com.viw.api.service.UserService;
+import org.apache.dubbo.config.annotation.Service;
+import org.springframework.stereotype.Component;
+
+
+@Service
+@Component
+public class UserServiceImpl implements UserService {
+
+//	@HystrixCommand
+	@Override
+	public List<UserAddress> getUserAddressList(String userId) {
+		// TODO Auto-generated method stub
+		System.out.println("UserServiceImpl..3.....");
+		UserAddress address1 = new UserAddress(1, "北京", "1", "李", "010-", "Y");
+		UserAddress address2 = new UserAddress(2, "深圳", "1", "王", "010", "N");
+//		try {
+//			Thread.sleep(2000);
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
+		if(Math.random()>0.5) {
+			throw new RuntimeException();
+		}
+		return Arrays.asList(address1,address2);
+	}
+
+}
+
+```
+
+
+
+
+
+启动类
+
+```java
+/**
+ * 1、导入依赖；
+ * 		1）、导入dubbo-starter
+ * 		2）、导入dubbo的其他依赖
+ * @author lfy
+ *
+ * SpringBoot与dubbo整合的三种方式：
+ * 1）、导入dubbo-starter，在application.properties配置属性，使用@Service【暴露服务】使用@Reference【引用服务】
+ * 2）、保留dubbo xml配置文件;
+ * 		导入dubbo-starter，使用@ImportResource导入dubbo的配置文件即可
+ * 3）、使用注解API的方式：
+ * 		将每一个组件手动创建到容器中,让dubbo来扫描其他的组件
+ */
+@EnableDubbo(scanBasePackages="com.viw.api")
+@SpringBootApplication
+public class ProviderApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(ProviderApplication.class, args);
+    }
+
+}
+
+```
+
+
+
+application.properties
+
+```properties
+# 应用名称
+spring.application.name=provider
+
+
+# dubbo 的配置
+#dubbo.application.name=user-service-provider
+#dubbo.registry.address=127.0.0.1:2181
+#dubbo.registry.protocol=zookeeper
+#
+#dubbo.protocol.name=dubbo
+##dubbo.protocol.port=20881
+#
+#dubbo.monitor.protocol=registry
+##dubbo.scan.base-packages=com.atguigu.gmall
+```
+
+dubbo.properties
+
+
+
+```properties
+dubbo.protocol.port=20882
+```
+
+
+
+provider.xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd
+		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<!-- 1、指定当前服务/应用的名字（同样的服务名字相同，不要和别的服务同名） -->
+	<dubbo:application name="boot-user-service-provider"></dubbo:application>
+
+	<!-- 2、指定注册中心的位置 -->
+	<!-- <dubbo:registry address="zookeeper://127.0.0.1:2181"></dubbo:registry> -->
+	<dubbo:registry protocol="zookeeper" address="127.0.0.1:2181"></dubbo:registry>
+
+	<!-- 3、指定通信规则（通信协议？通信端口） -->
+	<dubbo:protocol name="dubbo" port="20882"></dubbo:protocol>
+
+	<!-- 4、暴露服务   ref：指向服务的真正的实现对象 -->
+	<dubbo:service interface="com.viw.api.service.UserService"
+				   ref="userServiceImpl01" timeout="1000" version="1.0.0">
+		<dubbo:method name="getUserAddressList" timeout="1000"></dubbo:method>
+	</dubbo:service>
+
+	<!--统一设置服务提供方的规则  -->
+	<dubbo:provider timeout="1000"></dubbo:provider>
+
+
+	<!-- 服务的实现 -->
+	<bean id="userServiceImpl01" class="com.viw.provider.service.impl.UserServiceImpl"></bean>
+
+
+	<!-- 连接监控中心 -->
+	<dubbo:monitor protocol="registry"></dubbo:monitor>
+
+</beans>
+
+```
+
+
+
+
+
+###  服务消费者
+
+![image-20210709014649848](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20210709014649848.png)
