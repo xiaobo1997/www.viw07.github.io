@@ -20,6 +20,8 @@ RPC全称为remote procedure call，即**远程过程调用**。比如两台服�
 
 而不需要了解底层网络技术的协议，在面向对象的编程语言中，远程过程调用即是 远程方法调用
 
+![image-20210713014915196](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20210713014915196.png)
+
 > 什么是dubbo
 
 Apache Dubbo 是一款微服务RPC开发框架，它提供了 RPC通信 与 微服务治理 两大关键能力。这意味着，使用 Dubbo 开发的微服务，将具备相互之间的远程发现与通信能力， 同时利用 Dubbo 提供的丰富服务治理能力，可以实现诸如服务发现、负载均衡、流量调度等服务治理诉求。同时 Dubbo 是高度可扩展的，用户几乎可以在任意功能点去定制自己的实现，以改变框架的默认行为来满足自己的业务需求。
@@ -416,6 +418,91 @@ public class OrderServiceImpl implements OrderService {
 
 
 ## springboot-dubbo
+
+
+
+> 三种方式
+>
+> ```java
+>  * SpringBoot与dubbo整合的三种方式：
+>  * 1）、导入dubbo-starter，在application.properties配置属性，使用@Service【暴露服务】使用	@Reference【引用服务】
+>        在消费者上 要引入的接口类上标记 @DubboReference  提供者类上使用 @DubboService
+>  * 2）、保留dubbo xml配置文件;
+>  * 		导入dubbo-starter，使用@ImportResource导入dubbo的配置文件即可 
+>      	//@ImportResource(locations="classpath:provider.xml")
+>  * 3）、使用注解API的方式：
+>      	//  https://dubbo.apache.org/zh/docs/v2.7/user/configuration/api/
+>  * 		将每一个组件手动创建到容器中,让dubbo来扫描其他的组件
+>         
+> ```
+>
+> 第三种方式
+>
+> ```java
+> 
+> /**
+>  * api的方式配置
+>  */
+> @Configuration
+> public class MyDubboConfig {
+> 	
+> 	@Bean
+> 	public ApplicationConfig applicationConfig() {
+> 		ApplicationConfig applicationConfig = new ApplicationConfig();
+> 		applicationConfig.setName("boot-user-service-provider");
+> 		return applicationConfig;
+> 	}
+> 	
+> 	//<dubbo:registry protocol="zookeeper" address="127.0.0.1:2181"></dubbo:registry>
+> 	@Bean
+> 	public RegistryConfig registryConfig() {
+> 		RegistryConfig registryConfig = new RegistryConfig();
+> 		registryConfig.setProtocol("zookeeper");
+> 		registryConfig.setAddress("127.0.0.1:2181");
+> 		return registryConfig;
+> 	}
+> 	
+> 	//<dubbo:protocol name="dubbo" port="20882"></dubbo:protocol>
+> 	@Bean
+> 	public ProtocolConfig protocolConfig() {
+> 		ProtocolConfig protocolConfig = new ProtocolConfig();
+> 		protocolConfig.setName("dubbo");
+> 		protocolConfig.setPort(20882);
+> 		return protocolConfig;
+> 	}
+> 	
+> 	/**
+> 	 *<dubbo:service interface="com.atguigu.gmall.service.UserService" 
+> 		ref="userServiceImpl01" timeout="1000" version="1.0.0">
+> 		<dubbo:method name="getUserAddressList" timeout="1000"></dubbo:method>
+> 	</dubbo:service>
+> 	 */
+> 	@Bean
+> 	public ServiceConfig<UserService> userServiceConfig(UserService userService){
+> 		ServiceConfig<UserService> serviceConfig = new ServiceConfig<>();
+> 		serviceConfig.setInterface(UserService.class);
+> 		serviceConfig.setRef(userService);
+> 		serviceConfig.setVersion("1.0.0");
+> 		
+> 		//配置每一个method的信息
+> 		MethodConfig methodConfig = new MethodConfig();
+> 		methodConfig.setName("getUserAddressList");
+> 		methodConfig.setTimeout(1000);
+> 		
+> 		//将method的设置关联到service配置中
+> 		List<MethodConfig> methods = new ArrayList<>();
+> 		methods.add(methodConfig);
+> 		serviceConfig.setMethods(methods);
+> 		
+> 		//ProviderConfig
+> 		//MonitorConfig
+> 		
+> 		return serviceConfig;
+> 	}
+> 
+> ```
+>
+> 
 
 
 
