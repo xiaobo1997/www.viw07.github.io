@@ -478,7 +478,51 @@ broadcast.fail.percent=20 代表了当 20% 的节点调用失败就抛出异常�
 
 
 
-# dubbo的原理设计
+# dubbo的原理设计简单介绍
+
+
+
+## 框架设计
+
+
+
+![image-20210721230240274](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20210721230240274.png)
+
+![image-20210721230400706](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20210721230400706.png)
+
+
+
+
+
+
+
+## 启动解析，加载配置信息
+
+
+
+容器启动，解析标签，保存设置属性值到对应的对象中
+
+1.
+
+![image-20210721230725692](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20210721230725692.png)
+
+
+
+> dubbo的配置文件解析也是通过实现 spring 的BeanDefinitionParser 来实现的，解析方法在parse方法中，一个个解析标签
+
+
+
+2.注册了名称空间,构造函数中init了 很多标签解析器
+
+![image-20210721231059799](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20210721231059799.png)
+
+
+
+![image-20210721231258836](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20210721231258836.png)
+
+
+
+:bulb:   注意  ServiceBean 和ReferenceBean 和其他不一样，比较特殊
 
 
 
@@ -488,7 +532,295 @@ broadcast.fail.percent=20 代表了当 20% 的节点调用失败就抛出异常�
 
 
 
+![image-20210721233736366](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20210721233736366.png)
+
+1.
+
+
+
+![image-20210721232028264](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20210721232028264.png)
+
+
+
+![image-20210721232802505](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20210721232802505.png)
+
+
+
+```java
+public class ServiceBean<T> extends ServiceConfig<T> implements InitializingBean, DisposableBean,
+        ApplicationContextAware, BeanNameAware, ApplicationEventPublisherAware {
+
+            ...
+                
+                
+     @Override
+    public void afterPropertiesSet() throws Exception {
+        if (StringUtils.isEmpty(getPath())) {
+            if (StringUtils.isNotEmpty(beanName)
+                    && StringUtils.isNotEmpty(getInterface())
+                    && beanName.startsWith(getInterface())) {
+                setPath(beanName);
+            }
+        }
+    }
+            ....
+```
+
+
+
+**在spring 容器启动时 ，dubbo有很多事件会回调，并且监听一些event事件** 
+
+在获取并设置属性值保存在 `ServiceBean` ，容器创建完成 ，会触发回调
+
+在  `ServiceConfig` 中有一个 export核心方法
+
+![image-20210721233512329](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20210721233512329.png)
+
+
+
+```java
+ protected synchronized void doExport() {
+       ......
+        doExportUrls();// 执行暴露地址
+    }
+```
+
+
+
+```java
+ private void doExportUrls() {
+        ServiceRepository repository = ApplicationModel.getServiceRepository();
+        ServiceDescriptor serviceDescriptor = repository.registerService(getInterfaceClass());
+        repository.registerProvider(
+                getUniqueServiceName(),
+                ref,
+                serviceDescriptor,
+                this,
+                serviceMetadata
+        );
+		//加载注册中心服务信息
+        List<URL> registryURLs = ConfigValidationUtils.loadRegistries(this, true);
+		// 暴露协议  如 <dubbo:protocol name=""  port="" ....> 中的端口协议等等
+        for (ProtocolConfig protocolConfig : protocols) {
+            String pathKey = URL.buildKey(getContextPath(protocolConfig)
+                    .map(p -> p + "/" + path)
+                    .orElse(path), group, version);
+            // In case user specified path, register service one more time to map it to path.
+            repository.registerService(pathKey, interfaceClass);
+            // TODO, uncomment this line once service key is unified
+            serviceMetadata.setServiceKey(pathKey);
+            doExportUrlsFor1Protocol(protocolConfig, registryURLs);
+        }
+    }
+```
+
+
+
+进入 doExportUrlsFor1Protocol 方法
+
+Invoker执行者，根据 接口 和实现 包装执行者信息 
+
+![image-20210721234225389](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20210721234225389.png)
+
+```java
+ Exporter<?> exporter = PROTOCOL.export(wrapperInvoker); //暴露invoke
+```
+
+wrapper 适配器 ， java  spi机制，
+
+
+
+```java
+@SPI("dubbo")
+public interface Protocol {
+```
+
+![image-20210721234734552](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20210721234734552.png)
+
+![image-20210721234723357](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20210721234723357.png)
+
+
+
+![image-20210721235253731](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20210721235253731.png)
+
+
+
+打开服务器，获取服务地址
+
+```java
+ @Override
+    public <T> Exporter<T> export(Invoker<T> invoker) throws RpcException {
+        URL url = invoker.getUrl();
+
+        // export service.
+        String key = serviceKey(url);
+        DubboExporter<T> exporter = new DubboExporter<T>(invoker, key, exporterMap);
+   .......
+
+        openServer(url);
+        optimizeSerialization(url);
+
+        return exporter;
+    }
+
+
+
+private void openServer(URL url) {
+    // find server.
+    String key = url.getAddress();
+    //client can export a service which's only for server to invoke
+    boolean isServer = url.getParameter(IS_SERVER_KEY, true);
+    if (isServer) {
+        ProtocolServer server = serverMap.get(key);
+        if (server == null) {
+            synchronized (this) {
+                server = serverMap.get(key);
+                if (server == null) {
+                    serverMap.put(key, createServer(url));
+                }
+            }
+        } else {
+            // server supports reset, use together with override
+            server.reset(url);
+        }
+    }
+}
+
+// 创建服务
+private ProtocolServer createServer(URL url) {
+        url = URLBuilder.from(url)
+                // send readonly event when server closes, it's enabled by default
+                .addParameterIfAbsent(CHANNEL_READONLYEVENT_SENT_KEY, Boolean.TRUE.toString())
+                // enable heartbeat by default
+                .addParameterIfAbsent(HEARTBEAT_KEY, String.valueOf(DEFAULT_HEARTBEAT))
+                .addParameter(CODEC_KEY, DubboCodec.NAME)
+                .build();
+        String str = url.getParameter(SERVER_KEY, DEFAULT_REMOTING_SERVER);
+
+        if (str != null && str.length() > 0 && !ExtensionLoader.getExtensionLoader(Transporter.class).hasExtension(str)) {
+            throw new RpcException("Unsupported server type: " + str + ", url: " + url);
+        }
+
+        ExchangeServer server;
+        try {
+            // 绑定到交换机服务，通过 服务器url 和 请求处理器   底层是netty  会创建一个netty的服务器，也就是创建 启动netty服务器，监听 指定端口
+            server = Exchangers.bind(url, requestHandler);
+        } catch (RemotingException e) {
+            throw new RpcException("Fail to start server(url: " + url + ") " + e.getMessage(), e);
+        }
+
+        str = url.getParameter(CLIENT_KEY);
+        if (str != null && str.length() > 0) {
+            Set<String> supportedTypes = ExtensionLoader.getExtensionLoader(Transporter.class).getSupportedExtensions();
+            if (!supportedTypes.contains(str)) {
+                throw new RpcException("Unsupported client type: " + str);
+            }
+        }
+		// dubbo 协议的服务器
+        return new DubboProtocolServer(server);
+    }
+```
+
+
+
+每一个url的调用 会去保存 了对应的执行器 中的 注册表 中 寻找
+
+
+
 ## 服务引用
+
+
+
+.............
+
+
+
+![image-20210722000319105](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20210722000319105.png)
+
+
+
+
+
+![image-20210722000225954](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20210722000225954.png)
+
+
+
+用 的是 dubbo的协议 
+
+进入 `DubboProtocol` 中
+
+```java
+@Override
+public <T> Invoker<T> protocolBindingRefer(Class<T> serviceType, URL url) throws RpcException {
+    optimizeSerialization(url);
+
+    // create rpc invoker.
+    DubboInvoker<T> invoker = new DubboInvoker<T>(serviceType, url, getClients(url), invokers);
+    invokers.add(invoker);
+
+    return invoker;
+}
+```
+
+
+
+注册中心的 refer
+
+![image-20210722000736959](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20210722000736959.png)
+
+
+
+
+
+## 服务调用
+
+
+
+![/dev-guide/images/dubbo-extension.jpg](https://dubbo.apache.org/imgs/dev/dubbo-extension.jpg)
+
+
+
+1.
+
+
+
+![image-20210722000855263](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20210722000855263.png)
+
+```java
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        if (method.getDeclaringClass() == Object.class) {
+            return method.invoke(invoker, args);
+        }
+        String methodName = method.getName();
+        Class<?>[] parameterTypes = method.getParameterTypes();
+        if (parameterTypes.length == 0) {
+            if ("toString".equals(methodName)) {
+                return invoker.toString();
+            } else if ("$destroy".equals(methodName)) {
+                invoker.destroy();
+                return null;
+            } else if ("hashCode".equals(methodName)) {
+                return invoker.hashCode();
+            }
+        } else if (parameterTypes.length == 1 && "equals".equals(methodName)) {
+            return invoker.equals(args[0]);
+        }
+        //封装成rpc 远程调用的对象
+        RpcInvocation rpcInvocation = new RpcInvocation(method, invoker.getInterface().getName(), args);
+        String serviceKey = invoker.getUrl().getServiceKey();
+        rpcInvocation.setTargetServiceUniqueName(serviceKey);
+      
+        if (consumerModel != null) {
+            rpcInvocation.put(Constants.CONSUMER_MODEL, consumerModel);
+            rpcInvocation.put(Constants.METHOD_MODEL, consumerModel.getMethodModel(method));
+        }
+		// 
+        return invoker.invoke(rpcInvocation).recreate();
+    }
+```
+
+
 
 
 
