@@ -2,25 +2,13 @@
 
 ## 💻⌨🖱简介 
 
-> 写在前面~。这个是个人的一些记录，各个地方来的，包括，大佬的博客，自己手打的，其他好的博客中清晰的图片等等，目前只是个人使用。如果有影响到什么，或者直接复制了其他大佬的文章的一部分然后影响了什么，我这边删一下。其次，本来是有两个仓库的，这个是学习用的，另外一个是面向找工作用的。
+> 写在前面。这个是个人的一些记录，各个地方来的，包括，一些大佬的优秀博客文章，其他好的博客中清晰的架构图片等等，会标记引用链接。**这个仓库只是个人使用记录一下**。
 
 - 简单记录下 :boy:
-- 一个普通的笔记(会一直在上面记录，起码两年内会在上面记录，一般会去看相关文章，然后看相关视频，这样先了解一个大概，然后就看下相关的书，然后就github找个相关项目来做，代码都记录在gitee)
+- 普通的笔记(会一直在上面记录，起码两年内会在上面记录，一般会去看相关文章，然后看相关视频，这样先了解一个大概，然后就看下相关的书，然后就github找个相关项目来做，代码都记录在gitee)
 - 日常的，看视频的，书上的，看各个论坛上的，百度的，谷歌的，记录下。 ⚽📚💻⌨🖱
-- gitee转github，面向面试和百度谷歌学习
-- 爱好就是逛哔哩哔哩(用爱发电)
-
-[viw-simple-lab](https://gitee.com/xiaobo97/viw-simple-lab)  gitee example-lab-project
-
-[viv-notes](https://gitee.com/xiaobo97/viv-notes)  和当前repo 差不多，少了一些脑图
-
-[leetcode](https://gitee.com/xiaobo97/viw-leetcode) 以前是单独一个仓库=>当前仓库剑指offer下(基本做不出来就直接看答案了)
-
-[viw-end-project](https://gitee.com/xiaobo97/simple-viw-web)  gitee end project
-
-[viw-front-project](https://gitee.com/xiaobo97/simple-viw-front)  gitee front project
-
-[blog](http://www.xiaobo.life/)  blog
+- 面向面试和百度谷歌学习
+- 哔哩哔哩(用爱发电)
 
 
 
@@ -137,7 +125,9 @@
 
 包括各个平台整理的,自己写了18万字脑图,目前整理中，今年国庆之前应该没问题。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/124fc31a1b7e4972a803d1d2f6e837ab~tplv-k3u1fbpfcp-watermark.image)
+- 2021-07-25-第一次修改
+
+![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f35b0256176b4fe4a78ba0d76c53c90e~tplv-k3u1fbpfcp-watermark.image)
 
 
 
@@ -172,13 +162,17 @@ git add . && git commit -m "xxx" && git push origin main
 
 
 
+
+
 ## :palm_tree: 过程
 
 > java生态太大了，葫芦画瓢慢慢积累了，太多要学的了，
 >
->  💡  **离目标有点远，就只能慢慢努力曲线前进了，说不定有机会，进不去也认了**
+> 💡  **离目标有点远，就只能慢慢努力曲线前进了，说不定有机会，进不去也认了**
 >
-> 最近在看netty，没更新就是没看完，看完看kafka
+> 最近在看下netty，再看下kafka--暂停
+>
+> 看dubbo + zk ，国庆结束去试一下
 
 
 
