@@ -43,6 +43,7 @@
     - [BIO-03即时通讯思路](./viw-notes/Java/java-BIO/BIO-03即时通讯思路.md)
     - [序列化](./viw-notes/Java/java-BIO/序列化.md)
   - java-NIO
+    - [NIO-选择器selector](./viw-notes/Java/java-NIO/NIO-选择器selector.md)
     - [NIO01-IO模型结构和基础](./viw-notes/Java/java-NIO/NIO01-IO模型结构和基础.md)
     - [NIO02-缓冲区buffer](./viw-notes/Java/java-NIO/NIO02-缓冲区buffer.md)
     - [NIO03-通道channel](./viw-notes/Java/java-NIO/NIO03-通道channel.md)
@@ -116,6 +117,13 @@
     - [处理文件路径在windos和linux不同](./viw-notes/Java/小问题和第三方/处理文件路径在windos和linux不同.md)
     - [关于转义字符的意义](./viw-notes/Java/小问题和第三方/关于转义字符的意义.md)
     - [正则表达式的使用和常用案例](./viw-notes/Java/小问题和第三方/正则表达式的使用和常用案例.md)
+- shell
+  - shell学习
+    - [shell01](./viw-notes/shell/shell学习/shell01.md)
+    - [shell02](./viw-notes/shell/shell学习/shell02.md)
+    - [shell03](./viw-notes/shell/shell学习/shell03.md)
+    - [shell04](./viw-notes/shell/shell学习/shell04.md)
+    - [shell05](./viw-notes/shell/shell学习/shell05.md)
 - spring&orm
   - mybatis相关
     - [mybatis1-全局配置文件](./viw-notes/spring&orm/mybatis相关/mybatis1-全局配置文件.md)
@@ -210,13 +218,16 @@
     - [gradle02](./viw-notes/tools/gradle/gradle02.md)
     - [gradle03](./viw-notes/tools/gradle/gradle03.md)
   - idea&vscode
-    - [IDEA-spring创建向导太慢了](./viw-notes/tools/idea&vscode/IDEA-spring创建向导太慢了.md)
-    - [IDEA导eclipse-javaweb项目的小问题](./viw-notes/tools/idea&vscode/IDEA导eclipse-javaweb项目的小问题.md)
-    - [IDEA添加visualvm gc 插件](./viw-notes/tools/idea&vscode/IDEA添加visualvm%20gc%20插件.md)
-    - [IDEA插件找不到和下载太慢了](./viw-notes/tools/idea&vscode/IDEA插件找不到和下载太慢了.md)
-    - [eclipse导jar包](./viw-notes/tools/idea&vscode/eclipse导jar包.md)
-    - [eclipse快捷键-总结](./viw-notes/tools/idea&vscode/eclipse快捷键-总结.md)
-    - [vscode-vue代码片段](./viw-notes/tools/idea&vscode/vscode-vue代码片段.md)
+    - eclipse
+      - [eclipse导jar包](./viw-notes/tools/idea&vscode/eclipse/eclipse导jar包.md)
+      - [eclipse快捷键-总结](./viw-notes/tools/idea&vscode/eclipse/eclipse快捷键-总结.md)
+    - idea
+      - [IDEA-spring创建向导太慢了](./viw-notes/tools/idea&vscode/idea/IDEA-spring创建向导太慢了.md)
+      - [IDEA导eclipse-javaweb项目的小问题](./viw-notes/tools/idea&vscode/idea/IDEA导eclipse-javaweb项目的小问题.md)
+      - [IDEA添加visualvm gc 插件](./viw-notes/tools/idea&vscode/idea/IDEA添加visualvm%20gc%20插件.md)
+      - [IDEA插件找不到和下载太慢了](./viw-notes/tools/idea&vscode/idea/IDEA插件找不到和下载太慢了.md)
+    - vscode
+      - [vscode-vue代码片段](./viw-notes/tools/idea&vscode/vscode/vscode-vue代码片段.md)
   - maven
     - [mac-maven的小问题总结](./viw-notes/tools/maven/mac-maven的小问题总结.md)
     - [maven01](./viw-notes/tools/maven/maven01.md)
@@ -225,9 +236,9 @@
     - [maven04](./viw-notes/tools/maven/maven04.md)
   - 环境
     - [WMware](./viw-notes/tools/环境/WMware.md)
-    - [mac相关](./viw-notes/tools/环境/mac相关.md)
+    - [mac-21年5月-10月杂项](./viw-notes/tools/环境/mac-21年5月-10月杂项.md)
+    - [mac相关和安装](./viw-notes/tools/环境/mac相关和安装.md)
     - [新电脑整体环境配置小问题](./viw-notes/tools/环境/新电脑整体环境配置小问题.md)
-  - 其他工具
   - 开发可用
     - 压测工具
       - [jmeter](./viw-notes/tools/开发可用/压测工具/jmeter.md)
@@ -375,12 +386,6 @@
     - [elk02](./viw-notes/后端/elk/elk02.md)
     - [elk03](./viw-notes/后端/elk/elk03.md)
     - [elk04](./viw-notes/后端/elk/elk04.md)
-  - shell编程
-    - [shell01](./viw-notes/后端/shell编程/shell01.md)
-    - [shell02](./viw-notes/后端/shell编程/shell02.md)
-    - [shell03](./viw-notes/后端/shell编程/shell03.md)
-    - [shell04](./viw-notes/后端/shell编程/shell04.md)
-    - [shell05](./viw-notes/后端/shell编程/shell05.md)
   - tomcat
     - [tomcat01](./viw-notes/后端/tomcat/tomcat01.md)
     - [tomcat02](./viw-notes/后端/tomcat/tomcat02.md)
@@ -400,7 +405,7 @@
       - [caffeine03](./viw-notes/后端/缓存/Caffeine/caffeine03.md)
       - [springboot注解+caffeine](./viw-notes/后端/缓存/Caffeine/springboot注解%2Bcaffeine.md)
     - Guava
-      - [guava1](./viw-notes/后端/缓存/Guava/guava1.md)
+      - [Guava1](./viw-notes/后端/缓存/Guava/Guava1.md)
       - [guava2](./viw-notes/后端/缓存/Guava/guava2.md)
       - [guava3](./viw-notes/后端/缓存/Guava/guava3.md)
     - redis
@@ -518,27 +523,35 @@
     - [mongo05](./viw-notes/存储/MongoDB/mongo05.md)
     - [mongo06](./viw-notes/存储/MongoDB/mongo06.md)
   - MySQL
-    - [MySQL01-库表列查询的编写操作](./viw-notes/存储/MySQL/MySQL01-库表列查询的编写操作.md)
-    - [MySQL02-约束和函数](./viw-notes/存储/MySQL/MySQL02-约束和函数.md)
-    - [MySQL03-索引](./viw-notes/存储/MySQL/MySQL03-索引.md)
-    - [MySQL04-视图和存储过程和触发器](./viw-notes/存储/MySQL/MySQL04-视图和存储过程和触发器.md)
-    - [MySQL05-用户管理和权限管理](./viw-notes/存储/MySQL/MySQL05-用户管理和权限管理.md)
-    - [MySQL06-数据恢复和迁移](./viw-notes/存储/MySQL/MySQL06-数据恢复和迁移.md)
-    - [MySQL07-日志](./viw-notes/存储/MySQL/MySQL07-日志.md)
-    - [MySQL08-explain优化使用](./viw-notes/存储/MySQL/MySQL08-explain优化使用.md)
-    - [MySQL09-页结构](./viw-notes/存储/MySQL/MySQL09-页结构.md)
-    - [MySQL10](./viw-notes/存储/MySQL/MySQL10.md)
-    - [MySQL11](./viw-notes/存储/MySQL/MySQL11.md)
-    - [MySQL12](./viw-notes/存储/MySQL/MySQL12.md)
-    - [MySQL13](./viw-notes/存储/MySQL/MySQL13.md)
+    - MySQL高性能集群篇
+      - [1-mysql集群架构](./viw-notes/存储/MySQL/MySQL高性能集群篇/1-mysql集群架构.md)
+      - [2-mysql主从复制](./viw-notes/存储/MySQL/MySQL高性能集群篇/2-mysql主从复制.md)
+      - [3-mysql集群之mycat+代理+心](./viw-notes/存储/MySQL/MySQL高性能集群篇/3-mysql集群之mycat%2B代理%2B心跳md)
+      - [4-mysql](./viw-notes/存储/MySQL/MySQL高性能集群篇/4-mysql.md)
+      - [5-mysql](./viw-notes/存储/MySQL/MySQL高性能集群篇/5-mysql.md)
+      - [6-mysql](./viw-notes/存储/MySQL/MySQL高性能集群篇/6-mysql.md)
+    - mysql-base
+      - [MySQL01-库表列查询的编写操作](./viw-notes/存储/MySQL/mysql-base/MySQL01-库表列查询的编写操作.md)
+      - [MySQL02-约束和函数](./viw-notes/存储/MySQL/mysql-base/MySQL02-约束和函数.md)
+      - [MySQL03-索引](./viw-notes/存储/MySQL/mysql-base/MySQL03-索引.md)
+      - [MySQL04-视图和存储过程和触发器](./viw-notes/存储/MySQL/mysql-base/MySQL04-视图和存储过程和触发器.md)
+      - [MySQL05-用户管理和权限管理](./viw-notes/存储/MySQL/mysql-base/MySQL05-用户管理和权限管理.md)
+      - [MySQL06-数据恢复和迁移](./viw-notes/存储/MySQL/mysql-base/MySQL06-数据恢复和迁移.md)
+      - [MySQL07-日志](./viw-notes/存储/MySQL/mysql-base/MySQL07-日志.md)
+      - [MySQL08-explain优化使用](./viw-notes/存储/MySQL/mysql-base/MySQL08-explain优化使用.md)
+      - [MySQL09-页结构](./viw-notes/存储/MySQL/mysql-base/MySQL09-页结构.md)
+      - [MySQL10](./viw-notes/存储/MySQL/mysql-base/MySQL10.md)
+      - [MySQL11](./viw-notes/存储/MySQL/mysql-base/MySQL11.md)
+      - [MySQL12](./viw-notes/存储/MySQL/mysql-base/MySQL12.md)
+      - [MySQL13](./viw-notes/存储/MySQL/mysql-base/MySQL13.md)
+    - mysql优化
+      - [mysql优化小记(1)](./viw-notes/存储/MySQL/mysql优化/mysql优化小记(1).md)
+      - [mysql优化小记(2)](./viw-notes/存储/MySQL/mysql优化/mysql优化小记(2).md)
+    - mysql日常开发相关小记
+      - [mysql问题(1)](./viw-notes/存储/MySQL/mysql日常开发相关小记/mysql问题(1).md)
+      - [mysql问题(2)](./viw-notes/存储/MySQL/mysql日常开发相关小记/mysql问题(2).md)
+      - [mysql问题(3)](./viw-notes/存储/MySQL/mysql日常开发相关小记/mysql问题(3).md)
     - [sql](./viw-notes/存储/MySQL/sql.md)
-  - MySQL高性能集群篇
-    - [1-mysql集群架构](./viw-notes/存储/MySQL高性能集群篇/1-mysql集群架构.md)
-    - [2-mysql主从复制](./viw-notes/存储/MySQL高性能集群篇/2-mysql主从复制.md)
-    - [3-mysql集群之mycat+代理+心](./viw-notes/存储/MySQL高性能集群篇/3-mysql集群之mycat%2B代理%2B心跳md)
-    - [4-mysql](./viw-notes/存储/MySQL高性能集群篇/4-mysql.md)
-    - [5-mysql](./viw-notes/存储/MySQL高性能集群篇/5-mysql.md)
-    - [6-mysql](./viw-notes/存储/MySQL高性能集群篇/6-mysql.md)
   - TiDB
     - [TiDB01](./viw-notes/存储/TiDB/TiDB01.md)
     - [TiDB02](./viw-notes/存储/TiDB/TiDB02.md)
