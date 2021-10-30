@@ -123,7 +123,7 @@
 
 
 
-包括各个平台整理的,自己写了18万字脑图,目前整理中，今年国庆之前应该没问题。
+
 
 - 2021-07-25-第一次修改
 
@@ -135,7 +135,7 @@
 
 >  :bulb: mac下
 >
-> gitbook(`问题太多了,太麻烦了`)和docsify差不多，其他还有markdocs，
+> gitbook(`不知道什么情况，自己弄出的问题有点多,`)和docsify差不多，其他还有markdocs，
 >
 > [点击我跳转docsify链接](https://docsify.js.org/#/quickstart)
 
@@ -166,13 +166,10 @@ git add . && git commit -m "xxx" && git push origin main
 
 ## :palm_tree: 过程
 
-> java生态太大了，葫芦画瓢慢慢积累了，太多要学的了，
+> java生态太大了，葫芦画瓢慢慢积累了，
 >
 > 💡  **离目标有点远，就只能慢慢努力曲线前进了，说不定有机会，进不去也认了**
->
-> 最近在看下netty，再看下kafka--暂停
->
-> 看dubbo + zk ，国庆结束去试一下
+
 
 
 

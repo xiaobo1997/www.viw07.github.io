@@ -65,6 +65,19 @@ https://github.com/yanue/V2rayU
 4.pac配置，从粘贴板导入
 
 
+## mac  httpie
+
+```
+1.brew update
+2.brew install httpie
+3.`http -v get www.baidu.com`
+
+发起http post  url参数
+http -v post [url]  paramer==xxxx
+发起post  json参数
+http -v post [url] paramer=xxx
+
+```
 
 ## 切换jdk
 
