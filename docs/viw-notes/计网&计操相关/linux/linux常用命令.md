@@ -24,7 +24,7 @@
 - 复制文件 cp file1 file2
 - 复制一个目录到当前工作(所在)目录 cp -a /xxx/file1
 - 复制一个目录   cp -a [目录1] [目录2]
-- chmod [R] 模式 文件
+- 赋权限 chmod [R] 模式 文件
 
 
 
@@ -137,8 +137,12 @@ find / -amin -10  查找在系统中最后10分钟访问的文件
 ## 2.0 ip网络相关
 
 - mac查看ip， `ifconfig en0`
-- ​
+- ​mac查看端口, `lsof -i [port]` 
+- 查看端口  `ps -ef | grep [target_port]`
 
+## 2.1 对文件内容
+- 对某一个文件查询指定内容 `grep [指定的内容] [文件名]` 如 `grep hello a.log`
+- 
 
 
 # 2.Linux中docker的使用命令

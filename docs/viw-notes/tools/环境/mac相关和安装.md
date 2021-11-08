@@ -123,3 +123,21 @@ export TOMCAT_HOME=/Users/xxx/workspace1/devtools/apache-tomcat-8.5.69
 PATH=$PATH:$TOMCAT_HOME/bin
 ```
 
+# Dash
+
+下载页面
+![](https://xiaobo-project.oss-cn-hangzhou.aliyuncs.com/business/20211108103139.png)
+
+可以查询一下api
+![](https://xiaobo-project.oss-cn-hangzhou.aliyuncs.com/business/20211108103051.png)
+
+# docker
+mac docker 工具
+![](https://xiaobo-project.oss-cn-hangzhou.aliyuncs.com/business/20211108103621.png)
+
+
+# kafka desk tools
+卡夫卡可视化工具
+
+# charles
+客户端代理抓包工具
