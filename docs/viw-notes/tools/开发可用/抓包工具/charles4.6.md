@@ -13,7 +13,7 @@ mac下直接安装既可
 - 1.直接打开 查看端口 默认8888， 查看local addr 
 
 
-![](https://xiaobo-project.oss-cn-hangzhou.aliyuncs.com/business/20211109152656.png)
+![](https://xiaobo-project.oss-cn-hangzhou.aliyuncs.com/business/20211109154125.png)
 
 
 ![](https://xiaobo-project.oss-cn-hangzhou.aliyuncs.com/business/20211109152529.png)
