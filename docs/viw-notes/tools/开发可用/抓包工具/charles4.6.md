@@ -32,3 +32,14 @@ mac下直接安装既可
 ![](https://xiaobo-project.oss-cn-hangzhou.aliyuncs.com/business/20211109153355.png)
 
 
+## 长时间没使用需要重启的问题
+
+- 1.打开charles
+- 2.点击help=>registered
+- 3.输入 
+
+```
+Registered Name: https://zhile.io
+License Key: 48891cf209c6d32bf4
+```
+- 4.重启
