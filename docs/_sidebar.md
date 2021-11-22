@@ -37,6 +37,15 @@
       - [java8-dateTimeApi入门-1-](./viw-notes/Java/Java8/时间工具类/java8-dateTimeApi入门-1-.md)
       - [java8新日期01](./viw-notes/Java/Java8/时间工具类/java8新日期01.md)
       - [重复注解和类型注解-01](./viw-notes/Java/Java8/时间工具类/重复注解和类型注解-01.md)
+  - base
+    - [Calendar类(废弃)](./viw-notes/Java/base/Calendar类(废弃).md)
+    - [Object类型(VO,DO等)](./viw-notes/Java/base/Object类型(VO,DO等).md)
+    - [XML解析和转换](./viw-notes/Java/base/XML解析和转换.md)
+    - [bigDecimal和bigInteger和数组](./viw-notes/Java/base/bigDecimal和bigInteger和数组.md)
+    - [fastjson处理](./viw-notes/Java/base/fastjson处理.md)
+    - [反射机制](./viw-notes/Java/base/反射机制.md)
+    - [剖析类和面向对象](./viw-notes/Java/base/剖析类和面向对象.md)
+    - [数据类型和运算符相关基础](./viw-notes/Java/base/数据类型和运算符相关基础.md)
   - java-BIO
     - [BIO-01](./viw-notes/Java/java-BIO/BIO-01.md)
     - [BIO-02](./viw-notes/Java/java-BIO/BIO-02.md)
@@ -67,17 +76,14 @@
     - [java-collection5-Properties](./viw-notes/Java/集合/java-collection5-Properties.md)
     - [java-collection6-list-set-map-array-转换](./viw-notes/Java/集合/java-collection6-list-set-map-array-转换.md)
     - [面试-1](./viw-notes/Java/集合/面试-1.md)
-  - 零散
-    - [Calendar类(废弃)](./viw-notes/Java/零散/Calendar类(废弃).md)
-    - [Object类型(VO,DO等)](./viw-notes/Java/零散/Object类型(VO,DO等).md)
-    - [XML解析和转换](./viw-notes/Java/零散/XML解析和转换.md)
-    - [bigDecimal和bigInteger和数组](./viw-notes/Java/零散/bigDecimal和bigInteger和数组.md)
-    - [fastjson处理](./viw-notes/Java/零散/fastjson处理.md)
-    - [反射机制](./viw-notes/Java/零散/反射机制.md)
-    - [剖析类和面向对象](./viw-notes/Java/零散/剖析类和面向对象.md)
-    - [数据类型和运算符相关基础](./viw-notes/Java/零散/数据类型和运算符相关基础.md)
+  - 其它项
+    - [BigDecimal和BigInteger的操作](./viw-notes/Java/其它项/BigDecimal和BigInteger的操作.md)
+    - [fastjson-api](./viw-notes/Java/其它项/fastjson-api.md)
+    - [在代码中使用Lombok](./viw-notes/Java/其它项/在代码中使用Lombok.md)
+    - [处理文件路径在windos和linux不同](./viw-notes/Java/其它项/处理文件路径在windos和linux不同.md)
+    - [关于转义字符的意义](./viw-notes/Java/其它项/关于转义字符的意义.md)
+    - [正则表达式的使用和常用案例](./viw-notes/Java/其它项/正则表达式的使用和常用案例.md)
   - 多线程
-    - [Java多线程8-volatile](./viw-notes/Java/多线程/Java多线程8-volatile.md)
     - [java多线程1-概述](./viw-notes/Java/多线程/java多线程1-概述.md)
     - [java多线程10-CAS和原子操作&ABA](./viw-notes/Java/多线程/java多线程10-CAS和原子操作&ABA.md)
     - [java多线程11-AQS入门知识和分析](./viw-notes/Java/多线程/java多线程11-AQS入门知识和分析.md)
@@ -103,6 +109,7 @@
     - [java多线程6-锁机制](./viw-notes/Java/多线程/java多线程6-锁机制.md)
     - [java多线程7-synchronized关键字-互斥同步 ](./viw-notes/Java/多线程/java多线程7-synchronized关键字-互斥同步%20.md)
     - [java多线程8-1-锁优化和锁升级(针对synchrinized)](./viw-notes/Java/多线程/java多线程8-1-锁优化和锁升级(针对synchrinized).md)
+    - [java多线程8-volatile](./viw-notes/Java/多线程/java多线程8-volatile.md)
     - [java多线程9-死锁](./viw-notes/Java/多线程/java多线程9-死锁.md)
   - 并发编程
     - [并发编程1-AQS源码的分析](./viw-notes/Java/并发编程/并发编程1-AQS源码的分析.md)
@@ -110,13 +117,6 @@
     - [JDK源码1-](./viw-notes/Java/源码学习/JDK源码1-.md)
   - 网络编程
     - [网络编程1-](./viw-notes/Java/网络编程/网络编程1-.md)
-  - 小问题和第三方
-    - [BigDecimal和BigInteger的操作](./viw-notes/Java/小问题和第三方/BigDecimal和BigInteger的操作.md)
-    - [fastjson-api](./viw-notes/Java/小问题和第三方/fastjson-api.md)
-    - [在代码中使用Lombok](./viw-notes/Java/小问题和第三方/在代码中使用Lombok.md)
-    - [处理文件路径在windos和linux不同](./viw-notes/Java/小问题和第三方/处理文件路径在windos和linux不同.md)
-    - [关于转义字符的意义](./viw-notes/Java/小问题和第三方/关于转义字符的意义.md)
-    - [正则表达式的使用和常用案例](./viw-notes/Java/小问题和第三方/正则表达式的使用和常用案例.md)
 - shell
   - shell学习
     - [shell01](./viw-notes/shell/shell学习/shell01.md)
