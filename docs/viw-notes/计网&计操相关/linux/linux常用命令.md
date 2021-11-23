@@ -1,4 +1,3 @@
-## 
 
 
 
@@ -140,12 +139,17 @@ find / -amin -10  查找在系统中最后10分钟访问的文件
 - ​mac查看端口, `lsof -i [port]` 
 - 查看端口  `ps -ef | grep [target_port]`
 
-## 2.1 对文件内容
+## 2.1 对文件内容操作
+
+### grep
 - 对某一个文件查询指定内容 `grep [指定的内容] [文件名]` 如 `grep hello a.log`
-- 
+- grep 多条件AND查询 `grep [内容] [文件名] | grep [内容]` 如`grep aaa a.log | grep bbb`
+- grep 多条件or查询 `grep -E [内容|内容] [文件]` 如 `grep -E 'aaa|bbb' aaa.log`
 
 
 # 2.Linux中docker的使用命令
+
+## 基本命令
 - 查看正运行的容器 `docker ps`
 - 查看所有容器  `docker ps -a`
 - 启动容器 `docke start [CONTAINER]`
@@ -160,6 +164,7 @@ find / -amin -10  查找在系统中最后10分钟访问的文件
 
 # 3.linux 文件权限
 
+## 设置权限
 > 通过 `chmox` 可以设置文件权限 ； 两种方式
 >
 > - 1.通过数字
@@ -217,4 +222,8 @@ history
 ```shell
 history -c
 ```
+## 4.1
 
+### 4.1.1
+
+#### 4.1.1.1
