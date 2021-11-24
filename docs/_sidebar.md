@@ -117,6 +117,10 @@
     - [JDK源码1-](./viw-notes/Java/源码学习/JDK源码1-.md)
   - 网络编程
     - [网络编程1-](./viw-notes/Java/网络编程/网络编程1-.md)
+- php
+  - php基础
+    - [php-base-1.0](./viw-notes/php/php基础/php-base-1.0.md)
+    - [php-base-2.0](./viw-notes/php/php基础/php-base-2.0.md)
 - shell
   - shell学习
     - [shell01](./viw-notes/shell/shell学习/shell01.md)
