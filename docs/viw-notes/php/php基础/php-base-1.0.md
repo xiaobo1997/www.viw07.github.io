@@ -27,6 +27,9 @@ $resData = [
     "bbb" => "bbb",
 ];
 
+//给数组赋值
+$resultData['resData']  = $resData;
+
 ```
 
 
