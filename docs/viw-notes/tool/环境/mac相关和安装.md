@@ -131,7 +131,11 @@ PATH=$PATH:$TOMCAT_HOME/bin
 可以查询一下api
 ![](https://xiaobo-project.oss-cn-hangzhou.aliyuncs.com/business/20211108103051.png)
 
-# docker
+# docker desktop
+
+https://www.docker.com/products/docker-desktop
+https://docs.docker.com/desktop/mac/install/
+
 mac docker 工具
 ![](https://xiaobo-project.oss-cn-hangzhou.aliyuncs.com/business/20211108103621.png)
 

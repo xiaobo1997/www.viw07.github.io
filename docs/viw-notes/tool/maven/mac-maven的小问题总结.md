@@ -47,4 +47,9 @@
 # 无法下载spring boot- maven - plugins
 
 
+# 跳过测试
 
+```
+mvn clean install -Dmaven.test.skip=true
+mvn package -Dmaven.test.skip=true
+```
