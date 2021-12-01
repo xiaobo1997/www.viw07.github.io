@@ -1,11 +1,4 @@
 - Java
-  - HTTPClient
-    - HttpClient
-      - [httpclient01](./viw-notes/Java/HTTPClient/HttpClient/httpclient01.md)
-      - [httpclient02](./viw-notes/Java/HTTPClient/HttpClient/httpclient02.md)
-    - OkHttp
-      - [okhttp01](./viw-notes/Java/HTTPClient/OkHttp/okhttp01.md)
-      - [okhttp02](./viw-notes/Java/HTTPClient/OkHttp/okhttp02.md)
   - JMM
     - [java内存模型1-内存划分和交互操作](./viw-notes/Java/JMM/java内存模型1-内存划分和交互操作.md)
     - [java内存模型2-内存模型特性和先行发生原则](./viw-notes/Java/JMM/java内存模型2-内存模型特性和先行发生原则.md)
@@ -20,23 +13,6 @@
     - [jvm6-虚拟机性能监控和处理工具](./viw-notes/Java/JVM/jvm6-虚拟机性能监控和处理工具.md)
     - [jvm7-类加载机制](./viw-notes/Java/JVM/jvm7-类加载机制.md)
     - [jvm8-性能调优](./viw-notes/Java/JVM/jvm8-性能调优.md)
-  - Java8
-    - lambda
-      - [lambda01](./viw-notes/Java/Java8/lambda/lambda01.md)
-      - [函数式接口01](./viw-notes/Java/Java8/lambda/函数式接口01.md)
-    - optional
-      - [optional01](./viw-notes/Java/Java8/optional/optional01.md)
-    - stream
-      - [stream01](./viw-notes/Java/Java8/stream/stream01.md)
-      - [stream02](./viw-notes/Java/Java8/stream/stream02.md)
-      - [stream03-并行流](./viw-notes/Java/Java8/stream/stream03-并行流.md)
-    - 时间工具类
-      - [LocalData-01](./viw-notes/Java/Java8/时间工具类/LocalData-01.md)
-      - [LocalDataTime-01](./viw-notes/Java/Java8/时间工具类/LocalDataTime-01.md)
-      - [LocalTime-01](./viw-notes/Java/Java8/时间工具类/LocalTime-01.md)
-      - [java8-dateTimeApi入门-1-](./viw-notes/Java/Java8/时间工具类/java8-dateTimeApi入门-1-.md)
-      - [java8新日期01](./viw-notes/Java/Java8/时间工具类/java8新日期01.md)
-      - [重复注解和类型注解-01](./viw-notes/Java/Java8/时间工具类/重复注解和类型注解-01.md)
   - base
     - [Calendar类(废弃)](./viw-notes/Java/base/Calendar类(废弃).md)
     - [Object类型(VO,DO等)](./viw-notes/Java/base/Object类型(VO,DO等).md)
@@ -46,28 +22,52 @@
     - [反射机制](./viw-notes/Java/base/反射机制.md)
     - [剖析类和面向对象](./viw-notes/Java/base/剖析类和面向对象.md)
     - [数据类型和运算符相关基础](./viw-notes/Java/base/数据类型和运算符相关基础.md)
-  - java-BIO
-    - [BIO-01](./viw-notes/Java/java-BIO/BIO-01.md)
-    - [BIO-02](./viw-notes/Java/java-BIO/BIO-02.md)
-    - [BIO-03即时通讯思路](./viw-notes/Java/java-BIO/BIO-03即时通讯思路.md)
-    - [序列化](./viw-notes/Java/java-BIO/序列化.md)
-  - java-NIO
-    - [NIO-选择器selector](./viw-notes/Java/java-NIO/NIO-选择器selector.md)
-    - [NIO01-IO模型结构和基础](./viw-notes/Java/java-NIO/NIO01-IO模型结构和基础.md)
-    - [NIO02-缓冲区buffer](./viw-notes/Java/java-NIO/NIO02-缓冲区buffer.md)
-    - [NIO03-通道channel](./viw-notes/Java/java-NIO/NIO03-通道channel.md)
-    - [NIO04-选择器selector](./viw-notes/Java/java-NIO/NIO04-选择器selector.md)
-    - [NIO05-网络通信应用case1](./viw-notes/Java/java-NIO/NIO05-网络通信应用case1.md)
-    - [NIO06](./viw-notes/Java/java-NIO/NIO06.md)
-    - [NIO07](./viw-notes/Java/java-NIO/NIO07.md)
+  - http-client
+    - HttpClient
+      - [httpclient01](./viw-notes/Java/http-client/HttpClient/httpclient01.md)
+      - [httpclient02](./viw-notes/Java/http-client/HttpClient/httpclient02.md)
+    - OkHttp
+      - [okhttp01](./viw-notes/Java/http-client/OkHttp/okhttp01.md)
+      - [okhttp02](./viw-notes/Java/http-client/OkHttp/okhttp02.md)
+  - java-aio
+    - [aio1](./viw-notes/Java/java-aio/aio1.md)
+  - java-bio
+    - [BIO-01](./viw-notes/Java/java-bio/BIO-01.md)
+    - [BIO-02](./viw-notes/Java/java-bio/BIO-02.md)
+    - [BIO-03即时通讯思路](./viw-notes/Java/java-bio/BIO-03即时通讯思路.md)
+    - [序列化](./viw-notes/Java/java-bio/序列化.md)
+  - java-nio
+    - [NIO-选择器selector](./viw-notes/Java/java-nio/NIO-选择器selector.md)
+    - [NIO01-IO模型结构和基础](./viw-notes/Java/java-nio/NIO01-IO模型结构和基础.md)
+    - [NIO02-缓冲区buffer](./viw-notes/Java/java-nio/NIO02-缓冲区buffer.md)
+    - [NIO03-通道channel](./viw-notes/Java/java-nio/NIO03-通道channel.md)
+    - [NIO04-选择器selector](./viw-notes/Java/java-nio/NIO04-选择器selector.md)
+    - [NIO05-网络通信应用case1](./viw-notes/Java/java-nio/NIO05-网络通信应用case1.md)
+    - [NIO06](./viw-notes/Java/java-nio/NIO06.md)
+    - [NIO07](./viw-notes/Java/java-nio/NIO07.md)
   - java11
     - [特性01](./viw-notes/Java/java11/特性01.md)
     - [特性02](./viw-notes/Java/java11/特性02.md)
+  - java8
+    - lambda
+      - [lambda-01](./viw-notes/Java/java8/lambda/lambda-01.md)
+      - [lambda-02](./viw-notes/Java/java8/lambda/lambda-02.md)
+    - optional
+      - [optional01](./viw-notes/Java/java8/optional/optional01.md)
+    - stream
+      - [stream01](./viw-notes/Java/java8/stream/stream01.md)
+      - [stream02](./viw-notes/Java/java8/stream/stream02.md)
+      - [stream03-并行流](./viw-notes/Java/java8/stream/stream03-并行流.md)
+    - 时间工具类
+      - [LocalData-01](./viw-notes/Java/java8/时间工具类/LocalData-01.md)
+      - [LocalDataTime-01](./viw-notes/Java/java8/时间工具类/LocalDataTime-01.md)
+      - [LocalTime-01](./viw-notes/Java/java8/时间工具类/LocalTime-01.md)
+      - [java8-dateTimeApi入门-1-](./viw-notes/Java/java8/时间工具类/java8-dateTimeApi入门-1-.md)
+      - [java8新日期01](./viw-notes/Java/java8/时间工具类/java8新日期01.md)
+      - [重复注解和类型注解-01](./viw-notes/Java/java8/时间工具类/重复注解和类型注解-01.md)
   - java9
     - [新httpclient-01](./viw-notes/Java/java9/新httpclient-01.md)
     - [集合工厂方法-01](./viw-notes/Java/java9/集合工厂方法-01.md)
-  - javaAio
-    - [aio1](./viw-notes/Java/javaAio/aio1.md)
   - 集合
     - [Java-collection2-collections](./viw-notes/Java/集合/Java-collection2-collections.md)
     - [java-collection-1-集合和map](./viw-notes/Java/集合/java-collection-1-集合和map.md)
@@ -129,27 +129,30 @@
     - [shell04](./viw-notes/shell/shell学习/shell04.md)
     - [shell05](./viw-notes/shell/shell学习/shell05.md)
 - spring&orm
-  - mybatis相关
-    - [mybatis1-全局配置文件](./viw-notes/spring&orm/mybatis相关/mybatis1-全局配置文件.md)
-    - [mybatis2-mapper(1)](./viw-notes/spring&orm/mybatis相关/mybatis2-mapper(1).md)
-    - [mybatis3-mapper(2)](./viw-notes/spring&orm/mybatis相关/mybatis3-mapper(2).md)
-    - [mybatis4-动态sql(1)](./viw-notes/spring&orm/mybatis相关/mybatis4-动态sql(1).md)
-    - [mybatis5-动态sql(2)](./viw-notes/spring&orm/mybatis相关/mybatis5-动态sql(2).md)
-    - [mybatis6--chche的知识](./viw-notes/spring&orm/mybatis相关/mybatis6--chche的知识.md)
-    - [mybatis7--mybatis+spring的使用](./viw-notes/spring&orm/mybatis相关/mybatis7--mybatis%2Bspring的使用.md)
-    - [mybatisplus1-入门](./viw-notes/spring&orm/mybatis相关/mybatisplus1-入门.md)
-    - [mybatisplus2-自动填充和乐观锁](./viw-notes/spring&orm/mybatis相关/mybatisplus2-自动填充和乐观锁.md)
-    - [mybatisplus3-代码生成器](./viw-notes/spring&orm/mybatis相关/mybatisplus3-代码生成器.md)
-    - [mybatisplus4-找不到mapper的错误](./viw-notes/spring&orm/mybatis相关/mybatisplus4-找不到mapper的错误.md)
-    - [mybatisplus5-使用idea插件](./viw-notes/spring&orm/mybatis相关/mybatisplus5-使用idea插件.md)
-    - [mybatisplus6-boot单元测试和自定义分页](./viw-notes/spring&orm/mybatis相关/mybatisplus6-boot单元测试和自定义分页.md)
-    - [springboot+mybatis本地缓存失效](./viw-notes/spring&orm/mybatis相关/springboot%2Bmybatis本地缓存失效.md)
-  - mybatis源码相关
-    - [1-mybatis执行流程](./viw-notes/spring&orm/mybatis源码相关/1-mybatis执行流程.md)
-    - [2-mybatis基础组件](./viw-notes/spring&orm/mybatis源码相关/2-mybatis基础组件.md)
-    - [3-mybatis容器加载和解析](./viw-notes/spring&orm/mybatis源码相关/3-mybatis容器加载和解析.md)
-    - [4-mybatis核心处理层](./viw-notes/spring&orm/mybatis源码相关/4-mybatis核心处理层.md)
-    - [5-mybatis-类解析](./viw-notes/spring&orm/mybatis源码相关/5-mybatis-类解析.md)
+  - mybatis&plus
+    - mybatis-plus
+      - [mybatisplus1-入门](./viw-notes/spring&orm/mybatis&plus/mybatis-plus/mybatisplus1-入门.md)
+      - [mybatisplus2-自动填充和乐观锁](./viw-notes/spring&orm/mybatis&plus/mybatis-plus/mybatisplus2-自动填充和乐观锁.md)
+      - [mybatisplus3-代码生成器](./viw-notes/spring&orm/mybatis&plus/mybatis-plus/mybatisplus3-代码生成器.md)
+      - [mybatisplus4-找不到mapper的错误](./viw-notes/spring&orm/mybatis&plus/mybatis-plus/mybatisplus4-找不到mapper的错误.md)
+      - [mybatisplus5-使用idea插件](./viw-notes/spring&orm/mybatis&plus/mybatis-plus/mybatisplus5-使用idea插件.md)
+      - [mybatisplus6-boot单元测试和自定义分页](./viw-notes/spring&orm/mybatis&plus/mybatis-plus/mybatisplus6-boot单元测试和自定义分页.md)
+    - mybatis源码相关
+      - [1-mybatis执行流程](./viw-notes/spring&orm/mybatis&plus/mybatis源码相关/1-mybatis执行流程.md)
+      - [2-mybatis基础组件](./viw-notes/spring&orm/mybatis&plus/mybatis源码相关/2-mybatis基础组件.md)
+      - [3-mybatis容器加载和解析](./viw-notes/spring&orm/mybatis&plus/mybatis源码相关/3-mybatis容器加载和解析.md)
+      - [4-mybatis核心处理层](./viw-notes/spring&orm/mybatis&plus/mybatis源码相关/4-mybatis核心处理层.md)
+      - [5-mybatis-类解析](./viw-notes/spring&orm/mybatis&plus/mybatis源码相关/5-mybatis-类解析.md)
+    - mybayis
+      - [mybatis1-全局配置文件](./viw-notes/spring&orm/mybatis&plus/mybayis/mybatis1-全局配置文件.md)
+      - [mybatis2-mapper(1)](./viw-notes/spring&orm/mybatis&plus/mybayis/mybatis2-mapper(1).md)
+      - [mybatis3-mapper(2)](./viw-notes/spring&orm/mybatis&plus/mybayis/mybatis3-mapper(2).md)
+      - [mybatis4-动态sql(1)](./viw-notes/spring&orm/mybatis&plus/mybayis/mybatis4-动态sql(1).md)
+      - [mybatis5-动态sql(2)](./viw-notes/spring&orm/mybatis&plus/mybayis/mybatis5-动态sql(2).md)
+      - [mybatis6--chche的知识](./viw-notes/spring&orm/mybatis&plus/mybayis/mybatis6--chche的知识.md)
+      - [mybatis7--mybatis+spring的使用](./viw-notes/spring&orm/mybatis&plus/mybayis/mybatis7--mybatis%2Bspring的使用.md)
+      - [mybatis8-多数据源](./viw-notes/spring&orm/mybatis&plus/mybayis/mybatis8-多数据源.md)
+    - [springboot+mybatis本地缓存失效](./viw-notes/spring&orm/mybatis&plus/springboot%2Bmybatis本地缓存失效.md)
   - spring
     - [spring源码组件初始](./viw-notes/spring&orm/spring/spring源码组件初始.md)
   - spring-jpa
@@ -204,8 +207,6 @@
     - [8-spring-aop-认识aop源码](./viw-notes/spring&orm/spring源码相关/8-spring-aop-认识aop源码.md)
     - [9-spring-aop-JDK动态代理和CGLIB](./viw-notes/spring&orm/spring源码相关/9-spring-aop-JDK动态代理和CGLIB.md)
 - tool
-  - ETL
-    - [Spoon工具](./viw-notes/tool/ETL/Spoon工具.md)
   - Git
     - [git00](./viw-notes/tool/Git/git00.md)
     - [git01](./viw-notes/tool/Git/git01.md)
@@ -221,17 +222,6 @@
     - [gradle01](./viw-notes/tool/gradle/gradle01.md)
     - [gradle02](./viw-notes/tool/gradle/gradle02.md)
     - [gradle03](./viw-notes/tool/gradle/gradle03.md)
-  - idea&vscode
-    - eclipse
-      - [eclipse导jar包](./viw-notes/tool/idea&vscode/eclipse/eclipse导jar包.md)
-      - [eclipse快捷键-总结](./viw-notes/tool/idea&vscode/eclipse/eclipse快捷键-总结.md)
-    - idea
-      - [IDEA-spring创建向导太慢了](./viw-notes/tool/idea&vscode/idea/IDEA-spring创建向导太慢了.md)
-      - [IDEA导eclipse-javaweb项目的小问题](./viw-notes/tool/idea&vscode/idea/IDEA导eclipse-javaweb项目的小问题.md)
-      - [IDEA添加visualvm gc 插件](./viw-notes/tool/idea&vscode/idea/IDEA添加visualvm%20gc%20插件.md)
-      - [IDEA插件找不到和下载太慢了](./viw-notes/tool/idea&vscode/idea/IDEA插件找不到和下载太慢了.md)
-    - vscode
-      - [vscode-vue代码片段](./viw-notes/tool/idea&vscode/vscode/vscode-vue代码片段.md)
   - maven
     - [mac-maven的小问题总结](./viw-notes/tool/maven/mac-maven的小问题总结.md)
     - [maven01](./viw-notes/tool/maven/maven01.md)
@@ -243,14 +233,28 @@
     - [mac-21年5月-10月杂项](./viw-notes/tool/环境/mac-21年5月-10月杂项.md)
     - [mac相关和安装](./viw-notes/tool/环境/mac相关和安装.md)
     - [新电脑整体环境配置小问题](./viw-notes/tool/环境/新电脑整体环境配置小问题.md)
-  - 开发可用
+  - 开发工具
+    - eclipse
+      - [eclipse导jar包](./viw-notes/tool/开发工具/eclipse/eclipse导jar包.md)
+      - [eclipse快捷键-总结](./viw-notes/tool/开发工具/eclipse/eclipse快捷键-总结.md)
+    - etl数仓
+      - [Spoon工具](./viw-notes/tool/开发工具/etl数仓/Spoon工具.md)
+    - idea
+      - [IDEA-spring创建向导太慢了](./viw-notes/tool/开发工具/idea/IDEA-spring创建向导太慢了.md)
+      - [IDEA导eclipse-javaweb项目的小问题](./viw-notes/tool/开发工具/idea/IDEA导eclipse-javaweb项目的小问题.md)
+      - [IDEA添加visualvm gc 插件](./viw-notes/tool/开发工具/idea/IDEA添加visualvm%20gc%20插件.md)
+      - [IDEA插件找不到和下载太慢了](./viw-notes/tool/开发工具/idea/IDEA插件找不到和下载太慢了.md)
+    - vscode
+      - [vscode-vue代码片段](./viw-notes/tool/开发工具/vscode/vscode-vue代码片段.md)
+  - 开发方面
     - 压测工具
-      - [jmeter](./viw-notes/tool/开发可用/压测工具/jmeter.md)
+      - [jmeter](./viw-notes/tool/开发方面/压测工具/jmeter.md)
     - 抓包工具
-      - [charles4.6](./viw-notes/tool/开发可用/抓包工具/charles4.6.md)
+      - [charles-1.0-使用](./viw-notes/tool/开发方面/抓包工具/charles-1.0-使用.md)
+      - [charles-2.0-如何抓https](./viw-notes/tool/开发方面/抓包工具/charles-2.0-如何抓https.md)
     - 诊断工具
-      - [Arthas01](./viw-notes/tool/开发可用/诊断工具/Arthas01.md)
-      - [Arthas02](./viw-notes/tool/开发可用/诊断工具/Arthas02.md)
+      - [Arthas01](./viw-notes/tool/开发方面/诊断工具/Arthas01.md)
+      - [Arthas02](./viw-notes/tool/开发方面/诊断工具/Arthas02.md)
 - 计网&计操相关
   - linux
     - [centos部署boot项目命令小集](./viw-notes/计网&计操相关/linux/centos部署boot项目命令小集.md)
@@ -619,8 +623,9 @@
     - [docker04](./viw-notes/云原生(cicd&devops&微服务)/docker/docker04.md)
     - [docker05](./viw-notes/云原生(cicd&devops&微服务)/docker/docker05.md)
     - [docker06](./viw-notes/云原生(cicd&devops&微服务)/docker/docker06.md)
-    - [docker提升速度](./viw-notes/云原生(cicd&devops&微服务)/docker/docker提升速度.md)
-    - [问题-docker安装vim换源](./viw-notes/云原生(cicd&devops&微服务)/docker/问题-docker安装vim换源.md)
+    - other
+      - [docker提升速度](./viw-notes/云原生(cicd&devops&微服务)/docker/other/docker提升速度.md)
+      - [问题-docker安装vim换源](./viw-notes/云原生(cicd&devops&微服务)/docker/other/问题-docker安装vim换源.md)
   - gitlab
     - [gitlab01](./viw-notes/云原生(cicd&devops&微服务)/gitlab/gitlab01.md)
     - [gitlab02](./viw-notes/云原生(cicd&devops&微服务)/gitlab/gitlab02.md)
@@ -638,6 +643,7 @@
     - [k8s05](./viw-notes/云原生(cicd&devops&微服务)/k8s/k8s05.md)
     - [k8s06](./viw-notes/云原生(cicd&devops&微服务)/k8s/k8s06.md)
     - [k8s07](./viw-notes/云原生(cicd&devops&微服务)/k8s/k8s07.md)
+- 个人向
 - 大数据相关
   - ApacheStorm
     - [storm-01](./viw-notes/大数据相关/ApacheStorm/storm-01.md)
