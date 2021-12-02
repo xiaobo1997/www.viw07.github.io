@@ -1,8 +1,6 @@
 <img src="https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/viw.jpg" alt="logo" style="zoom: 15%;" />
 
-# viw-notes <small>的简单笔记</small>
-
-> 照葫芦画瓢viw。
+# viw-notes <small>simple notes</small>
 
 - 朝着希望前进
 
