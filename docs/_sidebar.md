@@ -1,3 +1,4 @@
+- Go
 - Java
   - JMM
     - [java内存模型1-内存划分和交互操作](./viw-notes/Java/JMM/java内存模型1-内存划分和交互操作.md)
