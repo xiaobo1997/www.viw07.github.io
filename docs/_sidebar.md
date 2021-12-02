@@ -113,10 +113,10 @@
     - [java多线程9-死锁](./viw-notes/Java/多线程/java多线程9-死锁.md)
   - 并发编程
     - [并发编程1-AQS源码的分析](./viw-notes/Java/并发编程/并发编程1-AQS源码的分析.md)
-  - 源码学习
-    - [JDK源码1-](./viw-notes/Java/源码学习/JDK源码1-.md)
   - 网络编程
     - [网络编程1-](./viw-notes/Java/网络编程/网络编程1-.md)
+  - 部分源码
+    - [jdk-1.0](./viw-notes/Java/部分源码/jdk-1.0.md)
 - php
   - php基础
     - [php-base-1.0](./viw-notes/php/php基础/php-base-1.0.md)
@@ -644,6 +644,7 @@
     - [k8s06](./viw-notes/云原生(cicd&devops&微服务)/k8s/k8s06.md)
     - [k8s07](./viw-notes/云原生(cicd&devops&微服务)/k8s/k8s07.md)
 - 个人向
+  - [项目流程和owner](./viw-notes/个人向/项目流程和owner.md)
 - 大数据相关
   - ApacheStorm
     - [storm-01](./viw-notes/大数据相关/ApacheStorm/storm-01.md)
