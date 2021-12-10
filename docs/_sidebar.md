@@ -80,6 +80,7 @@
   - 其它项
     - [BigDecimal和BigInteger的操作](./viw-notes/Java/其它项/BigDecimal和BigInteger的操作.md)
     - [fastjson-api](./viw-notes/Java/其它项/fastjson-api.md)
+    - [调用打印机(PDF)](./viw-notes/Java/其它项/调用打印机(PDF).md)
     - [在代码中使用Lombok](./viw-notes/Java/其它项/在代码中使用Lombok.md)
     - [处理文件路径在windos和linux不同](./viw-notes/Java/其它项/处理文件路径在windos和linux不同.md)
     - [关于转义字符的意义](./viw-notes/Java/其它项/关于转义字符的意义.md)
@@ -118,6 +119,56 @@
     - [网络编程1-](./viw-notes/Java/网络编程/网络编程1-.md)
   - 部分源码
     - [jdk-1.0](./viw-notes/Java/部分源码/jdk-1.0.md)
+- lc
+  - leetcode(类型)
+    - DFS+BFS
+      - [BFS-简单](./viw-notes/lc/leetcode(类型)/DFS%2BBFS/BFS-简单.md)
+      - [DFS-简单](./viw-notes/lc/leetcode(类型)/DFS%2BBFS/DFS-简单.md)
+    - 图
+      - [图-简单](./viw-notes/lc/leetcode(类型)/图/图-简单.md)
+    - 堆
+      - [堆-简单](./viw-notes/lc/leetcode(类型)/堆/堆-简单.md)
+    - 树
+      - [树-中等](./viw-notes/lc/leetcode(类型)/树/树-中等.md)
+      - [树-简单](./viw-notes/lc/leetcode(类型)/树/树-简单.md)
+    - 数学
+      - [数学-简单](./viw-notes/lc/leetcode(类型)/数学/数学-简单.md)
+    - 递归
+      - [递归-简单](./viw-notes/lc/leetcode(类型)/递归/递归-简单.md)
+    - 数组+字符串+栈+链表+队列
+      - [栈-简单](./viw-notes/lc/leetcode(类型)/数组%2B字符串%2B栈%2B链表%2B队列/栈-简单.md)
+      - [数组-中等](./viw-notes/lc/leetcode(类型)/数组%2B字符串%2B栈%2B链表%2B队列/数组-中等.md)
+      - [数组-简单](./viw-notes/lc/leetcode(类型)/数组%2B字符串%2B栈%2B链表%2B队列/数组-简单.md)
+      - [链表-简单](./viw-notes/lc/leetcode(类型)/数组%2B字符串%2B栈%2B链表%2B队列/链表-简单.md)
+      - [队列-简单](./viw-notes/lc/leetcode(类型)/数组%2B字符串%2B栈%2B链表%2B队列/队列-简单.md)
+      - [字符串-中等](./viw-notes/lc/leetcode(类型)/数组%2B字符串%2B栈%2B链表%2B队列/字符串-中等.md)
+      - [字符串-简单](./viw-notes/lc/leetcode(类型)/数组%2B字符串%2B栈%2B链表%2B队列/字符串-简单.md)
+    - 贪心+动态规划+回溯
+      - [回溯-简单](./viw-notes/lc/leetcode(类型)/贪心%2B动态规划%2B回溯/回溯-简单.md)
+      - [贪心-简单](./viw-notes/lc/leetcode(类型)/贪心%2B动态规划%2B回溯/贪心-简单.md)
+      - [动态规划-简单](./viw-notes/lc/leetcode(类型)/贪心%2B动态规划%2B回溯/动态规划-简单.md)
+    - 双指针
+      - [双指针-简单](./viw-notes/lc/leetcode(类型)/双指针/双指针-简单.md)
+    - 哈希表+位运算
+      - [位运算-简单](./viw-notes/lc/leetcode(类型)/哈希表%2B位运算/位运算-简单.md)
+      - [哈希表-简单](./viw-notes/lc/leetcode(类型)/哈希表%2B位运算/哈希表-简单.md)
+  - leetcode剑指offer(高频)
+    - [leetcode热选100+精选200](./viw-notes/lc/leetcode剑指offer(高频)/leetcode热选100%2B精选200.md)
+    - [剑指中等](./viw-notes/lc/leetcode剑指offer(高频)/剑指中等.md)
+    - [剑指简单](./viw-notes/lc/leetcode剑指offer(高频)/剑指简单.md)
+    - [网上高频中等](./viw-notes/lc/leetcode剑指offer(高频)/网上高频中等.md)
+    - [网上高频简单](./viw-notes/lc/leetcode剑指offer(高频)/网上高频简单.md)
+  - 牛客网
+    - [必刷148-1入门](./viw-notes/lc/牛客网/必刷148-1入门.md)
+    - [必刷148-2简单](./viw-notes/lc/牛客网/必刷148-2简单.md)
+    - [必刷148-3中等](./viw-notes/lc/牛客网/必刷148-3中等.md)
+    - [高频200-1入门](./viw-notes/lc/牛客网/高频200-1入门.md)
+    - [高频200-2简单](./viw-notes/lc/牛客网/高频200-2简单.md)
+    - [高频200-3中等](./viw-notes/lc/牛客网/高频200-3中等.md)
+    - [高频200-4较难](./viw-notes/lc/牛客网/高频200-4较难.md)
+  - [数据结构算法1--常用数据结构概述](./viw-notes/lc/数据结构算法1--常用数据结构概述.md)
+  - [数据结构算法2--排序算法](./viw-notes/lc/数据结构算法2--排序算法.md)
+  - [数据结构算法3--树的基础知识](./viw-notes/lc/数据结构算法3--树的基础知识.md)
 - php
   - php基础
     - [php-base-1.0](./viw-notes/php/php基础/php-base-1.0.md)
@@ -643,56 +694,6 @@
     - [k8s05](./viw-notes/云原生/k8s/k8s05.md)
     - [k8s06](./viw-notes/云原生/k8s/k8s06.md)
     - [k8s07](./viw-notes/云原生/k8s/k8s07.md)
-- 刷题相关
-  - leetcode(类型)
-    - DFS+BFS
-      - [BFS-简单](./viw-notes/刷题相关/leetcode(类型)/DFS%2BBFS/BFS-简单.md)
-      - [DFS-简单](./viw-notes/刷题相关/leetcode(类型)/DFS%2BBFS/DFS-简单.md)
-    - 图
-      - [图-简单](./viw-notes/刷题相关/leetcode(类型)/图/图-简单.md)
-    - 堆
-      - [堆-简单](./viw-notes/刷题相关/leetcode(类型)/堆/堆-简单.md)
-    - 树
-      - [树-中等](./viw-notes/刷题相关/leetcode(类型)/树/树-中等.md)
-      - [树-简单](./viw-notes/刷题相关/leetcode(类型)/树/树-简单.md)
-    - 数学
-      - [数学-简单](./viw-notes/刷题相关/leetcode(类型)/数学/数学-简单.md)
-    - 递归
-      - [递归-简单](./viw-notes/刷题相关/leetcode(类型)/递归/递归-简单.md)
-    - 数组+字符串+栈+链表+队列
-      - [栈-简单](./viw-notes/刷题相关/leetcode(类型)/数组%2B字符串%2B栈%2B链表%2B队列/栈-简单.md)
-      - [数组-中等](./viw-notes/刷题相关/leetcode(类型)/数组%2B字符串%2B栈%2B链表%2B队列/数组-中等.md)
-      - [数组-简单](./viw-notes/刷题相关/leetcode(类型)/数组%2B字符串%2B栈%2B链表%2B队列/数组-简单.md)
-      - [链表-简单](./viw-notes/刷题相关/leetcode(类型)/数组%2B字符串%2B栈%2B链表%2B队列/链表-简单.md)
-      - [队列-简单](./viw-notes/刷题相关/leetcode(类型)/数组%2B字符串%2B栈%2B链表%2B队列/队列-简单.md)
-      - [字符串-中等](./viw-notes/刷题相关/leetcode(类型)/数组%2B字符串%2B栈%2B链表%2B队列/字符串-中等.md)
-      - [字符串-简单](./viw-notes/刷题相关/leetcode(类型)/数组%2B字符串%2B栈%2B链表%2B队列/字符串-简单.md)
-    - 贪心+动态规划+回溯
-      - [回溯-简单](./viw-notes/刷题相关/leetcode(类型)/贪心%2B动态规划%2B回溯/回溯-简单.md)
-      - [贪心-简单](./viw-notes/刷题相关/leetcode(类型)/贪心%2B动态规划%2B回溯/贪心-简单.md)
-      - [动态规划-简单](./viw-notes/刷题相关/leetcode(类型)/贪心%2B动态规划%2B回溯/动态规划-简单.md)
-    - 双指针
-      - [双指针-简单](./viw-notes/刷题相关/leetcode(类型)/双指针/双指针-简单.md)
-    - 哈希表+位运算
-      - [位运算-简单](./viw-notes/刷题相关/leetcode(类型)/哈希表%2B位运算/位运算-简单.md)
-      - [哈希表-简单](./viw-notes/刷题相关/leetcode(类型)/哈希表%2B位运算/哈希表-简单.md)
-  - leetcode剑指offer(高频)
-    - [leetcode热选100+精选200](./viw-notes/刷题相关/leetcode剑指offer(高频)/leetcode热选100%2B精选200.md)
-    - [剑指中等](./viw-notes/刷题相关/leetcode剑指offer(高频)/剑指中等.md)
-    - [剑指简单](./viw-notes/刷题相关/leetcode剑指offer(高频)/剑指简单.md)
-    - [网上高频中等](./viw-notes/刷题相关/leetcode剑指offer(高频)/网上高频中等.md)
-    - [网上高频简单](./viw-notes/刷题相关/leetcode剑指offer(高频)/网上高频简单.md)
-  - 牛客网
-    - [必刷148-1入门](./viw-notes/刷题相关/牛客网/必刷148-1入门.md)
-    - [必刷148-2简单](./viw-notes/刷题相关/牛客网/必刷148-2简单.md)
-    - [必刷148-3中等](./viw-notes/刷题相关/牛客网/必刷148-3中等.md)
-    - [高频200-1入门](./viw-notes/刷题相关/牛客网/高频200-1入门.md)
-    - [高频200-2简单](./viw-notes/刷题相关/牛客网/高频200-2简单.md)
-    - [高频200-3中等](./viw-notes/刷题相关/牛客网/高频200-3中等.md)
-    - [高频200-4较难](./viw-notes/刷题相关/牛客网/高频200-4较难.md)
-  - [数据结构算法1--常用数据结构概述](./viw-notes/刷题相关/数据结构算法1--常用数据结构概述.md)
-  - [数据结构算法2--排序算法](./viw-notes/刷题相关/数据结构算法2--排序算法.md)
-  - [数据结构算法3--树的基础知识](./viw-notes/刷题相关/数据结构算法3--树的基础知识.md)
 - 大数据相关
   - ApacheStorm
     - [storm-01](./viw-notes/大数据相关/ApacheStorm/storm-01.md)
