@@ -250,14 +250,22 @@ public class Emp {
         // string  stream  =>  integer  stream
         Stream<Integer> integerStream = Arrays.asList("1", "2", "3").stream().map(Integer::new);
         integerStream.forEach(System.out::println);//终止操作
+
+        //如果是一个对象，对象某一个值作为key，对象作为value
+        
     }
+
+
 ```
+
+
+
 
 
 
 #### flatmap
 
-> user flatmap    merge  stream
+> use flatmap    merge  stream
 
 ```java
  // string => char

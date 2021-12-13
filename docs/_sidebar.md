@@ -47,8 +47,8 @@
     - [NIO06](./viw-notes/Java/java-nio/NIO06.md)
     - [NIO07](./viw-notes/Java/java-nio/NIO07.md)
   - java11
-    - [特性01](./viw-notes/Java/java11/特性01.md)
-    - [特性02](./viw-notes/Java/java11/特性02.md)
+    - [jdk11-01](./viw-notes/Java/java11/jdk11-01.md)
+    - [jdk11-02](./viw-notes/Java/java11/jdk11-02.md)
   - java8
     - lambda
       - [lambda-01](./viw-notes/Java/java8/lambda/lambda-01.md)
@@ -67,6 +67,7 @@
       - [java8新日期01](./viw-notes/Java/java8/时间工具类/java8新日期01.md)
       - [重复注解和类型注解-01](./viw-notes/Java/java8/时间工具类/重复注解和类型注解-01.md)
   - java9
+    - [jdk9-01](./viw-notes/Java/java9/jdk9-01.md)
     - [新httpclient-01](./viw-notes/Java/java9/新httpclient-01.md)
     - [集合工厂方法-01](./viw-notes/Java/java9/集合工厂方法-01.md)
   - 集合
