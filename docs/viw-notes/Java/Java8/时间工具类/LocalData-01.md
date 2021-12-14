@@ -28,6 +28,15 @@ LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 ```
 
 
+### 获取毫秒
+
+```java
+
+LocalDate parse = LocalDate.new();
+long mili = parse.atStartOfDay().toInstant(ZoneOffset.of("+8")).toEpochMilli();
+
+```
+
 
 ### 加减
 

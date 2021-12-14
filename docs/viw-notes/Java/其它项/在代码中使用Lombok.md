@@ -16,18 +16,16 @@
 
 ## 使用
 
-> 在maven项目中 添加依赖
->
-> ```xml
->  <dependency>
->             <groupId>org.projectlombok</groupId>
->             <artifactId>lombok</artifactId>
->             <version>1.16.20</version>
->         </dependency>
-> ```
->
-> 或者自己引入jar包即可
+> 在maven项目中 添加依赖 或者自己引入jar包即可
 
+ ```xml
+        <dependency>
+             <groupId>org.projectlombok</groupId>
+             <artifactId>lombok</artifactId>
+             <version>1.16.20</version>
+         </dependency>
+ ```
+ 
 
 
 ### @Data
@@ -42,7 +40,7 @@
     @Setter(AccessLevel.PACKAGE) private int age; //设置访问权限
     private double score=0.01;
     
-     @ToString(includeFieldNames=true)// 生成所有属性的toString()方法
+  @ToString(includeFieldNames=true)// 生成所有属性的toString()方法
   @Data(staticConstructor="of") // 生成一个默认的静态方法 of()
   public static class Exercise<T> {
     private final String name;
@@ -385,7 +383,7 @@ class PrefixExample {
 
 ```
 
-## 原理
+## 原理概述
 
 > 会发现在Lombok使用的过程中，只需要添加相应的注解，无需再为此写任何代码。自动生成的代码到底是如何产生的呢？
 >
@@ -409,7 +407,7 @@ class PrefixExample {
 > 2）Pluggable Annotation Processing API
 >
 > [JSR 269](https://jcp.org/en/jsr/detail?id=269)自JDK6加入，作为apt的替代方案，它解决了apt的两个问题，javac在执行的时候会调用实现了该API的程序，这样我们就可以对编译器做一些增强，这时javac执行的过程如下：
-> ![这里写图片描述](http://img.blog.csdn.net/20160908130644281)
+> ![](https://xiaobo-project.oss-cn-hangzhou.aliyuncs.com/business/20211214193221.png)
 >
 > Lombok本质上就是一个实现了“[JSR 269 API](https://www.jcp.org/en/jsr/detail?id=269)”的程序。在使用javac的过程中，它产生作用的具体流程如下：
 >
