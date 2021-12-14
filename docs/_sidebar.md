@@ -68,8 +68,6 @@
       - [重复注解和类型注解-01](./viw-notes/Java/java8/时间工具类/重复注解和类型注解-01.md)
   - java9
     - [jdk9-01](./viw-notes/Java/java9/jdk9-01.md)
-    - [新httpclient-01](./viw-notes/Java/java9/新httpclient-01.md)
-    - [集合工厂方法-01](./viw-notes/Java/java9/集合工厂方法-01.md)
   - 集合
     - [Java-collection2-collections](./viw-notes/Java/集合/Java-collection2-collections.md)
     - [java-collection-1-集合和map](./viw-notes/Java/集合/java-collection-1-集合和map.md)

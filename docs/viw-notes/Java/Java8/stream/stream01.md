@@ -99,9 +99,7 @@ class Book {
 ```
 
 
-
-### 筛选和分片
-
+- 后面用的list
 ```java
 @AllArgsConstructor
 @Data
@@ -122,6 +120,13 @@ public class Emp {
     }
 }
 ```
+
+
+
+
+### 筛选和分片
+
+
 
 
 
@@ -252,7 +257,7 @@ public class Emp {
         integerStream.forEach(System.out::println);//终止操作
 
         //如果是一个对象，对象某一个值作为key，对象作为value
-        
+
     }
 
 

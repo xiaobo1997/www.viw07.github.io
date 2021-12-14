@@ -10,6 +10,8 @@
 
 > Lombok能以简单的注解形式来简化java代码
 
+`https://projectlombok.org/features/experimental/Accessors`
+`https://www.baeldung.com/lombok-accessors`
 
 
 ## 使用
@@ -331,8 +333,57 @@ public class TestEntity {
     }
 }
 ```
+### @Accessors
+
+> Accessors 是在 lombok v0.11引入的
+
+Accessors有三个选项
+- fluent 不通过get和set来访问
+- chain  链式调用 bean.setXxx().setXxx().setXxx();
+- prefix 前缀修饰
+
+```java
+
+@Accessors(fluent = true)
+public class AccessorsExample {
+  @Getter @Setter
+  private int age = 10;
+}
+
+class PrefixExample {
+  @Accessors(prefix = "f") @Getter
+  private String fName = "Hello, World!";
+}
 
 
+```
+
+> 字段是fName get方法是 getName()
+
+```java
+public class AccessorsExample {
+  private int age = 10;
+  
+  public int age() {
+    return this.age;
+  }
+  
+  public AccessorsExample age(final int age) {
+    this.age = age;
+    return this;
+  }
+}
+
+class PrefixExample {
+  private String fName = "Hello, World!";
+  
+  public String getName() {
+    return this.fName;
+  }
+}
+
+
+```
 
 ## 原理
 
