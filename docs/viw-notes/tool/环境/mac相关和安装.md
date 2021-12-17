@@ -14,6 +14,13 @@ https://blog.csdn.net/yuanshangshenghuo/article/details/106599836
 
 https://www.jianshu.com/p/22122a1d4474
 
+```
+brew search [xx] 搜索
+brew list [xx] 列出安装目录
+brew install [xx] 安装
+brew uninstall [xx] 
+```
+
 ## on-my-zsh&itern2
 
 https://www.jianshu.com/p/ba08713c2b19
