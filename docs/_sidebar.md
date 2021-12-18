@@ -54,7 +54,7 @@
       - [lambda-01](./viw-notes/Java/java8/lambda/lambda-01.md)
       - [lambda-02](./viw-notes/Java/java8/lambda/lambda-02.md)
     - optional
-      - [optional01](./viw-notes/Java/java8/optional/optional01.md)
+      - [optional-01](./viw-notes/Java/java8/optional/optional-01.md)
     - stream
       - [stream01](./viw-notes/Java/java8/stream/stream01.md)
       - [stream02](./viw-notes/Java/java8/stream/stream02.md)
@@ -79,6 +79,7 @@
   - 其它项
     - [BigDecimal和BigInteger的操作](./viw-notes/Java/其它项/BigDecimal和BigInteger的操作.md)
     - [fastjson-api](./viw-notes/Java/其它项/fastjson-api.md)
+    - [joda时间处理类库](./viw-notes/Java/其它项/joda时间处理类库.md)
     - [调用打印机(PDF)](./viw-notes/Java/其它项/调用打印机(PDF).md)
     - [在代码中使用Lombok](./viw-notes/Java/其它项/在代码中使用Lombok.md)
     - [处理文件路径在windos和linux不同](./viw-notes/Java/其它项/处理文件路径在windos和linux不同.md)
@@ -265,6 +266,9 @@
     - [github01](./viw-notes/tool/Git/github01.md)
     - [github02](./viw-notes/tool/Git/github02.md)
     - [vsode-gitignore](./viw-notes/tool/Git/vsode-gitignore.md)
+  - chrome
+    - [README](./viw-notes/tool/chrome/README.md)
+    - [chrome相关插件](./viw-notes/tool/chrome/chrome相关插件.md)
   - gradle
     - [gradle-构建spring5.3.x源码](./viw-notes/tool/gradle/gradle-构建spring5.3.x源码.md)
     - [gradle01](./viw-notes/tool/gradle/gradle01.md)
@@ -292,8 +296,10 @@
       - [IDEA导eclipse-javaweb项目的小问题](./viw-notes/tool/开发工具/idea/IDEA导eclipse-javaweb项目的小问题.md)
       - [IDEA添加visualvm gc 插件](./viw-notes/tool/开发工具/idea/IDEA添加visualvm%20gc%20插件.md)
       - [IDEA插件找不到和下载太慢了](./viw-notes/tool/开发工具/idea/IDEA插件找不到和下载太慢了.md)
+      - [idea-命令行启动](./viw-notes/tool/开发工具/idea/idea-命令行启动.md)
     - vscode
       - [vscode-vue代码片段](./viw-notes/tool/开发工具/vscode/vscode-vue代码片段.md)
+      - [vscode-命令行启动](./viw-notes/tool/开发工具/vscode/vscode-命令行启动.md)
   - 开发方面
     - 压测工具
       - [jmeter](./viw-notes/tool/开发方面/压测工具/jmeter.md)
@@ -303,6 +309,11 @@
     - 诊断工具
       - [Arthas01](./viw-notes/tool/开发方面/诊断工具/Arthas01.md)
       - [Arthas02](./viw-notes/tool/开发方面/诊断工具/Arthas02.md)
+- xiaobo
+  - [README](./viw-notes/xiaobo/README.md)
+  - 记
+  - 个人向
+    - [项目流程和owner](./viw-notes/xiaobo/个人向/项目流程和owner.md)
 - 计网&计操相关
   - linux
     - [centos部署boot项目命令小集](./viw-notes/计网&计操相关/linux/centos部署boot项目命令小集.md)
@@ -657,8 +668,6 @@
   - 服务器安全
     - [服务器安全01](./viw-notes/安全/服务器安全/服务器安全01.md)
     - [服务器安全02](./viw-notes/安全/服务器安全/服务器安全02.md)
-- 个人向
-  - [项目流程和owner](./viw-notes/个人向/项目流程和owner.md)
 - 云原生
   - clickhouse
     - [clickhouse01](./viw-notes/云原生/clickhouse/clickhouse01.md)

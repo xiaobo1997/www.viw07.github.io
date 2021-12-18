@@ -12,7 +12,7 @@
 
 
 
-## :books:简单目录(不全)
+## :books:简单目录(TODO)
 - Go
 - Java
   - JMM
