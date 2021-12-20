@@ -4,6 +4,8 @@
 # fastjson
 
 
+> 特点就是快，快就完事了，虽然有bug
+> https://github.com/alibaba/fastjson/wiki/Quick-Start-CN
 
 
 
@@ -32,7 +34,7 @@ JSONArray jsonArray = (JSONArray) ((JSONObject) jsonObject.get("content")).get("
 
 
 
-> 序列化对象
+### 序列化对象
 
 ```java
 //序列化
@@ -44,7 +46,7 @@ System.out.println("serializedStr="+serializedStr);
 
 
 
-> 反序列化
+### 反序列化
 
 ```java
 
@@ -65,4 +67,36 @@ System.out.println("obj1 name:"+obj1.getClass().getName());
 
 
 ```
+
+
+## TypeReference处理泛型
+
+
+### 使用
+
+> DTO 如返回的类型如下
+
+```
+List<DTO>
+
+Map<String,DTO>
+
+Map<String,List<DTO>>
+
+```
+
+> TypeReference
+
+```java
+
+List<DTO>  xxx = JSONObject.parseObject(JSONString,new TypeReference<List<DTO>>() {});
+
+Map<String,DTO> xxx = JSONObject.parseObject(JSONString,new TypeReference<Map<String,DTO>>() {});
+ 
+```
+
+
+
+
+
 
