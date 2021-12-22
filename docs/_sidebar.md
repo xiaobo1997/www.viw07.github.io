@@ -16,13 +16,11 @@
     - [jvm8-性能调优](./viw-notes/Java/JVM/jvm8-性能调优.md)
   - base
     - [Calendar类(废弃)](./viw-notes/Java/base/Calendar类(废弃).md)
-    - [Object类型(VO,DO等)](./viw-notes/Java/base/Object类型(VO,DO等).md)
-    - [XML解析和转换](./viw-notes/Java/base/XML解析和转换.md)
     - [bigDecimal和bigInteger和数组](./viw-notes/Java/base/bigDecimal和bigInteger和数组.md)
-    - [fastjson处理](./viw-notes/Java/base/fastjson处理.md)
     - [反射机制](./viw-notes/Java/base/反射机制.md)
+    - [使用泛型写公共包](./viw-notes/Java/base/使用泛型写公共包.md)
     - [剖析类和面向对象](./viw-notes/Java/base/剖析类和面向对象.md)
-    - [数据类型和运算符相关基础](./viw-notes/Java/base/数据类型和运算符相关基础.md)
+    - [数据类型和运算符相关](./viw-notes/Java/base/数据类型和运算符相关.md)
   - http-client
     - HttpClient
       - [httpclient01](./viw-notes/Java/http-client/HttpClient/httpclient01.md)
@@ -69,16 +67,18 @@
   - java9
     - [jdk9-01](./viw-notes/Java/java9/jdk9-01.md)
   - 集合
-    - [Java-collection2-collections](./viw-notes/Java/集合/Java-collection2-collections.md)
-    - [java-collection-1-集合和map](./viw-notes/Java/集合/java-collection-1-集合和map.md)
-    - [java-collection3-comparable和comparator](./viw-notes/Java/集合/java-collection3-comparable和comparator.md)
-    - [java-collection4-EnumSet&EnumMap](./viw-notes/Java/集合/java-collection4-EnumSet&EnumMap.md)
-    - [java-collection5-Properties](./viw-notes/Java/集合/java-collection5-Properties.md)
-    - [java-collection6-list-set-map-array-转换](./viw-notes/Java/集合/java-collection6-list-set-map-array-转换.md)
+    - [01-集合和map](./viw-notes/Java/集合/01-集合和map.md)
+    - [02-collections](./viw-notes/Java/集合/02-collections.md)
+    - [03-comparable和comparator](./viw-notes/Java/集合/03-comparable和comparator.md)
+    - [04-EnumSet&EnumMap](./viw-notes/Java/集合/04-EnumSet&EnumMap.md)
+    - [05-Properties](./viw-notes/Java/集合/05-Properties.md)
+    - [06-list-set-map-array-转换](./viw-notes/Java/集合/06-list-set-map-array-转换.md)
     - [面试-1](./viw-notes/Java/集合/面试-1.md)
   - 其它项
     - [BigDecimal和BigInteger的操作](./viw-notes/Java/其它项/BigDecimal和BigInteger的操作.md)
-    - [fastjson-api](./viw-notes/Java/其它项/fastjson-api.md)
+    - [Java领域模型划分(VO,BO等)](./viw-notes/Java/其它项/Java领域模型划分(VO,BO等).md)
+    - [XML解析和转换](./viw-notes/Java/其它项/XML解析和转换.md)
+    - [fastjson处理](./viw-notes/Java/其它项/fastjson处理.md)
     - [joda时间处理类库](./viw-notes/Java/其它项/joda时间处理类库.md)
     - [调用打印机(PDF)](./viw-notes/Java/其它项/调用打印机(PDF).md)
     - [在代码中使用Lombok](./viw-notes/Java/其它项/在代码中使用Lombok.md)
@@ -310,11 +310,6 @@
     - 诊断工具
       - [Arthas01](./viw-notes/tool/开发方面/诊断工具/Arthas01.md)
       - [Arthas02](./viw-notes/tool/开发方面/诊断工具/Arthas02.md)
-- xiaobo
-  - [README](./viw-notes/xiaobo/README.md)
-  - 记
-  - 个人向
-    - [项目流程和owner](./viw-notes/xiaobo/个人向/项目流程和owner.md)
 - 计网&计操相关
   - linux
     - [centos部署boot项目命令小集](./viw-notes/计网&计操相关/linux/centos部署boot项目命令小集.md)
@@ -703,6 +698,12 @@
     - [k8s05](./viw-notes/云原生/k8s/k8s05.md)
     - [k8s06](./viw-notes/云原生/k8s/k8s06.md)
     - [k8s07](./viw-notes/云原生/k8s/k8s07.md)
+- 程序人生
+  - [README](./viw-notes/程序人生/README.md)
+  - 记
+    - [2021年(待写)](./viw-notes/程序人生/记/2021年(待写).md)
+  - 个人向
+    - [项目流程和owner](./viw-notes/程序人生/个人向/项目流程和owner.md)
 - 大数据相关
   - ApacheStorm
     - [storm-01](./viw-notes/大数据相关/ApacheStorm/storm-01.md)
