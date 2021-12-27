@@ -1,5 +1,30 @@
-[TOC]
 
+<!-- TOC -->
+
+- [collection Framework](#collection-framework)
+  - [继承树和概述](#继承树和概述)
+    - [集合迭代器接口](#集合迭代器接口)
+    - [Iterable 接口](#iterable-接口)
+    - [collection接口](#collection接口)
+  - [List Interface](#list-interface)
+      - [ListIterator  Interface](#listiterator--interface)
+      - [思考](#思考)
+    - [ArrayList](#arraylist)
+    - [LinkedList](#linkedlist)
+    - [ArrayList vs LinkedList](#arraylist-vs-linkedlist)
+  - [set Inteface](#set-inteface)
+    - [HashSet](#hashset)
+    - [TreeSet](#treeset)
+    - [LikedHashSet](#likedhashset)
+  - [Map interface](#map-interface)
+      - [Entry interface](#entry-interface)
+    - [HashMap](#hashmap)
+    - [TreeMap](#treemap)
+    - [LinkedHashMap](#linkedhashmap)
+    - [HashTable](#hashtable)
+    - [HashMap vs  HashTable](#hashmap-vs--hashtable)
+
+<!-- /TOC -->
 # collection Framework
 
 > Java中的Collection是一个框架，提供了用于存储和操作对象组的体系结构。
