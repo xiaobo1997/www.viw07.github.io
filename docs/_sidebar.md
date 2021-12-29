@@ -1,9 +1,5 @@
 - Go
 - java
-  - JMM
-    - [java内存模型1-内存划分和交互操作](./viw-notes/java/JMM/java内存模型1-内存划分和交互操作.md)
-    - [java内存模型2-内存模型特性和先行发生原则](./viw-notes/java/JMM/java内存模型2-内存模型特性和先行发生原则.md)
-    - [计算机内存模型--JMM](./viw-notes/java/JMM/计算机内存模型--JMM.md)
   - JVM
     - [jvm1-java虚拟机模型和结构](./viw-notes/java/JVM/jvm1-java虚拟机模型和结构.md)
     - [jvm2-内存溢出&分析和内存泄漏](./viw-notes/java/JVM/jvm2-内存溢出&分析和内存泄漏.md)
@@ -66,6 +62,10 @@
       - [重复注解和类型注解-01](./viw-notes/java/java8/时间工具类/重复注解和类型注解-01.md)
   - java9
     - [jdk9-01](./viw-notes/java/java9/jdk9-01.md)
+  - jmm
+    - [java内存模型1-内存划分和交互操作](./viw-notes/java/jmm/java内存模型1-内存划分和交互操作.md)
+    - [java内存模型2-内存模型特性和先行发生原则](./viw-notes/java/jmm/java内存模型2-内存模型特性和先行发生原则.md)
+    - [计算机内存模型--JMM](./viw-notes/java/jmm/计算机内存模型--JMM.md)
   - 集合
     - [01-集合和map](./viw-notes/java/集合/01-集合和map.md)
     - [02-collections](./viw-notes/java/集合/02-collections.md)
