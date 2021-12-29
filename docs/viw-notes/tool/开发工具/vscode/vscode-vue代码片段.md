@@ -1,5 +1,6 @@
-vscode-vue代码片段
 
+
+# vscode-vue代码片段
 
 
 ```js
@@ -62,7 +63,7 @@ vscode-vue代码片段
 
 
 
-vscode-vue注释模板
+# vscode-vue注释模板
 
 新建全局用户片段
 
@@ -91,3 +92,41 @@ vscode-vue注释模板
 ```
 
 ![image-20210225211254196](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20210225211254196.png)
+
+
+
+
+# markdown 代码片段
+
+
+![](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/typecho/20211229131730.png)
+
+```console
+
+{
+
+"markdown-code-json": {
+		"scope": "markdown",
+		"prefix": "mark-code-json",
+		"body": [
+			"```json   ",
+
+			"```"
+		],
+		"description": "Log output to console"
+	},
+	"markdown-code-java": {
+		"scope": "markdown",
+		"prefix": "mark-code-java",
+		"body": [
+			"```java  ",
+
+			"```"
+		],
+		"description": "Log output to console"
+	}
+
+}
+
+```
+
