@@ -11,8 +11,8 @@
     - [jvm7-类加载机制](./viw-notes/java/JVM/jvm7-类加载机制.md)
     - [jvm8-性能调优](./viw-notes/java/JVM/jvm8-性能调优.md)
   - base
+    - [BigDecimal&Integer](./viw-notes/java/base/BigDecimal&Integer.md)
     - [Calendar类(废弃)](./viw-notes/java/base/Calendar类(废弃).md)
-    - [bigDecimal和bigInteger和数组](./viw-notes/java/base/bigDecimal和bigInteger和数组.md)
     - [反射机制](./viw-notes/java/base/反射机制.md)
     - [使用泛型写公共包](./viw-notes/java/base/使用泛型写公共包.md)
     - [剖析类和面向对象](./viw-notes/java/base/剖析类和面向对象.md)
@@ -53,13 +53,14 @@
       - [stream01](./viw-notes/java/java8/stream/stream01.md)
       - [stream02](./viw-notes/java/java8/stream/stream02.md)
       - [stream03-并行流](./viw-notes/java/java8/stream/stream03-并行流.md)
+    - 注解
+      - [重复注解和类型注解-01](./viw-notes/java/java8/注解/重复注解和类型注解-01.md)
     - 时间工具类
       - [LocalData-01](./viw-notes/java/java8/时间工具类/LocalData-01.md)
       - [LocalDataTime-01](./viw-notes/java/java8/时间工具类/LocalDataTime-01.md)
       - [LocalTime-01](./viw-notes/java/java8/时间工具类/LocalTime-01.md)
-      - [java8-dateTimeApi入门-1-](./viw-notes/java/java8/时间工具类/java8-dateTimeApi入门-1-.md)
+      - [dateTimeApi-01](./viw-notes/java/java8/时间工具类/dateTimeApi-01.md)
       - [java8新日期01](./viw-notes/java/java8/时间工具类/java8新日期01.md)
-      - [重复注解和类型注解-01](./viw-notes/java/java8/时间工具类/重复注解和类型注解-01.md)
   - java9
     - [jdk9-01](./viw-notes/java/java9/jdk9-01.md)
   - jmm
