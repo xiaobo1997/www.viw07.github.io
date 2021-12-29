@@ -43,7 +43,13 @@ git config --global user.email "你的邮箱"
 >  cat ~/.ssh/id_rsa.pub
 > ```
 >
-> 
+
+
+
+> git 默认是忽略文件大小写的
+> 也就是说 如果你有一个文件  是 Aa  你改成了 aa 或者是  AA  默认情况下push以后 还会是 aa  当别人pull 就会发现文件被覆盖了
+> 默认情况是忽略大小写，可以执行  `git config core.ignorecase false`关闭
+> 更好一点的是 把 git mv Aa  temp    然后再  git mv  temp aa
 
 
 
