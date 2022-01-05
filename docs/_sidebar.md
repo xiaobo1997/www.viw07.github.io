@@ -11,12 +11,16 @@
     - [jvm7-类加载机制](./viw-notes/java/JVM/jvm7-类加载机制.md)
     - [jvm8-性能调优](./viw-notes/java/JVM/jvm8-性能调优.md)
   - base
-    - [BigDecimal&Integer](./viw-notes/java/base/BigDecimal&Integer.md)
-    - [Calendar类(废弃)](./viw-notes/java/base/Calendar类(废弃).md)
-    - [反射机制](./viw-notes/java/base/反射机制.md)
-    - [使用泛型写公共包](./viw-notes/java/base/使用泛型写公共包.md)
-    - [剖析类和面向对象](./viw-notes/java/base/剖析类和面向对象.md)
-    - [数据类型和运算符相关](./viw-notes/java/base/数据类型和运算符相关.md)
+    - 2021
+      - [BigDecimal&Integer](./viw-notes/java/base/2021/BigDecimal&Integer.md)
+      - [Calendar类(废弃)](./viw-notes/java/base/2021/Calendar类(废弃).md)
+      - [反射机制](./viw-notes/java/base/2021/反射机制.md)
+      - [使用泛型写公共包](./viw-notes/java/base/2021/使用泛型写公共包.md)
+      - [剖析类和面向对象](./viw-notes/java/base/2021/剖析类和面向对象.md)
+      - [数据类型和运算符相关](./viw-notes/java/base/2021/数据类型和运算符相关.md)
+    - 2022
+      - [简析JMX](./viw-notes/java/base/2022/简析JMX.md)
+      - [简析java-agent](./viw-notes/java/base/2022/简析java-agent.md)
   - http-client
     - HttpClient
       - [httpclient01](./viw-notes/java/http-client/HttpClient/httpclient01.md)
@@ -56,11 +60,7 @@
     - 注解
       - [重复注解和类型注解-01](./viw-notes/java/java8/注解/重复注解和类型注解-01.md)
     - 时间工具类
-      - [LocalData-01](./viw-notes/java/java8/时间工具类/LocalData-01.md)
-      - [LocalDataTime-01](./viw-notes/java/java8/时间工具类/LocalDataTime-01.md)
-      - [LocalTime-01](./viw-notes/java/java8/时间工具类/LocalTime-01.md)
-      - [dateTimeApi-01](./viw-notes/java/java8/时间工具类/dateTimeApi-01.md)
-      - [java8新日期01](./viw-notes/java/java8/时间工具类/java8新日期01.md)
+      - [01-新日期类](./viw-notes/java/java8/时间工具类/01-新日期类.md)
   - java9
     - [jdk9-01](./viw-notes/java/java9/jdk9-01.md)
   - jmm
@@ -76,7 +76,6 @@
     - [06-list-set-map-array-转换](./viw-notes/java/集合/06-list-set-map-array-转换.md)
     - [面试-1](./viw-notes/java/集合/面试-1.md)
   - 其它项
-    - [BigDecimal和BigInteger的操作](./viw-notes/java/其它项/BigDecimal和BigInteger的操作.md)
     - [Java领域模型划分(VO,BO等)](./viw-notes/java/其它项/Java领域模型划分(VO,BO等).md)
     - [XML解析和转换](./viw-notes/java/其它项/XML解析和转换.md)
     - [fastjson处理](./viw-notes/java/其它项/fastjson处理.md)
@@ -267,10 +266,12 @@
     - [git05](./viw-notes/tool/Git/git05.md)
     - [github01](./viw-notes/tool/Git/github01.md)
     - [github02](./viw-notes/tool/Git/github02.md)
+    - [git不显示提交信息](./viw-notes/tool/Git/git不显示提交信息.md)
     - [vsode-gitignore](./viw-notes/tool/Git/vsode-gitignore.md)
   - chrome
     - [README](./viw-notes/tool/chrome/README.md)
     - [chrome相关插件](./viw-notes/tool/chrome/chrome相关插件.md)
+    - [surfingkeys常用快捷键](./viw-notes/tool/chrome/surfingkeys常用快捷键.md)
   - gradle
     - [gradle-构建spring5.3.x源码](./viw-notes/tool/gradle/gradle-构建spring5.3.x源码.md)
     - [gradle01](./viw-notes/tool/gradle/gradle01.md)
