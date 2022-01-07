@@ -266,8 +266,8 @@
     - [git05](./viw-notes/tool/Git/git05.md)
     - [github01](./viw-notes/tool/Git/github01.md)
     - [github02](./viw-notes/tool/Git/github02.md)
-    - [git不显示提交信息](./viw-notes/tool/Git/git不显示提交信息.md)
-    - [vsode-gitignore](./viw-notes/tool/Git/vsode-gitignore.md)
+    - [git小问题汇总](./viw-notes/tool/Git/git小问题汇总.md)
+    - [vsode-gitignore模板](./viw-notes/tool/Git/vsode-gitignore模板.md)
   - chrome
     - [README](./viw-notes/tool/chrome/README.md)
     - [chrome相关插件](./viw-notes/tool/chrome/chrome相关插件.md)
@@ -298,8 +298,9 @@
       - [IDEA-spring创建向导太慢了](./viw-notes/tool/开发工具/idea/IDEA-spring创建向导太慢了.md)
       - [IDEA导eclipse-javaweb项目的小问题](./viw-notes/tool/开发工具/idea/IDEA导eclipse-javaweb项目的小问题.md)
       - [IDEA添加visualvm gc 插件](./viw-notes/tool/开发工具/idea/IDEA添加visualvm%20gc%20插件.md)
-      - [IDEA插件找不到和下载太慢了](./viw-notes/tool/开发工具/idea/IDEA插件找不到和下载太慢了.md)
+      - [idea-git相关小问题汇总](./viw-notes/tool/开发工具/idea/idea-git相关小问题汇总.md)
       - [idea-命令行启动](./viw-notes/tool/开发工具/idea/idea-命令行启动.md)
+      - [idea-插件相关问题汇总](./viw-notes/tool/开发工具/idea/idea-插件相关问题汇总.md)
     - vscode
       - [vscode-vue代码片段](./viw-notes/tool/开发工具/vscode/vscode-vue代码片段.md)
       - [vscode-命令行启动](./viw-notes/tool/开发工具/vscode/vscode-命令行启动.md)
