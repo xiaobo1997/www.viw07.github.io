@@ -705,6 +705,8 @@
   - [README](./viw-notes/程序人生/README.md)
   - 记
     - [2021年(待写)](./viw-notes/程序人生/记/2021年(待写).md)
+  - 五笔
+    - [记-五笔](./viw-notes/程序人生/五笔/记-五笔.md)
   - 个人向
     - [项目流程和owner](./viw-notes/程序人生/个人向/项目流程和owner.md)
 - 大数据相关
