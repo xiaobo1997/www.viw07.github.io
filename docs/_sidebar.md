@@ -21,6 +21,7 @@
     - 2022
       - [简析JMX](./viw-notes/java/base/2022/简析JMX.md)
       - [简析java-agent](./viw-notes/java/base/2022/简析java-agent.md)
+      - [说一说Enum枚举的秘密](./viw-notes/java/base/2022/说一说Enum枚举的秘密.md)
   - http-client
     - HttpClient
       - [httpclient01](./viw-notes/java/http-client/HttpClient/httpclient01.md)
@@ -706,6 +707,7 @@
   - 记
     - [2021年(待写)](./viw-notes/程序人生/记/2021年(待写).md)
   - 五笔
+    - [98五笔词根表1.png](./viw-notes/程序人生/五笔/98五笔词根表1.png)
     - [记-五笔](./viw-notes/程序人生/五笔/记-五笔.md)
   - 个人向
     - [项目流程和owner](./viw-notes/程序人生/个人向/项目流程和owner.md)
