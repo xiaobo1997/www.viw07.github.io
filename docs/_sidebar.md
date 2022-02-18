@@ -304,6 +304,7 @@
       - [idea-插件相关问题汇总](./viw-notes/tool/开发工具/idea/idea-插件相关问题汇总.md)
     - vscode
       - [vscode-vue代码片段](./viw-notes/tool/开发工具/vscode/vscode-vue代码片段.md)
+      - [vscode-插件](./viw-notes/tool/开发工具/vscode/vscode-插件.md)
       - [vscode-命令行启动](./viw-notes/tool/开发工具/vscode/vscode-命令行启动.md)
   - 开发方面
     - 压测工具
