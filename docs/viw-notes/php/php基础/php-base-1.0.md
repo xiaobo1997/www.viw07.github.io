@@ -86,6 +86,17 @@ if(!isSet($name)){
 
 ```
 
+## 三元运算符
+
+```php
+
+$isAuto==1?'yes':'no';
+
+```
+
+
+
+
 ## for
 
 
