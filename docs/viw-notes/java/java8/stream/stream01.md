@@ -29,6 +29,32 @@
 
 
 
+## 测试数据
+
+
+- 后面用的list
+```java
+@AllArgsConstructor
+@Data
+public class Emp {
+
+    Integer id;
+    String name;
+
+    static List<Emp> get() {
+        List<Emp> list = new ArrayList<>();
+        list.add(new Emp(1, "aa"));
+        list.add(new Emp(4, "cc"));
+        list.add(new Emp(4, "ff"));
+        list.add(new Emp(2, "bb"));
+        list.add(new Emp(2, "ee"));
+        list.add(new Emp(2, "dd"));
+        return list;
+    }
+}
+```
+
+
 ### 创建 stream流
 
 ```java
@@ -99,27 +125,6 @@ class Book {
 ```
 
 
-- 后面用的list
-```java
-@AllArgsConstructor
-@Data
-public class Emp {
-
-    Integer id;
-    String name;
-
-    static List<Emp> get() {
-        List<Emp> list = new ArrayList<>();
-        list.add(new Emp(1, "aa"));
-        list.add(new Emp(4, "cc"));
-        list.add(new Emp(4, "ff"));
-        list.add(new Emp(2, "bb"));
-        list.add(new Emp(2, "ee"));
-        list.add(new Emp(2, "dd"));
-        return list;
-    }
-}
-```
 
 
 
@@ -141,7 +146,7 @@ public class Emp {
      */
     @Test
     public  void test1() {
-
+        //过滤出id>2的
         list.stream().filter(t->
             t.getId()>2
         ).forEach(System.out::println);
@@ -154,7 +159,7 @@ public class Emp {
 
 
 
-#### distinct
+####  skip
 
 >
 
@@ -192,7 +197,7 @@ public class Emp {
 
 
 
-#### skip
+#### distinct
 
 
 

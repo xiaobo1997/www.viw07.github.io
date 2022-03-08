@@ -39,6 +39,14 @@ Emp(id=4, name=aaaaaa)
 Emp(id=1, name=aaaaaa)
 ```
 
+#### Collections.toMap
+
+
+```java
+
+var map = list.stream().collect(Collectors.toMap());
+
+```
 
 
 #### 聚合运算

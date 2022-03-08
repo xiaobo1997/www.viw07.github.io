@@ -57,7 +57,7 @@
     - stream
       - [stream01](./viw-notes/java/java8/stream/stream01.md)
       - [stream02](./viw-notes/java/java8/stream/stream02.md)
-      - [stream03-并行流](./viw-notes/java/java8/stream/stream03-并行流.md)
+      - [stream03](./viw-notes/java/java8/stream/stream03.md)
     - 注解
       - [重复注解和类型注解-01](./viw-notes/java/java8/注解/重复注解和类型注解-01.md)
     - 时间工具类
