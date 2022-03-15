@@ -288,6 +288,7 @@
     - [maven04](./viw-notes/tool/maven/maven04.md)
   - 环境
     - [WMware](./viw-notes/tool/环境/WMware.md)
+    - [brew清单](./viw-notes/tool/环境/brew清单.md)
     - [mac-21年5月-10月杂项](./viw-notes/tool/环境/mac-21年5月-10月杂项.md)
     - [mac相关和安装](./viw-notes/tool/环境/mac相关和安装.md)
     - [新电脑整体环境配置小问题](./viw-notes/tool/环境/新电脑整体环境配置小问题.md)
@@ -712,6 +713,8 @@
   - 五笔
     - [98五笔词根表1.png](./viw-notes/程序人生/五笔/98五笔词根表1.png)
     - [记-五笔](./viw-notes/程序人生/五笔/记-五笔.md)
+  - 流程
+    - [UML时序图名词](./viw-notes/程序人生/流程/UML时序图名词.md)
   - 个人向
     - [项目流程和owner](./viw-notes/程序人生/个人向/项目流程和owner.md)
 - 大数据相关
