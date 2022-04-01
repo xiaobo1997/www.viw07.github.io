@@ -687,6 +687,7 @@
     - [docker05](./viw-notes/云原生/docker/docker05.md)
     - [docker06](./viw-notes/云原生/docker/docker06.md)
     - other
+      - [docker启动失败](./viw-notes/云原生/docker/other/docker启动失败.md)
       - [docker提升速度](./viw-notes/云原生/docker/other/docker提升速度.md)
       - [问题-docker安装vim换源](./viw-notes/云原生/docker/other/问题-docker安装vim换源.md)
   - gitlab
