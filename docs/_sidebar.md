@@ -690,6 +690,7 @@
       - [docker启动失败](./viw-notes/云原生/docker/other/docker启动失败.md)
       - [docker提升速度](./viw-notes/云原生/docker/other/docker提升速度.md)
       - [问题-docker安装vim换源](./viw-notes/云原生/docker/other/问题-docker安装vim换源.md)
+      - [简单介绍springboot部署到阿里ecs-Docker命令](./viw-notes/云原生/docker/other/简单介绍springboot部署到阿里ecs-Docker命令.md)
   - gitlab
     - [gitlab01](./viw-notes/云原生/gitlab/gitlab01.md)
     - [gitlab02](./viw-notes/云原生/gitlab/gitlab02.md)
