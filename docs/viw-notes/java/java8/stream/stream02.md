@@ -44,7 +44,8 @@ Emp(id=1, name=aaaaaa)
 
 ```java
 
-var map = list.stream().collect(Collectors.toMap());
+var map = list.stream().collect(Collectors.toMap(item::getId(),item->item));
+// map k:id  v:item
 
 ```
 
