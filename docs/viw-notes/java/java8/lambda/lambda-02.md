@@ -224,7 +224,7 @@ class C implements StaticFunction{
 
 
 
-### Consumer
+### Consumer-消费者
 
 
 
@@ -261,11 +261,93 @@ accept:0.1
 
 
 
-### Supplier
+### Supplier-供应商
+
+https://javabydeveloper.com/java-8-supplier-functional-interface-with-examples/
+
+> Supplier没有接收参数，返回了一个泛型T的结果
+
+```
+
+public static String supp(Supplier<String> supplier){
+        return supplier.get();
+    }
+
+```
+
+
 
 
 
 ### Function
+
+> 这个函数式接口 接收一个T 返回一个R
+
+![](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/20220708161912.png)
+
+
+#### 代码片段1
+
+```
+
+ Function<String,Integer> function = x->x.length();
+        Integer aa = function.apply("aa");
+        System.out.println("aa");
+
+```
+
+#### 代码片段2-函数
+
+```
+  public static <T,R> R function(T t, Function<T,R> function){
+        return function.apply(t);
+    }
+
+    public static void main(String[] args) {
+        function(1, new Function<Integer, String>() {
+            @Override
+            public String apply(Integer integer) {
+                return integer.toString()+"2";
+            }
+        });
+    }
+```
+
+#### 代码片段3-addThen
+
+```
+
+        Function<String,Integer> function = x->x.length();
+        Integer aa = function.apply("aa");
+        System.out.println("aa");
+        
+        Function<Integer,Integer> function1 = x->x*2;
+        Integer hello = function.andThen(function1).apply("hello");
+        System.out.println(hello);
+
+```
+
+#### 代码片段4-多参数to Map
+
+```
+
+        public static <T,R> Map<T,R> functionmap(List<T> list,Function<T,R> function){
+        Map<T,R> map= new HashMap<>();
+        for (T s : list) {
+            map.put(s,function.apply(s));
+        }
+        return map;
+    }
+
+
+        Map<String, Integer> functionmap = functionmap(Arrays.asList("a", "b"), new Function<String, Integer>() {
+            @Override
+            public Integer apply(String s) {
+                return s.length();
+            }
+        });
+
+```
 
 
 
