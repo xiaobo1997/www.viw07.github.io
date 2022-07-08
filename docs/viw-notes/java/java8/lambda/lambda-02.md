@@ -19,6 +19,7 @@
       - [代码片段2-函数](#代码片段2-函数)
       - [代码片段3-addThen](#代码片段3-addthen)
       - [代码片段4-多参数to Map](#代码片段4-多参数to-map)
+      - [代码片段5](#代码片段5)
     - [Predicate](#predicate)
   - [其它函数接口](#其它函数接口)
 - [方法引用和构造器引用](#方法引用和构造器引用)
@@ -373,6 +374,15 @@ public static String supp(Supplier<String> supplier){
 
 ```
 
+#### 代码片段5
+
+```
+
+public static <T,X extends Person> X  function11(T t, Function<T, ? extends X> function){
+        return function.apply(t);
+    }
+
+```
 
 
 ### Predicate
