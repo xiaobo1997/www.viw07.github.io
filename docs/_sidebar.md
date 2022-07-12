@@ -1,4 +1,8 @@
 - Go
+  - web
+    - [说明](./viw-notes/Go/web/说明.md)
+  - 语言
+    - [说明](./viw-notes/Go/语言/说明.md)
 - java
   - JVM
     - [jvm1-java虚拟机模型和结构](./viw-notes/java/JVM/jvm1-java虚拟机模型和结构.md)
@@ -310,6 +314,7 @@
       - [IDEA-spring创建向导太慢了](./viw-notes/tool/开发工具/idea/IDEA-spring创建向导太慢了.md)
       - [IDEA导eclipse-javaweb项目的小问题](./viw-notes/tool/开发工具/idea/IDEA导eclipse-javaweb项目的小问题.md)
       - [IDEA添加visualvm gc 插件](./viw-notes/tool/开发工具/idea/IDEA添加visualvm%20gc%20插件.md)
+      - [idea-diagrams](./viw-notes/tool/开发工具/idea/idea-diagrams.md)
       - [idea-git相关小问题汇总](./viw-notes/tool/开发工具/idea/idea-git相关小问题汇总.md)
       - [idea-命令行启动](./viw-notes/tool/开发工具/idea/idea-命令行启动.md)
       - [idea-插件相关问题汇总](./viw-notes/tool/开发工具/idea/idea-插件相关问题汇总.md)
