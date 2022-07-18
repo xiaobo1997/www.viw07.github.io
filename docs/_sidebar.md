@@ -222,12 +222,15 @@
     - [jpa04](./viw-notes/spring&orm/spring-jpa/jpa04.md)
     - [jpa05](./viw-notes/spring&orm/spring-jpa/jpa05.md)
   - spring-mvc
-    - [springMVC-01](./viw-notes/spring&orm/spring-mvc/springMVC-01.md)
-    - [springMVC-02](./viw-notes/spring&orm/spring-mvc/springMVC-02.md)
-    - [springMVC-03](./viw-notes/spring&orm/spring-mvc/springMVC-03.md)
-    - [springMVC-04](./viw-notes/spring&orm/spring-mvc/springMVC-04.md)
-    - [springMVC-05](./viw-notes/spring&orm/spring-mvc/springMVC-05.md)
-    - [源码分析](./viw-notes/spring&orm/spring-mvc/源码分析.md)
+    - spring-mvc部分原理
+      - [springMVC-01](./viw-notes/spring&orm/spring-mvc/spring-mvc部分原理/springMVC-01.md)
+      - [springMVC-02](./viw-notes/spring&orm/spring-mvc/spring-mvc部分原理/springMVC-02.md)
+      - [springMVC-03](./viw-notes/spring&orm/spring-mvc/spring-mvc部分原理/springMVC-03.md)
+      - [springMVC-04](./viw-notes/spring&orm/spring-mvc/spring-mvc部分原理/springMVC-04.md)
+      - [springMVC-05](./viw-notes/spring&orm/spring-mvc/spring-mvc部分原理/springMVC-05.md)
+      - [源码分析](./viw-notes/spring&orm/spring-mvc/spring-mvc部分原理/源码分析.md)
+    - spring-mvc开发中问题
+      - [1.0server处理返回纯html](./viw-notes/spring&orm/spring-mvc/spring-mvc开发中问题/1.0server处理返回纯html.md)
   - spring-reactive
     - spring-r2dbc
     - spring-redis
@@ -686,6 +689,7 @@
     - [数据库安全01](./viw-notes/安全/数据库安全/数据库安全01.md)
     - [数据库安全02](./viw-notes/安全/数据库安全/数据库安全02.md)
   - 服务器安全
+    - [接口安全1](./viw-notes/安全/服务器安全/接口安全1.md)
     - [服务器安全01](./viw-notes/安全/服务器安全/服务器安全01.md)
     - [服务器安全02](./viw-notes/安全/服务器安全/服务器安全02.md)
 - 云原生
