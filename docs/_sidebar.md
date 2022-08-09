@@ -33,22 +33,6 @@
     - OkHttp
       - [okhttp01](./viw-notes/java/http-client/OkHttp/okhttp01.md)
       - [okhttp02](./viw-notes/java/http-client/OkHttp/okhttp02.md)
-  - java-aio
-    - [aio1](./viw-notes/java/java-aio/aio1.md)
-  - java-bio
-    - [BIO-01](./viw-notes/java/java-bio/BIO-01.md)
-    - [BIO-02](./viw-notes/java/java-bio/BIO-02.md)
-    - [BIO-03即时通讯思路](./viw-notes/java/java-bio/BIO-03即时通讯思路.md)
-    - [序列化](./viw-notes/java/java-bio/序列化.md)
-  - java-nio
-    - [NIO-选择器selector](./viw-notes/java/java-nio/NIO-选择器selector.md)
-    - [NIO01-IO模型结构和基础](./viw-notes/java/java-nio/NIO01-IO模型结构和基础.md)
-    - [NIO02-缓冲区buffer](./viw-notes/java/java-nio/NIO02-缓冲区buffer.md)
-    - [NIO03-通道channel](./viw-notes/java/java-nio/NIO03-通道channel.md)
-    - [NIO04-选择器selector](./viw-notes/java/java-nio/NIO04-选择器selector.md)
-    - [NIO05-网络通信应用case1](./viw-notes/java/java-nio/NIO05-网络通信应用case1.md)
-    - [NIO06](./viw-notes/java/java-nio/NIO06.md)
-    - [NIO07](./viw-notes/java/java-nio/NIO07.md)
   - java11
     - [jdk11-01](./viw-notes/java/java11/jdk11-01.md)
     - [jdk11-02](./viw-notes/java/java11/jdk11-02.md)
@@ -82,16 +66,6 @@
     - [05-Properties](./viw-notes/java/集合/05-Properties.md)
     - [06-list-set-map-array-转换](./viw-notes/java/集合/06-list-set-map-array-转换.md)
     - [面试-1](./viw-notes/java/集合/面试-1.md)
-  - 其它项
-    - [Java领域模型划分(VO,BO等)](./viw-notes/java/其它项/Java领域模型划分(VO,BO等).md)
-    - [XML解析和转换](./viw-notes/java/其它项/XML解析和转换.md)
-    - [fastjson处理](./viw-notes/java/其它项/fastjson处理.md)
-    - [joda时间处理类库](./viw-notes/java/其它项/joda时间处理类库.md)
-    - [调用打印机(PDF)](./viw-notes/java/其它项/调用打印机(PDF).md)
-    - [在代码中使用Lombok](./viw-notes/java/其它项/在代码中使用Lombok.md)
-    - [处理文件路径在windos和linux不同](./viw-notes/java/其它项/处理文件路径在windos和linux不同.md)
-    - [关于转义字符的意义](./viw-notes/java/其它项/关于转义字符的意义.md)
-    - [正则表达式的使用和常用案例](./viw-notes/java/其它项/正则表达式的使用和常用案例.md)
   - 多线程
     - [java多线程1-概述](./viw-notes/java/多线程/java多线程1-概述.md)
     - [java多线程10-CAS和原子操作&ABA](./viw-notes/java/多线程/java多线程10-CAS和原子操作&ABA.md)
@@ -123,7 +97,35 @@
   - 并发编程
     - [1-AQS源码的分析](./viw-notes/java/并发编程/1-AQS源码的分析.md)
     - [2-ComplateFuture](./viw-notes/java/并发编程/2-ComplateFuture.md)
+  - 日常记录
+    - 2021
+      - [Java领域模型划分(VO,BO等)](./viw-notes/java/日常记录/2021/Java领域模型划分(VO,BO等).md)
+      - [XML解析和转换](./viw-notes/java/日常记录/2021/XML解析和转换.md)
+      - [fastjson处理](./viw-notes/java/日常记录/2021/fastjson处理.md)
+      - [joda时间处理类库](./viw-notes/java/日常记录/2021/joda时间处理类库.md)
+      - [调用打印机(PDF)](./viw-notes/java/日常记录/2021/调用打印机(PDF).md)
+      - [在代码中使用Lombok](./viw-notes/java/日常记录/2021/在代码中使用Lombok.md)
+      - [处理文件路径在windos和linux不同](./viw-notes/java/日常记录/2021/处理文件路径在windos和linux不同.md)
+      - [关于转义字符的意义](./viw-notes/java/日常记录/2021/关于转义字符的意义.md)
+      - [正则表达式的使用和常用案例](./viw-notes/java/日常记录/2021/正则表达式的使用和常用案例.md)
+    - 2022
   - 网络编程
+    - java-aio
+      - [aio1](./viw-notes/java/网络编程/java-aio/aio1.md)
+    - java-bio
+      - [BIO-01](./viw-notes/java/网络编程/java-bio/BIO-01.md)
+      - [BIO-02](./viw-notes/java/网络编程/java-bio/BIO-02.md)
+      - [BIO-03即时通讯思路](./viw-notes/java/网络编程/java-bio/BIO-03即时通讯思路.md)
+      - [序列化](./viw-notes/java/网络编程/java-bio/序列化.md)
+    - java-nio
+      - [NIO-选择器selector](./viw-notes/java/网络编程/java-nio/NIO-选择器selector.md)
+      - [NIO01-IO模型结构和基础](./viw-notes/java/网络编程/java-nio/NIO01-IO模型结构和基础.md)
+      - [NIO02-缓冲区buffer](./viw-notes/java/网络编程/java-nio/NIO02-缓冲区buffer.md)
+      - [NIO03-通道channel](./viw-notes/java/网络编程/java-nio/NIO03-通道channel.md)
+      - [NIO04-选择器selector](./viw-notes/java/网络编程/java-nio/NIO04-选择器selector.md)
+      - [NIO05-网络通信应用case1](./viw-notes/java/网络编程/java-nio/NIO05-网络通信应用case1.md)
+      - [NIO06](./viw-notes/java/网络编程/java-nio/NIO06.md)
+      - [NIO07](./viw-notes/java/网络编程/java-nio/NIO07.md)
     - [网络编程1-](./viw-notes/java/网络编程/网络编程1-.md)
   - 部分源码
     - [jdk-1.0](./viw-notes/java/部分源码/jdk-1.0.md)
