@@ -232,9 +232,6 @@
     - spring-mvc开发中问题
       - [1.0server处理返回纯html](./viw-notes/spring&orm/spring-mvc/spring-mvc开发中问题/1.0server处理返回纯html.md)
   - spring-reactive
-    - spring-r2dbc
-    - spring-redis
-    - spring-webflux
     - 问题
       - [多个spring-data模块导致的问题](./viw-notes/spring&orm/spring-reactive/问题/多个spring-data模块导致的问题.md)
     - 相关汇总.md
@@ -302,6 +299,7 @@
     - [maven03](./viw-notes/tool/maven/maven03.md)
     - [maven04](./viw-notes/tool/maven/maven04.md)
   - 环境
+    - [2022-新mac软件配置清单](./viw-notes/tool/环境/2022-新mac软件配置清单.md)
     - [WMware](./viw-notes/tool/环境/WMware.md)
     - [brew清单](./viw-notes/tool/环境/brew清单.md)
     - [mac-21年5月-10月杂项](./viw-notes/tool/环境/mac-21年5月-10月杂项.md)
