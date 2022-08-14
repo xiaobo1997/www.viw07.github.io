@@ -301,13 +301,13 @@
     - [maven03](./viw-notes/tool/maven/maven03.md)
     - [maven04](./viw-notes/tool/maven/maven04.md)
   - 环境
+    - [2021-mac-5月-10月杂项记录](./viw-notes/tool/环境/2021-mac-5月-10月杂项记录.md)
+    - [2021-我的mac-github-host配置](./viw-notes/tool/环境/2021-我的mac-github-host配置.md)
+    - [2021-我的公司mac相关和安装](./viw-notes/tool/环境/2021-我的公司mac相关和安装.md)
     - [2022-新mac软件配置清单](./viw-notes/tool/环境/2022-新mac软件配置清单.md)
+    - [2022-我的brew开发工具清单](./viw-notes/tool/环境/2022-我的brew开发工具清单.md)
     - [WMware](./viw-notes/tool/环境/WMware.md)
-    - [brew清单](./viw-notes/tool/环境/brew清单.md)
-    - [mac-21年5月-10月杂项](./viw-notes/tool/环境/mac-21年5月-10月杂项.md)
-    - [mac-github-host](./viw-notes/tool/环境/mac-github-host.md)
-    - [mac相关和安装](./viw-notes/tool/环境/mac相关和安装.md)
-    - [新电脑整体环境配置小问题](./viw-notes/tool/环境/新电脑整体环境配置小问题.md)
+    - [win-电脑整体环境配置小问题](./viw-notes/tool/环境/win-电脑整体环境配置小问题.md)
   - 开发工具
     - eclipse
       - [eclipse导jar包](./viw-notes/tool/开发工具/eclipse/eclipse导jar包.md)
@@ -320,6 +320,7 @@
       - [IDEA添加visualvm gc 插件](./viw-notes/tool/开发工具/idea/IDEA添加visualvm%20gc%20插件.md)
       - [idea-diagrams](./viw-notes/tool/开发工具/idea/idea-diagrams.md)
       - [idea-git相关小问题汇总](./viw-notes/tool/开发工具/idea/idea-git相关小问题汇总.md)
+      - [idea-阿里云源](./viw-notes/tool/开发工具/idea/idea-阿里云源.md)
       - [idea-命令行启动](./viw-notes/tool/开发工具/idea/idea-命令行启动.md)
       - [idea-插件相关问题汇总](./viw-notes/tool/开发工具/idea/idea-插件相关问题汇总.md)
     - vscode
