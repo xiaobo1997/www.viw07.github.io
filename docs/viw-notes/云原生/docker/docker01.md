@@ -19,6 +19,37 @@
         - [仓库](#仓库)
     - [架构](#架构)
 - [docker安装](#docker安装)
+    - [官网下载](#官网下载)
+    - [运行hello-world](#运行hello-world)
+- [docker常用命令](#docker常用命令)
+    - [启动类命令](#启动类命令)
+    - [镜像地址](#镜像地址)
+    - [容器命令](#容器命令)
+    - [总结](#总结)
+- [镜像](#镜像)
+- [本地镜像推送到私有库](#本地镜像推送到私有库)
+- [容器卷](#容器卷)
+- [案例](#案例)
+    - [搭个mysql玩玩](#搭个mysql玩玩)
+    - [设置serverid，同一局域网中需要唯一](#设置serverid同一局域网中需要唯一)
+    - [指定不需要同步的数据库名称](#指定不需要同步的数据库名称)
+    - [开启二进制日志功能](#开启二进制日志功能)
+    - [设置二进制日志使用内存大小（事务）](#设置二进制日志使用内存大小事务)
+    - [设置使用的二进制日志格式（mixed,statement,row）](#设置使用的二进制日志格式mixedstatementrow)
+    - [二进制日志过期清理时间。默认值为0，表示不自动清理。](#二进制日志过期清理时间默认值为0表示不自动清理)
+    - [跳过主从复制中遇到的所有错误或指定类型的错误，避免slave端复制中断。](#跳过主从复制中遇到的所有错误或指定类型的错误避免slave端复制中断)
+    - [如：1062错误是指一些主键重复，1032错误是因为主从数据库数据不一致](#如1062错误是指一些主键重复1032错误是因为主从数据库数据不一致)
+    - [设置serverid，同一局域网中需要唯一](#设置serverid同一局域网中需要唯一)
+    - [指定不需要同步的数据库名称](#指定不需要同步的数据库名称)
+    - [开启二进制日志功能，以备Slave作为其它数据库实例的Master时使用](#开启二进制日志功能以备slave作为其它数据库实例的master时使用)
+    - [设置二进制日志使用内存大小（事务）](#设置二进制日志使用内存大小事务)
+    - [设置使用的二进制日志格式（mixed,statement,row）](#设置使用的二进制日志格式mixedstatementrow)
+    - [二进制日志过期清理时间。默认值为0，表示不自动清理。](#二进制日志过期清理时间默认值为0表示不自动清理)
+    - [跳过主从复制中遇到的所有错误或指定类型的错误，避免slave端复制中断。](#跳过主从复制中遇到的所有错误或指定类型的错误避免slave端复制中断)
+    - [如：1062错误是指一些主键重复，1032错误是因为主从数据库数据不一致](#如1062错误是指一些主键重复1032错误是因为主从数据库数据不一致)
+    - [relaylog配置中继日志](#relaylog配置中继日志)
+    - [logslaveupdates表示slave将复制事件写进自己的二进制日志](#logslaveupdates表示slave将复制事件写进自己的二进制日志)
+    - [slave设置为只读（具有super权限的用户除外）](#slave设置为只读具有super权限的用户除外)
 
 <!-- /TOC -->
 
@@ -129,7 +160,7 @@ Docker 镜像 是一个特殊的文件系统，除了提供容器运行时所需
 
 镜像（Image）和容器（Container）的关系，就像是面向对象程序设计中的 类 和 实例 一样，镜像是静态的定义，容器是镜像运行时的实体。容器可以被创建、启动、停止、删除、暂停等。
 
-> 可以把容器看做是一个简易版的 Linux 环境（包括root用户权限、进程空间、用户空间和网络空间等）和运行在其中的应用程序。
+> 可以把容器看做是一个简易版的 Linux 环境（包括root用户权限、进程空间、用户空间和网络空间等）和运行在其中的应用程序。容器是用镜像创建出来的运行实例
 
 ### 仓库
 
@@ -146,6 +177,7 @@ Docker 镜像 是一个特殊的文件系统，除了提供容器运行时所需
 
 存放了数量庞大的镜像供用户下载。国内的公开仓库包括阿里云 、网易云等
 
+> 简单点说仓库就是存放镜像的地方
 
 ## 架构
 
@@ -163,6 +195,8 @@ Docker 客户端则为用户提供一系列可执行命令，用户用这些命�
 # docker安装
 
 
+## 官网下载
+
 > mac下直接安装 docker mac desktop
 
 
@@ -173,6 +207,344 @@ Docker 客户端则为用户提供一系列可执行命令，用户用这些命�
 
 
 
+
+## 运行hello-world
+
+
+```sh
+docker run hello-world
+```
+
+![](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/20220829224716.png)
+
+
+
+# docker常用命令
+
+## 启动类命令
+
+
+- 启动docker `systemctl start docker`
+- 停止docker `systemctl stop docker`
+- 重启 `systemctl restart docekr`
+- 查看docker状态 `systemctl status docker`
+- 开机启动 `systemctl enable docker`
+- 查看docker概要信息 `docker info`
+- 查看docker帮助文档 `docker --help`
+
+
+## 镜像地址
+
+- `docker images` 查看镜像
+
+![](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/20220829225658.png)
+
+
+
+
+REPOSITORY：表示镜像的仓库源
+TAG：镜像的标签版本号
+IMAGE ID：镜像ID
+CREATED：镜像创建时间
+SIZE：镜像大小
+
+>  同一仓库源可以有多个 TAG版本，代表这个仓库源的不同个版本，我们使用 REPOSITORY:TAG 来定义不同的镜像。如果你不指定一个镜像的版本标签 将默认使用 ubuntu:latest 镜像
+
+- `docekr search [image_name]`搜索镜像
+- `docker pull [name]` 拉取镜像
+
+- `docker system df`查看image信息等
+```
+ docker system df
+TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
+Images          4         2         1.426GB   1.318GB (92%)
+Containers      2         0         5B        5B (100%)
+Local Volumes   1         1         92B       0B (0%)
+Build Cache     0         0         0B        0B
+```
+
+
+- `docker rmi [name or 镜像id]` 删除镜像
+
+
+## 容器命令
+
+
+- `docker run [options] image [command][参数]` 
+    - --name="xxx"为容器指定一个名称；-d: 后台运行容器并返回容器ID，也即启动守护式容器(后台运行)；
+    - -i：以交互模式运行容器，通常与 -t 同时使用；
+    - -t：为容器重新分配一个伪输入终端，通常与 -i 同时使用；也即启动交互式容器(前台有伪终端，等待交互)；
+    - -P: 随机端口映射，大写P
+    - -p: 指定端口映射，小写p
+    ![](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/20220829230714.png)
+
+- `docekr ps -a ` 查看所有容器
+
+- run进入容器 `exit`  退出，容器停止；也可以不停止退出
+
+- `docker start [容器id 容器名]` 启动停止的容器
+
+- `docekr restart [容器id 容器名]` 重新启动容器
+
+
+- `docker stop [容器id 容器名]` 停止容器
+
+
+- `docker kill [容器id 容器名]`
+
+- `docker rm [xx]`删除已经停止的容器
+
+- `docker logs [容器id]` 查看容器log
+
+- `docker top [容器id]` 查看容器进程
+
+
+- `docker inspect [容器id]` 查看容器内部细节
+
+- `docker exec -it [容器id] /bin/bash` 进入容器  退出 容器不停止
+
+- `docker cp 容器id:容器路径 目的主机路径`
+
+- 导入 导出
+
+## 总结
+
+![](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/20220829231739.png)
+
+
+
+# 镜像
+
+
+
+
+镜像一种轻量级、可执行的独立软件包，它包含运行某个软件所需的所有内容，我们把应用程序和配置依赖打包好形成一个可交付的运行环境(包括代码、运行时需要的库、环境变量和配置文件等)，这个打包好的运行环境就是image镜像文件。
+只有通过这个镜像模板文件才能生成Docker容器实例(类似Java中new出来一个对象)。
+
+
+![](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/20220830000123.png)
+
+Docker中的镜像分层，支持通过扩展现有镜像，创建新的镜像。类似Java继承于一个Base基础类，自己再按需扩展。
+
+新镜像是从 base 镜像一层一层叠加生成的。每安装一个软件，就在现有镜像的基础上增加一层
+
+> 可以通过下载一个镜像看到 docker的镜像是在一层一层的在下载
+
+
+
+**联合文件系统**
+
+Union文件系统（UnionFS）是一种分层、轻量级并且高性能的文件系统，它支持对文件系统的修改作为一次提交来一层层的叠加，同时可以将不同目录挂载到同一个虚拟文件系统下(unite several directories into a single virtual filesystem)。Union 文
+件系统是 Docker 镜像的基础。镜像可以通过分层来进行继承，基于基础镜像（没有父镜像），可以制作各种具体的应用镜像。
+docker的镜像实际上由一层一层的文件系统组成，这种层级的文件系统UnionFS。
+bootfs(boot file system)主要包含bootloader和kernel, bootloader主要是引导加载kernel, Linux刚启动时会加载bootfs文件系统，在Docker镜像的最底层是引导文件系统bootfs。这一层与我们典型的Linux/Unix系统是一样的，包含boot加载器和内核。当boot加载完成之后整个内核就都在内存中了，此时内存的使用权已由bootfs转交给内核，此时系统也会卸载bootfs。
+
+Docker 中使用的 AUFS（Advanced Multi-Layered Unification Filesystem）就是一种联合文件系统。 AUFS 支持为每一个成员目录（类似 Git 的分支）设定只读（readonly）、读写（readwrite）和写出（whiteout-able）权限, 同时 AUFS 里有一个类似分层的概念, 对只读权限的分支可以逻辑上进行增量地修改(不影响只读部分的)。
+
+
+>不同 Docker 容器就可以共享一些基础的文件系统层，同时再加上自己独有的改动层，大大提高了存储的效率。
+
+
+> 镜像层是只读的，容器是可写的 当容器启动时，一个新的可写层被加载到镜像的顶部。这一层通常被称作“容器层”，“容器层”之下的都叫“镜像层”。所有对容器的改动 - 无论添加、删除、还是修改文件都只会发生在容器层中。只有容器层是可写的，容器层下面的所有镜像层都是只读的。
+![](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/20220829235308.png)
+
+
+# 本地镜像推送到私有库
+
+- google
+
+
+# 容器卷
+
+
+如果是CentOS7安全模块会比之前系统版本加强，不安全的会先禁止，所以目录挂载的情况被默认为不安全的行为，
+在SELinux里面挂载目录被禁止掉了额，如果要开启，我们一般使用--privileged=true命令，扩大容器的权限解决挂载目录没有权限的问题，也即
+使用该参数，container内的root拥有真正的root权限，否则，container内的root只是外部的一个普通用户权限。
+
+
+- 运行一个带有容器卷存储功能的容器实例`docker run -it --privileged=true -v /宿主机绝对路径目录:/容器内目录 镜像名`  -v 后面就是路径
+    - 1  docker修改，主机同步获得 2 主机修改，docker同步获得3 docker容器stop，主机修改，docker容器重启看数据是否同步。
+- 查看是否成功 `docker inspect 容器ID`
+
+> cannot open directory .: Permission denied 在挂载目录后多加一个--privileged=true参数即可
+
+
+**特点**
+
+1：数据卷可在容器之间共享或重用数据
+2：卷中的更改可以直接实时生效，爽
+3：数据卷中的更改不会包含在镜像的更新中
+4：数据卷的生命周期一直持续到没有容器使用它为止
+
+
+
+# 案例
+
+
+## 搭个mysql玩玩
+
+
+```
+docker run -p 3307:3306 --name mysql-master \
+
+-v /mydata/mysql-master/log:/var/log/mysql \
+
+-v /mydata/mysql-master/data:/var/lib/mysql \
+
+-v /mydata/mysql-master/conf:/etc/mysql \
+
+-e MYSQL_ROOT_PASSWORD=root  \
+
+-d mysql:5.7
+
+```
+
+相关conf下面的 my.conf
+
+```
+[mysqld]
+
+## 设置server_id，同一局域网中需要唯一
+
+server_id=101 
+
+## 指定不需要同步的数据库名称
+
+binlog-ignore-db=mysql  
+
+## 开启二进制日志功能
+
+log-bin=mall-mysql-bin  
+
+## 设置二进制日志使用内存大小（事务）
+
+binlog_cache_size=1M  
+
+## 设置使用的二进制日志格式（mixed,statement,row）
+
+binlog_format=mixed  
+
+## 二进制日志过期清理时间。默认值为0，表示不自动清理。
+
+expire_logs_days=7  
+
+## 跳过主从复制中遇到的所有错误或指定类型的错误，避免slave端复制中断。
+
+## 如：1062错误是指一些主键重复，1032错误是因为主从数据库数据不一致
+
+slave_skip_errors=1062
+```
+
+
+然后重启
+
+
+进入master中，命令行连接mysql
+
+
+![](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/20220830003323.png)
+
+
+
+
+
+新建从
+
+```
+docker run -p 3308:3306 --name mysql-slave \
+
+-v /mydata/mysql-slave/log:/var/log/mysql \
+
+-v /mydata/mysql-slave/data:/var/lib/mysql \
+
+-v /mydata/mysql-slave/conf:/etc/mysql \
+
+-e MYSQL_ROOT_PASSWORD=root  \
+
+-d mysql:5.7
+
+```
+
+相关conf下的my.conf
+
+```
+[mysqld]
+
+## 设置server_id，同一局域网中需要唯一
+
+server_id=102
+
+## 指定不需要同步的数据库名称
+
+binlog-ignore-db=mysql  
+
+## 开启二进制日志功能，以备Slave作为其它数据库实例的Master时使用
+
+log-bin=mall-mysql-slave1-bin  
+
+## 设置二进制日志使用内存大小（事务）
+
+binlog_cache_size=1M  
+
+## 设置使用的二进制日志格式（mixed,statement,row）
+
+binlog_format=mixed  
+
+## 二进制日志过期清理时间。默认值为0，表示不自动清理。
+
+expire_logs_days=7  
+
+## 跳过主从复制中遇到的所有错误或指定类型的错误，避免slave端复制中断。
+
+## 如：1062错误是指一些主键重复，1032错误是因为主从数据库数据不一致
+
+slave_skip_errors=1062  
+
+## relay_log配置中继日志
+
+relay_log=mall-mysql-relay-bin  
+
+## log_slave_updates表示slave将复制事件写进自己的二进制日志
+
+log_slave_updates=1  
+
+## slave设置为只读（具有super权限的用户除外）
+
+read_only=1
+```
+
+
+重启从mysql
+
+
+在主中查看从状态 `show master status`
+
+
+进入从的容器中
+
+
+```
+change master to master_host='宿主机ip', master_user='slave', master_password='123456', master_port=3307, master_log_file='mall-mysql-bin.000001', master_log_pos=617, master_connect_retry=30;
+
+```
+
+master_host：主数据库的IP地址；
+
+master_port：主数据库的运行端口；
+
+master_user：在主数据库创建的用于同步数据的用户账号；
+
+master_password：在主数据库创建的用于同步数据的用户密码；
+
+master_log_file：指定从数据库要复制数据的日志文件，通过查看主数据的状态，获取File参数；
+
+master_log_pos：指定从数据库从哪个位置开始复制数据，通过查看主数据的状态，获取Position参数；
+
+master_connect_retry：连接失败重试的时间间隔，单位为秒。
+
+在从mysql中查看 从状态 `show slave status`
+
+在从mysql开启 主从同步  `start slave`
 
 
 
