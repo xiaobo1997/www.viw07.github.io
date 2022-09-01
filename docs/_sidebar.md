@@ -663,6 +663,7 @@
     - mysql优化
       - [mysql优化小记(1)](./viw-notes/存储/MySQL/mysql优化/mysql优化小记(1).md)
       - [mysql优化小记(2)](./viw-notes/存储/MySQL/mysql优化/mysql优化小记(2).md)
+    - [mysql参考](./viw-notes/存储/MySQL/mysql参考.md)
     - mysql日常开发相关小记
       - [mysql问题(1)](./viw-notes/存储/MySQL/mysql日常开发相关小记/mysql问题(1).md)
       - [mysql问题(2)](./viw-notes/存储/MySQL/mysql日常开发相关小记/mysql问题(2).md)
