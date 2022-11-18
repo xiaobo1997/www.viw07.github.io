@@ -255,6 +255,10 @@
     - [7-spring-ioc-循环依赖](./viw-notes/spring&orm/spring-source-code/7-spring-ioc-循环依赖.md)
     - [8-spring-aop-认识aop源码](./viw-notes/spring&orm/spring-source-code/8-spring-aop-认识aop源码.md)
     - [9-spring-aop-JDK动态代理和CGLIB](./viw-notes/spring&orm/spring-source-code/9-spring-aop-JDK动态代理和CGLIB.md)
+  - springboot
+    - 学习
+    - 问题
+      - [centos部署boot项目命令小集](./viw-notes/spring&orm/springboot/问题/centos部署boot项目命令小集.md)
   - springcloud-alibaba
     - [Bus](./viw-notes/spring&orm/springcloud-alibaba/Bus.md)
     - [Config](./viw-notes/spring&orm/springcloud-alibaba/Config.md)
@@ -343,14 +347,12 @@
       - [Arthas02](./viw-notes/tool/开发方面/诊断工具/Arthas02.md)
 - 计网&计操相关
   - linux
-    - [centos部署boot项目命令小集](./viw-notes/计网&计操相关/linux/centos部署boot项目命令小集.md)
     - [linux01](./viw-notes/计网&计操相关/linux/linux01.md)
     - [linux02](./viw-notes/计网&计操相关/linux/linux02.md)
     - [linux03](./viw-notes/计网&计操相关/linux/linux03.md)
     - [linux04](./viw-notes/计网&计操相关/linux/linux04.md)
     - [linux05](./viw-notes/计网&计操相关/linux/linux05.md)
     - [linux常用命令](./viw-notes/计网&计操相关/linux/linux常用命令.md)
-    - [搭建mysql集群的小问题](./viw-notes/计网&计操相关/linux/搭建mysql集群的小问题.md)
   - 网络序列化
     - [Hessian01](./viw-notes/计网&计操相关/网络序列化/Hessian01.md)
     - [Hessian02](./viw-notes/计网&计操相关/网络序列化/Hessian02.md)
@@ -671,6 +673,7 @@
       - [mysql问题(1)](./viw-notes/存储/MySQL/mysql日常开发相关小记/mysql问题(1).md)
       - [mysql问题(2)](./viw-notes/存储/MySQL/mysql日常开发相关小记/mysql问题(2).md)
       - [mysql问题(3)](./viw-notes/存储/MySQL/mysql日常开发相关小记/mysql问题(3).md)
+      - [搭建mysql集群的小问题](./viw-notes/存储/MySQL/mysql日常开发相关小记/搭建mysql集群的小问题.md)
     - [sql](./viw-notes/存储/MySQL/sql.md)
   - TiDB
     - [TiDB01](./viw-notes/存储/TiDB/TiDB01.md)
