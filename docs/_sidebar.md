@@ -277,16 +277,19 @@
     - [springsecurity05](./viw-notes/spring&orm/springsecurity/springsecurity05.md)
 - tool
   - Git
-    - [git00](./viw-notes/tool/Git/git00.md)
-    - [git01](./viw-notes/tool/Git/git01.md)
-    - [git02](./viw-notes/tool/Git/git02.md)
-    - [git03](./viw-notes/tool/Git/git03.md)
-    - [git04](./viw-notes/tool/Git/git04.md)
-    - [git05](./viw-notes/tool/Git/git05.md)
-    - [github01](./viw-notes/tool/Git/github01.md)
-    - [github02](./viw-notes/tool/Git/github02.md)
+    - github的使用
+      - [github01](./viw-notes/tool/Git/github的使用/github01.md)
+      - [github02](./viw-notes/tool/Git/github的使用/github02.md)
+    - git的学习
+      - [01.初识git](./viw-notes/tool/Git/git的学习/01.初识git.md)
+      - [git01](./viw-notes/tool/Git/git的学习/git01.md)
+      - [git02](./viw-notes/tool/Git/git的学习/git02.md)
+      - [git03](./viw-notes/tool/Git/git的学习/git03.md)
+      - [git04](./viw-notes/tool/Git/git的学习/git04.md)
+      - [git05](./viw-notes/tool/Git/git的学习/git05.md)
     - [git小问题汇总](./viw-notes/tool/Git/git小问题汇总.md)
     - [vsode-gitignore模板](./viw-notes/tool/Git/vsode-gitignore模板.md)
+    - [如何写出合理的commit-message](./viw-notes/tool/Git/如何写出合理的commit-message.md)
   - chrome
     - [README](./viw-notes/tool/chrome/README.md)
     - [chrome相关插件](./viw-notes/tool/chrome/chrome相关插件.md)

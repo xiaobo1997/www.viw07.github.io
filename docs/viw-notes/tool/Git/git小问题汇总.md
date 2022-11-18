@@ -1,3 +1,12 @@
+<!-- TOC -->
+
+- [写在前面](#写在前面)
+  - [不显示提交人信息](#不显示提交人信息)
+  - [git push错误failed to push some refs to](#git-push错误failed-to-push-some-refs-to)
+  - [每一次git push 都需要输入用户名密码](#每一次git-push-都需要输入用户名密码)
+
+<!-- /TOC -->
+
 # 写在前面
 
 > 这里汇总一下日常开发中使用git的一点小问题
