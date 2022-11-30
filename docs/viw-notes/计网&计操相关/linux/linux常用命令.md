@@ -167,6 +167,8 @@ find / -amin -10  查找在系统中最后10分钟访问的文件
 - grep 多条件AND查询 `grep [内容] [文件名] | grep [内容]` 如`grep aaa a.log | grep bbb`
 - grep 多条件or查询 `grep -E [内容|内容] [文件]` 如 `grep -E 'aaa|bbb' aaa.log`
 
+- 对压缩包查询   gzip -dc [文件名] | grep [内容] 如  gzip -cd  a.log.gz | grep 1111
+
 
 # 2.Linux中docker的使用命令
 
