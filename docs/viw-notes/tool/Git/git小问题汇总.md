@@ -4,6 +4,7 @@
   - [不显示提交人信息](#不显示提交人信息)
   - [git push错误failed to push some refs to](#git-push错误failed-to-push-some-refs-to)
   - [每一次git push 都需要输入用户名密码](#每一次git-push-都需要输入用户名密码)
+  - [HTTP/2 stream 1 was not closed cleanly before end of the underlying stream。](#http2-stream-1-was-not-closed-cleanly-before-end-of-the-underlying-stream)
 
 <!-- /TOC -->
 
@@ -50,3 +51,12 @@
 > 因为绑定是因为https的关系 修改成 ssh就可以了
 
 ![image-20201115160107064](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/image-20201115160107064.png)
+
+
+## HTTP/2 stream 1 was not closed cleanly before end of the underlying stream。
+
+> mac 执行  brew update 一直卡着，用的国内的源，下载包是没问题
+
+`git config --global http.version HTTP/1.1`
+
+
