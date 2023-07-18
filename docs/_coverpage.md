@@ -10,7 +10,7 @@
 
 - 朝着希望前进  
 
-[GitHub](https://xin.xiaobo.life/#/)
+[GitHub](https://github.com/xiaobo1997)
 [Get Started](/README.md)
 [Giee](https://gitee.com/xiaobo97)
 
