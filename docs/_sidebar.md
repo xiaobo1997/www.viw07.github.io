@@ -53,6 +53,7 @@
   - java9
     - [jdk9-01](./viw-notes/java/java9/jdk9-01.md)
   - jdk17
+    - [01-jdk](./viw-notes/java/jdk17/01-jdk.md)
     - [jdk17-base-future](./viw-notes/java/jdk17/jdk17-base-future.md)
   - jmm
     - [java内存模型1-内存划分和交互操作](./viw-notes/java/jmm/java内存模型1-内存划分和交互操作.md)
@@ -397,6 +398,8 @@
   - 小程序
     - [小程序01](./viw-notes/前端/小程序/小程序01.md)
 - 后端
+  - DDD
+    - [1.DDD的基础概念](./viw-notes/后端/DDD/1.DDD的基础概念.md)
   - JavaWeb
     - [javaweb1-http](./viw-notes/后端/JavaWeb/javaweb1-http.md)
     - [javaweb10-servlet异常处理](./viw-notes/后端/JavaWeb/javaweb10-servlet异常处理.md)
@@ -575,6 +578,8 @@
     - [设计模式02-创建型](./viw-notes/后端/设计模式/设计模式02-创建型.md)
     - [设计模式03-结构型](./viw-notes/后端/设计模式/设计模式03-结构型.md)
     - [设计模式04-行为型](./viw-notes/后端/设计模式/设计模式04-行为型.md)
+  - 配置中心
+    - [01-lion](./viw-notes/后端/配置中心/01-lion.md)
   - 分布式事务
     - 分布式事务框架篇
       - [分布式事务1.0](./viw-notes/后端/分布式事务/分布式事务框架篇/分布式事务1.0.md)
@@ -686,6 +691,8 @@
   - 第三方工具
     - druid
       - [druid01](./viw-notes/存储/第三方工具/druid/druid01.md)
+    - zebra
+      - [01-zebra](./viw-notes/存储/第三方工具/zebra/01-zebra.md)
 - 安全
   - 加密解密
     - [Crypto-AES解密加密](./viw-notes/安全/加密解密/Crypto-AES解密加密.md)
