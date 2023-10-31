@@ -27,8 +27,8 @@
 
 - 2021-07-25-第一次修改
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f35b0256176b4fe4a78ba0d76c53c90e~tplv-k3u1fbpfcp-watermark.image)
 
+![](https://xiaoboblog-bucket.oss-cn-hangzhou.aliyuncs.com/blog/20231031193609.png)
 
 
 ## :apple: 简单搭建
