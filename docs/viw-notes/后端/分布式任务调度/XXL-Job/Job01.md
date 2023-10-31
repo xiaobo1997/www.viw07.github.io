@@ -73,5 +73,38 @@ xxl-job将调度行为抽象形成“调度中心”公共平台，而平台自�
 2.“失败重试”发生在”调度 + 执行”两个阶段，支持通过自定义任务失败重试次数，当任务失败时将会按照预设的失败重试次数主动进行重试；
 
 
+## properties配置模板
+
+```xml
+
+# xxl-job配置：执行器任务状态日志持久化方式：0=Log4j；1=Logback；2=Slf4j；3=JdkLog；4=Console；5=File；6=无日志记录
+xxl.job.executor.log-style=2
+# xxl-job配置：执行器注册地址，多个注册中心逗号分隔, 如: "http://address" 或 "http://address01,http://address02"
+xxl.job.executor.registry-list=http://127.0.0.1:8848/registry
+# xxl-job配置：执行器获取任务地址，多个执行器逗号分隔，如: "http://address" 或 "http://address01,http://address02"
+xxl.job.executor.address=http://127.0.0.1:9999/xxl-job-executor-sample
+# xxl-job配置：执行器AppName，服务端注册的AppName保持一致
+xxl.job.executor.appname=xxl-job-executor-sample
+# xxl-job配置：执行器IP地址
+xxl.job.executor.ip=
+# xxl-job配置：执行器端口号
+xxl.job.executor.port=9999
+# xxl-job配置：执行器日志缓存保存天数，超过限制自动清除。限制：大于等于1；等于-1则表示不清除缓存（将缓存保存在内存中，重启即失效）
+xxl.job.executor.logretentiondays=-1
+# xxl-job配置：执行器扫描间隔秒数，配置为小于等于0 则不启动扫描，默认值:3
+xxl.job.executor.scan-interval=3
+# xxl-job配置：执行器日志文件目录，默认在跟目录下 logs/xxl-job/jobhandler(lower case) 目录下
+xxl.job.executor.logpath=./logs/xxl-job/jobhandler
+# xxl-job配置：执行器日志文件保存天数，默认保存30天
+xxl.job.executor.logretentiondays=30
+# xxl-job配置：执行器心跳间隔秒数，默认值:30
+xxl.job.executor.heart-beat-rate=30
+# xxl-job配置：执行器异步任务线程池大小，用于执行异步任务，如：任务超时，任务重试 负载等。默认为2，线程池的最大线程数可通过 executor.async.worker.thread.max 参数进行调整
+xxl.job.executor.async.worker.thread.size=2
+
+
+```
 
 开源地址：https://github.com/xuxueli/xxl-job/
+
+https://www.cnblogs.com/zhou-yuan/p/14750218.html
