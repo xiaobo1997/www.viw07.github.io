@@ -1,6 +1,40 @@
 
 
 
+<!-- TOC -->
+
+- [stream](#stream)
+  - [概念和基础](#概念和基础)
+  - [使用](#使用)
+  - [测试数据](#测试数据)
+    - [创建 stream流](#创建-stream流)
+    - [筛选和分片](#筛选和分片)
+      - [filter](#filter)
+      - [skip](#skip)
+      - [limit](#limit)
+      - [distinct](#distinct)
+    - [java8-map映射](#java8-map映射)
+      - [map](#map)
+      - [flatmap](#flatmap)
+    - [排序](#排序)
+      - [sorted](#sorted)
+      - [sorted(Comparator c)](#sortedcomparator-c)
+    - [匹配和查找--终止操作](#匹配和查找--终止操作)
+      - [allMatch](#allmatch)
+      - [anyMatch](#anymatch)
+      - [noneMatch](#nonematch)
+      - [findFirst](#findfirst)
+      - [findAny](#findany)
+      - [count](#count)
+      - [max](#max)
+      - [min](#min)
+      - [foreach](#foreach)
+    - [归约](#归约)
+      - [reduce(T iden ,BinaryOperator b)](#reducet-iden-binaryoperator-b)
+      - [reduce(BinaryOperator b)](#reducebinaryoperator-b)
+
+<!-- /TOC -->
+
 
 
 # stream
